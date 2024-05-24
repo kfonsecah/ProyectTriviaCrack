@@ -87,7 +87,7 @@ public class FlowController {
     public void goMain() {
         try {
             this.mainStage.setScene(
-                    new Scene(FXMLLoader.load(App.class.getResource("view/StarMenuView.fxml"), this.idioma)));
+                    new Scene(FXMLLoader.load(App.class.getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/view/StartMenuView.fxml"), this.idioma)));
             MFXThemeManager.addOn(this.mainStage.getScene(), Themes.DEFAULT, Themes.LEGACY);
             this.mainStage.show();
         } catch (IOException ex) {

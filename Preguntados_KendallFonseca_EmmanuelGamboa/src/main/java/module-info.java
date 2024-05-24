@@ -5,7 +5,9 @@ module cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa {
     requires jakarta.persistence;
     requires MaterialFX;
     requires java.base;
+    requires AnimateFX;
 
-    opens cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa to javafx.fxml;
+
+    opens cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller to javafx.fxml;
     exports cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa;
 }
