@@ -18,6 +18,8 @@ import javafx.scene.layout.AnchorPane;
  */
 public class StartMenuController extends Controller implements Initializable {
 
+    String Sound_Startup = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Startup-App.wav";
+    String Sound_Click = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Play.wav";
 
     @FXML
     private MFXButton btnAboutOf;
@@ -34,16 +36,18 @@ public class StartMenuController extends Controller implements Initializable {
     @FXML
     private AnchorPane root;
 
+    AnimationManager animationManager = AnimationManager.getInstance();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        AnimationManager animationManager = AnimationManager.getInstance();
+
         animationManager.applyFloatingAnimation(imgLogo);
         animationManager.applyFadeAnimation(imgLogo);
         animationManager.setCustomCursor(root, "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/cursor_pointer3D.png");
         animationManager.applySlideInFromBottom(btnPlay);
         animationManager.applySlideInFromBottomSlow(btnConfig);
         animationManager.applySlideInFromBottomSlow(btnAboutOf);
-        animationManager.playSound("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Startup-App.wav");
+        animationManager.playSound(Sound_Startup);
     }
 
 
@@ -63,6 +67,7 @@ public class StartMenuController extends Controller implements Initializable {
 
     @FXML
     void onActionbtnPlay(ActionEvent event) {
+        animationManager.playSound(Sound_Click);
 
     }
 
