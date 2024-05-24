@@ -40,7 +40,11 @@ public class StartMenuController extends Controller implements Initializable {
         animationManager.applyFloatingAnimation(imgLogo);
         animationManager.applyFadeAnimation(imgLogo);
         animationManager.setCustomCursor(root, "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/cursor_pointer3D.png");
+        animationManager.applySlideInFromBottom(btnPlay);
+        animationManager.applySlideInFromBottomSlow(btnConfig);
+        animationManager.applySlideInFromBottomSlow(btnAboutOf);
     }
+
 
     @Override
     public void initialize() {

@@ -77,5 +77,24 @@ public class AnimationManager {
         }
     }
 
+    public void applySlideInFromBottom(Node node) {
+        node.setTranslateY(600);
+        TranslateTransition transition = new TranslateTransition();
+        transition.setNode(node);
+        transition.setDuration(Duration.seconds(4));
+        transition.setFromY(600);
+        transition.setToY(-10);
+        transition.play();
+    }
+    public void applySlideInFromBottomSlow(Node node) {
+        node.setTranslateY(600);
+        TranslateTransition transition = new TranslateTransition();
+        transition.setNode(node);
+        transition.setDuration(Duration.seconds(6));
+        transition.setFromY(600);
+        transition.setToY(-10);
+        transition.play();
+    }
+
 }
 
