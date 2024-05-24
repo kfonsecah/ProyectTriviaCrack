@@ -43,6 +43,7 @@ public class StartMenuController extends Controller implements Initializable {
         animationManager.applySlideInFromBottom(btnPlay);
         animationManager.applySlideInFromBottomSlow(btnConfig);
         animationManager.applySlideInFromBottomSlow(btnAboutOf);
+        animationManager.playSound("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Startup-App.wav");
     }
 
 

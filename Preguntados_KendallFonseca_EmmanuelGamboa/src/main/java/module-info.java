@@ -6,6 +6,7 @@ module cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa {
     requires MaterialFX;
     requires java.base;
     requires AnimateFX;
+    requires javafx.media;
 
 
     opens cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller to javafx.fxml;

@@ -39,6 +39,12 @@
             <version>4.0.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>21</version>
+        </dependency>
+
         <!-- Other dependencies -->
         <dependency>
             <groupId>io.github.typhon0</groupId>
@@ -66,6 +72,7 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
+
 
             <!-- Maven JavaFX Plugin -->
             <plugin>

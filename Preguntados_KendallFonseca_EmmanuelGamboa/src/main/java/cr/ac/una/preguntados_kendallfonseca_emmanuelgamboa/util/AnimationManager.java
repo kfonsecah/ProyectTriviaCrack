@@ -7,6 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.net.URL;
+
 public class AnimationManager {
 
     private static AnimationManager instance;
@@ -94,6 +99,17 @@ public class AnimationManager {
         transition.setFromY(600);
         transition.setToY(-10);
         transition.play();
+    }
+
+    public void playSound(String soundFilePath) {
+        try {
+            URL resource = getClass().getResource(soundFilePath);
+            Media sound = new Media(resource.toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
