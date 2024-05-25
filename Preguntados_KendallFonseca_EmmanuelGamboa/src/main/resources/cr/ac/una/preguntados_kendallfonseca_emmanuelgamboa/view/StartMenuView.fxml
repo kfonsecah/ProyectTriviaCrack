@@ -5,16 +5,16 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="400.0" prefWidth="600.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.StartMenuController">
-   <children>
-      <BorderPane prefHeight="400.0" prefWidth="600.0" styleClass="main-background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <center>
-            <VBox alignment="CENTER" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+<BorderPane fx:id="root" prefHeight="400.0" prefWidth="600.0" styleClass="main-background" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.StartMenuController">
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER">
                <children>
                   <ImageView fx:id="imgLogo" fitHeight="489.0" fitWidth="885.0" nodeOrientation="INHERIT" VBox.vgrow="ALWAYS">
                      <image>
@@ -51,7 +51,7 @@
                   </HBox>
                </children>
             </VBox>
-         </center>
-      </BorderPane>
-   </children>
-</AnchorPane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

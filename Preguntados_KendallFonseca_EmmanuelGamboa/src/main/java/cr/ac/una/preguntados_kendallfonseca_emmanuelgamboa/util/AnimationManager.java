@@ -1,6 +1,7 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.ImageCursor;
 import javafx.scene.Node;
@@ -110,6 +111,17 @@ public class AnimationManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void applyRotationAnimation(Node node) {
+        RotateTransition rotateTransition = new RotateTransition();
+        rotateTransition.setNode(node);
+        rotateTransition.setDuration(Duration.seconds(2));
+        rotateTransition.setFromAngle(-10);
+        rotateTransition.setToAngle(10);
+        rotateTransition.setCycleCount(RotateTransition.INDEFINITE);
+        rotateTransition.setAutoReverse(true);
+        rotateTransition.play();
     }
 
 }

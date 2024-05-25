@@ -4,12 +4,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.FlowController;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -34,7 +38,7 @@ public class StartMenuController extends Controller implements Initializable {
     private ImageView imgLogo;
 
     @FXML
-    private AnchorPane root;
+    private BorderPane root;
 
     AnimationManager animationManager = AnimationManager.getInstance();
 
@@ -57,6 +61,9 @@ public class StartMenuController extends Controller implements Initializable {
 
     @FXML
     void onActionbtnAboutOff(ActionEvent event) {
+
+        animationManager.playSound(Sound_Click);
+        FlowController.getInstance().goView("AboutCreatorsView");
 
     }
 

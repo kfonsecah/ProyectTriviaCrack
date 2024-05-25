@@ -8,6 +8,14 @@
     -fx-background-position: center center;
 }
 
+.min-background {
+    -fx-background-color: #f0f0f0;
+    -fx-background-image: url("../resources/backwhite.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
 .image-button {
     -fx-background-image: url("../resources/green_button11.png");
     -fx-background-repeat: no-repeat;
@@ -175,17 +183,30 @@
 }
 
 .custom-stack-pane {
-    -fx-background-color: #ffffff;
+    -fx-background-color: #ededed;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
-    -fx-padding: 10;
+    -fx-padding: 4;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.background-region {
+    -fx-background-image: url("../resources/backwhite.jpg");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
 }
 
 .stack-pane .viewport {
     -fx-background-color: #ffffff;
     -fx-background-radius: 10;
+
 }
+
+
 
 @font-face {
     font-family: 'MikaldoBold';
@@ -203,8 +224,15 @@
     -fx-font-family: 'MikaldoBold';
 }
 
-.txt-content {
+.txt-subtitle {
     -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(73, 73, 73, 0.73);
+    -fx-font-family: 'MikaldoBold';
+}
+
+.txt-content {
+    -fx-font-size: 12px;
     -fx-text-fill: #666;
     -fx-font-family: 'MikaldoRegular';
 }

@@ -6,21 +6,42 @@ package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 
 /**
  * FXML Controller class
  *
  * @author Kendall Fonseca
  */
-public class AboutCreatorsController implements Initializable {
+public class AboutCreatorsController extends Controller implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+
+    @FXML
+    private ImageView imgRoullette;
+
+    @FXML
+    private StackPane root;
+
+    AnimationManager animationManager = AnimationManager.getInstance();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+
+        animationManager.applyRotationAnimation(imgRoullette);
+
+    }
+
+    @Override
+    public void initialize() {
+
+
+    }
     
 }
