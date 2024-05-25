@@ -1,4 +1,5 @@
 
+
 .main-background {
     -fx-background-color: #f0f0f0;
     -fx-background-image: url("../resources/pixelcut-export.jpg");
@@ -171,5 +172,55 @@
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+}
+
+.custom-stack-pane {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+}
+
+.stack-pane .viewport {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+}
+
+@font-face {
+    font-family: 'MikaldoBold';
+    src: url('../resources/fonts/HVD Fonts  MikadoBold.otf') format('truetype');
+}
+@font-face {
+    font-family: 'MikaldoRegular';
+    src: url('../resources/fonts/HVD Fonts  MikadoRegular.otf') format('truetype');
+}
+
+.txt-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #494949;
+    -fx-font-family: 'MikaldoBold';
+}
+
+.txt-content {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+    -fx-font-family: 'MikaldoRegular';
+}
+
+.custom-ministack-pane {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 10);
+    -fx-padding: 10;
+}
+
+.custom-ministack-pane:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 30, 0, 0, 15); /* Sombra más grande y oscura */
+    -fx-translate-y: -10px; /* Elevar el StackPane */
+    -fx-scale-x: 1.05; /* Aumentar ligeramente el tamaño */
+    -fx-scale-y: 1.05; /* Aumentar ligeramente el tamaño */
 }
 

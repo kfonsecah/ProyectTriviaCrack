@@ -39,7 +39,7 @@
                               <Insets />
                            </HBox.margin>
                         </MFXButton>
-                        <MFXButton fx:id="btnAboutOf" buttonType="RAISED" onAction="#onActionbtnAboutOff" prefHeight="38.0" prefWidth="163.0" styleClass="about-button" text="‎ " HBox.hgrow="ALWAYS">
+                        <MFXButton fx:id="btnAboutOf" buttonType="RAISED" onAction="#onActionbtnAboutOff" prefHeight="38.0" prefWidth="152.0" styleClass="about-button" text="‎ " HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="400.0" prefWidth="600.0" styleClass="main-background" stylesheets="@Styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.AboutCreatorsController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <StackPane prefHeight="296.0" prefWidth="453.0" styleClass="custom-stack-pane" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+               </BorderPane.margin>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox prefHeight="94.0" prefWidth="500.0">
+                                 <children>
+                                    <ImageView fitHeight="120.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                       <image>
+                                          <Image url="@../resources/trivia-crack.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox>
+                                       <children>
+                                          <ImageView fitHeight="41.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                                             <image>
+                                                <Image url="@../resources/about-of.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets top="40.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <StackPane prefHeight="258.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="70.0">
+                                 <children>
+                                    <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="200.0" styleClass="custom-ministack-pane" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets bottom="40.0" left="70.0" right="40.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <ImageView fitHeight="111.0" fitWidth="126.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                                                   <image>
+                                                      <Image url="@../resources/roullete.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" styleClass="custom-ministack-pane" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets bottom="40.0" right="40.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <VBox prefHeight="200.0" prefWidth="100.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" styleClass="custom-ministack-pane" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets bottom="40.0" right="70.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <VBox prefHeight="200.0" prefWidth="100.0" />
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets top="20.0" />
+                                 </StackPane.margin>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
