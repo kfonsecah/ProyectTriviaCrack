@@ -84,6 +84,8 @@ public class StartMenuController extends Controller implements Initializable {
 
     @FXML
     void onActionbtnConfig(ActionEvent event) {
+        animationManager.playSound(Sound_Click);
+        FlowController.getInstance().goView("ConfigView");
 
     }
 

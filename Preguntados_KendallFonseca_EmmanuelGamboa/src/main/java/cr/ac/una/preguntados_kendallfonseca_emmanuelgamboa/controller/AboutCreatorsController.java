@@ -38,7 +38,7 @@ public class AboutCreatorsController extends Controller implements Initializable
     AnimationManager animationManager = AnimationManager.getInstance();
 
     @FXML
-    private MFXButton btnGoback;
+    private MFXButton btnGoBack;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

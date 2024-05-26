@@ -1,8 +1,6 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -140,5 +138,52 @@ public class AnimationManager {
         rotateTransition.play();
     }
 
+    public void applyBreathingAnimation(Node node) {
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1), node);
+        scaleTransition.setFromX(1.0);
+        scaleTransition.setToX(1.1);
+        scaleTransition.setFromY(1.0);
+        scaleTransition.setToY(1.1);
+        scaleTransition.setCycleCount(ScaleTransition.INDEFINITE);
+        scaleTransition.setAutoReverse(true);
+        scaleTransition.play();
+    }
+
+    // Nueva animación para desvanecer completamente un StackPane
+    public void fadeOut(Node node) {
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), node);
+        fadeOut.setFromValue(0.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setCycleCount(0);
+        fadeOut.setAutoReverse(false);
+        fadeOut.play();
+    }
+
+    // animación para aclarar un StackPane
+    public void fadeIn(Node node) {
+        // Fade in transition
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), node);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.setCycleCount(1);
+        fadeIn.setAutoReverse(false);
+
+        // Pausar transition for 8 seconds
+        PauseTransition pause = new PauseTransition(Duration.seconds(8));
+
+        // Fade out transicion
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), node);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setCycleCount(1);
+        fadeOut.setAutoReverse(false);
+
+        // Animacion sequencial el fadein -> el pause -> fadeout
+        SequentialTransition sequentialTransition = new SequentialTransition(fadeIn, pause, fadeOut);
+        sequentialTransition.play();
+    }
 }
+
+
+
 
