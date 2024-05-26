@@ -24,6 +24,8 @@ import javafx.stage.StageStyle;
 
 public class ConfigController extends Controller implements Initializable {
 
+    String Sound_Click = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Play.wav";
+
     @FXML
     private MFXButton btnAlbert;
 
@@ -54,12 +56,17 @@ public class ConfigController extends Controller implements Initializable {
     @FXML
     private StackPane txtDialog;
 
+
+    @FXML
+    private StackPane titleStackPane;
+
     AnimationManager animationManager = AnimationManager.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         AppContext.getInstance().set("StartAnimation", false);
         animationManager.applyBreathingAnimation(btnInformation);
+        animationManager.applyFloatingAnimation(titleStackPane);
         //animationManager.fadeOut(txtDialog);
     }
 
@@ -74,7 +81,7 @@ public class ConfigController extends Controller implements Initializable {
 
     @FXML
     void onActionBtnAlbert(ActionEvent event) {
-
+        FlowController.getInstance().goView("MantQuestionsView");
     }
 
     @FXML
@@ -90,6 +97,7 @@ public class ConfigController extends Controller implements Initializable {
     @FXML
     void onActionBtnGoBack(ActionEvent event) {
         FlowController.getInstance().goView("StartMenuView");
+        animationManager.playSound(Sound_Click);
     }
 
     @FXML

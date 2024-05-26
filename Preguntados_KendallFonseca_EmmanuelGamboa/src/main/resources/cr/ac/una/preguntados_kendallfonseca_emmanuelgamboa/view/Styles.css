@@ -16,6 +16,7 @@
     -fx-background-position: center center;
 }
 
+
 .image-button {
     -fx-background-image: url("../resources/green_button11.png");
     -fx-background-repeat: no-repeat;
@@ -736,6 +737,274 @@
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.05;
 }
+
+.imgMant-title {
+    -fx-background-image: url("../resources/mantQuestions.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.custom-ministack2-pane {
+    -fx-background-color: #292929;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 10);
+    -fx-padding: 10;
+}
+
+.background2-region {
+    -fx-background-image: url("../resources/backgorund.jpg");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.background3-region {
+    -fx-background-image: url("../resources/ColorfullBackground.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+
+
+.add-button {
+    -fx-background-image: url("../resources/AddButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.add-button:hover {
+    -fx-background-image: url("../resources/AddButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.add-button:pressed {
+    -fx-background-image: url("../resources/AddButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.add-button:armed {
+    -fx-background-image: url("../resources/AddButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.add-button:focused {
+    -fx-background-image: url("../resources/AddButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.delete-button {
+    -fx-background-image: url("../resources/DeleteButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.delete-button:hover {
+    -fx-background-image: url("../resources/DeleteButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.delete-button:pressed {
+    -fx-background-image: url("../resources/DeleteButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.delete-button:armed {
+    -fx-background-image: url("../resources/DeleteButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.delete-button:focused {
+    -fx-background-image: url("../resources/DeleteButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.edit-button {
+    -fx-background-image: url("../resources/EditButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.edit-button:hover {
+    -fx-background-image: url("../resources/EditButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.edit-button:pressed {
+    -fx-background-image: url("../resources/EditButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.edit-button:armed {
+    -fx-background-image: url("../resources/EditButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.edit-button:focused {
+    -fx-background-image: url("../resources/EditButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.deactivate-button {
+    -fx-background-image: url("../resources/DeactivateButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.deactivate-button:hover {
+    -fx-background-image: url("../resources/DeactivateButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.deactivate-button:pressed {
+    -fx-background-image: url("../resources/DeactivateButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.deactivate-button:armed {
+    -fx-background-image: url("../resources/DeactivateButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.deactivate-button:focused {
+    -fx-background-image: url("../resources/DeactivateButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.add-button:hover, .delete-button:hover, .edit-button:hover, .deactivate-button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 30, 0, 0, 15);
+    -fx-translate-y: -10px;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+
+
 
 
 
