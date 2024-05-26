@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AppContext;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.FlowController;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
@@ -35,6 +36,9 @@ public class StartMenuController extends Controller implements Initializable {
     private MFXButton btnPlay;
 
     @FXML
+    private MFXButton btnExit;
+
+    @FXML
     private ImageView imgLogo;
 
     @FXML
@@ -45,13 +49,24 @@ public class StartMenuController extends Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        animationManager.settleBack(btnPlay);
+        animationManager.settleBack(btnConfig);
+        animationManager.settleBack(btnAboutOf);
         animationManager.applyFloatingAnimation(imgLogo);
         animationManager.applyFadeAnimation(imgLogo);
         animationManager.setCustomCursor(root, "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/cursor_pointer3D.png");
-        animationManager.applySlideInFromBottom(btnPlay);
-        animationManager.applySlideInFromBottomSlow(btnConfig);
-        animationManager.applySlideInFromBottomSlow(btnAboutOf);
-        animationManager.playSound(Sound_Startup);
+
+        if (AppContext.getInstance().getBoolean("StartAnimation")) {
+            if (AppContext.getInstance().getBoolean("StartAnimation")) {
+                animationManager.applySlideInFromBottom(btnPlay);
+                animationManager.applySlideInFromBottomSlow(btnConfig);
+                animationManager.applySlideInFromBottomSlow(btnAboutOf);
+                animationManager.applySlideInFromLeftSideSlow(btnExit);
+                animationManager.playSound(Sound_Startup);
+            }
+        }
+
+
     }
 
 
@@ -76,6 +91,14 @@ public class StartMenuController extends Controller implements Initializable {
     void onActionbtnPlay(ActionEvent event) {
         animationManager.playSound(Sound_Click);
 
+    }
+
+
+    @FXML
+    void onActionBtnExit(ActionEvent event) {
+        animationManager.playSound(Sound_Click);
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.close();
     }
 
 

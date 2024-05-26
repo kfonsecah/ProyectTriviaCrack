@@ -83,6 +83,12 @@ public class AnimationManager {
         }
     }
 
+    public void settleBack(Node node) {
+        TranslateTransition transition = new TranslateTransition();
+        transition.setNode(node);
+        transition.setToY(0);
+    }
+
     public void applySlideInFromBottom(Node node) {
         node.setTranslateY(600);
         TranslateTransition transition = new TranslateTransition();
@@ -99,6 +105,16 @@ public class AnimationManager {
         transition.setDuration(Duration.seconds(6));
         transition.setFromY(600);
         transition.setToY(-10);
+        transition.play();
+    }
+
+    public void applySlideInFromLeftSideSlow(Node node) {
+        node.setTranslateX(600);
+        TranslateTransition transition = new TranslateTransition();
+        transition.setNode(node);
+        transition.setDuration(Duration.seconds(6));
+        transition.setFromX(-400);
+        transition.setToX(0);
         transition.play();
     }
 

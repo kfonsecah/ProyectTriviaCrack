@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
-import java.util.logging.Level;
 
 
 public class AppContext {
@@ -56,9 +55,14 @@ public class AppContext {
         throw new CloneNotSupportedException();
     }
 
-    public Object get(String parameter){    
+    public Object get(String parameter){
         return context.get(parameter);
     }
+
+    public boolean getBoolean(String parameter){
+        return (boolean) context.get(parameter);
+    }
+
 
     public void set(String nombre, Object valor) {
         context.put(nombre, valor);
