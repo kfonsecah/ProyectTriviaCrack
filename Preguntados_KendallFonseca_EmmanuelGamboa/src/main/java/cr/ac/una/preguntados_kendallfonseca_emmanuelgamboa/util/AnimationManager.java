@@ -182,6 +182,29 @@ public class AnimationManager {
         SequentialTransition sequentialTransition = new SequentialTransition(fadeIn, pause, fadeOut);
         sequentialTransition.play();
     }
+
+    public void applyGreetingAnimation(Node node) {
+        // SETTEAR FUERA DE LA PANTALLA
+        node.setTranslateX(600);
+
+        //Mover adentro
+        TranslateTransition moveIn = new TranslateTransition(Duration.seconds(2), node);
+        moveIn.setFromX(600);
+        moveIn.setToX(0);
+
+        // Pausar
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+
+        // mover afuera
+        TranslateTransition moveOut = new TranslateTransition(Duration.seconds(2), node);
+        moveOut.setFromX(0);
+        moveOut.setToX(-600);
+
+        // transicion secuencial de mover adentro -> pausa -> mover afuera
+        SequentialTransition sequentialTransition = new SequentialTransition(moveIn, pause, moveOut);
+        sequentialTransition.play();
+    }
+
 }
 
 

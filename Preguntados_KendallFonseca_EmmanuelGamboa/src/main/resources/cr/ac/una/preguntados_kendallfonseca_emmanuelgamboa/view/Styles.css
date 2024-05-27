@@ -1076,8 +1076,223 @@
     -fx-scale-y: 1.05;
 }
 
+.start-match-button {
+    -fx-background-image: url("../resources/buttonStartMatchpng.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.saved-matches-button {
+    -fx-background-image: url("../resources/btnSaveMatch.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.statics-matches-button {
+    -fx-background-image: url("../resources/btnStatics.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.saved-matches-button:hover, .statics-matches-button:hover, .start-match-button:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.saved-matches-button:pressed, .statics-matches-button:pressed, .start-match-button:pressed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.saved-matches-button:focused, .statics-matches-button:focused, .start-match-button:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.image-animation {
+    -fx-background-image: url("../resources/Ciencia.png");
+}
 
 
+.custom-stackPlayersframe-pane {
+    -fx-background-color: #8e6114;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundPlayersFrame-region {
+    -fx-background-image: url("../resources/playersFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackQuestionsframe-pane {
+    -fx-background-color: #40179a;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundQuestionsFrame-region {
+    -fx-background-image: url("../resources/totalquestionsFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackCienciaframe-pane {
+    -fx-background-color: #439a17;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundCienciaFrame-region {
+    -fx-background-image: url("../resources/cienciaFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackHistoryframe-pane {
+    -fx-background-color: #b8ac57;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundHistoryFrame-region {
+    -fx-background-image: url("../resources/historyFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackArtframe-pane {
+    -fx-background-color: #781313;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundArtFrame-region {
+    -fx-background-image: url("../resources/artFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackGeografiaframe-pane {
+    -fx-background-color: #133b78;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundGeografiaFrame-region {
+    -fx-background-image: url("../resources/geografiaFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackPopframe-pane {
+    -fx-background-color: #621378;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundPopFrame-region {
+    -fx-background-image: url("../resources/popFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackSportsframe-pane {
+    -fx-background-color: #955a21;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundSportsFrame-region {
+    -fx-background-image: url("../resources/sportsFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
 
 
 

@@ -14,13 +14,14 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
  *
  * @author Kendall Fonseca
  */
-public class StartController  extends Controller implements Initializable {
+public class StartController extends Controller implements Initializable {
 
     String Sound_Click = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Play.wav";
 
@@ -28,11 +29,26 @@ public class StartController  extends Controller implements Initializable {
     @FXML
     private MFXButton btnGoBack;
 
+    @FXML
+    private MFXButton btnSavedMatches;
+
+    @FXML
+    private MFXButton btnStadistics;
+
+    @FXML
+    private MFXButton btnStarMatch;
+
+
+
+
+
     AnimationManager animationManager = AnimationManager.getInstance();
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+
         // TODO
     }
 
@@ -50,6 +66,22 @@ public class StartController  extends Controller implements Initializable {
 
         FlowController.getInstance().goView("StartMenuView");
         animationManager.playSound(Sound_Click);
+
+    }
+
+    @FXML
+    void onActionBtnSavedMatches(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onActionBtnStadistics(ActionEvent event) {
+        FlowController.getInstance().goView("StadisticsView");
+
+    }
+
+    @FXML
+    void onActionBtnStartMatches(ActionEvent event) {
 
     }
     
