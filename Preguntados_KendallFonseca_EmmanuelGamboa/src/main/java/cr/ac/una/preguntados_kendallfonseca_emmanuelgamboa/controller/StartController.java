@@ -6,6 +6,13 @@ package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AppContext;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.FlowController;
+import io.github.palexdev.materialfx.controls.MFXButton;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -13,14 +20,37 @@ import javafx.fxml.Initializable;
  *
  * @author Kendall Fonseca
  */
-public class StartController implements Initializable {
+public class StartController  extends Controller implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    String Sound_Click = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Play.wav";
+
+
+    @FXML
+    private MFXButton btnGoBack;
+
+    AnimationManager animationManager = AnimationManager.getInstance();
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+
+    @Override
+    public void initialize() {
+
+    }
+
+
+
+    @FXML
+    void onActionBtnGoBack(ActionEvent event) {
+
+        AppContext.getInstance().set("StartAnimation", false);
+
+        FlowController.getInstance().goView("StartMenuView");
+        animationManager.playSound(Sound_Click);
+
+    }
     
 }

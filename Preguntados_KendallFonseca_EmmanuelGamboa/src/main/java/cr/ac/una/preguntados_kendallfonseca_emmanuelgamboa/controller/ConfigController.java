@@ -25,7 +25,7 @@ import javafx.stage.StageStyle;
 public class ConfigController extends Controller implements Initializable {
 
     String Sound_Click = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Play.wav";
-
+    String Sound_Open = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Report.wav";
     @FXML
     private MFXButton btnAlbert;
 
@@ -81,17 +81,22 @@ public class ConfigController extends Controller implements Initializable {
 
     @FXML
     void onActionBtnAlbert(ActionEvent event) {
+        animationManager.playSound(Sound_Open);
         FlowController.getInstance().goView("MantQuestionsView");
     }
 
     @FXML
     void onActionBtnArthur(ActionEvent event) {
+        animationManager.playSound(Sound_Open);
+        FlowController.getInstance().goView("MantQuestionsView");
+
 
     }
 
     @FXML
     void onActionBtnBonzo(ActionEvent event) {
-
+        animationManager.playSound(Sound_Open);
+        FlowController.getInstance().goView("MantQuestionsView");
     }
 
     @FXML
@@ -102,17 +107,22 @@ public class ConfigController extends Controller implements Initializable {
 
     @FXML
     void onActionBtnLeonardo(ActionEvent event) {
+        animationManager.playSound(Sound_Open);
+        FlowController.getInstance().goView("MantQuestionsView");
 
     }
 
     @FXML
     void onActionBtnPalomitas(ActionEvent event) {
+        animationManager.playSound(Sound_Open);
+        FlowController.getInstance().goView("MantQuestionsView");
 
     }
 
     @FXML
     void onActionBtnTito(ActionEvent event) {
-
+        animationManager.playSound(Sound_Open);
+        FlowController.getInstance().goView("MantQuestionsView");
     }
 
     @FXML

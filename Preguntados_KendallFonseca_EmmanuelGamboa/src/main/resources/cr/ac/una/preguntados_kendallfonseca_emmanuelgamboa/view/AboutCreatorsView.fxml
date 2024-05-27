@@ -16,7 +16,7 @@
          <center>
             <StackPane styleClass="custom-stack-pane" BorderPane.alignment="CENTER">
                <children>
-                  <StackPane styleClass="background-region">
+                  <StackPane styleClass="backgroundAnimated-region">
                      <children>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>

@@ -5,6 +5,7 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.FlowController;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
@@ -18,6 +19,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MantQuestionsController extends Controller implements Initializable {
+
+    String Sound_Click = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Play.wav";
+
+
+    @FXML
+    private MFXButton btnGoBack;
+
+    AnimationManager animationManager = AnimationManager.getInstance();
 
 
     @FXML
@@ -49,8 +58,6 @@ public class MantQuestionsController extends Controller implements Initializable
 
     @FXML
     private TableView<?> tblQuestions;
-
-    AnimationManager animationManager = AnimationManager.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -85,6 +92,13 @@ public class MantQuestionsController extends Controller implements Initializable
 
     @FXML
     void onActionBtnSearch(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onActionBtnGoBack(ActionEvent event) {
+        FlowController.getInstance().goView("ConfigView");
+        animationManager.playSound(Sound_Click);
 
     }
 

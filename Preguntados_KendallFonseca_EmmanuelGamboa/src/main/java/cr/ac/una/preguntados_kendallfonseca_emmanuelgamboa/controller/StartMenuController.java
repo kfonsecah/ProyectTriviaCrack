@@ -49,6 +49,7 @@ public class StartMenuController extends Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+
         animationManager.settleBack(btnPlay);
         animationManager.settleBack(btnConfig);
         animationManager.settleBack(btnAboutOf);
@@ -92,6 +93,7 @@ public class StartMenuController extends Controller implements Initializable {
     @FXML
     void onActionbtnPlay(ActionEvent event) {
         animationManager.playSound(Sound_Click);
+        FlowController.getInstance().goView("StartView");
 
     }
 

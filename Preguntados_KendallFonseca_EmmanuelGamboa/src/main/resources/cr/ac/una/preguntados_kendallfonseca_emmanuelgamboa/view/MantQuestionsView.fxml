@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="732.0" prefWidth="1104.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.MantQuestionsController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1164.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.MantQuestionsController">
    <children>
       <BorderPane prefHeight="696.0" prefWidth="1025.0">
          <center>
@@ -21,13 +20,13 @@
                      <children>
                         <HBox prefHeight="535.0" prefWidth="1161.0">
                            <children>
-                              <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="499.0" HBox.hgrow="ALWAYS">
+                              <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="499.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <HBox prefHeight="29.0" prefWidth="421.0">
                                        <children>
                                           <MFXTextField fx:id="fieldSearch" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="173.0" HBox.hgrow="ALWAYS" />
                                           <MFXComboBox fx:id="searchCriterion" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="129.0" HBox.hgrow="ALWAYS" />
-                                          <MFXButton fx:id="btnSearch" onAction="#onActionBtnSearch" prefHeight="29.0" prefWidth="67.0" text="Button" HBox.hgrow="ALWAYS" />
+                                          <MFXButton fx:id="btnSearch" onAction="#onActionBtnSearch" prefHeight="29.0" prefWidth="51.0" styleClass="search-button" text="‎ " HBox.hgrow="ALWAYS" />
                                        </children>
                                     </HBox>
                                     <StackPane prefHeight="431.0" prefWidth="361.0" styleClass="custom-ministack-pane" VBox.vgrow="ALWAYS">
@@ -42,9 +41,9 @@
                                           <Insets top="20.0" />
                                        </VBox.margin>
                                     </StackPane>
-                                    <HBox prefHeight="52.0" prefWidth="350.0" spacing="20.0" VBox.vgrow="ALWAYS">
+                                    <HBox prefHeight="53.0" prefWidth="499.0" spacing="20.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <MFXButton fx:id="btnAdd" onAction="#onActionBtnAdd" prefHeight="81.0" prefWidth="112.0" styleClass="add-button" text="‎ ">
+                                          <MFXButton fx:id="btnAdd" onAction="#onActionBtnAdd" prefHeight="27.0" prefWidth="115.0" styleClass="add-button" text="‎ ">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -128,6 +127,13 @@
                </BorderPane.margin>
             </StackPane>
          </center>
+         <bottom>
+            <MFXButton fx:id="btnGoBack" onAction="#onActionBtnGoBack" prefHeight="40.0" prefWidth="112.0" styleClass="goback-button" text="‎ " BorderPane.alignment="CENTER_LEFT">
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
+               </BorderPane.margin>
+            </MFXButton>
+         </bottom>
       </BorderPane>
    </children>
 </StackPane>
