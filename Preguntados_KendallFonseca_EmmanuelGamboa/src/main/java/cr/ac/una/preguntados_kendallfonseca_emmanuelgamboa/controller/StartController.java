@@ -71,6 +71,7 @@ public class StartController extends Controller implements Initializable {
 
     @FXML
     void onActionBtnSavedMatches(ActionEvent event) {
+        FlowController.getInstance().goView("SavedGamesView");
 
     }
 

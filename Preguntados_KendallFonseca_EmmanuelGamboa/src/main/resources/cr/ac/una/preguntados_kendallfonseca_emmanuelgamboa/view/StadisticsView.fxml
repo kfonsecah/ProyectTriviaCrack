@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.StackedAreaChart?>
@@ -67,6 +68,7 @@
                                           </StackPane>
                                        </children>
                                     </StackPane>
+                                    <MFXButton fx:id="btnGoBack" onAction="#onActionBtnGoBack" prefHeight="30.0" prefWidth="110.0" styleClass="goback-button" text="‎ " />
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
@@ -217,12 +219,12 @@
             </StackPane>
          </center>
       </BorderPane>
-      <ImageView fitHeight="77.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" translateX="-230.0" translateY="-270.0">
+      <ImageView fitHeight="77.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" translateX="-230.0" translateY="-340.0">
          <image>
             <Image url="@../resources/chara-tito.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="98.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" translateX="-230.0" translateY="40.0">
+      <ImageView fitHeight="98.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" translateX="-230.0" translateY="-30.0">
          <image>
             <Image url="@../resources/questionSymbol.png" />
          </image>

@@ -192,8 +192,36 @@
     -fx-background-insets: 0;
 }
 
+.customGray-stack-pane {
+    -fx-background-color: #1e1e1e;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.custom5-stack-pane {
+    -fx-background-color: #151515;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
 .background-region {
+
     -fx-background-image: url("../resources/backwhite.jpg");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.background5-region {
+    -fx-background-image: url("../resources/backPartidasGuardas.png");
     -fx-background-radius: 10; /* Esquinas redondeadas */
     -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
     -fx-background-insets: 0;
@@ -1292,6 +1320,61 @@
     -fx-background-insets: 0;
     -fx-padding: 4;
     -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.play-orange-button {
+    -fx-background-image: url("../resources/jugarButton2.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.play-delete-button {
+    -fx-background-image: url("../resources/delete2Button.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.play-orange-button:hover, .play-delete-button:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.play-orange-button:pressed, .play-delete-button:pressed{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.play-orange-button:focused, .play-delete-button:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
 
