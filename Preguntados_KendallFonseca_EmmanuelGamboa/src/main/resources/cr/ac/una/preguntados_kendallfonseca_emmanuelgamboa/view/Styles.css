@@ -220,6 +220,15 @@
     -fx-border-radius: 10; /* Esquinas redondeadas */
 }
 
+.backgroundAnimatedBlack-region {
+    -fx-background-image: url("../resources/animatedBlackBack.gif");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
 .background5-region {
     -fx-background-image: url("../resources/backPartidasGuardas.png");
     -fx-background-radius: 10; /* Esquinas redondeadas */

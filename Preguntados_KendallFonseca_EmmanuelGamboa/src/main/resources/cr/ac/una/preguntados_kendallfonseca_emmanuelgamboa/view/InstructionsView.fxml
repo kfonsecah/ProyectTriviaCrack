@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+
+<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="853.0" prefWidth="596.0" styleClass="backgroundAnimatedBlack-region" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.InstructionsController">
+   <children>
+      <BorderPane prefHeight="3339.0" prefWidth="544.0">
+         <center>
+            <StackPane prefHeight="938.0" prefWidth="439.0" styleClass="custom-stack-pane" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </BorderPane.margin>
+               <children>
+                  <MFXScrollPane>
+                     <content>
+                        <ImageView fitHeight="3861.0" fitWidth="487.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/Instrucciones.png" />
+                           </image>
+                        </ImageView>
+                     </content>
+                  </MFXScrollPane>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="223.0" fitWidth="184.0" pickOnBounds="true" preserveRatio="true" translateX="210.0" translateY="340.0">
+         <image>
+            <Image url="@../resources/scienceThinking.png" />
+         </image>
+      </ImageView>
+   </children>
+</StackPane>

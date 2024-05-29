@@ -83,7 +83,7 @@ public class StartController extends Controller implements Initializable {
 
     @FXML
     void onActionBtnStartMatches(ActionEvent event) {
-
+        FlowController.getInstance().goView("GameMenuView");
     }
     
 }

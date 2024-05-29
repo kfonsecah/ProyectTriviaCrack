@@ -52,7 +52,7 @@
                         </StackPane>
                      </children>
                   </StackPane>
-                  <ImageView fitHeight="166.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" translateX="290.0" translateY="-240.0">
+                  <ImageView fx:id="meteorito" fitHeight="166.0" fitWidth="190.0" onMouseDragged="#onAnimationAction" pickOnBounds="true" preserveRatio="true" translateX="290.0" translateY="-240.0">
                      <image>
                         <Image url="@../resources/meteorito.png" />
                      </image>

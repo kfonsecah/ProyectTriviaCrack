@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="911.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.GameMenuController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <bottom>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="700.0" BorderPane.alignment="BOTTOM_RIGHT">
+               <children>
+                  <MFXButton fx:id="btnGoBack" onAction="#onActionBtnGoBack" prefHeight="43.0" prefWidth="97.0" styleClass="goback-button" text="‎ " HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="40.0" top="20.0" />
+                     </HBox.margin>
+                  </MFXButton>
+                  <MFXButton fx:id="btnInfo" onAction="#onActionBtnHelp" prefHeight="108.0" prefWidth="65.0" styleClass="information-button" text="‎ " HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </MFXButton>
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</StackPane>
