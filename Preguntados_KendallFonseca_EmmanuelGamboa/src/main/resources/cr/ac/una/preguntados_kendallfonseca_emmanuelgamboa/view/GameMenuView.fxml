@@ -16,16 +16,21 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <bottom>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="700.0" BorderPane.alignment="BOTTOM_RIGHT">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="70.0" BorderPane.alignment="CENTER">
                <children>
-                  <MFXButton fx:id="btnGoBack" onAction="#onActionBtnGoBack" prefHeight="43.0" prefWidth="97.0" styleClass="goback-button" text="‎ " HBox.hgrow="ALWAYS">
+                  <MFXButton fx:id="btnGoBack" onAction="#onActionBtnGoBack" prefHeight="36.0" prefWidth="123.0" styleClass="goback-button" text="‎ " HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets bottom="40.0" top="20.0" />
                      </HBox.margin>
                   </MFXButton>
-                  <MFXButton fx:id="btnInfo" onAction="#onActionBtnHelp" prefHeight="108.0" prefWidth="65.0" styleClass="information-button" text="‎ " HBox.hgrow="ALWAYS">
+                  <MFXButton prefHeight="51.0" prefWidth="174.0" styleClass="jugarAhora-button" text="‎ ">
                      <HBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        <Insets bottom="20.0" left="60.0" right="150.0" />
+                     </HBox.margin>
+                  </MFXButton>
+                  <MFXButton fx:id="btnInfo" onAction="#onActionBtnHelp" prefHeight="71.0" prefWidth="66.0" styleClass="information-button" text="‎ " HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
                   </MFXButton>
                </children>
@@ -101,7 +106,7 @@
                   </StackPane>
                   <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="301.0" styleClass="custom-stackGameMenu-pane" HBox.hgrow="ALWAYS">
                      <children>
-                        <StackPane prefHeight="568.0" prefWidth="279.0" styleClass="background2-region">
+                        <StackPane prefHeight="534.0" prefWidth="293.0" styleClass="background2-region">
                            <children>
                               <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="custom-stack-pane">
                                  <StackPane.margin>
@@ -117,8 +122,8 @@
                                                    <children>
                                                       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="63.0" HBox.hgrow="ALWAYS">
                                                          <children>
-                                                            <MFXButton fx:id="player1ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
-                                                            <MFXButton fx:id="player1ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
+                                                            <MFXButton fx:id="player1ficha1" onAction="#onActionPlayer1ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
+                                                            <MFXButton fx:id="player1ficha4" onAction="#onActionPlayer1ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
                                                                <VBox.margin>
                                                                   <Insets />
                                                                </VBox.margin>
@@ -127,14 +132,14 @@
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="64.0">
                                                          <children>
-                                                            <MFXButton fx:id="player1ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
-                                                            <MFXButton fx:id="player1ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
+                                                            <MFXButton fx:id="player1ficha2" onAction="#onActionPlayer1ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
+                                                            <MFXButton fx:id="player1ficha5" onAction="#onActionPlayer1ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="100.0">
                                                          <children>
-                                                            <MFXButton fx:id="player1ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
-                                                            <MFXButton fx:id="player1ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
+                                                            <MFXButton fx:id="player1ficha3" onAction="#onActionPlayer1ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
+                                                            <MFXButton fx:id="player1ficha6" onAction="#onActionPlayer1ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                    </children>
@@ -144,8 +149,8 @@
                                                    <children>
                                                       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="63.0" HBox.hgrow="ALWAYS">
                                                          <children>
-                                                            <MFXButton fx:id="player2ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
-                                                            <MFXButton fx:id="player2ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
+                                                            <MFXButton fx:id="player2ficha1" onAction="#onActionPlayer2ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
+                                                            <MFXButton fx:id="player2ficha4" onAction="#onActionPlayer2ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
                                                                <VBox.margin>
                                                                   <Insets />
                                                                </VBox.margin>
@@ -154,14 +159,14 @@
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="64.0">
                                                          <children>
-                                                            <MFXButton fx:id="player2ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
-                                                            <MFXButton fx:id="player2ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
+                                                            <MFXButton fx:id="player2ficha2" onAction="#onActionPlayer2ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
+                                                            <MFXButton fx:id="player2ficha5" onAction="#onActionPlayer2ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="100.0">
                                                          <children>
-                                                            <MFXButton fx:id="player2ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
-                                                            <MFXButton fx:id="player2ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
+                                                            <MFXButton fx:id="player2ficha3" onAction="#onActionPlayer2ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
+                                                            <MFXButton fx:id="player2ficha6" onAction="#onActionPlayer2ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                    </children>
@@ -171,8 +176,8 @@
                                                    <children>
                                                       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="63.0" HBox.hgrow="ALWAYS">
                                                          <children>
-                                                            <MFXButton fx:id="player3ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
-                                                            <MFXButton fx:id="player3ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
+                                                            <MFXButton fx:id="player3ficha1" onAction="#onActionPlayer3ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
+                                                            <MFXButton fx:id="player3ficha4" onAction="#onActionPlayer3ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
                                                                <VBox.margin>
                                                                   <Insets />
                                                                </VBox.margin>
@@ -181,14 +186,14 @@
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="64.0">
                                                          <children>
-                                                            <MFXButton fx:id="player3ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
-                                                            <MFXButton fx:id="player3ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
+                                                            <MFXButton fx:id="player3ficha2" onAction="#onActionPlayer3ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
+                                                            <MFXButton fx:id="player3ficha5" onAction="#onActionPlayer3ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="100.0">
                                                          <children>
-                                                            <MFXButton fx:id="player3ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
-                                                            <MFXButton fx:id="player3ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
+                                                            <MFXButton fx:id="player3ficha3" onAction="#onActionPlayer3ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
+                                                            <MFXButton fx:id="player3ficha6" onAction="#onActionPlayer3ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                    </children>
@@ -198,8 +203,8 @@
                                                    <children>
                                                       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="63.0" HBox.hgrow="ALWAYS">
                                                          <children>
-                                                            <MFXButton fx:id="player4ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
-                                                            <MFXButton fx:id="player4ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
+                                                            <MFXButton fx:id="player4ficha1" onAction="#onActionPlayer4ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
+                                                            <MFXButton fx:id="player4ficha4" onAction="#onActionPlayer4ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
                                                                <VBox.margin>
                                                                   <Insets />
                                                                </VBox.margin>
@@ -208,14 +213,14 @@
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="64.0">
                                                          <children>
-                                                            <MFXButton fx:id="player4ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
-                                                            <MFXButton fx:id="player4ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
+                                                            <MFXButton fx:id="player4ficha2" onAction="#onActionPlayer4ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
+                                                            <MFXButton fx:id="player4ficha5" onAction="#onActionPlayer4ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="100.0">
                                                          <children>
-                                                            <MFXButton fx:id="player4ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
-                                                            <MFXButton fx:id="player4ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
+                                                            <MFXButton fx:id="player4ficha3" onAction="#onActionPlayer4ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
+                                                            <MFXButton fx:id="player4ficha6" onAction="#onActionPlayer4ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                    </children>
@@ -225,8 +230,8 @@
                                                    <children>
                                                       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="63.0" HBox.hgrow="ALWAYS">
                                                          <children>
-                                                            <MFXButton fx:id="player5ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
-                                                            <MFXButton fx:id="player5ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
+                                                            <MFXButton fx:id="player5ficha1" onAction="#onActionPlayer5ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
+                                                            <MFXButton fx:id="player5ficha4" onAction="#onActionPlayer5ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
                                                                <VBox.margin>
                                                                   <Insets />
                                                                </VBox.margin>
@@ -235,14 +240,14 @@
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="64.0">
                                                          <children>
-                                                            <MFXButton fx:id="player5ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
-                                                            <MFXButton fx:id="player5ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
+                                                            <MFXButton fx:id="player5ficha2" onAction="#onActionPlayer5ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
+                                                            <MFXButton fx:id="player5ficha5" onAction="#onActionPlayer5ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="100.0">
                                                          <children>
-                                                            <MFXButton fx:id="player5ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
-                                                            <MFXButton fx:id="player5ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
+                                                            <MFXButton fx:id="player5ficha3" onAction="#onActionPlayer5ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
+                                                            <MFXButton fx:id="player5ficha6" onAction="#onActionPlayer5ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                    </children>
@@ -252,8 +257,8 @@
                                                    <children>
                                                       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="63.0" HBox.hgrow="ALWAYS">
                                                          <children>
-                                                            <MFXButton fx:id="player6ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
-                                                            <MFXButton fx:id="player6ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
+                                                            <MFXButton fx:id="player6ficha1" onAction="#onActionPlayer6ficha1" prefHeight="70.0" prefWidth="60.0" styleClass="ficha1-button" text="‎ " />
+                                                            <MFXButton fx:id="player6ficha4" onAction="#onActionPlayer6ficha4" prefHeight="70.0" prefWidth="60.0" styleClass="ficha4-button" text="‎ ">
                                                                <VBox.margin>
                                                                   <Insets />
                                                                </VBox.margin>
@@ -262,14 +267,14 @@
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="64.0">
                                                          <children>
-                                                            <MFXButton fx:id="player6ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
-                                                            <MFXButton fx:id="player6ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
+                                                            <MFXButton fx:id="player6ficha2" onAction="#onActionPlayer6ficha2" prefHeight="70.0" prefWidth="60.0" styleClass="ficha2-button" text="‎ " />
+                                                            <MFXButton fx:id="player6ficha5" onAction="#onActionPlayer6ficha5" prefHeight="70.0" prefWidth="60.0" styleClass="ficha5-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="158.0" prefWidth="100.0">
                                                          <children>
-                                                            <MFXButton fx:id="player6ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
-                                                            <MFXButton fx:id="player6ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
+                                                            <MFXButton fx:id="player6ficha3" onAction="#onActionPlayer6ficha3" prefHeight="70.0" prefWidth="60.0" styleClass="ficha3-button" text="‎ " />
+                                                            <MFXButton fx:id="player6ficha6" onAction="#onActionPlayer6ficha6" prefHeight="70.0" prefWidth="60.0" styleClass="ficha6-button" text="‎ " />
                                                          </children>
                                                       </VBox>
                                                    </children>

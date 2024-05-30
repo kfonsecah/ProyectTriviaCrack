@@ -314,35 +314,7 @@
     -fx-faint-focus-color: transparent;
 }
 
-.goback-button:hover {
-    -fx-background-image: url("../resources/btnGoBack.png");
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
-    -fx-effect: null;
-    -fx-focus-color: transparent;
-    -fx-faint-focus-color: transparent;
-}
 
-.goback-button:pressed {
-    -fx-background-image: url("../resources/btnGoBack.png");
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
-    -fx-effect: null;
-    -fx-focus-color: transparent;
-    -fx-faint-focus-color: transparent;
-}
-
-.goback-button:armed {
-    -fx-background-image: url("../resources/btnGoBack.png");
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
-    -fx-effect: null;
-    -fx-focus-color: transparent;
-    -fx-faint-focus-color: transparent;
-}
 
 .exit-button{
     -fx-background-image: url("../resources/btnExit.png");
@@ -1544,7 +1516,7 @@
     -fx-faint-focus-color: transparent;
 }
 
-.ficha1-button:hover, .ficha2-button:hover, .ficha3-button:hover, .ficha4-button:hover, .ficha5-button:hover, .ficha6-button:hover {
+.ficha1-button:hover, .ficha2-button:hover, .ficha3-button:hover, .ficha4-button:hover, .ficha5-button:hover, .ficha6-button:hover, .jugarAhora-button:hover, .goback-button:hover{
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-padding: 0;
@@ -1552,7 +1524,7 @@
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
 }
-.ficha1-button:pressed, .ficha2-button:pressed, .ficha3-button:pressed, .ficha4-button:pressed, .ficha5-button:pressed, .ficha6-button:pressed{
+.ficha1-button:pressed, .ficha2-button:pressed, .ficha3-button:pressed, .ficha4-button:pressed, .ficha5-button:pressed, .ficha6-button:pressed, .jugarAhora-button:pressed, .goback-button:pressed {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-padding: 0;
@@ -1560,7 +1532,7 @@
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
 }
-.ficha1-button:focused, .ficha2-button:focused, .ficha3-button:focused, .ficha4-button:focused, .ficha5-button:focused, .ficha6-button:focused {
+.ficha1-button:focused, .ficha2-button:focused, .ficha3-button:focused, .ficha4-button:focused, .ficha5-button:focused, .ficha6-button:focused,.jugarAhora-button:focused, .goback-button:focused{
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-padding: 0;
@@ -1569,6 +1541,28 @@
     -fx-faint-focus-color: transparent;
 }
 
+.ficha1-button:armed, .ficha2-button:armed, .ficha3-button:armed, .ficha4-button:armed, .ficha5-button:armed, .ficha6-button:armed, .jugarAhora-button:armed, .goback-button:armed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.jugarAhora-button {
+    -fx-background-image: url("../resources/jugarAhora.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
 
 
 
