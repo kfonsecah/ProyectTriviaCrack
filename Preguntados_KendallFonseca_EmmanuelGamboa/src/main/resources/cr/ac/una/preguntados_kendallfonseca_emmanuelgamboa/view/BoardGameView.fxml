@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1081.0" styleClass="backgroundAnimated4-region" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.BoardGameController">
+   <children>
+      <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="custom-stack-pane">
+         <StackPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </StackPane.margin>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                     <children>
+                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</StackPane>
