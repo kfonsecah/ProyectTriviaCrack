@@ -1340,7 +1340,50 @@
     -fx-faint-focus-color: transparent;
 }
 
-.play-orange-button:hover, .play-delete-button:hover {
+.newPlayer-button {
+    -fx-background-image: url("../resources/newPlayer.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.addPlayerTodb-button {
+    -fx-background-image: url("../resources/addUserButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.clean-button {
+    -fx-background-image: url("../resources/cleanButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+.play-orange-button:hover, .play-delete-button:hover, .newPlayer-button:hover, .addPlayerTodb-button:hover, .clean-button:hover{
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-padding: 0;
@@ -1349,7 +1392,7 @@
     -fx-faint-focus-color: transparent;
 }
 
-.play-orange-button:pressed, .play-delete-button:pressed{
+.play-orange-button:pressed, .play-delete-button:pressed, .newPlayer-button:pressed, .addPlayerTodb-button:pressed, .clean-button:pressed{
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-padding: 0;
@@ -1358,7 +1401,7 @@
     -fx-faint-focus-color: transparent;
 }
 
-.play-orange-button:focused, .play-delete-button:focused {
+.play-orange-button:focused, .play-delete-button:focused, .newPlayer-button:focused, .addPlayerTodb-button:focused, .clean-button:focused{
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-padding: 0;

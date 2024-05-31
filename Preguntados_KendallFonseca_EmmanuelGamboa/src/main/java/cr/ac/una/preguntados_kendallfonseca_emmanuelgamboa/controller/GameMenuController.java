@@ -14,6 +14,7 @@ import io.github.palexdev.materialfx.controls.MFXSpinner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.StackPane;
 
 /**
  * FXML Controller class
@@ -27,6 +28,9 @@ public class GameMenuController extends Controller implements Initializable{
 
     @FXML
     private MFXButton btnInfo;
+
+    @FXML
+    private StackPane root;
 
     @FXML
     private MFXButton btnEasyMode;
@@ -381,7 +385,7 @@ public class GameMenuController extends Controller implements Initializable{
     @FXML
     void onActionBtnJugar(ActionEvent event) {
         animationManager.playSound(Sound_Click);
-        FlowController.getInstance().goView("BoardGameView");
+        FlowController.getInstance().goView("PlayerSelectionView");
     }
 
 
