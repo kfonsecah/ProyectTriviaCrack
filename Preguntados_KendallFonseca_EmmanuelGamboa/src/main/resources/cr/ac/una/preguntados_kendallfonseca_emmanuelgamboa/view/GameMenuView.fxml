@@ -23,7 +23,7 @@
                         <Insets bottom="40.0" top="20.0" />
                      </HBox.margin>
                   </MFXButton>
-                  <MFXButton prefHeight="51.0" prefWidth="174.0" styleClass="jugarAhora-button" text="‎ ">
+                  <MFXButton fx:id="btnJugar" onAction="#onActionBtnJugar" prefHeight="51.0" prefWidth="174.0" styleClass="jugarAhora-button" text="‎ ">
                      <HBox.margin>
                         <Insets bottom="20.0" left="60.0" right="150.0" />
                      </HBox.margin>

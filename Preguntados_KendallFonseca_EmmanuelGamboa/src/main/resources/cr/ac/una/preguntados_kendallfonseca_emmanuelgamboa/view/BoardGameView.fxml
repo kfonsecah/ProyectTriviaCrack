@@ -1,50 +1,341 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1081.0" styleClass="backgroundAnimated4-region" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.BoardGameController">
+<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="861.0" prefWidth="1175.0" styleClass="backgroundAnimated4-region" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.BoardGameController">
    <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="custom-stack-pane">
+      <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="custom-stack-pane" StackPane.alignment="CENTER">
          <StackPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </StackPane.margin>
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" StackPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="60.0" VBox.vgrow="NEVER">
                      <children>
-                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                        <StackPane fx:id="hubPlayer1" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                              <VBox prefHeight="431.0" prefWidth="581.0">
+                                 <children>
+                                    <HBox prefHeight="47.0" prefWidth="148.0">
+                                       <children>
+                                          <ImageView fx:id="fichaPlayer1" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="player1Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
+                                       <children>
+                                          <ImageView fx:id="Ficha1Player1" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/peronajeGanadoGeografia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha2Player1" fitHeight="62.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/Ciencia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha3Player1" fitHeight="57.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoHistoria.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha4Player1" fitHeight="62.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoDeporte.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha5Player1" fitHeight="53.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoArte.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha6Player1" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajesGanadoPop.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </StackPane>
-                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                        <StackPane fx:id="hubPlayer2" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                              <VBox prefHeight="431.0" prefWidth="581.0">
+                                 <children>
+                                    <HBox prefHeight="47.0" prefWidth="148.0">
+                                       <children>
+                                          <ImageView fx:id="fichaPlayer2" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="player2Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
+                                       <children>
+                                          <ImageView fx:id="Ficha1Player2" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/peronajeGanadoGeografia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha2Player2" fitHeight="62.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/Ciencia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha3Player2" fitHeight="57.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoHistoria.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha4Player2" fitHeight="62.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoDeporte.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha5Player2" fitHeight="50.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoArte.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha6Player2" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajesGanadoPop.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </StackPane>
-                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                        <StackPane fx:id="hubPlayer3" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                              <VBox prefHeight="431.0" prefWidth="581.0">
+                                 <children>
+                                    <HBox prefHeight="47.0" prefWidth="148.0">
+                                       <children>
+                                          <ImageView fx:id="fichaPlayer3" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="player3Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
+                                       <children>
+                                          <ImageView fx:id="Ficha1Player3" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/peronajeGanadoGeografia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha2Player3" fitHeight="62.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/Ciencia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha3Player3" fitHeight="57.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoHistoria.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha4Player3" fitHeight="62.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoDeporte.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha5Player3" fitHeight="50.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoArte.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha6Player3" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajesGanadoPop.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </StackPane>
-                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                     </children>
+                  </HBox>
+                  <ImageView fitHeight="508.0" fitWidth="493.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/tablero2.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="60.0" VBox.vgrow="NEVER">
+                     <children>
+                        <StackPane fx:id="hubPlayer4" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                              <VBox prefHeight="431.0" prefWidth="581.0">
+                                 <children>
+                                    <HBox prefHeight="47.0" prefWidth="148.0">
+                                       <children>
+                                          <ImageView fx:id="fichaPlayer4" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="player4Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
+                                       <children>
+                                          <ImageView fx:id="Ficha1Player4" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/peronajeGanadoGeografia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha2Player4" fitHeight="62.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/Ciencia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha3Player4" fitHeight="57.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoHistoria.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha4Player4" fitHeight="62.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoDeporte.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha5Player4" fitHeight="50.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoArte.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha6Player4" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajesGanadoPop.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </StackPane>
-                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                        <StackPane fx:id="hubPlayer5" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                              <VBox prefHeight="431.0" prefWidth="581.0">
+                                 <children>
+                                    <HBox prefHeight="47.0" prefWidth="148.0">
+                                       <children>
+                                          <ImageView fx:id="fichaPlayer5" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="player5Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
+                                       <children>
+                                          <ImageView fx:id="Ficha1Player5" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/peronajeGanadoGeografia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha2Player5" fitHeight="62.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/Ciencia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha3Player5" fitHeight="57.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoHistoria.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha4Player5" fitHeight="62.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoDeporte.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha5Player5" fitHeight="50.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoArte.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha6Player5" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajesGanadoPop.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </StackPane>
-                        <StackPane prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                        <StackPane fx:id="hubPlayer6" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                              <VBox prefHeight="431.0" prefWidth="581.0">
+                                 <children>
+                                    <HBox prefHeight="47.0" prefWidth="148.0">
+                                       <children>
+                                          <ImageView fx:id="fichaPlayer6" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="player6Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
+                                       <children>
+                                          <ImageView fx:id="Ficha1Player6" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/peronajeGanadoGeografia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha2Player6" fitHeight="62.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/Ciencia.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha3Player6" fitHeight="57.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoHistoria.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha4Player6" fitHeight="62.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoDeporte.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha5Player6" fitHeight="50.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajeGanadoArte.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <ImageView fx:id="Ficha6Player6" fitHeight="70.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/personajesGanadoPop.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </StackPane>
                      </children>
@@ -53,5 +344,11 @@
             </VBox>
          </children>
       </StackPane>
+      <ImageView fx:id="ruletaBoard" fitHeight="295.0" fitWidth="276.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/roullete.png" />
+         </image>
+      </ImageView>
+      <MFXButton fx:id="btnRotate" onAction="#onActionBtnRotate" prefHeight="59.0" prefWidth="68.0" />
    </children>
 </StackPane>

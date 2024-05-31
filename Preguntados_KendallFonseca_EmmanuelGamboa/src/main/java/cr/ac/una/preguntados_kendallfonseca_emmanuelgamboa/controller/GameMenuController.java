@@ -38,6 +38,9 @@ public class GameMenuController extends Controller implements Initializable{
     private MFXButton btnMidMode;
 
     @FXML
+    private MFXButton btnJugar;
+
+    @FXML
     private MFXButton player1ficha1;
 
     @FXML
@@ -373,6 +376,12 @@ public class GameMenuController extends Controller implements Initializable{
     @FXML
     void onActionPlayer6ficha6(ActionEvent event) {
 
+    }
+
+    @FXML
+    void onActionBtnJugar(ActionEvent event) {
+        animationManager.playSound(Sound_Click);
+        FlowController.getInstance().goView("BoardGameView");
     }
 
 
