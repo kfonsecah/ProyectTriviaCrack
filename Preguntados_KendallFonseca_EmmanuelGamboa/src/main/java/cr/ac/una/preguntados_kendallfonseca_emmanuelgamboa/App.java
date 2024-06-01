@@ -1,7 +1,9 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa;
 
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AppContext;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.EntityManagerHelper;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.FlowController;
+import jakarta.persistence.EntityManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -20,5 +22,7 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+
+
     }
 }
