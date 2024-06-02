@@ -6,11 +6,10 @@ module cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa {
     requires MaterialFX;
     requires java.base;
     requires javafx.media;
-
-    opens cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa to javafx.fxml;
+    requires java.instrument; //importante
+    opens cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa to javafx.fxml, jakarta.persistence;
     opens cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller to javafx.fxml;
     opens cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model to jakarta.persistence;
-
 
     exports cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa;
     exports cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
