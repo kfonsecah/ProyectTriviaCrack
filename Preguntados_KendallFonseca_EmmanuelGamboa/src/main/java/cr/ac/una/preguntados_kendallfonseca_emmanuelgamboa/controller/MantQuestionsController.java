@@ -4,18 +4,25 @@
  */
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Preguntas;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.PreguntasService;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.FlowController;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
+import javafx.scene.control.TableColumn;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MantQuestionsController extends Controller implements Initializable {
@@ -57,17 +64,50 @@ public class MantQuestionsController extends Controller implements Initializable
     private TableView<?> tblAnswers;
 
     @FXML
-    private TableView<?> tblQuestions;
+    private TableView<Preguntas> tblQuestions;
+
+    @FXML
+    private TableColumn<Preguntas, Long> colIdPregunta;
+
+    @FXML
+    private TableColumn<Preguntas, String> colCategoria;
+
+    @FXML
+    private TableColumn<Preguntas, String> colPreguntaTexto;
+
+    @FXML
+    private TableColumn<Preguntas, Long> colVecesRespondida;
+
+    @FXML
+    private TableColumn<Preguntas, Long> colVecesAcertada;
+
+    private PreguntasService preguntasService;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-
+        preguntasService = new PreguntasService();
+        initializeTableView();
+        loadPreguntas();
 
     }
+    private void loadPreguntas() {
+        List<Preguntas> preguntasList = preguntasService.getAllPreguntas();
+        ObservableList<Preguntas> preguntasObservableList = FXCollections.observableArrayList(preguntasList);
+        tblQuestions.setItems(preguntasObservableList);
+    }
+
 
     @Override
     public void initialize() {
         // TODO
+    }
+
+    private void initializeTableView() {
+        colIdPregunta.setCellValueFactory(new PropertyValueFactory<>("idPregunta"));
+        colCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        colPreguntaTexto.setCellValueFactory(new PropertyValueFactory<>("preguntaTexto"));
+        colVecesRespondida.setCellValueFactory(new PropertyValueFactory<>("vecesRespondida"));
+        colVecesAcertada.setCellValueFactory(new PropertyValueFactory<>("vecesAcertada"));
     }
 
     @FXML

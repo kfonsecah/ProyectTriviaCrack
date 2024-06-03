@@ -20,6 +20,7 @@ public class JugadoresService {
             et.begin();
             Jugadores jugador = new Jugadores();
             jugador.setNombre(nombre);
+
             em.persist(jugador);
             et.commit();
             return new Respuesta(true, "", "", "Jugador", new JugadoresDto(jugador));

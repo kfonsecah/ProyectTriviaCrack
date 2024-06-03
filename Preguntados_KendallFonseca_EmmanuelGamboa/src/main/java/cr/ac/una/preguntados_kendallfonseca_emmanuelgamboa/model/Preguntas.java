@@ -30,23 +30,25 @@ public class Preguntas implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @SequenceGenerator(name = "PREGUNTAS_SEQ", sequenceName = "PREGUNTAS_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PREGUNTAS_SEQ")
     @Basic(optional = false)
     @Column(name = "ID_PREGUNTA")
-    private Long idPregunta;
+    public Long idPregunta;
     @Column(name = "CATEGORIA")
-    private String categoria;
+    public String categoria;
     @Column(name = "PREGUNTA_TEXTO")
-    private String preguntaTexto;
+    public String preguntaTexto;
     @Column(name = "VECES_RESPONDIDA")
-    private Long vecesRespondida;
+    public Long vecesRespondida;
     @Column(name = "VECES_ACERTADA")
-    private Long vecesAcertada;
+    public Long vecesAcertada;
 
     @Version
     @Column(name = "VERSION")
-    private Long version;
+    public Long version;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPregunta", fetch = FetchType.EAGER)
-    private List<Respuestas> respuestasList;
+    public List<Respuestas> respuestasList;
 
     public Preguntas() {
     }

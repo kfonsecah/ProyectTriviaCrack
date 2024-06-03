@@ -9,10 +9,20 @@ public class JugadoresDto {
 
     public SimpleStringProperty id;
     public StringProperty nombre;
+    public StringProperty correo;
+    public StringProperty preguntasRespondidas;
+    public StringProperty preguntasAcertadas;
+    public StringProperty partidasGanadas;
+    public StringProperty version;
 
     public JugadoresDto() {
         this.id = new SimpleStringProperty("");
         this.nombre = new SimpleStringProperty("");
+        this.correo = new SimpleStringProperty("");
+        this.preguntasRespondidas = new SimpleStringProperty("");
+        this.preguntasAcertadas = new SimpleStringProperty("");
+        this.partidasGanadas = new SimpleStringProperty("");
+        this.version = new SimpleStringProperty("");
     }
 
     public JugadoresDto(Jugadores jugador) {
@@ -43,6 +53,38 @@ public class JugadoresDto {
     public StringProperty nombreProperty() {
         return nombre;
     }
+    public String getCorreo() {
+        return correo.get();
+    }
+    public void setCorreo(String correo) {
+        this.correo.set(correo);
+    }
+    public String getPreguntasRespondidas() {
+        return preguntasRespondidas.get();
+    }
+    public void setPreguntasRespondidas(String preguntasRespondidas) {
+        this.preguntasRespondidas.set(preguntasRespondidas);
+    }
+    public String getPreguntasAcertadas() {
+        return preguntasAcertadas.get();
+    }
+    public void setPreguntasAcertadas(String preguntasAcertadas) {
+        this.preguntasAcertadas.set(preguntasAcertadas);
+    }
+    public String getPartidasGanadas() {
+        return partidasGanadas.get();
+    }
+    public void setPartidasGanadas(String partidasGanadas) {
+        this.partidasGanadas.set(partidasGanadas);
+    }
+    public String getVersion() {
+        return version.get();
+    }
+    public void setVersion(String version) {
+        this.version.set(version);
+    }
+
+
 
     @Override
     public int hashCode() {

@@ -4,6 +4,7 @@
 <?import io.github.palexdev.materialfx.controls.MFXComboBox?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -33,7 +34,14 @@
                                        <children>
                                           <StackPane fx:id="rainBackground" prefHeight="422.0" prefWidth="326.0" styleClass="background3-region">
                                              <children>
-                                                <TableView fx:id="tblQuestions" prefHeight="426.0" prefWidth="345.0" />
+                                                <TableView fx:id="tblQuestions" prefHeight="426.0" prefWidth="345.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colIdPregunta" prefWidth="75.0" text="Column X" />
+                                                      <TableColumn fx:id="colCategoria" prefWidth="75.0" text="Column X" />
+                                                      <TableColumn fx:id="colPreguntaTexto" prefWidth="75.0" text="Column X" />
+                                                      <TableColumn fx:id="colVecesRespondida" prefWidth="75.0" text="Column X" />
+                                                      <TableColumn fx:id="colVecesAcertada" prefWidth="75.0" text="Column X" />
+                                                   </columns></TableView>
                                              </children>
                                           </StackPane>
                                        </children>

@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Formato;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Mensaje;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
@@ -25,11 +26,12 @@ public class RegisterController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Initialization logic if any
+        txtNombre.delegateSetTextFormatter(Formato.getInstance().letrasFormat(30));
+
     }
 
     public void initialize() {
-        // Initialization logic if any
+
     }
 
     @FXML

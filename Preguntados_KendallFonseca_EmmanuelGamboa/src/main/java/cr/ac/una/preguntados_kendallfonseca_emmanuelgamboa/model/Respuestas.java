@@ -4,16 +4,8 @@
  */
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.NamedQueries;
-import jakarta.persistence.NamedQuery;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -36,41 +28,43 @@ public class Respuestas implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @SequenceGenerator(name = "RESPUESTAS_SEQ", sequenceName = "RESPUESTAS_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RESPUESTAS_SEQ")
     @Basic(optional = false)
     @Column(name = "ID_RESPUESTA")
-    private BigDecimal idRespuesta;
+    public Long idRespuesta;
     @Column(name = "RESPUESTA_TEXTO")
-    private String respuestaTexto;
+    public String respuestaTexto;
     @Basic(optional = false)
     @Column(name = "ES_CORRECTA")
-    private String esCorrecta;
+    public String esCorrecta;
     @Column(name = "VECES_SELECCIONADA")
-    private BigInteger vecesSeleccionada;
-    @Basic(optional = false)
+    public Long vecesSeleccionada;
+    @Version
     @Column(name = "VERSION")
-    private BigInteger version;
+    public Long version;
     @JoinColumn(name = "ID_PREGUNTA", referencedColumnName = "ID_PREGUNTA")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    private Preguntas idPregunta;
+    public Preguntas idPregunta;
 
     public Respuestas() {
     }
 
-    public Respuestas(BigDecimal idRespuesta) {
+    public Respuestas(Long idRespuesta) {
         this.idRespuesta = idRespuesta;
     }
 
-    public Respuestas(BigDecimal idRespuesta, String esCorrecta, BigInteger version) {
+    public Respuestas(Long idRespuesta, String esCorrecta, Long version) {
         this.idRespuesta = idRespuesta;
         this.esCorrecta = esCorrecta;
         this.version = version;
     }
 
-    public BigDecimal getIdRespuesta() {
+    public Long getIdRespuesta() {
         return idRespuesta;
     }
 
-    public void setIdRespuesta(BigDecimal idRespuesta) {
+    public void setIdRespuesta(Long idRespuesta) {
         this.idRespuesta = idRespuesta;
     }
 
@@ -90,19 +84,19 @@ public class Respuestas implements Serializable {
         this.esCorrecta = esCorrecta;
     }
 
-    public BigInteger getVecesSeleccionada() {
+    public Long getVecesSeleccionada() {
         return vecesSeleccionada;
     }
 
-    public void setVecesSeleccionada(BigInteger vecesSeleccionada) {
+    public void setVecesSeleccionada(Long vecesSeleccionada) {
         this.vecesSeleccionada = vecesSeleccionada;
     }
 
-    public BigInteger getVersion() {
+    public Long getVersion() {
         return version;
     }
 
-    public void setVersion(BigInteger version) {
+    public void setVersion(Long version) {
         this.version = version;
     }
 

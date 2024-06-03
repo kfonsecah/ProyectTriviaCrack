@@ -31,28 +31,28 @@ public class Jugadores implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
-    @SequenceGenerator(name = "SEQ_JUGADORES", sequenceName = "SEQ_JUGADORES", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_JUGADORES")
+    @SequenceGenerator(name = "JUGADORES_SEQ", sequenceName = "JUGADORES_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JUGADORES_SEQ")
     @Basic(optional = false)
     @Column(name = "ID_JUGADOR")
-    private BigDecimal idJugador;
+    public BigDecimal idJugador;
     @Column(name = "NOMBRE")
-    private String nombre;
+    public String nombre;
     @Column(name = "CORREO")
-    private String correo;
+    public String correo;
     @Column(name = "PREGUNTAS_RESPONDIDAS")
-    private BigInteger preguntasRespondidas;
+    public BigInteger preguntasRespondidas;
     @Column(name = "PREGUNTAS_ACERTADAS")
-    private BigInteger preguntasAcertadas;
+    public BigInteger preguntasAcertadas;
     @Column(name = "PARTIDAS_GANADAS")
-    private BigInteger partidasGanadas;
-    @Basic(optional = false)
+    public BigInteger partidasGanadas;
+    @Version
     @Column(name = "VERSION")
-    private BigInteger version;
+    public Long version;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idJugador", fetch = FetchType.EAGER)
-    private List<PartidasJugadores> partidasJugadoresList;
+    public List<PartidasJugadores> partidasJugadoresList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idJugador", fetch = FetchType.EAGER)
-    private List<Estadisticas> estadisticasList;
+    public List<Estadisticas> estadisticasList;
 
     public Jugadores() {
     }
@@ -61,7 +61,7 @@ public class Jugadores implements Serializable {
         this.idJugador = idJugador;
     }
 
-    public Jugadores(BigDecimal idJugador, BigInteger version) {
+    public Jugadores(BigDecimal idJugador, Long version) {
         this.idJugador = idJugador;
         this.version = version;
     }
@@ -114,11 +114,11 @@ public class Jugadores implements Serializable {
         this.partidasGanadas = partidasGanadas;
     }
 
-    public BigInteger getVersion() {
+    public Long getVersion() {
         return version;
     }
 
-    public void setVersion(BigInteger version) {
+    public void setVersion(Long version) {
         this.version = version;
     }
 
