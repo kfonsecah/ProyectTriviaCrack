@@ -4,12 +4,21 @@
  */
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model;
 
-import jakarta.persistence.*;
-
+import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -26,12 +35,6 @@ public class Partidas implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
-    @SequenceGenerator(
-            name = "PARTIDAS_SEQ",
-            sequenceName = "PARTIDAS_SEQ",
-            allocationSize = 1
-    )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARTIDAS_SEQ")
     @Basic(optional = false)
     @Column(name = "ID_PARTIDA")
     private BigDecimal idPartida;
@@ -41,8 +44,8 @@ public class Partidas implements Serializable {
     @Basic(optional = false)
     @Column(name = "VERSION")
     private BigInteger version;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPartida", fetch = FetchType.LAZY)
-    private Collection<PartidasJugadores> partidasJugadoresCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPartida", fetch = FetchType.EAGER)
+    private List<PartidasJugadores> partidasJugadoresList;
 
     public Partidas() {
     }
@@ -80,12 +83,12 @@ public class Partidas implements Serializable {
         this.version = version;
     }
 
-    public Collection<PartidasJugadores> getPartidasJugadoresCollection() {
-        return partidasJugadoresCollection;
+    public List<PartidasJugadores> getPartidasJugadoresList() {
+        return partidasJugadoresList;
     }
 
-    public void setPartidasJugadoresCollection(Collection<PartidasJugadores> partidasJugadoresCollection) {
-        this.partidasJugadoresCollection = partidasJugadoresCollection;
+    public void setPartidasJugadoresList(List<PartidasJugadores> partidasJugadoresList) {
+        this.partidasJugadoresList = partidasJugadoresList;
     }
 
     @Override

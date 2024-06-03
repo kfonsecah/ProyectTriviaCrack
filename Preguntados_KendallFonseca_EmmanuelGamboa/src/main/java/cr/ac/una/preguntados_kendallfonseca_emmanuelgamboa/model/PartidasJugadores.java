@@ -4,8 +4,16 @@
  */
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model;
 
-import jakarta.persistence.*;
-
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -28,12 +36,6 @@ public class PartidasJugadores implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
-    @SequenceGenerator(
-            name = "PARTIDAS_JUGADORES_SEQ",
-            sequenceName = "PARTIDAS_JUGADORES_SEQ",
-            allocationSize = 1
-    )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARTIDAS_JUGADORES_SEQ")
     @Basic(optional = false)
     @Column(name = "ID_PARTIDA_JUGADOR")
     private BigDecimal idPartidaJugador;
@@ -49,10 +51,10 @@ public class PartidasJugadores implements Serializable {
     @Column(name = "VERSION")
     private BigInteger version;
     @JoinColumn(name = "ID_JUGADOR", referencedColumnName = "ID_JUGADOR")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Jugadores idJugador;
     @JoinColumn(name = "ID_PARTIDA", referencedColumnName = "ID_PARTIDA")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Partidas idPartida;
 
     public PartidasJugadores() {

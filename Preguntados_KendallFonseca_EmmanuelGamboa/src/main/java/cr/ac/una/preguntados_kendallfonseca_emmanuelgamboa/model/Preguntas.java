@@ -9,7 +9,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -30,46 +30,41 @@ public class Preguntas implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
-    @SequenceGenerator(
-            name = "PREGUNTAS_SEQ",
-            sequenceName = "PREGUNTAS_SEQ",
-            allocationSize = 1
-    )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PREGUNTAS_SEQ")
     @Basic(optional = false)
     @Column(name = "ID_PREGUNTA")
-    private BigDecimal idPregunta;
+    private Long idPregunta;
     @Column(name = "CATEGORIA")
     private String categoria;
     @Column(name = "PREGUNTA_TEXTO")
     private String preguntaTexto;
     @Column(name = "VECES_RESPONDIDA")
-    private BigInteger vecesRespondida;
+    private Long vecesRespondida;
     @Column(name = "VECES_ACERTADA")
-    private BigInteger vecesAcertada;
-    @Basic(optional = false)
+    private Long vecesAcertada;
+
+    @Version
     @Column(name = "VERSION")
-    private BigInteger version;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPregunta", fetch = FetchType.LAZY)
-    private Collection<Respuestas> respuestasCollection;
+    private Long version;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPregunta", fetch = FetchType.EAGER)
+    private List<Respuestas> respuestasList;
 
     public Preguntas() {
     }
 
-    public Preguntas(BigDecimal idPregunta) {
+    public Preguntas(Long idPregunta) {
         this.idPregunta = idPregunta;
     }
 
-    public Preguntas(BigDecimal idPregunta, BigInteger version) {
+    public Preguntas(Long idPregunta, Long version) {
         this.idPregunta = idPregunta;
         this.version = version;
     }
 
-    public BigDecimal getIdPregunta() {
+    public Long getIdPregunta() {
         return idPregunta;
     }
 
-    public void setIdPregunta(BigDecimal idPregunta) {
+    public void setIdPregunta(Long idPregunta) {
         this.idPregunta = idPregunta;
     }
 
@@ -89,36 +84,36 @@ public class Preguntas implements Serializable {
         this.preguntaTexto = preguntaTexto;
     }
 
-    public BigInteger getVecesRespondida() {
+    public Long getVecesRespondida() {
         return vecesRespondida;
     }
 
-    public void setVecesRespondida(BigInteger vecesRespondida) {
+    public void setVecesRespondida(Long vecesRespondida) {
         this.vecesRespondida = vecesRespondida;
     }
 
-    public BigInteger getVecesAcertada() {
+    public Long getVecesAcertada() {
         return vecesAcertada;
     }
 
-    public void setVecesAcertada(BigInteger vecesAcertada) {
+    public void setVecesAcertada(Long vecesAcertada) {
         this.vecesAcertada = vecesAcertada;
     }
 
-    public BigInteger getVersion() {
+    public Long getVersion() {
         return version;
     }
 
-    public void setVersion(BigInteger version) {
+    public void setVersion(Long version) {
         this.version = version;
     }
 
-    public Collection<Respuestas> getRespuestasCollection() {
-        return respuestasCollection;
+    public List<Respuestas> getRespuestasList() {
+        return respuestasList;
     }
 
-    public void setRespuestasCollection(Collection<Respuestas> respuestasCollection) {
-        this.respuestasCollection = respuestasCollection;
+    public void setRespuestasList(List<Respuestas> respuestasList) {
+        this.respuestasList = respuestasList;
     }
 
     @Override

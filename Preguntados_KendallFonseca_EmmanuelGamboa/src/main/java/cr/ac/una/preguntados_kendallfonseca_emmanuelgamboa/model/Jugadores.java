@@ -9,14 +9,14 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Collection;
+import java.util.List;
 
 /**
  *
  * @author Kendall Fonseca
  */
 @Entity
-@Table(name = "JUGADORES")
+@Table(name = "JUGADORES", schema = "KEN")
 @NamedQueries({
     @NamedQuery(name = "Jugadores.findAll", query = "SELECT j FROM Jugadores j"),
     @NamedQuery(name = "Jugadores.findByIdJugador", query = "SELECT j FROM Jugadores j WHERE j.idJugador = :idJugador"),
@@ -31,12 +31,8 @@ public class Jugadores implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
-    @SequenceGenerator(
-            name = "JUGADORES_SEQ",
-            sequenceName = "JUGADORES_SEQ",
-            allocationSize = 1
-    )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JUGADORES_SEQ")
+    @SequenceGenerator(name = "SEQ_JUGADORES", sequenceName = "SEQ_JUGADORES", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_JUGADORES")
     @Basic(optional = false)
     @Column(name = "ID_JUGADOR")
     private BigDecimal idJugador;
@@ -53,10 +49,10 @@ public class Jugadores implements Serializable {
     @Basic(optional = false)
     @Column(name = "VERSION")
     private BigInteger version;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idJugador", fetch = FetchType.LAZY)
-    private Collection<PartidasJugadores> partidasJugadoresCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idJugador", fetch = FetchType.LAZY)
-    private Collection<Estadisticas> estadisticasCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idJugador", fetch = FetchType.EAGER)
+    private List<PartidasJugadores> partidasJugadoresList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idJugador", fetch = FetchType.EAGER)
+    private List<Estadisticas> estadisticasList;
 
     public Jugadores() {
     }
@@ -126,20 +122,20 @@ public class Jugadores implements Serializable {
         this.version = version;
     }
 
-    public Collection<PartidasJugadores> getPartidasJugadoresCollection() {
-        return partidasJugadoresCollection;
+    public List<PartidasJugadores> getPartidasJugadoresList() {
+        return partidasJugadoresList;
     }
 
-    public void setPartidasJugadoresCollection(Collection<PartidasJugadores> partidasJugadoresCollection) {
-        this.partidasJugadoresCollection = partidasJugadoresCollection;
+    public void setPartidasJugadoresList(List<PartidasJugadores> partidasJugadoresList) {
+        this.partidasJugadoresList = partidasJugadoresList;
     }
 
-    public Collection<Estadisticas> getEstadisticasCollection() {
-        return estadisticasCollection;
+    public List<Estadisticas> getEstadisticasList() {
+        return estadisticasList;
     }
 
-    public void setEstadisticasCollection(Collection<Estadisticas> estadisticasCollection) {
-        this.estadisticasCollection = estadisticasCollection;
+    public void setEstadisticasList(List<Estadisticas> estadisticasList) {
+        this.estadisticasList = estadisticasList;
     }
 
     @Override
