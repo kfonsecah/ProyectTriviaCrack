@@ -1,6 +1,9 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.LongProperty;
@@ -16,6 +19,8 @@ public class PreguntasDto implements Serializable {
     public SimpleLongProperty vecesRespondida;
     public SimpleLongProperty vecesAcertada;
     public SimpleLongProperty version;
+    public SimpleStringProperty estado;
+    public List<RespuestasDto> respuestasList;
 
     public PreguntasDto() {
         this.idPregunta = new SimpleLongProperty();
@@ -23,7 +28,9 @@ public class PreguntasDto implements Serializable {
         this.preguntaTexto = new SimpleStringProperty("");
         this.vecesRespondida = new SimpleLongProperty();
         this.vecesAcertada = new SimpleLongProperty();
+        this.estado = new SimpleStringProperty("A");
         this.version = new SimpleLongProperty();
+        this.respuestasList = null;
     }
 
     public PreguntasDto(Preguntas pregunta) {
@@ -33,7 +40,9 @@ public class PreguntasDto implements Serializable {
         this.preguntaTexto.set(pregunta.getPreguntaTexto());
         this.vecesRespondida.set(pregunta.getVecesRespondida());
         this.vecesAcertada.set(pregunta.getVecesAcertada());
+        this.estado.set(pregunta.getEstado());
         this.version.set(pregunta.getVersion());
+        this.respuestasList = new ArrayList<>();
     }
 
     public Long getIdPregunta() {
@@ -83,6 +92,12 @@ public class PreguntasDto implements Serializable {
     public void setVersion(Long version) {
         this.version.set(version);
     }
+    public String getEstado() {
+        return estado.get();
+    }
+    public void setEstado(String estado) {
+        this.estado.set(estado);
+    }
 
     @Override
     public int hashCode() {
@@ -106,5 +121,9 @@ public class PreguntasDto implements Serializable {
     @Override
     public String toString() {
         return "cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PreguntasDto[ idPregunta=" + idPregunta + " ]";
+    }
+
+    public List<RespuestasDto> getRespuestasList() {
+        return respuestasList;
     }
 }

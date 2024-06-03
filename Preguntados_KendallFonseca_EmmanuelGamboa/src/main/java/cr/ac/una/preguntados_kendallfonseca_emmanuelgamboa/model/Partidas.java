@@ -18,6 +18,7 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,7 +46,7 @@ public class Partidas implements Serializable {
     @Column(name = "VERSION")
     private BigInteger version;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPartida", fetch = FetchType.EAGER)
-    private List<PartidasJugadores> partidasJugadoresList;
+    private List<PartidasJugadores> partidasJugadoresList=new ArrayList<>();
 
     public Partidas() {
     }

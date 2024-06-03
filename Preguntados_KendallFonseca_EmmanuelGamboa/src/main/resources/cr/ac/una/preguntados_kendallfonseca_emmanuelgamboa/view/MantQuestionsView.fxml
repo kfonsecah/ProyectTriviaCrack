@@ -38,9 +38,10 @@
                                                    <columns>
                                                       <TableColumn fx:id="colIdPregunta" prefWidth="34.0" text="id" />
                                                       <TableColumn fx:id="colCategoria" prefWidth="88.0" text="Categoria" />
-                                                      <TableColumn fx:id="colPreguntaTexto" prefWidth="153.0" text="Pregunta" />
-                                                      <TableColumn fx:id="colVecesRespondida" prefWidth="101.0" text="Veces Respondida" />
-                                                      <TableColumn fx:id="colVecesAcertada" prefWidth="83.0" text="Veces Acertada" />
+                                                      <TableColumn fx:id="colPreguntaTexto" prefWidth="96.0" text="Pregunta" />
+                                                      <TableColumn fx:id="colVecesRespondida" prefWidth="92.0" text="Veces Respondida" />
+                                                      <TableColumn fx:id="colVecesAcertada" minWidth="0.0" prefWidth="99.0" text="Veces Acertada" />
+                                                      <TableColumn fx:id="colEstado" prefWidth="61.0" text="Estado" />
                                                    </columns></TableView>
                                              </children>
                                           </StackPane>

@@ -44,6 +44,9 @@ public class Preguntas implements Serializable {
     @Column(name = "VECES_ACERTADA")
     public Long vecesAcertada;
 
+    @Column(name = "ESTADO")
+    public String estado;
+
     @Version
     @Column(name = "VERSION")
     public Long version;
@@ -108,6 +111,13 @@ public class Preguntas implements Serializable {
 
     public void setVersion(Long version) {
         this.version = version;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public List<Respuestas> getRespuestasList() {
