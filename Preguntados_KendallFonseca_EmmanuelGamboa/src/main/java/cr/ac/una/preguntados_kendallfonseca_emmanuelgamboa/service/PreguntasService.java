@@ -22,9 +22,10 @@ public class PreguntasService {
                 .getResultList();
     }
 
-    public void close() {
-        em.close();
-        emf.close();
+    public void addPregunta(Preguntas pregunta) {
+        em.getTransaction().begin();
+        em.persist(pregunta);
+        em.getTransaction().commit();
     }
 }
 

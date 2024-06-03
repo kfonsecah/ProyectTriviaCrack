@@ -21,7 +21,7 @@ public class RespuestasDto implements Serializable {
         this.idRespuesta = new SimpleLongProperty();
         this.respuestaTexto = new SimpleStringProperty("");
         this.esCorrecta = new SimpleStringProperty("");
-        this.vecesSeleccionada = new SimpleLongProperty();
+        this.vecesSeleccionada = new SimpleLongProperty(0);
         this.version = new SimpleLongProperty();
     }
 

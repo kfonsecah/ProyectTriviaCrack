@@ -5,6 +5,7 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Preguntas;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PreguntasDto;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Respuestas;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.PreguntasService;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.RespuestasService;
@@ -99,6 +100,9 @@ public class MantQuestionsController extends Controller implements Initializable
     @FXML
     private MFXTextField contentRespuesta4;
 
+    @FXML
+    private MFXButton btnNuevaPregunta;
+
     private PreguntasService preguntasService;
     private RespuestasService respuestasService;
 
@@ -106,6 +110,7 @@ public class MantQuestionsController extends Controller implements Initializable
     public void initialize(URL url, ResourceBundle rb){
         preguntasService = new PreguntasService();
         respuestasService = new RespuestasService();
+        btnAdd.setDisable(true);
         initializeTableView();
 
 
@@ -174,9 +179,30 @@ public class MantQuestionsController extends Controller implements Initializable
         colVecesRespondida.setCellValueFactory(new PropertyValueFactory<>("vecesRespondida"));
         colVecesAcertada.setCellValueFactory(new PropertyValueFactory<>("vecesAcertada"));
     }
+    @FXML
+    void onActionBtnNueva(ActionEvent event) {
+        btnAdd.setDisable(false);
+
+        contentPregunta.clear();
+        contentRespuesta1.clear();
+        contentRespuesta2.clear();
+        contentRespuesta3.clear();
+        contentRespuesta4.clear();
+
+        contentPregunta.requestFocus();
+
+        nuevaPregunta();
+
+    }
+
+    private void nuevaPregunta(){
+        PreguntasDto pregunta = new PreguntasDto();
+    }
 
     @FXML
     void onActionBtnAdd(ActionEvent event) {
+
+
 
 
     }

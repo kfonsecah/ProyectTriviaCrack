@@ -24,8 +24,9 @@ public class RespuestasService {
                     .getResultList();
         }
 
-        public void close() {
-            em.close();
-            emf.close();
+        public void addRespuesta(Respuestas respuesta) {
+            em.getTransaction().begin();
+            em.persist(respuesta);
+            em.getTransaction().commit();
         }
 }

@@ -51,7 +51,7 @@
                                     </StackPane>
                                     <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="499.0" spacing="20.0" VBox.vgrow="NEVER">
                                        <children>
-                                          <MFXButton fx:id="btnAdd" onAction="#onActionBtnAdd" prefHeight="40.0" prefWidth="115.0" styleClass="add-button" text="‎ ">
+                                          <MFXButton fx:id="btnNuevaPregunta" onAction="#onActionBtnNueva" prefHeight="40.0" prefWidth="115.0" styleClass="add-button" text="‎ ">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -108,6 +108,7 @@
                                           <MFXTextField fx:id="contentRespuesta4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" />
                                        </children>
                                     </StackPane>
+                                    <MFXButton fx:id="btnAdd" onAction="#onActionBtnAdd" prefHeight="21.0" prefWidth="74.0" styleClass="add-button" text="‎ " />
                                  </children>
                                  <HBox.margin>
                                     <Insets />
