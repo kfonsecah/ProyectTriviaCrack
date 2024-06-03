@@ -35,17 +35,17 @@ public class Jugadores implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JUGADORES_SEQ")
     @Basic(optional = false)
     @Column(name = "ID_JUGADOR")
-    public BigDecimal idJugador;
+    public Long idJugador;
     @Column(name = "NOMBRE")
     public String nombre;
     @Column(name = "CORREO")
     public String correo;
     @Column(name = "PREGUNTAS_RESPONDIDAS")
-    public BigInteger preguntasRespondidas;
+    public Long preguntasRespondidas;
     @Column(name = "PREGUNTAS_ACERTADAS")
-    public BigInteger preguntasAcertadas;
+    public Long preguntasAcertadas;
     @Column(name = "PARTIDAS_GANADAS")
-    public BigInteger partidasGanadas;
+    public Long partidasGanadas;
     @Version
     @Column(name = "VERSION")
     public Long version;
@@ -57,20 +57,20 @@ public class Jugadores implements Serializable {
     public Jugadores() {
     }
 
-    public Jugadores(BigDecimal idJugador) {
+    public Jugadores(Long idJugador) {
         this.idJugador = idJugador;
     }
 
-    public Jugadores(BigDecimal idJugador, Long version) {
+    public Jugadores(Long idJugador, Long version) {
         this.idJugador = idJugador;
         this.version = version;
     }
 
-    public BigDecimal getIdJugador() {
+    public Long getIdJugador() {
         return idJugador;
     }
 
-    public void setIdJugador(BigDecimal idJugador) {
+    public void setIdJugador(Long idJugador) {
         this.idJugador = idJugador;
     }
 
@@ -90,27 +90,27 @@ public class Jugadores implements Serializable {
         this.correo = correo;
     }
 
-    public BigInteger getPreguntasRespondidas() {
+    public Long getPreguntasRespondidas() {
         return preguntasRespondidas;
     }
 
-    public void setPreguntasRespondidas(BigInteger preguntasRespondidas) {
+    public void setPreguntasRespondidas(Long preguntasRespondidas) {
         this.preguntasRespondidas = preguntasRespondidas;
     }
 
-    public BigInteger getPreguntasAcertadas() {
+    public Long getPreguntasAcertadas() {
         return preguntasAcertadas;
     }
 
-    public void setPreguntasAcertadas(BigInteger preguntasAcertadas) {
+    public void setPreguntasAcertadas(Long preguntasAcertadas) {
         this.preguntasAcertadas = preguntasAcertadas;
     }
 
-    public BigInteger getPartidasGanadas() {
+    public Long getPartidasGanadas() {
         return partidasGanadas;
     }
 
-    public void setPartidasGanadas(BigInteger partidasGanadas) {
+    public void setPartidasGanadas(Long partidasGanadas) {
         this.partidasGanadas = partidasGanadas;
     }
 

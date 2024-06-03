@@ -15,6 +15,13 @@ public class PreguntasService {
         return em.createNamedQuery("Preguntas.findAll", Preguntas.class).getResultList();
     }
 
+    //obtener preguntas segun el parametro de busqueda
+    public List<Preguntas> getPreguntasBySearch(String categoria) {
+        return em.createNamedQuery("Preguntas.findByCategoria", Preguntas.class)
+                .setParameter("categoria", categoria)
+                .getResultList();
+    }
+
     public void close() {
         em.close();
         emf.close();

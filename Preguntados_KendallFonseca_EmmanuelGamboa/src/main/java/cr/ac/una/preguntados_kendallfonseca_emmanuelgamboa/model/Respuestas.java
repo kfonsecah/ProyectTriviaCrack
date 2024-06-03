@@ -23,6 +23,7 @@ import java.math.BigInteger;
     @NamedQuery(name = "Respuestas.findByEsCorrecta", query = "SELECT r FROM Respuestas r WHERE r.esCorrecta = :esCorrecta"),
     @NamedQuery(name = "Respuestas.findByVecesSeleccionada", query = "SELECT r FROM Respuestas r WHERE r.vecesSeleccionada = :vecesSeleccionada"),
     @NamedQuery(name = "Respuestas.findByVersion", query = "SELECT r FROM Respuestas r WHERE r.version = :version")})
+    @NamedQuery(name = "Respuestas.findByPregunta", query = "SELECT r FROM Respuestas r WHERE r.idPregunta = :idPregunta")
 public class Respuestas implements Serializable {
 
     private static final long serialVersionUID = 1L;

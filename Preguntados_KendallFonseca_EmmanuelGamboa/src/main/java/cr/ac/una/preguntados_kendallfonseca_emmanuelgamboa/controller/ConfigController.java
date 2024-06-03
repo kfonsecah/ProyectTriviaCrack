@@ -81,12 +81,14 @@ public class ConfigController extends Controller implements Initializable {
 
     @FXML
     void onActionBtnAlbert(ActionEvent event) {
+        AppContext.getInstance().set("Criteriodebusqueda", "Ciencia");
         animationManager.playSound(Sound_Open);
         FlowController.getInstance().goView("MantQuestionsView");
     }
 
     @FXML
     void onActionBtnArthur(ActionEvent event) {
+        AppContext.getInstance().set("Criteriodebusqueda", "Historia");
         animationManager.playSound(Sound_Open);
         FlowController.getInstance().goView("MantQuestionsView");
 
@@ -95,18 +97,21 @@ public class ConfigController extends Controller implements Initializable {
 
     @FXML
     void onActionBtnBonzo(ActionEvent event) {
+        AppContext.getInstance().set("Criteriodebusqueda", "Deportes");
         animationManager.playSound(Sound_Open);
         FlowController.getInstance().goView("MantQuestionsView");
     }
 
     @FXML
     void onActionBtnGoBack(ActionEvent event) {
+        AppContext.getInstance().set("Criteriodebusqueda", "");
         FlowController.getInstance().goView("StartMenuView");
         animationManager.playSound(Sound_Click);
     }
 
     @FXML
     void onActionBtnLeonardo(ActionEvent event) {
+        AppContext.getInstance().set("Criteriodebusqueda", "Arte");
         animationManager.playSound(Sound_Open);
         FlowController.getInstance().goView("MantQuestionsView");
 
@@ -114,6 +119,7 @@ public class ConfigController extends Controller implements Initializable {
 
     @FXML
     void onActionBtnPalomitas(ActionEvent event) {
+        AppContext.getInstance().set("Criteriodebusqueda", "Pop");
         animationManager.playSound(Sound_Open);
         FlowController.getInstance().goView("MantQuestionsView");
 
@@ -121,6 +127,7 @@ public class ConfigController extends Controller implements Initializable {
 
     @FXML
     void onActionBtnTito(ActionEvent event) {
+        AppContext.getInstance().set("Criteriodebusqueda", "Geografia");
         animationManager.playSound(Sound_Open);
         FlowController.getInstance().goView("MantQuestionsView");
     }
@@ -128,31 +135,6 @@ public class ConfigController extends Controller implements Initializable {
     @FXML
     void onActionBtnInformation(ActionEvent event) {
         animationManager.fadeIn(txtDialog);
-
-
-
-
-
-
-//        // Crear el contenido del diálogo
-//        MFXGenericDialog dialogContent = new MFXGenericDialog("Información", "" +
-//                "Este es el cuadro de diálogo de información.");
-//        dialogContent.setShowClose(true);
-//
-//        dialogContent.setShowMinimize(false);
-//        dialogContent.setShowAlwaysOnTop(false);
-//
-//
-//        // Crear el MFXStageDialog y configurarlo
-//        MFXStageDialog dialog = new MFXStageDialog(dialogContent);
-//        dialog.setOwnerNode(root); // Establecer el propietario del diálogo
-//        dialog.setDraggable(true); // Hacer el dialogo arrastrable
-//        dialog.setScrimOwner(true); // Aplicar un scrim (fondo oscuro) al propietario
-//        dialog.setScrimStrength(0.7); // Configurar la opacidad del scrim
-//        dialog.setCenterInOwnerNode(true); // Centrar el diálogo en el nodo propietario
-//
-//        // Mostrar el diálogo
-//        dialog.show();
     }
 
 

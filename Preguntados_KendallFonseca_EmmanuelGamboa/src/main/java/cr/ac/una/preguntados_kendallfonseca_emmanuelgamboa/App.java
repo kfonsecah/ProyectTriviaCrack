@@ -22,10 +22,5 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
 
-        // Probar entity creando nuevo jugador
-        EntityManager em = EntityManagerHelper.getManager();
-        em.getTransaction().begin();
-        em.createNativeQuery("INSERT INTO jugadores (nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas) VALUES ('Kendall Fonseca', 'lksdklda@', 2, 2, 2)").executeUpdate();
-        em.getTransaction().commit();
     }
 }

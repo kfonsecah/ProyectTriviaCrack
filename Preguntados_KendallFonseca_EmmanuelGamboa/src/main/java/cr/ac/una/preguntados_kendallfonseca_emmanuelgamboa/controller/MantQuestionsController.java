@@ -5,8 +5,11 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Preguntas;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Respuestas;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.PreguntasService;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.RespuestasService;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AppContext;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.FlowController;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
@@ -61,7 +64,7 @@ public class MantQuestionsController extends Controller implements Initializable
     private MFXComboBox<?> searchCriterion;
 
     @FXML
-    private TableView<?> tblAnswers;
+    private TableView<Respuestas> tblAnswers;
 
     @FXML
     private TableView<Preguntas> tblQuestions;
@@ -81,25 +84,87 @@ public class MantQuestionsController extends Controller implements Initializable
     @FXML
     private TableColumn<Preguntas, Long> colVecesAcertada;
 
+    @FXML
+    private MFXTextField contentPregunta;
+
+    @FXML
+    private MFXTextField contentRespuesta1;
+
+    @FXML
+    private MFXTextField contentRespuesta2;
+
+    @FXML
+    private MFXTextField contentRespuesta3;
+
+    @FXML
+    private MFXTextField contentRespuesta4;
+
     private PreguntasService preguntasService;
+    private RespuestasService respuestasService;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
         preguntasService = new PreguntasService();
+        respuestasService = new RespuestasService();
         initializeTableView();
-        loadPreguntas();
+
 
     }
     private void loadPreguntas() {
-        List<Preguntas> preguntasList = preguntasService.getAllPreguntas();
+        List<Preguntas> preguntasList = preguntasService.getPreguntasBySearch(AppContext.getInstance().get("Criteriodebusqueda").toString());
         ObservableList<Preguntas> preguntasObservableList = FXCollections.observableArrayList(preguntasList);
         tblQuestions.setItems(preguntasObservableList);
+
+    }
+
+    private void loadRespuestas() {
+
+        tblQuestions.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                Preguntas pregunta = tblQuestions.getSelectionModel().getSelectedItem();
+                contentPregunta.setText(pregunta.getPreguntaTexto());
+                List<Respuestas> respuestasList = respuestasService.getRespuestasByPregunta(pregunta);
+                ObservableList<Respuestas> respuestasObservableList = FXCollections.observableArrayList(respuestasList);
+
+                contentRespuesta1.clear();
+                contentRespuesta2.clear();
+                contentRespuesta3.clear();
+                contentRespuesta4.clear();
+
+
+                int correctAnswerCount = 0;
+                int incorrectAnswerCount = 0;
+
+                for (Respuestas respuesta : respuestasObservableList) {
+                    if (respuesta.getEsCorrecta().equals("Y")) {
+                        if (correctAnswerCount == 0) {
+                            contentRespuesta1.setText(respuesta.getRespuestaTexto());
+                            correctAnswerCount++;
+                        }
+                    } else {
+                        switch (incorrectAnswerCount) {
+                            case 0:
+                                contentRespuesta2.setText(respuesta.getRespuestaTexto());
+                                break;
+                            case 1:
+                                contentRespuesta3.setText(respuesta.getRespuestaTexto());
+                                break;
+                            case 2:
+                                contentRespuesta4.setText(respuesta.getRespuestaTexto());
+                                break;
+                        }
+                        incorrectAnswerCount++;
+                    }
+                }
+            }
+        });
     }
 
 
     @Override
     public void initialize() {
-        // TODO
+        loadPreguntas();
+        loadRespuestas();
     }
 
     private void initializeTableView() {
@@ -112,6 +177,7 @@ public class MantQuestionsController extends Controller implements Initializable
 
     @FXML
     void onActionBtnAdd(ActionEvent event) {
+
 
     }
 
@@ -137,6 +203,7 @@ public class MantQuestionsController extends Controller implements Initializable
 
     @FXML
     void onActionBtnGoBack(ActionEvent event) {
+        AppContext.getInstance().delete("Criteriodebusqueda");
         FlowController.getInstance().goView("ConfigView");
         animationManager.playSound(Sound_Click);
 

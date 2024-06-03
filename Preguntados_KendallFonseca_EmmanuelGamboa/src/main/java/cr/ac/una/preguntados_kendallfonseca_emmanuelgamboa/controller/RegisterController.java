@@ -26,8 +26,7 @@ public class RegisterController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        txtNombre.delegateSetTextFormatter(Formato.getInstance().letrasFormat(30));
-
+        txtNombre.delegateSetTextFormatter(Formato.getInstance().letrasFormat(15));
     }
 
     public void initialize() {
