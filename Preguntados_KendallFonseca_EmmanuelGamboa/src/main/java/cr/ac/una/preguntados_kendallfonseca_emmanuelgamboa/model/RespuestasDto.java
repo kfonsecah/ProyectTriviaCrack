@@ -10,39 +10,36 @@ public class RespuestasDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public LongProperty idRespuesta;
-    public StringProperty respuestaTexto;
-    public StringProperty esCorrecta;
-    public LongProperty vecesSeleccionada;
-    public LongProperty version;
+    public SimpleStringProperty idRespuesta;
+    public SimpleStringProperty respuestaTexto;
+    public SimpleStringProperty esCorrecta;
+    public SimpleStringProperty  vecesSeleccionada;
+    public SimpleStringProperty version;
     private PreguntasDto idPregunta;
 
     public RespuestasDto() {
-        this.idRespuesta = new SimpleLongProperty();
+        this.idRespuesta = new SimpleStringProperty("");
         this.respuestaTexto = new SimpleStringProperty("");
         this.esCorrecta = new SimpleStringProperty("");
-        this.vecesSeleccionada = new SimpleLongProperty(0);
-        this.version = new SimpleLongProperty();
+        this.vecesSeleccionada = new SimpleStringProperty("0");
+        this.idPregunta = new PreguntasDto();
     }
 
     public RespuestasDto(Respuestas respuesta) {
         this();
-        this.idRespuesta.set(respuesta.getIdRespuesta());
+        this.idRespuesta.set(respuesta.getIdRespuesta().toString());
         this.respuestaTexto.set(respuesta.getRespuestaTexto());
         this.esCorrecta.set(respuesta.getEsCorrecta());
-        this.vecesSeleccionada.set(respuesta.getVecesSeleccionada());
-        this.version.set(respuesta.getVersion());
-        if (respuesta.getIdPregunta() != null) {
-            this.idPregunta = new PreguntasDto(respuesta.getIdPregunta());
-        }
+        this.vecesSeleccionada.set(respuesta.getVecesSeleccionada().toString());
+
     }
 
     public Long getIdRespuesta() {
-        return idRespuesta.get();
+        return Long.valueOf(idRespuesta.get());
     }
 
     public void setIdRespuesta(Long idRespuesta) {
-        this.idRespuesta.set(idRespuesta);
+        this.idRespuesta.set(idRespuesta.toString());
     }
 
     public String getRespuestaTexto() {
@@ -62,19 +59,19 @@ public class RespuestasDto implements Serializable {
     }
 
     public Long getVecesSeleccionada() {
-        return vecesSeleccionada.get();
+        return Long.valueOf(vecesSeleccionada.get());
     }
 
     public void setVecesSeleccionada(Long vecesSeleccionada) {
-        this.vecesSeleccionada.set(vecesSeleccionada);
+        this.vecesSeleccionada.set(vecesSeleccionada.toString());
     }
 
     public Long getVersion() {
-        return version.get();
+        return Long.valueOf(version.get());
     }
 
     public void setVersion(Long version) {
-        this.version.set(version);
+        this.version.set(version.toString());
     }
 
     public PreguntasDto getIdPregunta() {

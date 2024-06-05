@@ -13,44 +13,44 @@ public class PreguntasDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public SimpleLongProperty idPregunta;
+    public SimpleStringProperty idPregunta;
     public SimpleStringProperty categoria;
     public SimpleStringProperty preguntaTexto;
-    public SimpleLongProperty vecesRespondida;
-    public SimpleLongProperty vecesAcertada;
-    public SimpleLongProperty version;
+    public SimpleStringProperty vecesRespondida;
+    public SimpleStringProperty vecesAcertada;
+    public SimpleStringProperty version;
     public SimpleStringProperty estado;
     public List<RespuestasDto> respuestasList;
 
     public PreguntasDto() {
-        this.idPregunta = new SimpleLongProperty();
+        this.idPregunta = new SimpleStringProperty("");
         this.categoria = new SimpleStringProperty("");
         this.preguntaTexto = new SimpleStringProperty("");
-        this.vecesRespondida = new SimpleLongProperty();
-        this.vecesAcertada = new SimpleLongProperty();
+        this.vecesRespondida = new SimpleStringProperty("0");
+        this.vecesAcertada = new SimpleStringProperty("0");
         this.estado = new SimpleStringProperty("A");
-        this.version = new SimpleLongProperty();
+        this.version = new SimpleStringProperty("0");
         this.respuestasList = new ArrayList<>();
     }
 
     public PreguntasDto(Preguntas pregunta) {
         this();
-        this.idPregunta.set(pregunta.getIdPregunta());
+        this.idPregunta.set(pregunta.getIdPregunta().toString());
         this.categoria.set(pregunta.getCategoria());
         this.preguntaTexto.set(pregunta.getPreguntaTexto());
-        this.vecesRespondida.set(pregunta.getVecesRespondida());
-        this.vecesAcertada.set(pregunta.getVecesAcertada());
+        this.vecesRespondida.set(pregunta.getVecesRespondida()
+                != null ? pregunta.getVecesRespondida().toString() : "0");//si es null se pone 0, si no se pone el valor
+        this.vecesAcertada.set(pregunta.getVecesAcertada()
+                != null ? pregunta.getVecesAcertada().toString() : "0");
         this.estado.set(pregunta.getEstado());
-        this.version.set(pregunta.getVersion());
-
     }
 
     public Long getIdPregunta() {
-        return idPregunta.get();
+        return Long.valueOf(idPregunta.get());
     }
 
     public void setIdPregunta(Long idPregunta) {
-        this.idPregunta.set(idPregunta);
+        this.idPregunta.set(idPregunta.toString());
     }
 
     public String getCategoria() {
@@ -70,27 +70,27 @@ public class PreguntasDto implements Serializable {
     }
 
     public Long getVecesRespondida() {
-        return vecesRespondida.get();
+        return Long.valueOf(vecesRespondida.get());
     }
 
     public void setVecesRespondida(Long vecesRespondida) {
-        this.vecesRespondida.set(vecesRespondida);
+        this.vecesRespondida.set(vecesRespondida.toString());
     }
 
     public Long getVecesAcertada() {
-        return vecesAcertada.get();
+        return Long.valueOf(vecesAcertada.get());
     }
 
     public void setVecesAcertada(Long vecesAcertada) {
-        this.vecesAcertada.set(vecesAcertada);
+        this.vecesAcertada.set(vecesAcertada.toString());
     }
 
     public Long getVersion() {
-        return version.get();
+        return Long.valueOf(version.get());
     }
 
     public void setVersion(Long version) {
-        this.version.set(version);
+        this.version.set(version.toString());
     }
 
     public String getEstado() {

@@ -44,8 +44,8 @@ public class Respuestas implements Serializable {
     @Version
     @Column(name = "VERSION")
     public Long version;
+    @ManyToOne(cascade = CascadeType.REMOVE, optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_PREGUNTA", referencedColumnName = "ID_PREGUNTA")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     public Preguntas idPregunta;
 
     public Respuestas() {

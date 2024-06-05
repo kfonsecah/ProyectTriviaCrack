@@ -109,15 +109,44 @@ public class MantQuestionsController extends Controller implements Initializable
 
     private PreguntasService preguntasService;
 
-    private RespuestasService respuestasService;
+    private PreguntasDto currentPreguntaDto;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
         preguntasService = new PreguntasService();
-        respuestasService = new RespuestasService();
+
         btnAdd.setDisable(true);
         initializeTableView();
+
+
+        tblQuestions.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (oldSelection != null) {
+                unbindPreguntas(oldSelection);
+            }
+            if (newSelection != null) {
+                bindPreguntas(newSelection);
+            }
+        });
+
+        loadPreguntas();
     }
+
+    @Override
+    public void initialize() {
+        loadPreguntas();
+        loadToPanel();
+    }
+
+    private void initializeTableView() {
+        colIdPregunta.setCellValueFactory(new PropertyValueFactory<>("idPregunta"));
+        colCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        colPreguntaTexto.setCellValueFactory(new PropertyValueFactory<>("preguntaTexto"));
+        colVecesRespondida.setCellValueFactory(new PropertyValueFactory<>("vecesRespondida"));
+        colVecesAcertada.setCellValueFactory(new PropertyValueFactory<>("vecesAcertada"));
+        colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+    }
+
     private void loadPreguntas() {
         Respuesta respuesta = preguntasService.getPreguntasBySearch(AppContext.getInstance().get("Criteriodebusqueda").toString());
         if (!respuesta.getEstado()) {
@@ -132,70 +161,58 @@ public class MantQuestionsController extends Controller implements Initializable
         }
     }
 
-    private void loadRespuestas() {
-        tblQuestions.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if (newSelection != null) {
-                PreguntasDto pregunta = tblQuestions.getSelectionModel().getSelectedItem();
-                contentPregunta.setText(pregunta.getPreguntaTexto());
-                List<RespuestasDto> respuestasList = preguntasService.getRespuestasByPregunta(pregunta);
+    private void bindPreguntas(PreguntasDto preguntaDto) {
+        this.currentPreguntaDto = preguntaDto;
 
-                // Verificacion para asegurarse de que la lista de respuestas no sea nula
-                if (respuestasList != null) {
-                    ObservableList<RespuestasDto> respuestasObservableList = FXCollections.observableArrayList(respuestasList);
+        contentPregunta.textProperty().bindBidirectional(preguntaDto.preguntaTexto);
 
-                    contentRespuesta1.clear();
-                    contentRespuesta2.clear();
-                    contentRespuesta3.clear();
-                    contentRespuesta4.clear();
+        int correctAnswer = 0;
+        int incorrectAnswer = 0;
 
-                    int correctAnswerCount = 0;
-                    int incorrectAnswerCount = 0;
-
-                    for (RespuestasDto respuesta : respuestasObservableList) {
-                        if (respuesta.getEsCorrecta().equals("Y")) {
-                            if (correctAnswerCount == 0) {
-                                contentRespuesta1.setText(respuesta.getRespuestaTexto());
-                                correctAnswerCount++;
-                            }
-                        } else {
-                            switch (incorrectAnswerCount) {
-                                case 0:
-                                    contentRespuesta2.setText(respuesta.getRespuestaTexto());
-                                    break;
-                                case 1:
-                                    contentRespuesta3.setText(respuesta.getRespuestaTexto());
-                                    break;
-                                case 2:
-                                    contentRespuesta4.setText(respuesta.getRespuestaTexto());
-                                    break;
-                            }
-                            incorrectAnswerCount++;
-                        }
-                    }
-                } else {
-                    // Manejar caso en el que la lista de respuestas es nula
-                    contentRespuesta1.clear();
-                    contentRespuesta2.clear();
-                    contentRespuesta3.clear();
-                    contentRespuesta4.clear();
+        for (RespuestasDto respuestaDto : preguntaDto.respuestasList) {
+            if (respuestaDto.esCorrecta.get().equals("Y")) {
+                if (correctAnswer == 0) {
+                    contentRespuesta1.textProperty().bindBidirectional(respuestaDto.respuestaTexto);
+                    correctAnswer++;
                 }
+            } else {
+                switch (incorrectAnswer) {
+                    case 0:
+                        contentRespuesta2.textProperty().bindBidirectional(respuestaDto.respuestaTexto);
+                        break;
+                    case 1:
+                        contentRespuesta3.textProperty().bindBidirectional(respuestaDto.respuestaTexto);
+                        break;
+                    case 2:
+                        contentRespuesta4.textProperty().bindBidirectional(respuestaDto.respuestaTexto);
+                        break;
+                }
+                incorrectAnswer++;
             }
-        });
+        }
+    }
+    private void unbindPreguntas(PreguntasDto preguntaDto) {
+        contentPregunta.textProperty().unbindBidirectional(preguntaDto.preguntaTexto);
+
+        for (RespuestasDto respuestaDto : preguntaDto.respuestasList) {
+            contentRespuesta1.textProperty().unbindBidirectional(respuestaDto.respuestaTexto);
+            contentRespuesta2.textProperty().unbindBidirectional(respuestaDto.respuestaTexto);
+            contentRespuesta3.textProperty().unbindBidirectional(respuestaDto.respuestaTexto);
+            contentRespuesta4.textProperty().unbindBidirectional(respuestaDto.respuestaTexto);
+        }
+
+        contentPregunta.clear();
+        contentRespuesta1.clear();
+        contentRespuesta2.clear();
+        contentRespuesta3.clear();
+        contentRespuesta4.clear();
     }
 
-    @Override
-    public void initialize() {
-        loadPreguntas();
+    private void loadToPanel() {
+
     }
 
-    private void initializeTableView() {
-        colIdPregunta.setCellValueFactory(new PropertyValueFactory<>("idPregunta"));
-        colCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
-        colPreguntaTexto.setCellValueFactory(new PropertyValueFactory<>("preguntaTexto"));
-        colVecesRespondida.setCellValueFactory(new PropertyValueFactory<>("vecesRespondida"));
-        colVecesAcertada.setCellValueFactory(new PropertyValueFactory<>("vecesAcertada"));
-        colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-    }
+
     @FXML
     void onActionBtnNueva(ActionEvent event) {
         btnAdd.setDisable(false);
@@ -214,6 +231,7 @@ public class MantQuestionsController extends Controller implements Initializable
 
     private void nuevaPregunta(){
         PreguntasDto pregunta = new PreguntasDto();
+        bindPreguntas(pregunta);
     }
 
     @FXML
@@ -231,28 +249,28 @@ public class MantQuestionsController extends Controller implements Initializable
             PreguntasDto preguntaDto = new PreguntasDto();
             preguntaDto.setPreguntaTexto(pregunta);
             preguntaDto.setCategoria(AppContext.getInstance().get("Criteriodebusqueda").toString());
-            preguntaDto.setVecesRespondida(Long.valueOf(0));
-            preguntaDto.setVecesAcertada(Long.valueOf(0));
 
             RespuestasDto respuesta1Dto = new RespuestasDto();
             respuesta1Dto.setRespuestaTexto(respuesta1);
             respuesta1Dto.setEsCorrecta("Y");
+            preguntaDto.respuestasList.add(respuesta1Dto);
 
             RespuestasDto respuesta2Dto = new RespuestasDto();
             respuesta2Dto.setRespuestaTexto(respuesta2);
             respuesta2Dto.setEsCorrecta("N");
+            preguntaDto.respuestasList.add(respuesta2Dto);
 
             RespuestasDto respuesta3Dto = new RespuestasDto();
             respuesta3Dto.setRespuestaTexto(respuesta3);
             respuesta3Dto.setEsCorrecta("N");
+            preguntaDto.respuestasList.add(respuesta3Dto);
 
             RespuestasDto respuesta4Dto = new RespuestasDto();
             respuesta4Dto.setRespuestaTexto(respuesta4);
             respuesta4Dto.setEsCorrecta("N");
+            preguntaDto.respuestasList.add(respuesta4Dto);
 
-            List<RespuestasDto> respuestas = List.of(respuesta1Dto, respuesta2Dto, respuesta3Dto, respuesta4Dto);
-
-            Respuesta respuesta = preguntasService.addPregunta(preguntaDto, respuestas);
+            Respuesta respuesta = preguntasService.addPregunta(preguntaDto);
 
             if (!respuesta.getEstado()) {
                 animationManager.playSound(Sound_Click);
@@ -261,18 +279,9 @@ public class MantQuestionsController extends Controller implements Initializable
                 animationManager.playSound(Sound_Click);
                 new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta guardada correctamente.");
                 loadPreguntas();
-                loadRespuestas();
-
-
+                loadToPanel();
             }
-
         }
-
-
-
-
-
-
     }
 
     @FXML
@@ -287,15 +296,18 @@ public class MantQuestionsController extends Controller implements Initializable
             new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta desactivada correctamente.");
             //cambiar color de la pregunta desactivada
             loadPreguntas();
-
-            loadRespuestas();
+            loadToPanel();
         }
 
     }
 
     @FXML
     void onActionBtnDelete(ActionEvent event) {
-
+        if (tblQuestions.getSelectionModel().getSelectedItem() == null) {
+         animationManager.playSound(Sound_Click);
+         new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Debe seleccionar una pregunta.");
+         return;
+     }
      PreguntasDto pregunta= tblQuestions.getSelectionModel().getSelectedItem();
      Respuesta respuesta = preguntasService.deletePregunta(pregunta);
      if (!respuesta.getEstado()) {
@@ -305,7 +317,7 @@ public class MantQuestionsController extends Controller implements Initializable
             animationManager.playSound(Sound_Click);
             new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta eliminada correctamente.");
             loadPreguntas();
-            loadRespuestas();
+            loadToPanel();
      }
 
     }

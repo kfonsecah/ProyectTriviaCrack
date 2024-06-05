@@ -50,7 +50,7 @@ public class Preguntas implements Serializable {
     @Version
     @Column(name = "VERSION")
     public Long version;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPregunta", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPregunta", fetch = FetchType.EAGER, orphanRemoval = true)
     public List<Respuestas> respuestasList;
 
     public Preguntas() {

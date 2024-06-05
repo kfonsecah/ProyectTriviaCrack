@@ -34,16 +34,28 @@ public class PreguntasService {
             return new Respuesta(false, "No se encontraron preguntas asociadas a esta categoria.", "getPreguntasBySearch");
         }
         else {
+
+           for (Preguntas pregunta : preguntasList) {
+               for (PreguntasDto preguntasDto : preguntasDtoList) {
+                   List<Respuestas> respuestasList = pregunta.getRespuestasList();
+                   List<RespuestasDto> respuestasDtoList = new ArrayList<>();
+                   for (Respuestas respuesta : respuestasList) {
+                       respuestasDtoList.add(new RespuestasDto(respuesta));
+                   }
+                   preguntasDto.setRespuestasList(respuestasDtoList);
+               }
+            }
+
             return new Respuesta(true, "", "", "Preguntas", preguntasDtoList);
         }
     }
 
-    public Respuesta addPregunta(PreguntasDto preguntaDto, List<RespuestasDto> respuestasDtos) {
+    public Respuesta addPregunta(PreguntasDto preguntaDto) {
         try {
-            et= em.getTransaction();
+            et = em.getTransaction();
             et.begin();
 
-            // Convertir PreguntasDto a Preguntas, con metodo actualizar hubiese sido mas facil
+            // Convertir PreguntasDto a Preguntas
             Preguntas pregunta = new Preguntas();
             pregunta.setCategoria(preguntaDto.getCategoria());
             pregunta.setPreguntaTexto(preguntaDto.getPreguntaTexto());
@@ -51,41 +63,35 @@ public class PreguntasService {
             pregunta.setVecesAcertada(preguntaDto.getVecesAcertada());
             pregunta.setEstado(preguntaDto.getEstado());
 
-            // Persistir la pregunta
-            em.persist(pregunta);
-            em.flush();
-
-            // Convertir RespuestasDto a Respuestas y persistir
-            for (RespuestasDto respuestasDto : respuestasDtos) {
+            List<Respuestas> respuestasList = new ArrayList<>();
+            for (RespuestasDto respuestasDto : preguntaDto.getRespuestasList()) {
                 Respuestas respuesta = new Respuestas();
                 respuesta.setRespuestaTexto(respuestasDto.getRespuestaTexto());
                 respuesta.setEsCorrecta(respuestasDto.getEsCorrecta());
                 respuesta.setVecesSeleccionada(respuestasDto.getVecesSeleccionada());
-                respuesta.setIdPregunta(pregunta); // Establecer relacion con la pregunta
-
-                em.persist(respuesta);
+                respuesta.setIdPregunta(pregunta);
+                respuestasList.add(respuesta);
             }
-            em.flush();
+
+            pregunta.setRespuestasList(respuestasList);
+
+
+            em.persist(pregunta);
+
+
             et.commit();
 
-            em.refresh(pregunta);
             return new Respuesta(true, "", "", "Pregunta", new PreguntasDto(pregunta));
         } catch (Exception ex) {
-            if (em.getTransaction().isActive()) {
+            if (et != null && et.isActive()) {
                 et.rollback();
             }
+            ex.printStackTrace();
             return new Respuesta(false, "Error al guardar la pregunta.", "addPregunta " + ex.getMessage());
         }
     }
 
-    public List<RespuestasDto> getRespuestasByPregunta(PreguntasDto preguntaDto) {
-        Preguntas pregunta = em.find(Preguntas.class, preguntaDto.getIdPregunta());
-        if (pregunta != null) {
-            List<Respuestas> respuestasList = pregunta.getRespuestasList();
-            return respuestasList.stream().map(RespuestasDto::new).collect(Collectors.toList());
-        }
-        return null;
-    }
+
 
     public Respuesta deletePregunta(PreguntasDto preguntaDto) {
         try {
@@ -93,9 +99,6 @@ public class PreguntasService {
             et.begin();
             Preguntas pregunta = em.find(Preguntas.class, preguntaDto.getIdPregunta());
             if (pregunta != null) {
-                for (Respuestas respuesta : pregunta.getRespuestasList()) {
-                    em.remove(respuesta);
-                }
                 em.remove(pregunta);
                 et.commit();
                 return new Respuesta(true, "", "", "Pregunta eliminada correctamente", null);
