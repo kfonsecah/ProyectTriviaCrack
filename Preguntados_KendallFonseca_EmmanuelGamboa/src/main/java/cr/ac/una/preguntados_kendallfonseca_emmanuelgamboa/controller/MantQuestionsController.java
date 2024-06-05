@@ -26,6 +26,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.control.TableColumn;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -107,6 +108,7 @@ public class MantQuestionsController extends Controller implements Initializable
     private MFXButton btnNuevaPregunta;
 
     private PreguntasService preguntasService;
+
     private RespuestasService respuestasService;
 
     @Override
@@ -115,15 +117,19 @@ public class MantQuestionsController extends Controller implements Initializable
         respuestasService = new RespuestasService();
         btnAdd.setDisable(true);
         initializeTableView();
-
-
     }
     private void loadPreguntas() {
-        List<PreguntasDto> preguntasList = preguntasService.getPreguntasBySearch(AppContext.getInstance().get("Criteriodebusqueda").toString());
-        ObservableList<PreguntasDto> preguntasObservableList = FXCollections.observableArrayList(preguntasList);
-        tblQuestions.setItems(preguntasObservableList);
-
-
+        Respuesta respuesta = preguntasService.getPreguntasBySearch(AppContext.getInstance().get("Criteriodebusqueda").toString());
+        if (!respuesta.getEstado()) {
+            animationManager.playSound(Sound_Click);
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
+            tblQuestions.getItems().clear();
+        } else {
+           tblQuestions.getItems().clear();
+           List<PreguntasDto> preguntasList = (List<PreguntasDto>) respuesta.getResultado("Preguntas");
+           ObservableList<PreguntasDto> preguntasObservableList = FXCollections.observableArrayList(preguntasList);
+           tblQuestions.setItems(preguntasObservableList);
+        }
     }
 
     private void loadRespuestas() {
@@ -180,7 +186,6 @@ public class MantQuestionsController extends Controller implements Initializable
     @Override
     public void initialize() {
         loadPreguntas();
-        loadRespuestas();
     }
 
     private void initializeTableView() {

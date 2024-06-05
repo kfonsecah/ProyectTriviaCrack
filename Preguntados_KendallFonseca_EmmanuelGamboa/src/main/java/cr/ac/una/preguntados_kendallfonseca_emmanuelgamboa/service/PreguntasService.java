@@ -7,6 +7,7 @@ import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.RespuestasDto;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Respuesta;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,11 +22,20 @@ public class PreguntasService {
     }
 
     //obtener preguntas segun el parametro de busqueda
-    public List<PreguntasDto> getPreguntasBySearch(String categoria) {
+    public Respuesta getPreguntasBySearch(String categoria) {
         List<Preguntas> preguntasList = em.createNamedQuery("Preguntas.findByCategoria", Preguntas.class)
                 .setParameter("categoria", categoria)
                 .getResultList();
-        return preguntasList.stream().map(PreguntasDto::new).collect(Collectors.toList());
+        List<PreguntasDto> preguntasDtoList = new ArrayList<>();
+        for (Preguntas pregunta : preguntasList) {
+            preguntasDtoList.add(new PreguntasDto(pregunta));
+        }
+        if (preguntasDtoList.isEmpty() || preguntasDtoList == null) {
+            return new Respuesta(false, "No se encontraron preguntas asociadas a esta categoria.", "getPreguntasBySearch");
+        }
+        else {
+            return new Respuesta(true, "", "", "Preguntas", preguntasDtoList);
+        }
     }
 
     public Respuesta addPregunta(PreguntasDto preguntaDto, List<RespuestasDto> respuestasDtos) {

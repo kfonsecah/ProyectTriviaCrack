@@ -30,7 +30,7 @@ public class PreguntasDto implements Serializable {
         this.vecesAcertada = new SimpleLongProperty();
         this.estado = new SimpleStringProperty("A");
         this.version = new SimpleLongProperty();
-        this.respuestasList = null;
+        this.respuestasList = new ArrayList<>();
     }
 
     public PreguntasDto(Preguntas pregunta) {
@@ -42,7 +42,7 @@ public class PreguntasDto implements Serializable {
         this.vecesAcertada.set(pregunta.getVecesAcertada());
         this.estado.set(pregunta.getEstado());
         this.version.set(pregunta.getVersion());
-        this.respuestasList = new ArrayList<>();
+
     }
 
     public Long getIdPregunta() {
@@ -92,9 +92,20 @@ public class PreguntasDto implements Serializable {
     public void setVersion(Long version) {
         this.version.set(version);
     }
+
     public String getEstado() {
         return estado.get();
     }
+
+    public List<RespuestasDto> getRespuestasList() {
+        return respuestasList;
+    }
+
+    public void setRespuestasList(List<RespuestasDto> respuestasList) {
+        this.respuestasList = respuestasList;
+    }
+
+
     public void setEstado(String estado) {
         this.estado.set(estado);
     }
@@ -122,8 +133,6 @@ public class PreguntasDto implements Serializable {
     public String toString() {
         return "cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PreguntasDto[ idPregunta=" + idPregunta + " ]";
     }
-
-    public List<RespuestasDto> getRespuestasList() {
-        return respuestasList;
-    }
 }
+
+
