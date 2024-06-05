@@ -115,7 +115,6 @@ public class MantQuestionsController extends Controller implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb){
         preguntasService = new PreguntasService();
-
         btnAdd.setDisable(true);
         initializeTableView();
 
@@ -129,7 +128,6 @@ public class MantQuestionsController extends Controller implements Initializable
             }
         });
 
-        loadPreguntas();
     }
 
     @Override
@@ -286,6 +284,11 @@ public class MantQuestionsController extends Controller implements Initializable
 
     @FXML
     void onActionBtnDeactivate(ActionEvent event) {
+        if (tblQuestions.getSelectionModel().getSelectedItem() == null) {
+            animationManager.playSound(Sound_Click);
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Debe seleccionar una pregunta.");
+            return;
+        }
         PreguntasDto pregunta= tblQuestions.getSelectionModel().getSelectedItem();
         Respuesta respuesta = preguntasService.deactivatePregunta(pregunta);
         if (!respuesta.getEstado()) {
