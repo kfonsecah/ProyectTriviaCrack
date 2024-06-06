@@ -34,19 +34,7 @@ public class PreguntasService {
             return new Respuesta(false, "No se encontraron preguntas asociadas a esta categoria.", "getPreguntasBySearch");
         }
         else {
-
-           for (Preguntas pregunta : preguntasList) {
-               for (PreguntasDto preguntasDto : preguntasDtoList) {
-                   List<Respuestas> respuestasList = pregunta.getRespuestasList();
-                   List<RespuestasDto> respuestasDtoList = new ArrayList<>();
-                   for (Respuestas respuesta : respuestasList) {
-                       respuestasDtoList.add(new RespuestasDto(respuesta));
-                   }
-                   preguntasDto.setRespuestasList(respuestasDtoList);
-               }
-            }
-
-            return new Respuesta(true, "", "", "Preguntas", preguntasDtoList);
+            return new Respuesta(true, "", "", "Preguntas" , preguntasDtoList);
         }
     }
 

@@ -3,6 +3,7 @@ package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -43,6 +44,12 @@ public class PreguntasDto implements Serializable {
         this.vecesAcertada.set(pregunta.getVecesAcertada()
                 != null ? pregunta.getVecesAcertada().toString() : "0");
         this.estado.set(pregunta.getEstado());
+
+
+        ArrayList<Respuestas> respuestas= new ArrayList<>(pregunta.getRespuestasList());
+        for (Respuestas respuesta : respuestas) {
+            this.respuestasList.add(new RespuestasDto(respuesta));
+        }
     }
 
     public Long getIdPregunta() {

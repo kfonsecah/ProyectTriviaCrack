@@ -118,14 +118,17 @@ public class MantQuestionsController extends Controller implements Initializable
         btnAdd.setDisable(true);
         initializeTableView();
 
+        currentPreguntaDto = new PreguntasDto();
+
 
         tblQuestions.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if (oldSelection != null) {
-                unbindPreguntas(oldSelection);
-            }
-            if (newSelection != null) {
-                bindPreguntas(newSelection);
-            }
+           if (oldSelection != null) {
+               unbindPreguntas(oldSelection);
+                }
+               bindPreguntas(newSelection);
+
+
+            btnAdd.setDisable(true);
         });
 
     }
@@ -133,7 +136,6 @@ public class MantQuestionsController extends Controller implements Initializable
     @Override
     public void initialize() {
         loadPreguntas();
-        loadToPanel();
     }
 
     private void initializeTableView() {
@@ -160,6 +162,7 @@ public class MantQuestionsController extends Controller implements Initializable
     }
 
     private void bindPreguntas(PreguntasDto preguntaDto) {
+
         this.currentPreguntaDto = preguntaDto;
 
         contentPregunta.textProperty().bindBidirectional(preguntaDto.preguntaTexto);
@@ -168,7 +171,7 @@ public class MantQuestionsController extends Controller implements Initializable
         int incorrectAnswer = 0;
 
         for (RespuestasDto respuestaDto : preguntaDto.respuestasList) {
-            if (respuestaDto.esCorrecta.get().equals("Y")) {
+            if (respuestaDto.getEsCorrecta().equals("Y")) {
                 if (correctAnswer == 0) {
                     contentRespuesta1.textProperty().bindBidirectional(respuestaDto.respuestaTexto);
                     correctAnswer++;
@@ -204,10 +207,6 @@ public class MantQuestionsController extends Controller implements Initializable
         contentRespuesta2.clear();
         contentRespuesta3.clear();
         contentRespuesta4.clear();
-    }
-
-    private void loadToPanel() {
-
     }
 
 
@@ -276,8 +275,11 @@ public class MantQuestionsController extends Controller implements Initializable
             } else {
                 animationManager.playSound(Sound_Click);
                 new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta guardada correctamente.");
+
+                nuevaPregunta();
+
                 loadPreguntas();
-                loadToPanel();
+
             }
         }
     }
@@ -297,9 +299,8 @@ public class MantQuestionsController extends Controller implements Initializable
         }else{
             animationManager.playSound(Sound_Click);
             new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta desactivada correctamente.");
-            //cambiar color de la pregunta desactivada
+
             loadPreguntas();
-            loadToPanel();
         }
 
     }
@@ -320,7 +321,7 @@ public class MantQuestionsController extends Controller implements Initializable
             animationManager.playSound(Sound_Click);
             new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta eliminada correctamente.");
             loadPreguntas();
-            loadToPanel();
+
      }
 
     }

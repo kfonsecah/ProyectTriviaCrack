@@ -8,6 +8,7 @@ module cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa {
     requires javafx.media;
     requires java.instrument;
     requires java.persistence;
+    requires com.oracle.database.jdbc;
 
     opens cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa to javafx.fxml, jakarta.persistence;
     opens cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller to javafx.fxml;

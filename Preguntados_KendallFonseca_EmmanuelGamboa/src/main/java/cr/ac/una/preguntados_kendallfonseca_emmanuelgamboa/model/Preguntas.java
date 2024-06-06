@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -121,7 +122,8 @@ public class Preguntas implements Serializable {
     }
 
     public List<Respuestas> getRespuestasList() {
-        return respuestasList;
+
+       return respuestasList;
     }
 
     public void setRespuestasList(List<Respuestas> respuestasList) {
