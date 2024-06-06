@@ -17,8 +17,15 @@ public class PreguntasService {
     private EntityManager em = emf.createEntityManager();
     private EntityTransaction et;
 
-    public List<Preguntas> getAllPreguntas() {
-        return em.createNamedQuery("Preguntas.findAll", Preguntas.class).getResultList();
+    public Respuesta getAllPreguntas() {
+        List<Preguntas> preguntasList = em.createNamedQuery("Preguntas.findAll", Preguntas.class).getResultList();
+        List<PreguntasDto> preguntasDtoList = preguntasList.stream().map(PreguntasDto::new).collect(Collectors.toList());
+        if (preguntasDtoList.isEmpty() || preguntasDtoList == null) {
+            return new Respuesta(false, "No se encontraron preguntas.", "getAllPreguntas");
+        }
+        else {
+            return new Respuesta(true, "", "", "Preguntas" , preguntasDtoList);
+        }
     }
 
     //obtener preguntas segun el parametro de busqueda
@@ -123,6 +130,50 @@ public class PreguntasService {
             return new Respuesta(false, "Error al desactivar la pregunta.", "deactivatePregunta " + ex.getMessage());
         }
     }
+
+    public Respuesta updatePregunta(PreguntasDto preguntaDto) {
+        try {
+            et = em.getTransaction();
+            et.begin();
+            Preguntas pregunta = em.find(Preguntas.class, preguntaDto.getIdPregunta());
+            if (pregunta != null) {
+                pregunta.setCategoria(preguntaDto.getCategoria());
+                pregunta.setPreguntaTexto(preguntaDto.getPreguntaTexto());
+                pregunta.setVecesRespondida(preguntaDto.getVecesRespondida());
+                pregunta.setVecesAcertada(preguntaDto.getVecesAcertada());
+                pregunta.setEstado(preguntaDto.getEstado());
+
+                // Actualizar las respuestas
+                List<Respuestas> respuestasList = pregunta.getRespuestasList();
+                respuestasList.clear();
+
+                for (RespuestasDto respuestasDto : preguntaDto.getRespuestasList()) {
+                    Respuestas respuesta = new Respuestas();
+                    respuesta.setRespuestaTexto(respuestasDto.getRespuestaTexto());
+                    respuesta.setEsCorrecta(respuestasDto.getEsCorrecta());
+                    respuesta.setVecesSeleccionada(respuestasDto.getVecesSeleccionada());
+                    respuesta.setIdPregunta(pregunta);
+                    respuestasList.add(respuesta);
+                }
+
+                pregunta.setRespuestasList(respuestasList);
+                em.merge(pregunta);
+                et.commit();
+                return new Respuesta(true, "", "", "Pregunta actualizada correctamente", new PreguntasDto(pregunta));
+            } else {
+                et.rollback();
+                return new Respuesta(false, "Pregunta no encontrada.", "updatePregunta");
+            }
+        } catch (Exception ex) {
+            if (em.getTransaction().isActive()) {
+                et.rollback();
+            }
+            return new Respuesta(false, "Error al actualizar la pregunta.", "updatePregunta " + ex.getMessage());
+        }
+    }
+
+
+
 
 }
 

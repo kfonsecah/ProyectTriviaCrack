@@ -4,12 +4,10 @@
  */
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 
-import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Preguntas;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PreguntasDto;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Respuestas;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.RespuestasDto;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.PreguntasService;
-import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.RespuestasService;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.*;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
@@ -26,8 +24,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.control.TableColumn;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MantQuestionsController extends Controller implements Initializable {
@@ -54,16 +52,18 @@ public class MantQuestionsController extends Controller implements Initializable
     private MFXButton btnEdit;
 
     @FXML
-    private MFXButton btnSearch;
+    private MFXButton btnConfirmEdit;
 
     @FXML
-    private MFXTextField fieldSearch;
+    private MFXButton btnSearch;
+
+
 
     @FXML
     private StackPane rainBackground;
 
     @FXML
-    private MFXComboBox<?> searchCriterion;
+    private MFXComboBox<String> searchCriterion;
 
     @FXML
     private TableView<Respuestas> tblAnswers;
@@ -111,24 +111,27 @@ public class MantQuestionsController extends Controller implements Initializable
 
     private PreguntasDto currentPreguntaDto;
 
-
     @Override
-    public void initialize(URL url, ResourceBundle rb){
+    public void initialize(URL url, ResourceBundle rb) {
         preguntasService = new PreguntasService();
         btnAdd.setDisable(true);
+        btnEdit.disarm();
+        btnConfirmEdit.setDisable(true);
         initializeTableView();
+
+
+        ObservableList<String> criterios = FXCollections.observableArrayList("Historia", "Geografia", "Ciencia", "Deportes", "Arte", "Pop");
+        searchCriterion.setItems(criterios);
 
         currentPreguntaDto = new PreguntasDto();
 
-
         tblQuestions.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-           if (oldSelection != null) {
-               unbindPreguntas(oldSelection);
-                }
-               bindPreguntas(newSelection);
-
-
+            if (oldSelection != null) {
+                unbindPreguntas(oldSelection);
+            }
+            bindPreguntas(newSelection);
             btnAdd.setDisable(true);
+            btnConfirmEdit.setDisable(true);
         });
 
     }
@@ -154,15 +157,14 @@ public class MantQuestionsController extends Controller implements Initializable
             new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
             tblQuestions.getItems().clear();
         } else {
-           tblQuestions.getItems().clear();
-           List<PreguntasDto> preguntasList = (List<PreguntasDto>) respuesta.getResultado("Preguntas");
-           ObservableList<PreguntasDto> preguntasObservableList = FXCollections.observableArrayList(preguntasList);
-           tblQuestions.setItems(preguntasObservableList);
+            tblQuestions.getItems().clear();
+            List<PreguntasDto> preguntasList = (List<PreguntasDto>) respuesta.getResultado("Preguntas");
+            ObservableList<PreguntasDto> preguntasObservableList = FXCollections.observableArrayList(preguntasList);
+            tblQuestions.setItems(preguntasObservableList);
         }
     }
 
     private void bindPreguntas(PreguntasDto preguntaDto) {
-
         this.currentPreguntaDto = preguntaDto;
 
         contentPregunta.textProperty().bindBidirectional(preguntaDto.preguntaTexto);
@@ -192,6 +194,7 @@ public class MantQuestionsController extends Controller implements Initializable
             }
         }
     }
+
     private void unbindPreguntas(PreguntasDto preguntaDto) {
         contentPregunta.textProperty().unbindBidirectional(preguntaDto.preguntaTexto);
 
@@ -209,7 +212,6 @@ public class MantQuestionsController extends Controller implements Initializable
         contentRespuesta4.clear();
     }
 
-
     @FXML
     void onActionBtnNueva(ActionEvent event) {
         btnAdd.setDisable(false);
@@ -223,16 +225,16 @@ public class MantQuestionsController extends Controller implements Initializable
         contentPregunta.requestFocus();
 
         nuevaPregunta();
-
     }
 
-    private void nuevaPregunta(){
+    private void nuevaPregunta() {
         PreguntasDto pregunta = new PreguntasDto();
         bindPreguntas(pregunta);
     }
 
     @FXML
     void onActionBtnAdd(ActionEvent event) {
+
         String pregunta = contentPregunta.getText();
         String respuesta1 = contentRespuesta1.getText();
         String respuesta2 = contentRespuesta2.getText();
@@ -279,9 +281,10 @@ public class MantQuestionsController extends Controller implements Initializable
                 nuevaPregunta();
 
                 loadPreguntas();
-
+                btnAdd.setDisable(true);
             }
         }
+
     }
 
     @FXML
@@ -291,58 +294,124 @@ public class MantQuestionsController extends Controller implements Initializable
             new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Debe seleccionar una pregunta.");
             return;
         }
-        PreguntasDto pregunta= tblQuestions.getSelectionModel().getSelectedItem();
+        PreguntasDto pregunta = tblQuestions.getSelectionModel().getSelectedItem();
         Respuesta respuesta = preguntasService.deactivatePregunta(pregunta);
         if (!respuesta.getEstado()) {
             animationManager.playSound(Sound_Click);
             new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Error al desactivar la pregunta.");
-        }else{
+        } else {
             animationManager.playSound(Sound_Click);
             new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta desactivada correctamente.");
 
             loadPreguntas();
         }
-
     }
 
     @FXML
     void onActionBtnDelete(ActionEvent event) {
         if (tblQuestions.getSelectionModel().getSelectedItem() == null) {
-         animationManager.playSound(Sound_Click);
-         new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Debe seleccionar una pregunta.");
-         return;
-     }
-     PreguntasDto pregunta= tblQuestions.getSelectionModel().getSelectedItem();
-     Respuesta respuesta = preguntasService.deletePregunta(pregunta);
-     if (!respuesta.getEstado()) {
-         animationManager.playSound(Sound_Click);
-         new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Error al eliminar la pregunta.");
-     }else{
+            animationManager.playSound(Sound_Click);
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Debe seleccionar una pregunta.");
+            return;
+        }
+        PreguntasDto pregunta = tblQuestions.getSelectionModel().getSelectedItem();
+        Respuesta respuesta = preguntasService.deletePregunta(pregunta);
+        if (!respuesta.getEstado()) {
+            animationManager.playSound(Sound_Click);
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Error al eliminar la pregunta.");
+        } else {
             animationManager.playSound(Sound_Click);
             new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta eliminada correctamente.");
             loadPreguntas();
-
-     }
-
+        }
     }
 
     @FXML
     void onActionBtnEdit(ActionEvent event) {
+        if (tblQuestions.getSelectionModel().getSelectedItem() == null) {
+            animationManager.playSound(Sound_Click);
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Debe seleccionar una pregunta.");
+            return;
+        }
+        contentPregunta.requestFocus();
+        btnConfirmEdit.setDisable(false);
+    }
 
+    @FXML
+    void onActionBtnConfirmEdit(ActionEvent event) {
+        if (tblQuestions.getSelectionModel().getSelectedItem() == null) {
+            animationManager.playSound(Sound_Click);
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Debe seleccionar una pregunta.");
+            return;
+        }
+
+        String pregunta = contentPregunta.getText();
+        String respuesta1 = contentRespuesta1.getText();
+        String respuesta2 = contentRespuesta2.getText();
+        String respuesta3 = contentRespuesta3.getText();
+        String respuesta4 = contentRespuesta4.getText();
+
+        if (pregunta.isEmpty() || respuesta1.isEmpty() || respuesta2.isEmpty() || respuesta3.isEmpty() || respuesta4.isEmpty()) {
+            animationManager.playSound(Sound_Click);
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Todos los campos son requeridos.");
+        } else {
+            PreguntasDto preguntaDto = tblQuestions.getSelectionModel().getSelectedItem();
+            preguntaDto.setPreguntaTexto(pregunta);
+
+            // Limpiar la lista de respuestas antes de agregar las nuevas
+            preguntaDto.getRespuestasList().clear();
+
+            RespuestasDto respuesta1Dto = new RespuestasDto();
+            respuesta1Dto.setRespuestaTexto(respuesta1);
+            respuesta1Dto.setEsCorrecta("Y");
+            preguntaDto.getRespuestasList().add(respuesta1Dto);
+
+            RespuestasDto respuesta2Dto = new RespuestasDto();
+            respuesta2Dto.setRespuestaTexto(respuesta2);
+            respuesta2Dto.setEsCorrecta("N");
+            preguntaDto.getRespuestasList().add(respuesta2Dto);
+
+            RespuestasDto respuesta3Dto = new RespuestasDto();
+            respuesta3Dto.setRespuestaTexto(respuesta3);
+            respuesta3Dto.setEsCorrecta("N");
+            preguntaDto.getRespuestasList().add(respuesta3Dto);
+
+            RespuestasDto respuesta4Dto = new RespuestasDto();
+            respuesta4Dto.setRespuestaTexto(respuesta4);
+            respuesta4Dto.setEsCorrecta("N");
+            preguntaDto.getRespuestasList().add(respuesta4Dto);
+
+            Respuesta respuesta = preguntasService.updatePregunta(preguntaDto);
+
+            if (!respuesta.getEstado()) {
+                animationManager.playSound(Sound_Click);
+                new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
+            } else {
+                animationManager.playSound(Sound_Click);
+                new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta actualizada correctamente.");
+                loadPreguntas();
+            }
+        }
+        btnConfirmEdit.setDisable(true);
     }
 
     @FXML
     void onActionBtnSearch(ActionEvent event) {
-
+        if (searchCriterion.getValue() == null) {
+            animationManager.playSound(Sound_Click);
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Debe seleccionar un criterio de búsqueda.");
+        } else {
+            AppContext.getInstance().set("Criteriodebusqueda", searchCriterion.getValue());
+            loadPreguntas();
+        }
     }
+
 
     @FXML
     void onActionBtnGoBack(ActionEvent event) {
         AppContext.getInstance().delete("Criteriodebusqueda");
         FlowController.getInstance().goView("ConfigView");
         animationManager.playSound(Sound_Click);
-
+        unbindPreguntas(currentPreguntaDto);
     }
-
 }
-
