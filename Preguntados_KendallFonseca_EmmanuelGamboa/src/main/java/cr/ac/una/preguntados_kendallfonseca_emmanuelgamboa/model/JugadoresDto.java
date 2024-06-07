@@ -1,8 +1,10 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model;
 
-import jakarta.persistence.Id;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class JugadoresDto {
 
@@ -14,21 +16,34 @@ public class JugadoresDto {
     public StringProperty preguntasAcertadas;
     public StringProperty partidasGanadas;
     public StringProperty version;
+    public List<EstadisticasDto> estadisticasList;
 
     public JugadoresDto() {
         this.id = new SimpleStringProperty("");
         this.nombre = new SimpleStringProperty("");
         this.correo = new SimpleStringProperty("");
-        this.preguntasRespondidas = new SimpleStringProperty("");
-        this.preguntasAcertadas = new SimpleStringProperty("");
-        this.partidasGanadas = new SimpleStringProperty("");
+        this.preguntasRespondidas = new SimpleStringProperty("0");
+        this.preguntasAcertadas = new SimpleStringProperty("0");
+        this.partidasGanadas = new SimpleStringProperty("0");
         this.version = new SimpleStringProperty("");
+        this.estadisticasList= new ArrayList<>();
     }
 
     public JugadoresDto(Jugadores jugador) {
         this();
         this.id.set(jugador.getIdJugador().toString());
         this.nombre.set(jugador.getNombre());
+        this.correo.set(jugador.getCorreo());
+        this.preguntasRespondidas.set(jugador.getPreguntasRespondidas().toString());
+        this.preguntasAcertadas.set(jugador.getPreguntasAcertadas().toString());
+        this.partidasGanadas.set(jugador.getPartidasGanadas().toString());
+        this.version.set(jugador.getVersion().toString());
+
+        ArrayList<Estadisticas> estadisticas= new ArrayList<>(jugador.getEstadisticasList());
+        for (Estadisticas estadistica : estadisticas) {
+            this.estadisticasList.add(new EstadisticasDto(estadistica));
+        }
+
     }
 
     public Long getId() {

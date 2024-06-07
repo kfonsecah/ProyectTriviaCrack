@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.StackedAreaChart?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -33,10 +34,14 @@
                                        </opaqueInsets>
                                        <children>
                                           <StackPane prefHeight="161.0" prefWidth="232.0" styleClass="backgroundPlayersFrame-region" />
-                                          <TableView prefHeight="157.0" prefWidth="249.0">
+                                          <TableView fx:id="tblJugadores" prefHeight="157.0" prefWidth="249.0">
                                              <StackPane.margin>
                                                 <Insets top="40.0" />
                                              </StackPane.margin>
+                                             <columns>
+                                                <TableColumn fx:id="tbcName" prefWidth="75.0" text="Nombre" />
+                                                <TableColumn fx:id="tbcMail" prefWidth="75.0" text="Correo" />
+                                             </columns>
                                           </TableView>
                                        </children>
                                        <VBox.margin>
@@ -53,7 +58,7 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundQuestionsFrame-region">
                                              <children>
-                                                <StackedAreaChart>
+                                                <StackedAreaChart fx:id="grafTotaldePreguntas">
                                                   <xAxis>
                                                     <NumberAxis side="BOTTOM" />
                                                   </xAxis>
@@ -80,7 +85,7 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundPopFrame-region">
                                              <children>
-                                                <StackedAreaChart>
+                                                <StackedAreaChart fx:id="grafTotalPop">
                                                   <xAxis>
                                                     <NumberAxis side="BOTTOM" />
                                                   </xAxis>
@@ -102,7 +107,7 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundCienciaFrame-region">
                                              <children>
-                                                <StackedAreaChart>
+                                                <StackedAreaChart fx:id="grafTotalCiencia">
                                                    <xAxis>
                                                       <NumberAxis side="BOTTOM" />
                                                    </xAxis>
@@ -124,7 +129,7 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundSportsFrame-region">
                                              <children>
-                                                <StackedAreaChart>
+                                                <StackedAreaChart fx:id="grafDeportes">
                                                   <xAxis>
                                                     <NumberAxis side="BOTTOM" />
                                                   </xAxis>
@@ -150,7 +155,7 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundArtFrame-region">
                                              <children>
-                                                <StackedAreaChart>
+                                                <StackedAreaChart fx:id="grafTotalArte">
                                                   <xAxis>
                                                     <NumberAxis side="BOTTOM" />
                                                   </xAxis>
@@ -172,7 +177,7 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundHistoryFrame-region">
                                              <children>
-                                                <StackedAreaChart>
+                                                <StackedAreaChart fx:id="grafHistoria">
                                                    <xAxis>
                                                       <NumberAxis side="BOTTOM" />
                                                    </xAxis>
@@ -194,7 +199,7 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundGeografiaFrame-region">
                                              <children>
-                                                <StackedAreaChart>
+                                                <StackedAreaChart fx:id="grafGeografia">
                                                   <xAxis>
                                                     <NumberAxis side="BOTTOM" />
                                                   </xAxis>
@@ -246,7 +251,7 @@
       </ImageView>
       <ImageView fitHeight="67.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" translateX="480.0" translateY="-340.0">
          <image>
-            <Image url="@../resources/art%20(2).png" />
+            <Image url="@../resources/art2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="77.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" translateX="480.0" translateY="120.0">
@@ -256,7 +261,7 @@
       </ImageView>
       <ImageView fitHeight="76.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" translateX="480.0" translateY="-120.0">
          <image>
-            <Image url="@../resources/Hector%20(1).png" />
+            <Image url="@../resources/hector1.png" />
          </image>
       </ImageView>
    </children>

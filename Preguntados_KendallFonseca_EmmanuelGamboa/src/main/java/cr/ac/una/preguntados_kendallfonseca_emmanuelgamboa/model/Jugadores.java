@@ -35,9 +35,9 @@ public class Jugadores implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JUGADORES_SEQ")
     @Basic(optional = false)
     @Column(name = "ID_JUGADOR")
-    public Long idJugador;
+    private Long idJugador;
     @Column(name = "NOMBRE")
-    public String nombre;
+    private String nombre;
     @Column(name = "CORREO")
     public String correo;
     @Column(name = "PREGUNTAS_RESPONDIDAS")

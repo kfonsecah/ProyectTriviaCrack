@@ -40,20 +40,20 @@ public class Estadisticas implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "ID_ESTADISTICA")
-    private BigDecimal idEstadistica;
+    private Long idEstadistica;
     @Column(name = "CATEGORIA")
     private String categoria;
     @Column(name = "PREGUNTAS_RESPONDIDAS_CATEGORIA")
-    private BigInteger preguntasRespondidasCategoria;
+    private Long preguntasRespondidasCategoria;
     @Column(name = "PREGUNTAS_ACERTADAS_CATEGORIA")
-    private BigInteger preguntasAcertadasCategoria;
+    private Long preguntasAcertadasCategoria;
     @Column(name = "RESPUESTAS_TOTALES_RESPONDIDAS")
-    private BigInteger respuestasTotalesRespondidas;
+    private Long respuestasTotalesRespondidas;
     @Column(name = "RESPUESTAS_TOTALES_ACERTADAS")
-    private BigInteger respuestasTotalesAcertadas;
+    private Long respuestasTotalesAcertadas;
     @Basic(optional = false)
     @Column(name = "VERSION")
-    private BigInteger version;
+    private Long version;
     @JoinColumn(name = "ID_JUGADOR", referencedColumnName = "ID_JUGADOR")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Jugadores idJugador;
@@ -61,20 +61,20 @@ public class Estadisticas implements Serializable {
     public Estadisticas() {
     }
 
-    public Estadisticas(BigDecimal idEstadistica) {
+    public Estadisticas(Long idEstadistica) {
         this.idEstadistica = idEstadistica;
     }
 
-    public Estadisticas(BigDecimal idEstadistica, BigInteger version) {
+    public Estadisticas(Long idEstadistica, Long version) {
         this.idEstadistica = idEstadistica;
         this.version = version;
     }
 
-    public BigDecimal getIdEstadistica() {
+    public Long getIdEstadistica() {
         return idEstadistica;
     }
 
-    public void setIdEstadistica(BigDecimal idEstadistica) {
+    public void setIdEstadistica(Long idEstadistica) {
         this.idEstadistica = idEstadistica;
     }
 
@@ -86,43 +86,43 @@ public class Estadisticas implements Serializable {
         this.categoria = categoria;
     }
 
-    public BigInteger getPreguntasRespondidasCategoria() {
+    public Long getPreguntasRespondidasCategoria() {
         return preguntasRespondidasCategoria;
     }
 
-    public void setPreguntasRespondidasCategoria(BigInteger preguntasRespondidasCategoria) {
+    public void setPreguntasRespondidasCategoria(Long preguntasRespondidasCategoria) {
         this.preguntasRespondidasCategoria = preguntasRespondidasCategoria;
     }
 
-    public BigInteger getPreguntasAcertadasCategoria() {
+    public Long getPreguntasAcertadasCategoria() {
         return preguntasAcertadasCategoria;
     }
 
-    public void setPreguntasAcertadasCategoria(BigInteger preguntasAcertadasCategoria) {
+    public void setPreguntasAcertadasCategoria(Long preguntasAcertadasCategoria) {
         this.preguntasAcertadasCategoria = preguntasAcertadasCategoria;
     }
 
-    public BigInteger getRespuestasTotalesRespondidas() {
+    public Long getRespuestasTotalesRespondidas() {
         return respuestasTotalesRespondidas;
     }
 
-    public void setRespuestasTotalesRespondidas(BigInteger respuestasTotalesRespondidas) {
+    public void setRespuestasTotalesRespondidas(Long respuestasTotalesRespondidas) {
         this.respuestasTotalesRespondidas = respuestasTotalesRespondidas;
     }
 
-    public BigInteger getRespuestasTotalesAcertadas() {
+    public Long getRespuestasTotalesAcertadas() {
         return respuestasTotalesAcertadas;
     }
 
-    public void setRespuestasTotalesAcertadas(BigInteger respuestasTotalesAcertadas) {
+    public void setRespuestasTotalesAcertadas(Long respuestasTotalesAcertadas) {
         this.respuestasTotalesAcertadas = respuestasTotalesAcertadas;
     }
 
-    public BigInteger getVersion() {
+    public Long getVersion() {
         return version;
     }
 
-    public void setVersion(BigInteger version) {
+    public void setVersion(Long version) {
         this.version = version;
     }
 
