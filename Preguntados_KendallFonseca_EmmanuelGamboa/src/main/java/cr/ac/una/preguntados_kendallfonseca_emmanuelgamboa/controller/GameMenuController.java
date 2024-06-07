@@ -72,8 +72,7 @@ public class GameMenuController extends Controller implements Initializable{
         playersQuantity.setMax(6);
         playersQuantity.setMin(2);
 
-        spinnerGameTime.setValue(5);
-        spinnerPlayersQuantity.setValue(2);
+
         spinnerGameTime.setSpinnerModel(gameTime);
         spinnerPlayersQuantity.setSpinnerModel(playersQuantity);
     }
@@ -90,6 +89,7 @@ public class GameMenuController extends Controller implements Initializable{
     void onActionBtnGoBack(ActionEvent event) {
         animationManager.playSound(Sound_Click);
         FlowController.getInstance().goView("StartView");
+        jsonInfo = "";
 
     }
 
@@ -122,10 +122,9 @@ public class GameMenuController extends Controller implements Initializable{
 
     @FXML
     void onActionBtnJugar(ActionEvent event) {
-        if (modo_juego.equals("")||spinnerGameTime.getValue()==0||spinnerPlayersQuantity.getValue()==0){
+        if (modo_juego.equals("")||spinnerGameTime.getValue()<7||spinnerPlayersQuantity.getValue()<2){
 
-            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Por favor seleccione un modo de juego, tiempo y cantidad de jugadores");
-
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Por favor seleccione un modo de juego, tiempo de partida y mas de un jugadores");
             return;
         }
         animationManager.playSound(Sound_Click);
