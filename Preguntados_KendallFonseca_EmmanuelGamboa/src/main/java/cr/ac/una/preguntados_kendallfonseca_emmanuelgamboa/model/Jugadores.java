@@ -39,20 +39,20 @@ public class Jugadores implements Serializable {
     @Column(name = "NOMBRE")
     private String nombre;
     @Column(name = "CORREO")
-    public String correo;
+    private String correo;
     @Column(name = "PREGUNTAS_RESPONDIDAS")
-    public Long preguntasRespondidas;
+    private Long preguntasRespondidas;
     @Column(name = "PREGUNTAS_ACERTADAS")
-    public Long preguntasAcertadas;
+    private Long preguntasAcertadas;
     @Column(name = "PARTIDAS_GANADAS")
-    public Long partidasGanadas;
+    private Long partidasGanadas;
     @Version
     @Column(name = "VERSION")
-    public Long version;
+    private Long version;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idJugador", fetch = FetchType.EAGER)
-    public List<PartidasJugadores> partidasJugadoresList;
+    private List<PartidasJugadores> partidasJugadoresList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idJugador", fetch = FetchType.EAGER)
-    public List<Estadisticas> estadisticasList;
+    private List<Estadisticas> estadisticasList;
 
     public Jugadores() {
     }

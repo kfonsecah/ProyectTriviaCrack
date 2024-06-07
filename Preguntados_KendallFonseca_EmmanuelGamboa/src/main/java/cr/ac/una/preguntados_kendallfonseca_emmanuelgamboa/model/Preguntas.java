@@ -35,24 +35,24 @@ public class Preguntas implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PREGUNTAS_SEQ")
     @Basic(optional = false)
     @Column(name = "ID_PREGUNTA")
-    public Long idPregunta;
+    private Long idPregunta;
     @Column(name = "CATEGORIA")
-    public String categoria;
+    private String categoria;
     @Column(name = "PREGUNTA_TEXTO")
-    public String preguntaTexto;
+    private String preguntaTexto;
     @Column(name = "VECES_RESPONDIDA")
-    public Long vecesRespondida;
+    private Long vecesRespondida;
     @Column(name = "VECES_ACERTADA")
-    public Long vecesAcertada;
+    private Long vecesAcertada;
 
     @Column(name = "ESTADO")
-    public String estado;
+    private String estado;
 
     @Version
     @Column(name = "VERSION")
-    public Long version;
+    private Long version;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPregunta", fetch = FetchType.EAGER, orphanRemoval = true)
-    public List<Respuestas> respuestasList;
+    private List<Respuestas> respuestasList;
 
     public Preguntas() {
     }

@@ -8,22 +8,24 @@ import java.util.stream.Collectors;
 
 
 public class PartidasDto {
-    private Long idPartida;
+    private SimpleStringProperty idPartida;
     private String informacionJson;
-    private Long version;
+    private SimpleStringProperty version;
     private List<PartidasJugadoresDto> partidasJugadoresList;
 
     public PartidasDto() {
+        this.idPartida = new SimpleStringProperty("");
         this.informacionJson = new String("");
         this.partidasJugadoresList = new ArrayList<>();
+        this.version = new SimpleStringProperty("");
     }
 
 
     public PartidasDto(Partidas partidas) {
-        this.idPartida = partidas.getIdPartida();
+        this();
+        this.idPartida.set(partidas.getIdPartida().toString());
         this.informacionJson = partidas.getInformacionJson();
-        this.version = partidas.getVersion();
-
+        this.version.set(partidas.getVersion().toString());
 
        ArrayList<PartidasJugadores> partidas_jugadores= new ArrayList<>(partidas.getPartidasJugadoresList());
         for (PartidasJugadores partidasJugadores : partidas_jugadores) {
@@ -33,11 +35,11 @@ public class PartidasDto {
     }
 
     public Long getIdPartida() {
-        return idPartida;
+        return Long.valueOf(idPartida.get());
     }
 
     public void setIdPartida(Long idPartida) {
-        this.idPartida = idPartida;
+        this.idPartida.set(idPartida.toString());
     }
 
     public String getInformacionJson() {
@@ -49,11 +51,11 @@ public class PartidasDto {
     }
 
     public Long getVersion() {
-        return version;
+        return Long.valueOf(version.get());
     }
 
     public void setVersion(Long version) {
-        this.version = version;
+        this.version.set(version.toString());
     }
 
     public List<PartidasJugadoresDto> getPartidasJugadoresList() {

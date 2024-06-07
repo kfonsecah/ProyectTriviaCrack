@@ -1,84 +1,89 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model;
 
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  * DTO for PartidasJugadores entity.
  */
 public class PartidasJugadoresDto {
-    private Long idPartidaJugador;
-    private Long fichaSeleccionada;
-    private String personajesObtenidos;
-    private Long posicionTablero;
-    private Long version;
-    private Long idJugador;
-    private Long idPartida;
+    private SimpleStringProperty idPartidaJugador;
+    private SimpleStringProperty fichaSeleccionada;
+    private SimpleStringProperty personajesObtenidos;
+    private SimpleStringProperty posicionTablero;
+    private SimpleStringProperty  version;
+    private SimpleStringProperty  idJugador;
+    private SimpleStringProperty idPartida;
 
     public PartidasJugadoresDto() {
+        this.idPartidaJugador = new SimpleStringProperty("");
+        this.personajesObtenidos = new SimpleStringProperty("");
+        this.posicionTablero = new SimpleStringProperty("");
+        this.version = new SimpleStringProperty("");
+        this.idJugador = new SimpleStringProperty("");
+        this.idPartida = new SimpleStringProperty("");
     }
 
     public PartidasJugadoresDto(PartidasJugadores partidasJugadores) {
-        this.idPartidaJugador = partidasJugadores.getIdPartidaJugador();
-        this.fichaSeleccionada = partidasJugadores.getFichaSeleccionada();
-        this.personajesObtenidos = partidasJugadores.getPersonajesObtenidos();
-        this.posicionTablero = partidasJugadores.getPosicionTablero();
-        this.version = partidasJugadores.getVersion();
-        this.idJugador = partidasJugadores.getIdJugador().getIdJugador();
-        this.idPartida = partidasJugadores.getIdPartida().getIdPartida();
+        this();
+        this.idPartidaJugador.set(partidasJugadores.getIdPartidaJugador().toString());
+        this.fichaSeleccionada.set(partidasJugadores.getFichaSeleccionada().toString());
+        this.personajesObtenidos.set(partidasJugadores.getPersonajesObtenidos());
+        this.posicionTablero.set(partidasJugadores.getPosicionTablero().toString());
+        this.version.set(partidasJugadores.getVersion().toString());
+        this.idJugador.set(partidasJugadores.getIdJugador().getIdJugador().toString());
+        this.idPartida.set(partidasJugadores.getIdPartida().getIdPartida().toString());
+
     }
 
-    public Long getIdPartidaJugador() {
+    public SimpleStringProperty getIdPartidaJugador() {
         return idPartidaJugador;
     }
 
-    public void setIdPartidaJugador(Long idPartidaJugador) {
+    public void setIdPartidaJugador(SimpleStringProperty idPartidaJugador) {
         this.idPartidaJugador = idPartidaJugador;
     }
 
     public Long getFichaSeleccionada() {
-        return fichaSeleccionada;
+        return Long.valueOf(fichaSeleccionada.get());
     }
 
     public void setFichaSeleccionada(Long fichaSeleccionada) {
-        this.fichaSeleccionada = fichaSeleccionada;
+        this.fichaSeleccionada.set(fichaSeleccionada.toString());
     }
 
     public String getPersonajesObtenidos() {
-        return personajesObtenidos;
+        return personajesObtenidos.get();
     }
 
     public void setPersonajesObtenidos(String personajesObtenidos) {
-        this.personajesObtenidos = personajesObtenidos;
+        this.personajesObtenidos.set(personajesObtenidos);
     }
-
     public Long getPosicionTablero() {
-        return posicionTablero;
+        return Long.valueOf(posicionTablero.get());
     }
-
     public void setPosicionTablero(Long posicionTablero) {
-        this.posicionTablero = posicionTablero;
+        this.posicionTablero.set(posicionTablero.toString());
     }
-
     public Long getVersion() {
-        return version;
+        return Long.valueOf(version.get());
     }
 
     public void setVersion(Long version) {
-        this.version = version;
+        this.version.set(version.toString());
     }
 
     public Long getIdJugador() {
-        return idJugador;
+        return Long.valueOf(idJugador.get());
     }
 
     public void setIdJugador(Long idJugador) {
-        this.idJugador = idJugador;
+        this.idJugador.set(idJugador.toString());
     }
-
     public Long getIdPartida() {
-        return idPartida;
+        return Long.valueOf(idPartida.get());
     }
-
     public void setIdPartida(Long idPartida) {
-        this.idPartida = idPartida;
+        this.idPartida.set(idPartida.toString());
     }
 
     @Override

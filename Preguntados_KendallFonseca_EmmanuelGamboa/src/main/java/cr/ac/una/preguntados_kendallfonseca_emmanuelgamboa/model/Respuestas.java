@@ -33,20 +33,20 @@ public class Respuestas implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RESPUESTAS_SEQ")
     @Basic(optional = false)
     @Column(name = "ID_RESPUESTA")
-    public Long idRespuesta;
+    private Long idRespuesta;
     @Column(name = "RESPUESTA_TEXTO")
-    public String respuestaTexto;
+    private String respuestaTexto;
     @Basic(optional = false)
     @Column(name = "ES_CORRECTA")
-    public String esCorrecta;
+    private String esCorrecta;
     @Column(name = "VECES_SELECCIONADA")
-    public Long vecesSeleccionada;
+    private Long vecesSeleccionada;
     @Version
     @Column(name = "VERSION")
-    public Long version;
+    private Long version;
     @ManyToOne(cascade = CascadeType.REMOVE, optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_PREGUNTA", referencedColumnName = "ID_PREGUNTA")
-    public Preguntas idPregunta;
+    private Preguntas idPregunta;
 
     public Respuestas() {
     }
