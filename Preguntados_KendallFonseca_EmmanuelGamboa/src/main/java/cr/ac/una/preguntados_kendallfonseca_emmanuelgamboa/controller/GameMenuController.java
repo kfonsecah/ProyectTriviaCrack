@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AppContext;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.FlowController;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Mensaje;
 import io.github.palexdev.materialfx.controls.MFXButton;
@@ -138,6 +139,11 @@ public class GameMenuController extends Controller implements Initializable{
                 "}";
 
         System.out.println(jsonInfo);
+
+        AppContext.getInstance().set("configPartida",jsonInfo);
+        AppContext.getInstance().set("playerCounter",spinnerPlayersQuantity.getValue());
+        AppContext.getInstance().set("gameTime",spinnerGameTime.getValue());
+        AppContext.getInstance().set("modo_juego",modo_juego);
     }
 
 

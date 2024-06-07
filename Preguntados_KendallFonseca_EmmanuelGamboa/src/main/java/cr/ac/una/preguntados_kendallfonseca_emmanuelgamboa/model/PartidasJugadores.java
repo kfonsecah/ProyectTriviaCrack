@@ -38,6 +38,8 @@ public class PartidasJugadores implements Serializable {
     private Long fichaSeleccionada;
     @Column(name = "PERSONAJES_OBTENIDOS")
     private String personajesObtenidos;
+    @Column(name = "AYUDAS")
+    private String ayudas;
     @Basic(optional = false)
     @Column(name = "POSICION_TABLERO")
     private Long posicionTablero;

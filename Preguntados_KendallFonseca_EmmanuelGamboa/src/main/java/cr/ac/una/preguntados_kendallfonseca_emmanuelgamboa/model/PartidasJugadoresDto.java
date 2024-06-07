@@ -9,6 +9,7 @@ public class PartidasJugadoresDto {
     private SimpleStringProperty idPartidaJugador;
     private SimpleStringProperty fichaSeleccionada;
     private SimpleStringProperty personajesObtenidos;
+    private SimpleStringProperty  ayudas;
     private SimpleStringProperty posicionTablero;
     private SimpleStringProperty  version;
     private SimpleStringProperty  idJugador;
@@ -16,11 +17,14 @@ public class PartidasJugadoresDto {
 
     public PartidasJugadoresDto() {
         this.idPartidaJugador = new SimpleStringProperty("");
-        this.personajesObtenidos = new SimpleStringProperty("");
-        this.posicionTablero = new SimpleStringProperty("");
+        this.personajesObtenidos = new SimpleStringProperty("0");
+        this.fichaSeleccionada = new SimpleStringProperty("0");
+        this.ayudas = new SimpleStringProperty("");
+        this.posicionTablero = new SimpleStringProperty("0");
         this.version = new SimpleStringProperty("");
         this.idJugador = new SimpleStringProperty("");
         this.idPartida = new SimpleStringProperty("");
+
     }
 
     public PartidasJugadoresDto(PartidasJugadores partidasJugadores) {
@@ -58,6 +62,14 @@ public class PartidasJugadoresDto {
     public void setPersonajesObtenidos(String personajesObtenidos) {
         this.personajesObtenidos.set(personajesObtenidos);
     }
+
+    public String getAyudas() {
+        return ayudas.get();
+    }
+     public void setAyudas(String ayudas) {
+         this.ayudas.set(ayudas);
+     }
+
     public Long getPosicionTablero() {
         return Long.valueOf(posicionTablero.get());
     }

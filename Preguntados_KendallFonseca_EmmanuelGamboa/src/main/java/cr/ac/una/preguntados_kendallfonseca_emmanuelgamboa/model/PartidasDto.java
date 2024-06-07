@@ -13,11 +13,12 @@ public class PartidasDto {
     private SimpleStringProperty version;
     private List<PartidasJugadoresDto> partidasJugadoresList;
 
+
     public PartidasDto() {
         this.idPartida = new SimpleStringProperty("");
         this.informacionJson = new String("");
-        this.partidasJugadoresList = new ArrayList<>();
         this.version = new SimpleStringProperty("");
+        this.partidasJugadoresList = new ArrayList<>();
     }
 
 

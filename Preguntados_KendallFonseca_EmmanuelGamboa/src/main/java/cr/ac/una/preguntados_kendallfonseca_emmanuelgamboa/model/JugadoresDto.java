@@ -15,6 +15,7 @@ public class JugadoresDto {
     public Number partidasGanadas;
     public StringProperty version;
     public List<EstadisticasDto> estadisticasList;
+    public List<PartidasJugadoresDto> partidasJugadoresList;
 
     public JugadoresDto() {
         this.id = new SimpleStringProperty("");
@@ -25,6 +26,7 @@ public class JugadoresDto {
         this.partidasGanadas = 0;
         this.version = new SimpleStringProperty("");
         this.estadisticasList = new ArrayList<>();
+        this.partidasJugadoresList = new ArrayList<>();
     }
 
     public JugadoresDto(Jugadores jugador) {
@@ -40,6 +42,11 @@ public class JugadoresDto {
         ArrayList<Estadisticas> estadisticas = new ArrayList<>(jugador.getEstadisticasList());
         for (Estadisticas estadistica : estadisticas) {
             this.estadisticasList.add(new EstadisticasDto(estadistica));
+        }
+
+        ArrayList<PartidasJugadores> partidasJugadores1 = new ArrayList<>(jugador.getPartidasJugadoresList());
+        for (PartidasJugadores partidasJugadores : partidasJugadores1) {
+            this.partidasJugadoresList.add(new PartidasJugadoresDto(partidasJugadores));
         }
     }
 
@@ -112,6 +119,13 @@ public class JugadoresDto {
 
     public List<EstadisticasDto> getEstadisticasList() {
         return estadisticasList;
+    }
+    public List<PartidasJugadoresDto> getPartidasJugadoresList() {
+        return partidasJugadoresList;
+    }
+
+    public void setPartidasJugadoresList(List<PartidasJugadoresDto> partidasJugadoresList) {
+        this.partidasJugadoresList = partidasJugadoresList;
     }
 
     @Override

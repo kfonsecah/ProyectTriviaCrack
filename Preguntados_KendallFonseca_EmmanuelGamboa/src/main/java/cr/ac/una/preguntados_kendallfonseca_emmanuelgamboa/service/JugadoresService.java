@@ -1,15 +1,11 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service;
 
-import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Estadisticas;
-import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Jugadores;
-import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.JugadoresDto;
-import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.RespuestasDto;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.*;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.EntityManagerHelper;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Respuesta;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
-import javafx.scene.control.skin.SliderSkin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +48,7 @@ public class JugadoresService {
             jugador.setPreguntasAcertadas(Long.valueOf(0));
             jugador.setPartidasGanadas(Long.valueOf(0));
 
+
             // Categorias predefinidas
             String[] categorias = {"Arte", "Pop", "Ciencia", "Geografia", "Deporte", "Historia"};
 
@@ -68,6 +65,8 @@ public class JugadoresService {
                 estadisticasList.add(estadistica);
             }
             jugador.setEstadisticasList(estadisticasList);
+
+            jugador.setPartidasJugadoresList(new ArrayList<>());
 
             em.persist(jugador);
             for (Estadisticas estadistica : estadisticasList) {
