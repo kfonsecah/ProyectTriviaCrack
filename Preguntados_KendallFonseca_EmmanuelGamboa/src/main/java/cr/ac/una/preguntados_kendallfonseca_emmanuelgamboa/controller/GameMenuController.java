@@ -9,11 +9,15 @@ import java.util.ResourceBundle;
 
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.FlowController;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Mensaje;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXSpinner;
+import io.github.palexdev.materialfx.controls.models.spinner.IntegerSpinnerModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -45,25 +49,42 @@ public class GameMenuController extends Controller implements Initializable{
     private MFXButton btnJugar;
 
     @FXML
-    private MFXSpinner<?> spinnerGameTime;
-
+    private MFXSpinner<Integer> spinnerGameTime;
     @FXML
-    private MFXSpinner<?> spinnerPlayersQuantity;
+    private MFXSpinner<Integer> spinnerPlayersQuantity;
 
 
     String Sound_Click = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Play.wav";
 
     AnimationManager animationManager = AnimationManager.getInstance();
 
+    String modo_juego = "";
+    String jsonInfo = "";
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
+        IntegerSpinnerModel gameTime = new IntegerSpinnerModel();
+        gameTime.setMax(60);
+        gameTime.setMin(7);
+
+        IntegerSpinnerModel playersQuantity = new IntegerSpinnerModel();
+        playersQuantity.setMax(6);
+        playersQuantity.setMin(2);
+
+        spinnerGameTime.setValue(5);
+        spinnerPlayersQuantity.setValue(2);
+        spinnerGameTime.setSpinnerModel(gameTime);
+        spinnerPlayersQuantity.setSpinnerModel(playersQuantity);
     }
 
     @Override
     public void initialize() {
 
     }
+
+
+
 
     @FXML
     void onActionBtnGoBack(ActionEvent event) {
@@ -82,202 +103,42 @@ public class GameMenuController extends Controller implements Initializable{
     @FXML
     void onActionBtnEasyMode(ActionEvent event) {
 
+        modo_juego = "facil";
+
     }
 
     @FXML
     void onActionBtnHardMode(ActionEvent event) {
 
+       modo_juego = "dificil";
     }
 
     @FXML
     void onActionBtnMidMode(ActionEvent event) {
 
+       modo_juego = "medio";
     }
 
-    @FXML
-    void onActionPlayer1ficha1(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer1ficha2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer1ficha3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer1ficha4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer1ficha5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer1ficha6(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer2ficha1(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer2ficha2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer2ficha3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer2ficha4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer2ficha5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer2ficha6(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer3ficha1(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer3ficha2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer3ficha3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer3ficha4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer3ficha5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer3ficha6(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer4ficha1(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer4ficha2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer4ficha3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer4ficha4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer4ficha5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer4ficha6(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer5ficha1(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer5ficha2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer5ficha3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer5ficha4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer5ficha5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer5ficha6(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer6ficha1(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer6ficha2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer6ficha3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer6ficha4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer6ficha5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionPlayer6ficha6(ActionEvent event) {
-
-    }
 
     @FXML
     void onActionBtnJugar(ActionEvent event) {
+        if (modo_juego.equals("")||spinnerGameTime.getValue()==0||spinnerPlayersQuantity.getValue()==0){
+
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Por favor seleccione un modo de juego, tiempo y cantidad de jugadores");
+
+            return;
+        }
         animationManager.playSound(Sound_Click);
         FlowController.getInstance().goView("PlayerSelectionView");
+
+
+        jsonInfo= "{"+
+                "\"modo_juego\":\""+modo_juego+"\","+
+                "\"tiempo_juego\":"+spinnerGameTime.getValue()+","+
+                "\"cantidad_jugadores\":"+spinnerPlayersQuantity.getValue()+
+                "}";
+
+        System.out.println(jsonInfo);
     }
 
 

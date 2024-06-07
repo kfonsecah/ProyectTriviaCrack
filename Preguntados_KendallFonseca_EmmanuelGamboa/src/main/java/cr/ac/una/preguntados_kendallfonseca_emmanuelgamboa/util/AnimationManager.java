@@ -71,7 +71,7 @@ public class AnimationManager {
             double height = 3;
             Image cursorImage = new Image(getClass().getResourceAsStream(imagePath));
             if (cursorImage.isError()) {
-                throw new IllegalArgumentException("Error loading image for cursor: " + imagePath);
+                throw new IllegalArgumentException("Error" + imagePath);
             }
 
             ImageCursor customCursor = new ImageCursor(cursorImage, width, height);
