@@ -7,9 +7,9 @@ module cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa {
     requires java.base;
     requires javafx.media;
     requires java.instrument;
-    requires java.persistence;
-    requires jakarta.xml.bind;
-    requires com.oracle.database.jdbc;
+   // requires java.persistence;
+    //requires jakarta.xml.bind;
+    //requires com.oracle.database.jdbc;
     requires eclipselink;
     requires java.sql;
 

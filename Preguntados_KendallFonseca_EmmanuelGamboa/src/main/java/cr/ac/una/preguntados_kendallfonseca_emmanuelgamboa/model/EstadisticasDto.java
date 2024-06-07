@@ -1,6 +1,5 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model;
 
-import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import java.io.Serializable;
 
@@ -10,20 +9,20 @@ public class EstadisticasDto implements Serializable {
 
     public SimpleStringProperty idEstadistica;
     public SimpleStringProperty categoria;
-    public SimpleStringProperty preguntasRespondidasCategoria;
-    public SimpleStringProperty preguntasAcertadasCategoria;
-    public SimpleStringProperty respuestasTotalesRespondidas;
-    public SimpleStringProperty respuestasTotalesAcertadas;
+    public Number preguntasRespondidasCategoria;
+    public Number preguntasAcertadasCategoria;
+    public Number respuestasTotalesRespondidas;
+    public Number respuestasTotalesAcertadas;
     public SimpleStringProperty version;
     public SimpleStringProperty idJugador;
 
     public EstadisticasDto() {
         this.idEstadistica = new SimpleStringProperty("");
         this.categoria = new SimpleStringProperty("");
-        this.preguntasRespondidasCategoria = new SimpleStringProperty("0");
-        this.preguntasAcertadasCategoria = new SimpleStringProperty("0");
-        this.respuestasTotalesRespondidas = new SimpleStringProperty("0");
-        this.respuestasTotalesAcertadas = new SimpleStringProperty("0");
+        this.preguntasRespondidasCategoria = 0;
+        this.preguntasAcertadasCategoria = 0;
+        this.respuestasTotalesRespondidas = 0;
+        this.respuestasTotalesAcertadas = 0;
         this.version = new SimpleStringProperty("0");
         this.idJugador = new SimpleStringProperty("");
     }
@@ -32,13 +31,12 @@ public class EstadisticasDto implements Serializable {
         this();
         this.idEstadistica.set(estadisticas.getIdEstadistica().toString());
         this.categoria.set(estadisticas.getCategoria());
-        this.preguntasRespondidasCategoria.set(estadisticas.getPreguntasRespondidasCategoria().toString());
-        this.preguntasAcertadasCategoria.set(estadisticas.getPreguntasAcertadasCategoria().toString());
-        this.respuestasTotalesRespondidas.set(estadisticas.getRespuestasTotalesRespondidas().toString());
-        this.respuestasTotalesAcertadas.set(estadisticas.getRespuestasTotalesAcertadas().toString());
+        this.preguntasRespondidasCategoria = estadisticas.getPreguntasRespondidasCategoria();
+        this.preguntasAcertadasCategoria = estadisticas.getPreguntasAcertadasCategoria();
+        this.respuestasTotalesRespondidas = estadisticas.getRespuestasTotalesRespondidas();
+        this.respuestasTotalesAcertadas = estadisticas.getRespuestasTotalesAcertadas();
         this.version.set(estadisticas.getVersion().toString());
         this.idJugador.set(estadisticas.getIdJugador().getIdJugador().toString());
-
     }
 
     public Long getIdEstadistica() {
@@ -57,36 +55,36 @@ public class EstadisticasDto implements Serializable {
         this.categoria.set(categoria);
     }
 
-    public Long getPreguntasRespondidasCategoria() {
-        return Long.valueOf(preguntasRespondidasCategoria.get());
+    public Number getPreguntasRespondidasCategoria() {
+        return preguntasRespondidasCategoria;
     }
 
-    public void setPreguntasRespondidasCategoria(Long preguntasRespondidasCategoria) {
-        this.preguntasRespondidasCategoria.set(preguntasRespondidasCategoria.toString());
+    public void setPreguntasRespondidasCategoria(Number preguntasRespondidasCategoria) {
+        this.preguntasRespondidasCategoria = preguntasRespondidasCategoria;
     }
 
-    public Long getPreguntasAcertadasCategoria() {
-        return Long.valueOf(preguntasAcertadasCategoria.get());
+    public Number getPreguntasAcertadasCategoria() {
+        return preguntasAcertadasCategoria;
     }
 
-    public void setPreguntasAcertadasCategoria(Long preguntasAcertadasCategoria) {
-        this.preguntasAcertadasCategoria.set(preguntasAcertadasCategoria.toString());
+    public void setPreguntasAcertadasCategoria(Number preguntasAcertadasCategoria) {
+        this.preguntasAcertadasCategoria = preguntasAcertadasCategoria;
     }
 
-    public Long getRespuestasTotalesRespondidas() {
-        return Long.valueOf(respuestasTotalesRespondidas.get());
+    public Number getRespuestasTotalesRespondidas() {
+        return respuestasTotalesRespondidas;
     }
 
-    public void setRespuestasTotalesRespondidas(Long respuestasTotalesRespondidas) {
-        this.respuestasTotalesRespondidas.set(respuestasTotalesRespondidas.toString());
+    public void setRespuestasTotalesRespondidas(Number respuestasTotalesRespondidas) {
+        this.respuestasTotalesRespondidas = respuestasTotalesRespondidas;
     }
 
-    public Long getRespuestasTotalesAcertadas() {
-        return Long.valueOf(respuestasTotalesAcertadas.get());
+    public Number getRespuestasTotalesAcertadas() {
+        return respuestasTotalesAcertadas;
     }
 
-    public void setRespuestasTotalesAcertadas(Long respuestasTotalesAcertadas) {
-        this.respuestasTotalesAcertadas.set(respuestasTotalesAcertadas.toString());
+    public void setRespuestasTotalesAcertadas(Number respuestasTotalesAcertadas) {
+        this.respuestasTotalesAcertadas = respuestasTotalesAcertadas;
     }
 
     public Long getVersion() {
@@ -118,10 +116,7 @@ public class EstadisticasDto implements Serializable {
             return false;
         }
         EstadisticasDto other = (EstadisticasDto) object;
-        if ((this.idEstadistica == null && other.idEstadistica != null) || (this.idEstadistica != null && !this.idEstadistica.equals(other.idEstadistica))) {
-            return false;
-        }
-        return true;
+        return !((this.idEstadistica == null && other.idEstadistica != null) || (this.idEstadistica != null && !this.idEstadistica.equals(other.idEstadistica)));
     }
 
     @Override

@@ -1627,6 +1627,42 @@
     -fx-background-insets: 0;
 }
 
+.chart-bar {
+    -fx-bar-fill: #ffa500;
+}
+
+.chart-series-line {
+    -fx-stroke: #ffa500;
+}
+
+#chartTotalArte .chart-bar {
+    -fx-bar-fill: #bb432b;
+}
+
+#chartTotalCiencia .chart-bar {
+    -fx-bar-fill: #1fc667;
+}
+
+#chartTotalDeporte .chart-bar {
+    -fx-bar-fill: #e1a91b;
+}
+
+#chartTotalGeografia .chart-bar {
+    -fx-bar-fill: #1b8be1;
+}
+
+#chartTotalHistoria .chart-bar {
+    -fx-bar-fill: #e1db1b;
+}
+
+#chartTotalPop .chart-bar {
+    -fx-bar-fill: #921be1;
+}
+
+#chartTotalPreguntas .chart-bar {
+    -fx-bar-fill: #501ebe;
+}
+
 
 
 

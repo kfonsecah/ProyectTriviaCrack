@@ -17,7 +17,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.StackedAreaChart;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -40,25 +40,25 @@ public class StadisticsController extends Controller implements Initializable {
     private MFXButton btnGoBack;
 
     @FXML
-    private StackedAreaChart<String, Number> grafDeportes;
+    private BarChart<String, Number> chartTotalArte;
 
     @FXML
-    private StackedAreaChart<String, Number> grafGeografia;
+    private BarChart<String, Number> chartTotalCiencia;
 
     @FXML
-    private StackedAreaChart<String, Number> grafHistoria;
+    private BarChart<String, Number> chartTotalDeportes;
 
     @FXML
-    private StackedAreaChart<String, Number> grafTotalArte;
+    private BarChart<String, Number> chartTotalGeografia;
 
     @FXML
-    private StackedAreaChart<String, Number> grafTotalCiencia;
+    private BarChart<String, Number> chartTotalHistoria;
 
     @FXML
-    private StackedAreaChart<String, Number> grafTotalPop;
+    private BarChart<String, Number> chartTotalPop;
 
     @FXML
-    private StackedAreaChart<String, Number> grafTotaldePreguntas;
+    private BarChart<String, Number> chartTotalPreguntas;
 
     @FXML
     private TableView<JugadoresDto> tblJugadores;
@@ -78,21 +78,19 @@ public class StadisticsController extends Controller implements Initializable {
         tbcMail.setCellValueFactory(new PropertyValueFactory<>("correo"));
         tbcName.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
-        loadJugadores();
 
-        tblJugadores.setOnMouseClicked((MouseEvent event) -> {
-            if (event.getClickCount() == 2) {
-                JugadoresDto selectedJugador = tblJugadores.getSelectionModel().getSelectedItem();
-                if (selectedJugador != null) {
-                    loadEstadisticas(selectedJugador);
-                }
+        tblJugadores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                loadEstadisticas(newSelection);
             }
         });
-    }
+        }
+
+
 
     @Override
     public void initialize() {
-
+        loadJugadores();
     }
 
     private void loadJugadores() {
@@ -109,63 +107,64 @@ public class StadisticsController extends Controller implements Initializable {
     private void loadEstadisticas(JugadoresDto jugador) {
         clearCharts();
 
-        for (EstadisticasDto estadistica : jugador.estadisticasList) {
+        List<EstadisticasDto> estadisticasList = jugador.getEstadisticasList();
+        for (EstadisticasDto estadistica : estadisticasList) {
             switch (estadistica.getCategoria()) {
                 case "Deportes":
-                    updateChart(grafDeportes, estadistica);
+                    updateChart(chartTotalDeportes, estadistica);
                     break;
                 case "Geografia":
-                    updateChart(grafGeografia, estadistica);
+                    updateChart(chartTotalGeografia, estadistica);
                     break;
                 case "Historia":
-                    updateChart(grafHistoria, estadistica);
+                    updateChart(chartTotalHistoria, estadistica);
                     break;
                 case "Arte":
-                    updateChart(grafTotalArte, estadistica);
+                    updateChart(chartTotalArte, estadistica);
                     break;
                 case "Ciencia":
-                    updateChart(grafTotalCiencia, estadistica);
+                    updateChart(chartTotalCiencia, estadistica);
                     break;
                 case "Pop":
-                    updateChart(grafTotalPop, estadistica);
-                    break;
-                default:
+                    updateChart(chartTotalPop, estadistica);
                     break;
             }
         }
 
-        // Actualiza el gráfico de total de preguntas
-        updateTotalPreguntasChart(grafTotaldePreguntas, jugador);
+
+        updateTotalPreguntasChart(chartTotalPreguntas, jugador);
     }
 
-    private void updateChart(StackedAreaChart<String, Number> chart, EstadisticasDto estadistica) {
+    private void updateChart(BarChart<String, Number> chart, EstadisticasDto estadistica) {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName(estadistica.getCategoria());
+        series.setName("Respondidas");
+        //cambiar color de los graficos
+        
 
-        series.getData().add(new XYChart.Data<>("Preguntas Respondidas", Long.valueOf(estadistica.getPreguntasRespondidasCategoria())));
-        series.getData().add(new XYChart.Data<>("Preguntas Acertadas", Long.valueOf(estadistica.getPreguntasAcertadasCategoria())));
+        series.getData().add(new XYChart.Data<>("Preguntas Respondidas", estadistica.getPreguntasRespondidasCategoria()));
+        series.getData().add(new XYChart.Data<>("Preguntas Acertadas", estadistica.getPreguntasAcertadasCategoria()));
 
         chart.getData().add(series);
     }
 
-    private void updateTotalPreguntasChart(StackedAreaChart<String, Number> chart, JugadoresDto jugador) {
+    private void updateTotalPreguntasChart(BarChart<String, Number> chart, JugadoresDto jugador) {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName(jugador.getNombre());
+        series.setName("Total");
 
-        series.getData().add(new XYChart.Data<>("Total Preguntas Respondidas", Long.valueOf(jugador.getPreguntasRespondidas())));
-        series.getData().add(new XYChart.Data<>("Total Preguntas Acertadas", Long.valueOf(jugador.getPreguntasAcertadas())));
+        series.getData().add(new XYChart.Data<>("Preguntas Respondidas", jugador.getPreguntasRespondidas()));
+        series.getData().add(new XYChart.Data<>("Preguntas Acertadas", jugador.getPreguntasAcertadas()));
 
         chart.getData().add(series);
     }
 
     private void clearCharts() {
-        grafDeportes.getData().clear();
-        grafGeografia.getData().clear();
-        grafHistoria.getData().clear();
-        grafTotalArte.getData().clear();
-        grafTotalCiencia.getData().clear();
-        grafTotalPop.getData().clear();
-        grafTotaldePreguntas.getData().clear();
+        chartTotalArte.getData().clear();
+        chartTotalCiencia.getData().clear();
+        chartTotalDeportes.getData().clear();
+        chartTotalGeografia.getData().clear();
+        chartTotalHistoria.getData().clear();
+        chartTotalPop.getData().clear();
+        chartTotalPreguntas.getData().clear();
     }
 
     @FXML

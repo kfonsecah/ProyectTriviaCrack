@@ -1,12 +1,15 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service;
 
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Estadisticas;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Jugadores;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.JugadoresDto;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.RespuestasDto;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.EntityManagerHelper;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Respuesta;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
+import javafx.scene.control.skin.SliderSkin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,32 +36,55 @@ public class JugadoresService {
     }
 
     public Respuesta crearJugadorConNombre(String nombre) {
+        EntityTransaction et = null;
         try {
-
+            // Verificar si el nombre ya existe
             if (findByNombre(nombre) != null) {
-                return new Respuesta(false, "El nombre ya está en uso. Por favor, elige otro nombre."+ nombre, "", "Jugador", null);
+                return new Respuesta(false, "El nombre ya está en uso. Por favor, elige otro nombre.", nombre, "Jugador", null);
             }
 
             et = em.getTransaction();
             et.begin();
             Jugadores jugador = new Jugadores();
             jugador.setNombre(nombre);
-            jugador.setCorreo(nombre+ "@preguntados.com");
+            jugador.setCorreo(nombre + "@preguntados.com");
             jugador.setPreguntasRespondidas(Long.valueOf(0));
             jugador.setPreguntasAcertadas(Long.valueOf(0));
             jugador.setPartidasGanadas(Long.valueOf(0));
 
+            // Categorias predefinidas
+            String[] categorias = {"Arte", "Pop", "Ciencia", "Geografia", "Deporte", "Historia"};
+
+            // Crear estadisticas iniciales para cada categoría
+            List<Estadisticas> estadisticasList = new ArrayList<>();
+            for (String categoria : categorias) {
+                Estadisticas estadistica = new Estadisticas();
+                estadistica.setCategoria(categoria);
+                estadistica.setPreguntasRespondidasCategoria(Long.valueOf(0));
+                estadistica.setPreguntasAcertadasCategoria(Long.valueOf(0));
+                estadistica.setRespuestasTotalesRespondidas(Long.valueOf(0));
+                estadistica.setRespuestasTotalesAcertadas(Long.valueOf(0));
+                estadistica.setIdJugador(jugador);
+                estadisticasList.add(estadistica);
+            }
+            jugador.setEstadisticasList(estadisticasList);
+
             em.persist(jugador);
+            for (Estadisticas estadistica : estadisticasList) {
+                em.persist(estadistica);
+            }
             et.commit();
-            return new Respuesta(true, "", "", "Jugador", new JugadoresDto(jugador));
+
+            return new Respuesta(true, "Jugador creado con éxito.", "", "Jugador", new JugadoresDto(jugador));
         } catch (Exception ex) {
-            if (et.isActive()) {
+            if (et != null && et.isActive()) {
                 et.rollback();
             }
             Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al guardar el jugador.", ex);
             return new Respuesta(false, "Error al guardar el jugador.", "crearJugadorConNombre " + ex.getMessage());
         }
     }
+
 
     public Respuesta getJugadores() {
         try {
@@ -71,6 +97,16 @@ public class JugadoresService {
         } catch (Exception ex) {
             Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al obtener los jugadores.", ex);
             return new Respuesta(false, "Error al obtener los jugadores.", "getJugadores " + ex.getMessage());
+        }
+    }
+
+    public Respuesta getEstadisticas(JugadoresDto jugador) {
+        try {
+            Jugadores jugadorEntity = em.find(Jugadores.class, jugador.getId());
+            return new Respuesta(true, "", "", "Estadisticas", jugadorEntity.getEstadisticasList());
+        } catch (Exception ex) {
+            Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al obtener las estadisticas.", ex);
+            return new Respuesta(false, "Error al obtener las estadisticas.", "getEstadisticas " + ex.getMessage());
         }
     }
 }

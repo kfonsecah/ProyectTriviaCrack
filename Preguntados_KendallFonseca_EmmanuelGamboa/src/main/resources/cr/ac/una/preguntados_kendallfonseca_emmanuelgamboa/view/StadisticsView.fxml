@@ -2,8 +2,9 @@
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.StackedAreaChart?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -58,17 +59,17 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundQuestionsFrame-region">
                                              <children>
-                                                <StackedAreaChart fx:id="grafTotaldePreguntas">
+                                                <BarChart fx:id="chartTotalPreguntas" styleClass="chart-series-line">
                                                   <xAxis>
-                                                    <NumberAxis side="BOTTOM" />
+                                                    <CategoryAxis nodeOrientation="LEFT_TO_RIGHT" side="BOTTOM" tickLabelFill="WHITE" />
                                                   </xAxis>
                                                   <yAxis>
-                                                    <NumberAxis side="LEFT" />
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
                                                   </yAxis>
                                                    <StackPane.margin>
                                                       <Insets top="20.0" />
                                                    </StackPane.margin>
-                                                </StackedAreaChart>
+                                                </BarChart>
                                              </children>
                                           </StackPane>
                                        </children>
@@ -85,17 +86,17 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundPopFrame-region">
                                              <children>
-                                                <StackedAreaChart fx:id="grafTotalPop">
+                                                <BarChart fx:id="chartTotalPop" styleClass="chart-series-line">
                                                   <xAxis>
-                                                    <NumberAxis side="BOTTOM" />
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
                                                   </xAxis>
                                                   <yAxis>
-                                                    <NumberAxis side="LEFT" />
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
                                                   </yAxis>
                                                    <StackPane.margin>
                                                       <Insets top="20.0" />
                                                    </StackPane.margin>
-                                                </StackedAreaChart>
+                                                </BarChart>
                                              </children>
                                           </StackPane>
                                        </children>
@@ -107,17 +108,17 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundCienciaFrame-region">
                                              <children>
-                                                <StackedAreaChart fx:id="grafTotalCiencia">
-                                                   <xAxis>
-                                                      <NumberAxis side="BOTTOM" />
-                                                   </xAxis>
-                                                   <yAxis>
-                                                      <NumberAxis side="LEFT" />
-                                                   </yAxis>
+                                                <BarChart fx:id="chartTotalCiencia" styleClass="chart-series-line">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                                  </yAxis>
                                                    <StackPane.margin>
                                                       <Insets top="20.0" />
                                                    </StackPane.margin>
-                                                </StackedAreaChart>
+                                                </BarChart>
                                              </children>
                                           </StackPane>
                                        </children>
@@ -129,17 +130,17 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundSportsFrame-region">
                                              <children>
-                                                <StackedAreaChart fx:id="grafDeportes">
+                                                <BarChart fx:id="chartTotalDeportes" styleClass="chart-series-line">
                                                   <xAxis>
-                                                    <NumberAxis side="BOTTOM" />
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
                                                   </xAxis>
                                                   <yAxis>
-                                                    <NumberAxis side="LEFT" />
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
                                                   </yAxis>
                                                    <StackPane.margin>
                                                       <Insets top="20.0" />
                                                    </StackPane.margin>
-                                                </StackedAreaChart>
+                                                </BarChart>
                                              </children>
                                           </StackPane>
                                        </children>
@@ -155,17 +156,17 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundArtFrame-region">
                                              <children>
-                                                <StackedAreaChart fx:id="grafTotalArte">
+                                                <BarChart fx:id="chartTotalArte" styleClass="chart-series-line">
                                                   <xAxis>
-                                                    <NumberAxis side="BOTTOM" />
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
                                                   </xAxis>
                                                   <yAxis>
-                                                    <NumberAxis side="LEFT" />
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
                                                   </yAxis>
                                                    <StackPane.margin>
                                                       <Insets top="20.0" />
                                                    </StackPane.margin>
-                                                </StackedAreaChart>
+                                                </BarChart>
                                              </children>
                                           </StackPane>
                                        </children>
@@ -177,17 +178,17 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundHistoryFrame-region">
                                              <children>
-                                                <StackedAreaChart fx:id="grafHistoria">
-                                                   <xAxis>
-                                                      <NumberAxis side="BOTTOM" />
-                                                   </xAxis>
-                                                   <yAxis>
-                                                      <NumberAxis side="LEFT" />
-                                                   </yAxis>
+                                                <BarChart fx:id="chartTotalHistoria" styleClass="chart-series-line">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                                  </yAxis>
                                                    <StackPane.margin>
                                                       <Insets top="20.0" />
                                                    </StackPane.margin>
-                                                </StackedAreaChart>
+                                                </BarChart>
                                              </children>
                                           </StackPane>
                                        </children>
@@ -199,17 +200,17 @@
                                        <children>
                                           <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundGeografiaFrame-region">
                                              <children>
-                                                <StackedAreaChart fx:id="grafGeografia">
+                                                <BarChart fx:id="chartTotalGeografia" styleClass="chart-series-line">
                                                   <xAxis>
-                                                    <NumberAxis side="BOTTOM" />
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
                                                   </xAxis>
                                                   <yAxis>
-                                                    <NumberAxis side="LEFT" />
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
                                                   </yAxis>
                                                    <StackPane.margin>
                                                       <Insets top="20.0" />
                                                    </StackPane.margin>
-                                                </StackedAreaChart>
+                                                </BarChart>
                                              </children>
                                           </StackPane>
                                        </children>
