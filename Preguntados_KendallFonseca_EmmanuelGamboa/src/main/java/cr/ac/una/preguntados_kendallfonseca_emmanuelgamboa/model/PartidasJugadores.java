@@ -4,16 +4,8 @@
  */
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.NamedQueries;
-import jakarta.persistence.NamedQuery;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -36,20 +28,23 @@ public class PartidasJugadores implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARTIDAS_JUGADORES_SEQ")
+    @SequenceGenerator(name = "PARTIDAS_JUGADORES_SEQ", sequenceName = "PARTIDAS_JUGADORES_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "ID_PARTIDA_JUGADOR")
-    private BigDecimal idPartidaJugador;
+    private Long idPartidaJugador;
     @Basic(optional = false)
     @Column(name = "FICHA_SELECCIONADA")
-    private BigInteger fichaSeleccionada;
+    private Long fichaSeleccionada;
     @Column(name = "PERSONAJES_OBTENIDOS")
     private String personajesObtenidos;
     @Basic(optional = false)
     @Column(name = "POSICION_TABLERO")
-    private BigInteger posicionTablero;
+    private Long posicionTablero;
+    @Version
     @Basic(optional = false)
     @Column(name = "VERSION")
-    private BigInteger version;
+    private Long version;
     @JoinColumn(name = "ID_JUGADOR", referencedColumnName = "ID_JUGADOR")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Jugadores idJugador;
@@ -60,30 +55,30 @@ public class PartidasJugadores implements Serializable {
     public PartidasJugadores() {
     }
 
-    public PartidasJugadores(BigDecimal idPartidaJugador) {
+    public PartidasJugadores(Long idPartidaJugador) {
         this.idPartidaJugador = idPartidaJugador;
     }
 
-    public PartidasJugadores(BigDecimal idPartidaJugador, BigInteger fichaSeleccionada, BigInteger posicionTablero, BigInteger version) {
+    public PartidasJugadores(Long idPartidaJugador, Long fichaSeleccionada, Long posicionTablero, Long version) {
         this.idPartidaJugador = idPartidaJugador;
         this.fichaSeleccionada = fichaSeleccionada;
         this.posicionTablero = posicionTablero;
         this.version = version;
     }
 
-    public BigDecimal getIdPartidaJugador() {
+    public Long getIdPartidaJugador() {
         return idPartidaJugador;
     }
 
-    public void setIdPartidaJugador(BigDecimal idPartidaJugador) {
+    public void setIdPartidaJugador(Long idPartidaJugador) {
         this.idPartidaJugador = idPartidaJugador;
     }
 
-    public BigInteger getFichaSeleccionada() {
+    public Long getFichaSeleccionada() {
         return fichaSeleccionada;
     }
 
-    public void setFichaSeleccionada(BigInteger fichaSeleccionada) {
+    public void setFichaSeleccionada(Long fichaSeleccionada) {
         this.fichaSeleccionada = fichaSeleccionada;
     }
 
@@ -95,19 +90,19 @@ public class PartidasJugadores implements Serializable {
         this.personajesObtenidos = personajesObtenidos;
     }
 
-    public BigInteger getPosicionTablero() {
+    public Long getPosicionTablero() {
         return posicionTablero;
     }
 
-    public void setPosicionTablero(BigInteger posicionTablero) {
+    public void setPosicionTablero(Long posicionTablero) {
         this.posicionTablero = posicionTablero;
     }
 
-    public BigInteger getVersion() {
+    public Long getVersion() {
         return version;
     }
 
-    public void setVersion(BigInteger version) {
+    public void setVersion(Long version) {
         this.version = version;
     }
 

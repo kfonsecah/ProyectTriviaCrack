@@ -4,17 +4,8 @@
  */
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import jakarta.persistence.NamedQueries;
-import jakarta.persistence.NamedQuery;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -36,35 +27,38 @@ public class Partidas implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARTIDAS_SEQ")
+    @SequenceGenerator(name = "PARTIDAS_SEQ", sequenceName = "PARTIDAS_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "ID_PARTIDA")
-    private BigDecimal idPartida;
+    private Long idPartida;
     @Lob
     @Column(name = "INFORMACION_JSON")
     private String informacionJson;
+    @Version
     @Basic(optional = false)
     @Column(name = "VERSION")
-    private BigInteger version;
+    private Long version;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPartida", fetch = FetchType.EAGER)
     private List<PartidasJugadores> partidasJugadoresList=new ArrayList<>();
 
     public Partidas() {
     }
 
-    public Partidas(BigDecimal idPartida) {
+    public void Partidas(Long idPartida) {
         this.idPartida = idPartida;
     }
 
-    public Partidas(BigDecimal idPartida, BigInteger version) {
+    public Partidas(Long idPartida, Long version) {
         this.idPartida = idPartida;
         this.version = version;
     }
 
-    public BigDecimal getIdPartida() {
+    public Long getIdPartida() {
         return idPartida;
     }
 
-    public void setIdPartida(BigDecimal idPartida) {
+    public void setIdPartida(Long idPartida) {
         this.idPartida = idPartida;
     }
 
@@ -76,11 +70,12 @@ public class Partidas implements Serializable {
         this.informacionJson = informacionJson;
     }
 
-    public BigInteger getVersion() {
+    public Long getVersion() {
         return version;
     }
 
-    public void setVersion(BigInteger version) {
+
+    public void setVersion(Long version) {
         this.version = version;
     }
 
