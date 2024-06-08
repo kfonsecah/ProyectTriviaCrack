@@ -23,7 +23,7 @@ public class EstadisticasDto implements Serializable {
         this.preguntasAcertadasCategoria = 0;
         this.respuestasTotalesRespondidas = 0;
         this.respuestasTotalesAcertadas = 0;
-        this.version = new SimpleStringProperty("0");
+        this.version = new SimpleStringProperty("");
         this.idJugador = new SimpleStringProperty("");
     }
 

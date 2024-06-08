@@ -61,11 +61,22 @@ public class PartidasJugadores implements Serializable {
         this.idPartidaJugador = idPartidaJugador;
     }
 
-    public PartidasJugadores(Long idPartidaJugador, Long fichaSeleccionada, Long posicionTablero, Long version) {
+    public PartidasJugadores(Long idPartidaJugador, Long version) {
         this.idPartidaJugador = idPartidaJugador;
-        this.fichaSeleccionada = fichaSeleccionada;
-        this.posicionTablero = posicionTablero;
         this.version = version;
+    }
+
+    public PartidasJugadores(PartidasJugadoresDto dto){
+        this.idPartidaJugador = dto.getIdPartidaJugador();
+        actualizar(dto);
+    }
+
+    public void actualizar(PartidasJugadoresDto dto){
+        this.idPartidaJugador = dto.getIdPartidaJugador();
+        this.fichaSeleccionada = dto.getFichaSeleccionada();
+        this.personajesObtenidos = String.valueOf(dto.getPersonajesObtenidos());
+        this.posicionTablero = dto.getPosicionTablero();
+        this.version = dto.getVersion();
     }
 
     public Long getIdPartidaJugador() {

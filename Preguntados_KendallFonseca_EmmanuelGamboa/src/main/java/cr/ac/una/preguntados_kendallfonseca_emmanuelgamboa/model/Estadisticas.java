@@ -65,6 +65,21 @@ public class Estadisticas implements Serializable {
         this.version = version;
     }
 
+    public Estadisticas(EstadisticasDto dto){
+        this.idEstadistica = dto.getIdEstadistica();
+        actualizar(dto);
+    }
+
+    public void actualizar(EstadisticasDto dto){
+        this.idEstadistica = dto.getIdEstadistica();
+        this.categoria = dto.getCategoria();
+        this.preguntasRespondidasCategoria = dto.getPreguntasRespondidasCategoria().longValue();
+        this.preguntasAcertadasCategoria = dto.getPreguntasAcertadasCategoria().longValue();
+        this.respuestasTotalesRespondidas = dto.getRespuestasTotalesRespondidas().longValue();
+        this.respuestasTotalesAcertadas = dto.getRespuestasTotalesAcertadas().longValue();
+        this.version = dto.getVersion();
+    }
+
     public Long getIdEstadistica() {
         return idEstadistica;
     }

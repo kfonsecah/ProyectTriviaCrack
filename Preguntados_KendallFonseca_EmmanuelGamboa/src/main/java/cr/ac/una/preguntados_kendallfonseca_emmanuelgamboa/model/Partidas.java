@@ -54,6 +54,17 @@ public class Partidas implements Serializable {
         this.version = version;
     }
 
+    public Partidas(PartidasDto dto){
+        this.idPartida = dto.getIdPartida();
+        actualizar(dto);
+    }
+
+    public void actualizar(PartidasDto dto){
+        this.idPartida = dto.getIdPartida();
+        this.informacionJson = dto.getInformacionJson();
+        this.version = dto.getVersion();
+    }
+
     public Long getIdPartida() {
         return idPartida;
     }

@@ -66,6 +66,38 @@ public class Jugadores implements Serializable {
         this.version = version;
     }
 
+    public Jugadores(JugadoresDto jugador) {
+      this.idJugador = jugador.getId();
+      actualizar(jugador);
+    }
+
+    public void actualizar(JugadoresDto jugador) {
+        this.idJugador = jugador.getId();
+        this.nombre = jugador.getNombre();
+        this.correo = jugador.getCorreo();
+        this.preguntasRespondidas = jugador.getPreguntasRespondidas().longValue();
+        this.preguntasAcertadas = jugador.getPreguntasAcertadas().longValue();
+        this.partidasGanadas = jugador.getPartidasGanadas().longValue();
+        this.version = jugador.getVersion();
+
+//        if (jugador.getPartidasJugadoresList() != null) {
+//            for (PartidasJugadoresDto partidasJugadores : jugador.getPartidasJugadoresList()) {
+//                PartidasJugadores partidasJugadores1 = new PartidasJugadores();
+//                partidasJugadores1.actualizar(partidasJugadores);
+//                this.partidasJugadoresList.add(partidasJugadores1);
+//            }
+//        }
+//
+//        if (jugador.getEstadisticasList() != null) {
+//            for (EstadisticasDto estadisticas : jugador.getEstadisticasList()) {
+//                Estadisticas estadisticas1 = new Estadisticas();
+//                estadisticas1.actualizar(estadisticas);
+//                this.estadisticasList.add(estadisticas1);
+//            }
+//        }
+
+    }
+
     public Long getIdJugador() {
         return idJugador;
     }

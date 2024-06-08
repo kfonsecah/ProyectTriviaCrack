@@ -13,7 +13,7 @@ public class JugadoresDto {
     public Number preguntasRespondidas;
     public Number preguntasAcertadas;
     public Number partidasGanadas;
-    public StringProperty version;
+    public Long version;
     public List<EstadisticasDto> estadisticasList;
     public List<PartidasJugadoresDto> partidasJugadoresList;
 
@@ -24,9 +24,9 @@ public class JugadoresDto {
         this.preguntasRespondidas = 0;
         this.preguntasAcertadas = 0;
         this.partidasGanadas = 0;
-        this.version = new SimpleStringProperty("");
         this.estadisticasList = new ArrayList<>();
         this.partidasJugadoresList = new ArrayList<>();
+        this.version = 0L;
     }
 
     public JugadoresDto(Jugadores jugador) {
@@ -37,18 +37,21 @@ public class JugadoresDto {
         this.preguntasRespondidas = jugador.getPreguntasRespondidas();
         this.preguntasAcertadas = jugador.getPreguntasAcertadas();
         this.partidasGanadas = jugador.getPartidasGanadas();
-        this.version.set(jugador.getVersion().toString());
+        this.version = jugador.getVersion();
 
-        ArrayList<Estadisticas> estadisticas = new ArrayList<>(jugador.getEstadisticasList());
-        for (Estadisticas estadistica : estadisticas) {
-            this.estadisticasList.add(new EstadisticasDto(estadistica));
+        if (jugador.getEstadisticasList() != null) {
+            for (Estadisticas estadistica : jugador.getEstadisticasList()) {
+                this.estadisticasList.add(new EstadisticasDto(estadistica));
+            }
         }
 
-        ArrayList<PartidasJugadores> partidasJugadores1 = new ArrayList<>(jugador.getPartidasJugadoresList());
-        for (PartidasJugadores partidasJugadores : partidasJugadores1) {
-            this.partidasJugadoresList.add(new PartidasJugadoresDto(partidasJugadores));
+        if (jugador.getPartidasJugadoresList() != null) {
+            for (PartidasJugadores partidasJugadores : jugador.getPartidasJugadoresList()) {
+                this.partidasJugadoresList.add(new PartidasJugadoresDto(partidasJugadores));
+            }
         }
     }
+
 
     public Long getId() {
         if (this.id.get() != null && !this.id.get().isBlank()) {
@@ -105,12 +108,12 @@ public class JugadoresDto {
         this.partidasGanadas = partidasGanadas;
     }
 
-    public String getVersion() {
-        return version.get();
+    public Long getVersion() {
+        return version;
     }
 
-    public void setVersion(String version) {
-        this.version.set(version);
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public void setEstadisticasList(List<EstadisticasDto> estadisticasList) {

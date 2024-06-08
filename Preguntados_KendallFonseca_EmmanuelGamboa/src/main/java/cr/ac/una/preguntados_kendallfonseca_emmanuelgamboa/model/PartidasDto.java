@@ -15,10 +15,10 @@ public class PartidasDto {
 
 
     public PartidasDto() {
-        this.idPartida = new SimpleStringProperty("");
+        this.idPartida = new SimpleStringProperty("0");
         this.informacionJson = new String("");
-        this.version = new SimpleStringProperty("");
         this.partidasJugadoresList = new ArrayList<>();
+        this.version = new SimpleStringProperty("0");
     }
 
 

@@ -21,10 +21,9 @@ public class PartidasJugadoresDto {
         this.fichaSeleccionada = new SimpleStringProperty("0");
         this.ayudas = new SimpleStringProperty("");
         this.posicionTablero = new SimpleStringProperty("0");
-        this.version = new SimpleStringProperty("");
         this.idJugador = new SimpleStringProperty("");
         this.idPartida = new SimpleStringProperty("");
-
+        this.version = new SimpleStringProperty("0");
     }
 
     public PartidasJugadoresDto(PartidasJugadores partidasJugadores) {
@@ -36,11 +35,14 @@ public class PartidasJugadoresDto {
         this.version.set(partidasJugadores.getVersion().toString());
         this.idJugador.set(partidasJugadores.getIdJugador().getIdJugador().toString());
         this.idPartida.set(partidasJugadores.getIdPartida().getIdPartida().toString());
-
     }
 
-    public SimpleStringProperty getIdPartidaJugador() {
-        return idPartidaJugador;
+    public Long getIdPartidaJugador() {
+        if (this.idPartidaJugador.get() != null && !this.idPartidaJugador.get().isBlank())
+        {
+            return Long.valueOf(this.idPartidaJugador.get());
+        }
+        return null;
     }
 
     public void setIdPartidaJugador(SimpleStringProperty idPartidaJugador) {

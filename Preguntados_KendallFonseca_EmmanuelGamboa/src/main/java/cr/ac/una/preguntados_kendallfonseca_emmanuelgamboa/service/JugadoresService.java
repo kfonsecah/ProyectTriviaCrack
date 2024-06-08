@@ -99,13 +99,49 @@ public class JugadoresService {
         }
     }
 
-    public Respuesta getEstadisticas(JugadoresDto jugador) {
+    public Respuesta uptade(JugadoresDto jugadoresDto) {
+        EntityTransaction et = null;
         try {
-            Jugadores jugadorEntity = em.find(Jugadores.class, jugador.getId());
-            return new Respuesta(true, "", "", "Estadisticas", jugadorEntity.getEstadisticasList());
+            et = em.getTransaction();
+            et.begin();
+            Jugadores jugador = em.find(Jugadores.class, Long.valueOf(jugadoresDto.getId()));
+
+            jugador.setNombre(jugadoresDto.getNombre());
+            jugador.setCorreo(jugadoresDto.getCorreo());
+            jugador.setPreguntasRespondidas(jugadoresDto.getPreguntasRespondidas().longValue());
+            jugador.setPreguntasAcertadas(jugadoresDto.getPreguntasAcertadas().longValue());
+            jugador.setPartidasGanadas(jugadoresDto.getPartidasGanadas().longValue());
+
+            List<PartidasJugadoresDto> partidasJugadoresDtoList = jugadoresDto.getPartidasJugadoresList();
+            List<PartidasJugadores> partidasJugadoresList = new ArrayList<>();
+
+            for (PartidasJugadoresDto partidasJugadoresDto : partidasJugadoresDtoList) {
+                PartidasJugadores partidasJugadores = new PartidasJugadores();
+                partidasJugadores.setIdJugador(jugador);
+                partidasJugadores.setFichaSeleccionada(partidasJugadoresDto.getFichaSeleccionada());
+                partidasJugadores.setPersonajesObtenidos(partidasJugadoresDto.getPersonajesObtenidos());
+                partidasJugadores.setPosicionTablero(partidasJugadoresDto.getPosicionTablero().longValue());
+
+
+                Partidas partida = em.find(Partidas.class, partidasJugadoresDto.getIdPartida());
+                partidasJugadores.setIdPartida(partida);
+
+                partidasJugadoresList.add(partidasJugadores);
+            }
+            jugador.setPartidasJugadoresList(partidasJugadoresList);
+
+            em.merge(jugador);
+            et.commit();
+            return new Respuesta(true, "Jugador ficha añadida con éxito.", "", "Jugador", new JugadoresDto(jugador));
         } catch (Exception ex) {
-            Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al obtener las estadisticas.", ex);
-            return new Respuesta(false, "Error al obtener las estadisticas.", "getEstadisticas " + ex.getMessage());
+            if (et != null && et.isActive()) {
+                et.rollback();
+            }
+            Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al actualizar el jugador.", ex);
+            return new Respuesta(false, "Error al actualizar el jugador.", "uptade " + ex.getMessage());
         }
     }
+
+
+
 }

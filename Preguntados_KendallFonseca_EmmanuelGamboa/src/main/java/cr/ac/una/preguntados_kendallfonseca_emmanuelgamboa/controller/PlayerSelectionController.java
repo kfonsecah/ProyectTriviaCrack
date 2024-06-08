@@ -5,6 +5,7 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -125,17 +126,33 @@ public class PlayerSelectionController extends Controller implements Initializab
             partidasJugadoresDto.setPersonajesObtenidos("Ninguno");
             partidasJugadoresDto.setFichaSeleccionada(1L);
             partidasJugadoresDto.setAyudas("Ninguna");
+
             Respuesta respuesta = jugadoresService.findByNombre(nombre);
-            if (respuesta.getEstado()) {
-                JugadoresDto jugadoresDto = (JugadoresDto) respuesta.getResultado("JugadoresDto");
+            if (respuesta != null && respuesta.getEstado()) {
+                JugadoresDto jugadoresDto = (JugadoresDto) respuesta.getResultado("Jugador");
+                if (jugadoresDto.getPartidasJugadoresList() == null) {
+                    jugadoresDto.setPartidasJugadoresList(new ArrayList<>());
+                }
+
+
+                partidasJugadoresDto.setIdPartida(partidasDto.getIdPartida());
+
+                jugadoresDto.getPartidasJugadoresList().add(partidasJugadoresDto);
+                Respuesta respuesta1 = jugadoresService.uptade(jugadoresDto);
+                if (!respuesta1.getEstado()) {
+                    new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta1.getMensaje());
+                }
+            } else {
+                new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Jugador no encontrado.");
             }
-            partidasDto.getPartidasJugadoresList().add(partidasJugadoresDto);
+
             playersNumber.setText("Jugador 2");
         } else {
             new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Por favor seleccione un jugador");
         }
-
     }
+
+
 
     @FXML
     void onActionBtnFicha2(ActionEvent event) {
