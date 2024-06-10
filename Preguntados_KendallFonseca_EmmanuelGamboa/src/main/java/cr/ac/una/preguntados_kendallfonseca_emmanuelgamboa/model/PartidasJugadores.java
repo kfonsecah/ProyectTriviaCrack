@@ -77,6 +77,7 @@ public class PartidasJugadores implements Serializable {
         this.fichaSeleccionada = dto.getFichaSeleccionada();
         this.personajesObtenidos = String.valueOf(dto.getPersonajesObtenidos());
         this.posicionTablero = dto.getPosicionTablero();
+        this.ayudas = dto.getAyudas();
         this.version = dto.getVersion();
     }
 

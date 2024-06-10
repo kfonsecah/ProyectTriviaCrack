@@ -63,7 +63,6 @@ public class Partidas implements Serializable {
         this.idPartida = dto.getIdPartida();
         this.informacionJson = dto.getInformacionJson();
         this.version = dto.getVersion();
-
     }
 
     public Long getIdPartida() {

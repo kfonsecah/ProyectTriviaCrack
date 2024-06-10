@@ -83,14 +83,24 @@ public class GameMenuController extends Controller implements Initializable{
 
     @Override
     public void initialize() {
-        clearAppContext();
+        clear();
     }
 
-    private void clearAppContext() {
+    private void clear() {
+        modo_juego = "";
+        cantidad_jugadores = 0;
+        tiempo_juego = 0;
+
+        btnEasyMode.setDisable(false);
+        btnMidMode.setDisable(false);
+        btnHardMode.setDisable(false);
+
+
         AppContext.getInstance().delete("playerCounter");
         AppContext.getInstance().delete("configPartida");
         AppContext.getInstance().delete("gameTime");
         AppContext.getInstance().delete("modo_juego");
+
     }
 
 
@@ -108,16 +118,25 @@ public class GameMenuController extends Controller implements Initializable{
     @FXML
     void onActionBtnEasyMode(ActionEvent event) {
         modo_juego = "facil";
+        btnEasyMode.setDisable(true);
+        btnHardMode.setDisable(false);
+        btnMidMode.setDisable(false);
     }
 
     @FXML
     void onActionBtnHardMode(ActionEvent event) {
        modo_juego = "dificil";
+       btnHardMode.setDisable(true);
+         btnEasyMode.setDisable(false);
+        btnMidMode.setDisable(false);
     }
 
     @FXML
     void onActionBtnMidMode(ActionEvent event) {
        modo_juego = "medio";
+         btnMidMode.setDisable(true);
+          btnEasyMode.setDisable(false);
+          btnHardMode.setDisable(false);
     }
 
 
@@ -132,11 +151,14 @@ public class GameMenuController extends Controller implements Initializable{
             cantidad_jugadores = spinnerPlayersQuantity.getValue();
             tiempo_juego = spinnerGameTime.getValue();
 
-            jsonInfo = "{" +
-                    "\"modo_juego\":\"" + modo_juego + "\"," +
-                    "\"tiempo_juego\":" + tiempo_juego + "," +
-                    "\"cantidad_jugadores\":" + cantidad_jugadores +
-                    "}";
+
+            jsonInfo= "{" +modo_juego + "," + tiempo_juego + "," + cantidad_jugadores +"}";
+
+//            jsonInfo = "{" +
+//                    "\"modo_juego\":\"" + modo_juego + "\"," +
+//                    "\"tiempo_juego\":" + tiempo_juego + "," +
+//                    "\"cantidad_jugadores\":" + cantidad_jugadores +
+//                    "}";
 
             AppContext.getInstance().set("configPartida", jsonInfo);
             AppContext.getInstance().set("tiempo_juego", tiempo_juego);

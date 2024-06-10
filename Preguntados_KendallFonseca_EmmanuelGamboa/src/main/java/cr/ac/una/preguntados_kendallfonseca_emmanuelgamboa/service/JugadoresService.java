@@ -19,15 +19,18 @@ public class JugadoresService {
 
     public Respuesta findByNombre(String nombre) {
         try {
-            Jugadores jugador = em.createNamedQuery("Jugadores.findByNombre", Jugadores.class)
+            Jugadores jugador = (Jugadores) em.createNamedQuery("Jugadores.findByNombre")
                     .setParameter("nombre", nombre)
                     .getSingleResult();
             return new Respuesta(true, "", "", "Jugador", new JugadoresDto(jugador));
+        } catch (NoResultException ex) {
+           return null;
         } catch (Exception ex) {
-            Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Este jugador no existe o hubo un error obteniendolo.", ex);
+            Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al buscar el jugador.", ex);
             return new Respuesta(false, "Error al buscar el jugador.", "findByNombre " + ex.getMessage());
         }
     }
+
 
     public Respuesta crearJugadorConNombre(String nombre) {
         try {
@@ -36,42 +39,42 @@ public class JugadoresService {
                 return new Respuesta(false, "El nombre ya está en uso. Por favor, elige otro nombre.", nombre, "Jugador", null);
             }
 
-            et = em.getTransaction();
-            et.begin();
-            Jugadores jugador = new Jugadores();
-            jugador.setNombre(nombre);
-            jugador.setCorreo(nombre + "@preguntados.com");
-            jugador.setPreguntasRespondidas(Long.valueOf(0));
-            jugador.setPreguntasAcertadas(Long.valueOf(0));
-            jugador.setPartidasGanadas(Long.valueOf(0));
+                et = em.getTransaction();
+                et.begin();
+                Jugadores jugador = new Jugadores();
+                jugador.setNombre(nombre);
+                jugador.setCorreo(nombre + "@preguntados.com");
+                jugador.setPreguntasRespondidas(Long.valueOf(0));
+                jugador.setPreguntasAcertadas(Long.valueOf(0));
+                jugador.setPartidasGanadas(Long.valueOf(0));
 
 
-            // Categorias predefinidas
-            String[] categorias = {"Arte", "Pop", "Ciencia", "Geografia", "Deporte", "Historia"};
+                // Categorias predefinidas
+                String[] categorias = {"Arte", "Pop", "Ciencia", "Geografia", "Deporte", "Historia"};
 
-            // Crear estadisticas iniciales para cada categoría
-            List<Estadisticas> estadisticasList = new ArrayList<>();
-            for (String categoria : categorias) {
-                Estadisticas estadistica = new Estadisticas();
-                estadistica.setCategoria(categoria);
-                estadistica.setPreguntasRespondidasCategoria(Long.valueOf(0));
-                estadistica.setPreguntasAcertadasCategoria(Long.valueOf(0));
-                estadistica.setRespuestasTotalesRespondidas(Long.valueOf(0));
-                estadistica.setRespuestasTotalesAcertadas(Long.valueOf(0));
-                estadistica.setIdJugador(jugador);
-                estadisticasList.add(estadistica);
-            }
-            jugador.setEstadisticasList(estadisticasList);
+                // Crear estadisticas iniciales para cada categoría
+                List<Estadisticas> estadisticasList = new ArrayList<>();
+                for (String categoria : categorias) {
+                    Estadisticas estadistica = new Estadisticas();
+                    estadistica.setCategoria(categoria);
+                    estadistica.setPreguntasRespondidasCategoria(Long.valueOf(0));
+                    estadistica.setPreguntasAcertadasCategoria(Long.valueOf(0));
+                    estadistica.setRespuestasTotalesRespondidas(Long.valueOf(0));
+                    estadistica.setRespuestasTotalesAcertadas(Long.valueOf(0));
+                    estadistica.setIdJugador(jugador);
+                    estadisticasList.add(estadistica);
+                }
+                jugador.setEstadisticasList(estadisticasList);
 
-            jugador.setPartidasJugadoresList(new ArrayList<>());
+                jugador.setPartidasJugadoresList(new ArrayList<>());
 
-            em.persist(jugador);
-            for (Estadisticas estadistica : estadisticasList) {
-                em.persist(estadistica);
-            }
-            et.commit();
+                em.persist(jugador);
+                for (Estadisticas estadistica : estadisticasList) {
+                    em.persist(estadistica);
+                }
+                et.commit();
 
-            return new Respuesta(true, "Jugador creado con éxito.", "", "Jugador", new JugadoresDto(jugador));
+                return new Respuesta(true, "Jugador creado con éxito.", "", "Jugador", new JugadoresDto(jugador));
         } catch (Exception ex) {
             if (et != null && et.isActive()) {
                 et.rollback();

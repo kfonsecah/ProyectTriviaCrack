@@ -28,7 +28,7 @@
                            <children>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <Label fx:id="playersNumber" prefHeight="25.0" prefWidth="148.0" styleClass="txt-title" text="Jugador" />
+                                    <Label fx:id="playersNumber" prefHeight="39.0" prefWidth="102.0" styleClass="txt-title" text="Jugador" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="668.0">
                                        <children>
                                           <StackPane prefHeight="132.0" prefWidth="284.0" styleClass="custom-stack-pane">
@@ -58,9 +58,9 @@
                                        <children>
                                           <VBox alignment="CENTER" prefHeight="169.0" prefWidth="100.0" spacing="10.0">
                                              <children>
-                                                <MFXButton fx:id="btnFicha1" onAction="#onActionBtnFicha1" prefHeight="75.0" prefWidth="85.0" styleClass="ficha1-button" text="‎ " translateX="40.0" />
-                                                <MFXButton fx:id="btnFicha2" onAction="#onActionBtnFicha2" prefHeight="75.0" prefWidth="85.0" styleClass="ficha2-button" text="‎ " />
-                                                <MFXButton fx:id="btnFicha3" onAction="#onActionBtnFicha3" prefHeight="75.0" prefWidth="85.0" styleClass="ficha3-button" text="‎ " translateX="40.0" />
+                                                <MFXButton fx:id="btnFicha1" onAction="#onActionBtnFicha" prefHeight="75.0" prefWidth="85.0" styleClass="ficha1-button" text="‎ " translateX="40.0" />
+                                                <MFXButton fx:id="btnFicha2" onAction="#onActionBtnFicha" prefHeight="75.0" prefWidth="85.0" styleClass="ficha2-button" text="‎ " />
+                                                <MFXButton fx:id="btnFicha3" onAction="#onActionBtnFicha" prefHeight="75.0" prefWidth="85.0" styleClass="ficha3-button" text="‎ " translateX="40.0" />
                                              </children>
                                           </VBox>
                                           <ImageView fitHeight="150.0" fitWidth="200.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
@@ -70,9 +70,9 @@
                                           </ImageView>
                                           <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                              <children>
-                                                <MFXButton fx:id="btnFicha4" onAction="#onActionBtnFicha4" prefHeight="75.0" prefWidth="85.0" styleClass="ficha4-button" text=" " translateX="-40.0" />
-                                                <MFXButton fx:id="btnFicha5" onAction="#onActionBtnFicha5" prefHeight="75.0" prefWidth="85.0" styleClass="ficha5-button" text=" " />
-                                                <MFXButton fx:id="btnFicha6" onAction="#onActionBtnFicha6" prefHeight="75.0" prefWidth="85.0" styleClass="ficha6-button" text="  " translateX="-40.0" />
+                                                <MFXButton fx:id="btnFicha4" onAction="#onActionBtnFicha" prefHeight="75.0" prefWidth="85.0" styleClass="ficha4-button" text=" " translateX="-40.0" />
+                                                <MFXButton fx:id="btnFicha5" onAction="#onActionBtnFicha" prefHeight="75.0" prefWidth="85.0" styleClass="ficha5-button" text=" " />
+                                                <MFXButton fx:id="btnFicha6" onAction="#onActionBtnFicha" prefHeight="75.0" prefWidth="85.0" styleClass="ficha6-button" text="  " translateX="-40.0" />
                                              </children>
                                           </VBox>
                                        </children>

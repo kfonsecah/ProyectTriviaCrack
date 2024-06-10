@@ -88,6 +88,9 @@ public class PlayerSelectionController extends Controller implements Initializab
     Integer playerCounter = 0;
     Integer playerNumber = 0;
 
+    String modo_juego;
+    Integer tiempo_juego;
+
     public void nuevoPartidasJugadoresDto() {
         partidasJugadoresDto = new PartidasJugadoresDto();
     }
@@ -106,6 +109,8 @@ public class PlayerSelectionController extends Controller implements Initializab
     public void initialize() {
         playersNumber.setText("Jugador " + (playerNumber + 1));
         playerCounter = (Integer) appContext.get("cantidad_jugadores");
+        modo_juego = (String) appContext.get("modo_juego");
+        tiempo_juego = (Integer) appContext.get("tiempo_juego");
 
         loadJugadores();
     }
@@ -126,7 +131,7 @@ public class PlayerSelectionController extends Controller implements Initializab
 
 
     @FXML
-    void onActionBtnFicha1(ActionEvent event) {
+    void onActionBtnFicha(ActionEvent event) {
         if (Objects.equals(playerNumber, playerCounter)) {
             new Mensaje().showModal(Alert.AlertType.INFORMATION, "Información", getStage(), "Todos los jugadores han sido seleccionados");
         } else {
@@ -138,13 +143,32 @@ public class PlayerSelectionController extends Controller implements Initializab
 
                 partidasJugadoresDto.setPersonajesObtenidos("Ninguno");
 
-                partidasJugadoresDto.setFichaSeleccionada(1L);
 
-                if (appContext.get("modo_juego").equals("facil"))
+                if (event.getSource() == btnFicha1) {
+                    partidasJugadoresDto.setFichaSeleccionada(1L);
+                    btnFicha1.setDisable(true);
+                } else if (event.getSource() == btnFicha2) {
+                    partidasJugadoresDto.setFichaSeleccionada(2L);
+                    btnFicha2.setDisable(true);
+                } else if (event.getSource() == btnFicha3) {
+                    partidasJugadoresDto.setFichaSeleccionada(3L);
+                    btnFicha3.setDisable(true);
+                } else if (event.getSource() == btnFicha4) {
+                    partidasJugadoresDto.setFichaSeleccionada(4L);
+                    btnFicha4.setDisable(true);
+                } else if (event.getSource() == btnFicha5) {
+                    partidasJugadoresDto.setFichaSeleccionada(5L);
+                    btnFicha5.setDisable(true);
+                } else if (event.getSource() == btnFicha6) {
+                    partidasJugadoresDto.setFichaSeleccionada(6L);
+                    btnFicha6.setDisable(true);
+                }
+
+                if (modo_juego.equals("facil"))
                     partidasJugadoresDto.setAyudas("D, P, B, TE");
-                else if (appContext.get("modo_juego").equals("medio"))
+                else if (modo_juego.equals("medio"))
                     partidasJugadoresDto.setAyudas(" ");
-                else if (appContext.get("modo_juego").equals("dificil"))
+                else if (modo_juego.equals("dificil"))
                     partidasJugadoresDto.setAyudas(" ");
 
                 Respuesta respuesta = jugadoresService.findByNombre(nombre);
@@ -163,6 +187,7 @@ public class PlayerSelectionController extends Controller implements Initializab
                 comboboxPlayers.clearSelection();
                 playerNumber++;
                 playersNumber.setText("Jugador " + (playerNumber + 1));
+
             } else {
                 new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Por favor seleccione un jugador");
             }
@@ -170,31 +195,6 @@ public class PlayerSelectionController extends Controller implements Initializab
         if (Objects.equals(playerNumber, playerCounter)) {
             btnPlay.setDisable(false);
         }
-    }
-
-    @FXML
-    void onActionBtnFicha2(ActionEvent event) {
-        System.out.println(playerCounter);
-    }
-
-    @FXML
-    void onActionBtnFicha3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionBtnFicha4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionBtnFicha5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionBtnFicha6(ActionEvent event) {
-
     }
 
     @FXML
@@ -206,7 +206,8 @@ public class PlayerSelectionController extends Controller implements Initializab
     @FXML
     void onActionBtnNewPlayer(ActionEvent event) {
 
-        FlowController.getInstance().goViewInWindow("RegisterView");
+        FlowController.getInstance().goViewInWindowModal("RegisterView", getStage(), false);
+        loadJugadores();
 
     }
 
@@ -235,6 +236,13 @@ public class PlayerSelectionController extends Controller implements Initializab
         partidasJugadoresList.clear();
         playerNumber = 0;
         btnPlay.setDisable(true);
+
+        btnFicha1.setDisable(false);
+        btnFicha2.setDisable(false);
+        btnFicha3.setDisable(false);
+        btnFicha4.setDisable(false);
+        btnFicha5.setDisable(false);
+        btnFicha6.setDisable(false);
 
         AppContext.getInstance().delete("playerCounter");
         AppContext.getInstance().delete("configPartida");
