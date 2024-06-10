@@ -130,31 +130,27 @@ public class StadisticsController extends Controller implements Initializable {
                     break;
             }
         }
-
-
         updateTotalPreguntasChart(chartTotalPreguntas, jugador);
     }
 
-    private void updateChart(BarChart<String, Number> chart, EstadisticasDto estadistica) {
+    private void updateChart(BarChart<String, Number> grafico, EstadisticasDto estadistica) {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Respondidas");
-        //cambiar color de los graficos
-        
 
         series.getData().add(new XYChart.Data<>("Preguntas Respondidas", estadistica.getPreguntasRespondidasCategoria()));
         series.getData().add(new XYChart.Data<>("Preguntas Acertadas", estadistica.getPreguntasAcertadasCategoria()));
 
-        chart.getData().add(series);
+        grafico.getData().add(series);
     }
 
-    private void updateTotalPreguntasChart(BarChart<String, Number> chart, JugadoresDto jugador) {
+    private void updateTotalPreguntasChart(BarChart<String, Number> grafico, JugadoresDto jugador) {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Total");
 
         series.getData().add(new XYChart.Data<>("Preguntas Respondidas", jugador.getPreguntasRespondidas()));
         series.getData().add(new XYChart.Data<>("Preguntas Acertadas", jugador.getPreguntasAcertadas()));
 
-        chart.getData().add(series);
+        grafico.getData().add(series);
     }
 
     private void clearCharts() {
