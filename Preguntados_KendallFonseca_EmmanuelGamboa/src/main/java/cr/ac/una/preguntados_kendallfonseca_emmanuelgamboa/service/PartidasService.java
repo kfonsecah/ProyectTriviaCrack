@@ -8,6 +8,7 @@ import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.EntityManagerHel
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Respuesta;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +24,8 @@ public class PartidasService {
         try {
             et = em.getTransaction();
             et.begin();
-            Partidas partidas = new Partidas();
-            partidas.setInformacionJson(partida.getInformacionJson());
+            Partidas partidas = new Partidas(partida);
+
             em.persist(partidas);
             et.commit();
             return new Respuesta(true, "", "", "Partida", new PartidasDto(partidas));
@@ -53,6 +54,21 @@ public class PartidasService {
             }
             Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al guardar la partida", ex);
             return new Respuesta(false, "Error al guardar la partida.", "guardarPartida " + ex.getMessage());
+        }
+    }
+
+    public Respuesta findById(Long id){
+        try{
+            Partidas partida = (Partidas) em.createNamedQuery("Partidas.findByIdPartida")
+                    .setParameter("idPartida", id)
+                    .getSingleResult();
+            return new Respuesta(true, "", "", "Partida", new PartidasDto(partida));
+        }catch (NoResultException ex){
+            return null;
+        }catch(Exception ex){
+            Logger.getLogger(PartidasService.class.getName()).log(Level.SEVERE, "Error al buscar partida", ex);
+            return new Respuesta(false, "Error al buscar la partida","findByIdPartida"+ ex.getMessage());
+
         }
     }
 

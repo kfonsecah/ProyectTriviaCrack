@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class PartidasDto {
     private SimpleStringProperty idPartida;
     private String informacionJson;
-    private SimpleStringProperty version;
+        private Long version;
     private List<PartidasJugadoresDto> partidasJugadoresList;
 
 
@@ -18,7 +18,7 @@ public class PartidasDto {
         this.idPartida = new SimpleStringProperty("0");
         this.informacionJson = new String("");
         this.partidasJugadoresList = new ArrayList<>();
-        this.version = new SimpleStringProperty("0");
+        this.version = 0L;
     }
 
 
@@ -26,12 +26,12 @@ public class PartidasDto {
         this();
         this.idPartida.set(partidas.getIdPartida().toString());
         this.informacionJson = partidas.getInformacionJson();
-        this.version.set(partidas.getVersion().toString());
+        this.version = partidas.getVersion();
 
-       ArrayList<PartidasJugadores> partidas_jugadores= new ArrayList<>(partidas.getPartidasJugadoresList());
-        for (PartidasJugadores partidasJugadores : partidas_jugadores) {
+        for (PartidasJugadores partidasJugadores : partidas.getPartidasJugadoresList()) {
             this.partidasJugadoresList.add(new PartidasJugadoresDto(partidasJugadores));
         }
+
 
     }
 
@@ -52,11 +52,10 @@ public class PartidasDto {
     }
 
     public Long getVersion() {
-        return Long.valueOf(version.get());
+        return version;
     }
-
     public void setVersion(Long version) {
-        this.version.set(version.toString());
+        this.version = version;
     }
 
     public List<PartidasJugadoresDto> getPartidasJugadoresList() {

@@ -13,7 +13,7 @@
    <children>
       <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundAnimated4-region" StackPane.alignment="CENTER">
          <children>
-            <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="custom-stack-pane" StackPane.alignment="CENTER">
+            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="1092.0" styleClass="custom-stack-pane" StackPane.alignment="CENTER">
                <StackPane.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </StackPane.margin>
@@ -22,7 +22,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="60.0" VBox.vgrow="NEVER">
                            <children>
-                              <StackPane fx:id="hubPlayer1" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                              <StackPane fx:id="hubPlayer1" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane" translateY="100.0">
                                  <children>
                                     <VBox prefHeight="431.0" prefWidth="581.0">
                                        <children>
@@ -73,7 +73,7 @@
                                     </VBox>
                                  </children>
                               </StackPane>
-                              <StackPane fx:id="hubPlayer2" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                              <StackPane fx:id="hubPlayer2" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane" translateY="25.0">
                                  <children>
                                     <VBox prefHeight="431.0" prefWidth="581.0">
                                        <children>
@@ -124,7 +124,7 @@
                                     </VBox>
                                  </children>
                               </StackPane>
-                              <StackPane fx:id="hubPlayer3" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                              <StackPane fx:id="hubPlayer3" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane" translateY="100.0">
                                  <children>
                                     <VBox prefHeight="431.0" prefWidth="581.0">
                                        <children>
@@ -177,7 +177,7 @@
                               </StackPane>
                            </children>
                         </HBox>
-                        <ImageView fitHeight="508.0" fitWidth="493.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imageTablero" fitHeight="448.0" fitWidth="452.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/tablero2.png" />
                            </image>
@@ -187,7 +187,7 @@
                         </ImageView>
                         <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="60.0" VBox.vgrow="NEVER">
                            <children>
-                              <StackPane fx:id="hubPlayer4" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                              <StackPane fx:id="hubPlayer4" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane" translateY="-100.0">
                                  <children>
                                     <VBox prefHeight="431.0" prefWidth="581.0">
                                        <children>
@@ -238,7 +238,7 @@
                                     </VBox>
                                  </children>
                               </StackPane>
-                              <StackPane fx:id="hubPlayer5" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                              <StackPane fx:id="hubPlayer5" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane" translateY="-25.0">
                                  <children>
                                     <VBox prefHeight="431.0" prefWidth="581.0">
                                        <children>
@@ -289,7 +289,7 @@
                                     </VBox>
                                  </children>
                               </StackPane>
-                              <StackPane fx:id="hubPlayer6" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane">
+                              <StackPane fx:id="hubPlayer6" prefHeight="87.0" prefWidth="172.0" styleClass="custom-stackPlayersGame-pane" translateY="-100.0">
                                  <children>
                                     <VBox prefHeight="431.0" prefWidth="581.0">
                                        <children>

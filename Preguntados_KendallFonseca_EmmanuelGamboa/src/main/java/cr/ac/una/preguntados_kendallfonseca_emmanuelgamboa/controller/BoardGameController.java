@@ -7,11 +7,20 @@ package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PartidasDto;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PartidasJugadores;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PartidasJugadoresDto;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.PartidasService;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AppContext;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Mensaje;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Respuesta;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
@@ -25,15 +34,7 @@ public class BoardGameController extends Controller implements Initializable {
     /**
      * Initializes the controller class.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
 
-    @Override
-    public void initialize() {
-
-    }
     @FXML
     private ImageView Ficha1Player1;
 
@@ -203,8 +204,97 @@ public class BoardGameController extends Controller implements Initializable {
     private ImageView ruletaBoard;
 
     @FXML
-    void onActionBtnRotate(ActionEvent event) {
+    private ImageView imageTablero;
 
+
+
+    private Long partidaid;
+    private PartidasDto partidasDto = new PartidasDto();
+
+
+    AppContext appContext = AppContext.getInstance();
+    PartidasService partidasService = new PartidasService();
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+    }
+
+    @Override
+    public void initialize() {
+        partidaid = (Long) appContext.get("idPartida");
+        setPartida();
+    }
+
+
+    void setPartida() {
+        Respuesta respuesta = partidasService.findById(Long.valueOf(partidaid));
+        if (!respuesta.getEstado()) {
+           new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
+        }else {
+
+            partidasDto = (PartidasDto) respuesta.getResultado("Partida");
+
+            for (PartidasJugadoresDto partidasJugadoresDto : partidasDto.getPartidasJugadoresList()) {
+                System.out.println(partidasJugadoresDto.getAyudas());
+            }
+
+            int cantidadJugadores = partidasDto.getPartidasJugadoresList().size();
+
+            if (cantidadJugadores == 2) {
+                hubPlayer1.setVisible(true);
+                hubPlayer2.setVisible(true);
+                hubPlayer3.setVisible(false);
+                hubPlayer4.setVisible(false);
+                hubPlayer5.setVisible(false);
+                hubPlayer6.setVisible(false);
+                imageTablero.setImage(new Image("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/images/tablero2.png"));
+            }
+            if (cantidadJugadores == 3) {
+                hubPlayer1.setVisible(true);
+                hubPlayer2.setVisible(true);
+                hubPlayer3.setVisible(true);
+                hubPlayer4.setVisible(false);
+                hubPlayer5.setVisible(false);
+                hubPlayer6.setVisible(false);
+                imageTablero.setImage(new Image("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/images/tablero3.png"));
+            }
+            if (cantidadJugadores == 4) {
+                hubPlayer1.setVisible(true);
+                hubPlayer2.setVisible(true);
+                hubPlayer3.setVisible(true);
+                hubPlayer4.setVisible(true);
+                hubPlayer5.setVisible(false);
+                hubPlayer6.setVisible(false);
+                imageTablero.setImage(new Image("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/images/tablero4.png"));
+            }
+            if (cantidadJugadores == 5) {
+                hubPlayer1.setVisible(true);
+                hubPlayer2.setVisible(true);
+                hubPlayer3.setVisible(true);
+                hubPlayer4.setVisible(true);
+                hubPlayer5.setVisible(true);
+                hubPlayer6.setVisible(false);
+                imageTablero.setImage(new Image("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/images/tablero5.png"));
+            }
+            if (cantidadJugadores == 6) {
+                hubPlayer1.setVisible(true);
+                hubPlayer2.setVisible(true);
+                hubPlayer3.setVisible(true);
+                hubPlayer4.setVisible(true);
+                hubPlayer5.setVisible(true);
+                hubPlayer6.setVisible(true);
+                imageTablero.setImage(new Image("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/images/tablero6.png"));
+            }
+        }
+
+    }
+
+    @FXML
+    void onActionBtnRotate(ActionEvent event) {
+        for (PartidasJugadoresDto partidasJugadoresDto : partidasDto.getPartidasJugadoresList()) {
+            System.out.println(partidasJugadoresDto.getAyudas());
+        }
     }
     
 }

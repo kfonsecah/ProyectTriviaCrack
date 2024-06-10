@@ -48,10 +48,10 @@ public class PartidasJugadores implements Serializable {
     @Column(name = "VERSION")
     private Long version;
     @JoinColumn(name = "ID_JUGADOR", referencedColumnName = "ID_JUGADOR")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne( optional = false, fetch = FetchType.EAGER)
     private Jugadores idJugador;
     @JoinColumn(name = "ID_PARTIDA", referencedColumnName = "ID_PARTIDA")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne( optional = false, fetch = FetchType.EAGER)
     private Partidas idPartida;
 
     public PartidasJugadores() {

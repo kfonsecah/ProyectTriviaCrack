@@ -80,22 +80,6 @@ public class Jugadores implements Serializable {
         this.partidasGanadas = jugador.getPartidasGanadas().longValue();
         this.version = jugador.getVersion();
 
-//        if (jugador.getPartidasJugadoresList() != null) {
-//            for (PartidasJugadoresDto partidasJugadores : jugador.getPartidasJugadoresList()) {
-//                PartidasJugadores partidasJugadores1 = new PartidasJugadores();
-//                partidasJugadores1.actualizar(partidasJugadores);
-//                this.partidasJugadoresList.add(partidasJugadores1);
-//            }
-//        }
-//
-//        if (jugador.getEstadisticasList() != null) {
-//            for (EstadisticasDto estadisticas : jugador.getEstadisticasList()) {
-//                Estadisticas estadisticas1 = new Estadisticas();
-//                estadisticas1.actualizar(estadisticas);
-//                this.estadisticasList.add(estadisticas1);
-//            }
-//        }
-
     }
 
     public Long getIdJugador() {

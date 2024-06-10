@@ -66,7 +66,6 @@ public class JugadoresService {
                 }
                 jugador.setEstadisticasList(estadisticasList);
 
-                jugador.setPartidasJugadoresList(new ArrayList<>());
 
                 em.persist(jugador);
                 for (Estadisticas estadistica : estadisticasList) {

@@ -75,9 +75,6 @@ public class ConfigController extends Controller implements Initializable {
         // TODO
     }
 
-    @FXML
-    void onActionHover(ActionEvent event) {
-    }
 
     @FXML
     void onActionBtnAlbert(ActionEvent event) {

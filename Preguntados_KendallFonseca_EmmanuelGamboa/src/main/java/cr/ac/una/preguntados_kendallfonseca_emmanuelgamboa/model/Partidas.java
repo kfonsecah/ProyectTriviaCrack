@@ -63,6 +63,13 @@ public class Partidas implements Serializable {
         this.idPartida = dto.getIdPartida();
         this.informacionJson = dto.getInformacionJson();
         this.version = dto.getVersion();
+
+        this.partidasJugadoresList.clear();
+        for (PartidasJugadoresDto partidasJugadoresDto : dto.getPartidasJugadoresList()) {
+            PartidasJugadores partidasJugadores = new PartidasJugadores(partidasJugadoresDto);
+            partidasJugadores.setIdPartida(this);
+            this.partidasJugadoresList.add(partidasJugadores);
+        }
     }
 
     public Long getIdPartida() {
