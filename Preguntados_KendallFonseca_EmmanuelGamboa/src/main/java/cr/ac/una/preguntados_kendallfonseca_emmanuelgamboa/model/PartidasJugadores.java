@@ -68,11 +68,12 @@ public class PartidasJugadores implements Serializable {
 
     public PartidasJugadores(PartidasJugadoresDto dto){
         this.idPartidaJugador = dto.getIdPartidaJugador();
+        this.idJugador = new Jugadores(dto.getIdJugador());
+        this.idPartida = new Partidas(dto.getIdPartida());
         actualizar(dto);
     }
 
     public void actualizar(PartidasJugadoresDto dto){
-        this.idPartidaJugador = dto.getIdPartidaJugador();
         this.fichaSeleccionada = dto.getFichaSeleccionada();
         this.personajesObtenidos = String.valueOf(dto.getPersonajesObtenidos());
         this.posicionTablero = dto.getPosicionTablero();
@@ -109,6 +110,13 @@ public class PartidasJugadores implements Serializable {
 
     public void setPosicionTablero(Long posicionTablero) {
         this.posicionTablero = posicionTablero;
+    }
+
+    public String getAyudas() {
+        return ayudas;
+    }
+    public void setAyudas(String ayudas) {
+        this.ayudas = ayudas;
     }
 
     public Long getVersion() {

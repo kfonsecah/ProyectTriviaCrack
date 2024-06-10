@@ -56,18 +56,20 @@ public class GameMenuController extends Controller implements Initializable{
 
 
     String Sound_Click = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Play.wav";
-
     AnimationManager animationManager = AnimationManager.getInstance();
+
 
     String modo_juego = "";
     String jsonInfo = "";
+    Integer cantidad_jugadores=0;
+    Integer tiempo_juego=0;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         IntegerSpinnerModel gameTime = new IntegerSpinnerModel();
         gameTime.setMax(60);
-        gameTime.setMin(7);
+        gameTime.setMin(10);
 
         IntegerSpinnerModel playersQuantity = new IntegerSpinnerModel();
         playersQuantity.setMax(6);
@@ -76,76 +78,74 @@ public class GameMenuController extends Controller implements Initializable{
 
         spinnerGameTime.setSpinnerModel(gameTime);
         spinnerPlayersQuantity.setSpinnerModel(playersQuantity);
+
     }
 
     @Override
     public void initialize() {
-
+        clearAppContext();
     }
 
-
+    private void clearAppContext() {
+        AppContext.getInstance().delete("playerCounter");
+        AppContext.getInstance().delete("configPartida");
+        AppContext.getInstance().delete("gameTime");
+        AppContext.getInstance().delete("modo_juego");
+    }
 
 
     @FXML
     void onActionBtnGoBack(ActionEvent event) {
         animationManager.playSound(Sound_Click);
         FlowController.getInstance().goView("StartView");
-        jsonInfo = "";
-
     }
 
     @FXML
     void onActionBtnHelp(ActionEvent event) {
-
         FlowController.getInstance().goViewInWindow("InstructionsView");
-
     }
 
     @FXML
     void onActionBtnEasyMode(ActionEvent event) {
-
         modo_juego = "facil";
-
     }
 
     @FXML
     void onActionBtnHardMode(ActionEvent event) {
-
        modo_juego = "dificil";
     }
 
     @FXML
     void onActionBtnMidMode(ActionEvent event) {
-
        modo_juego = "medio";
     }
 
 
     @FXML
     void onActionBtnJugar(ActionEvent event) {
-        if (modo_juego.equals("")||spinnerGameTime.getValue()<7||spinnerPlayersQuantity.getValue()<2){
-
+        if (modo_juego.equals("") || spinnerGameTime.getValue() < 10 || spinnerPlayersQuantity.getValue() < 2) {
             new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Por favor seleccione un modo de juego, tiempo de partida y mas de un jugadores");
-            return;
+        } else {
+
+            animationManager.playSound(Sound_Click);
+
+            cantidad_jugadores = spinnerPlayersQuantity.getValue();
+            tiempo_juego = spinnerGameTime.getValue();
+
+            jsonInfo = "{" +
+                    "\"modo_juego\":\"" + modo_juego + "\"," +
+                    "\"tiempo_juego\":" + tiempo_juego + "," +
+                    "\"cantidad_jugadores\":" + cantidad_jugadores +
+                    "}";
+
+            AppContext.getInstance().set("configPartida", jsonInfo);
+            AppContext.getInstance().set("tiempo_juego", tiempo_juego);
+            AppContext.getInstance().set("modo_juego", modo_juego);
+            AppContext.getInstance().set("cantidad_jugadores", cantidad_jugadores);
+
+
+            FlowController.getInstance().goView("PlayerSelectionView");
         }
-        animationManager.playSound(Sound_Click);
-        FlowController.getInstance().goView("PlayerSelectionView");
-
-
-        jsonInfo= "{"+
-                "\"modo_juego\":\""+modo_juego+"\","+
-                "\"tiempo_juego\":"+spinnerGameTime.getValue()+","+
-                "\"cantidad_jugadores\":"+spinnerPlayersQuantity.getValue()+
-                "}";
-
-        System.out.println(jsonInfo);
-
-        AppContext.getInstance().set("configPartida",jsonInfo);
-        AppContext.getInstance().set("playerCounter",spinnerPlayersQuantity.getValue());
-        AppContext.getInstance().set("gameTime",spinnerGameTime.getValue());
-        AppContext.getInstance().set("modo_juego",modo_juego);
     }
-
-
 
 }

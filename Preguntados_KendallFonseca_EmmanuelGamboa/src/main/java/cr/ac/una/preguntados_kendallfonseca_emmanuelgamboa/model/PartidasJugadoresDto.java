@@ -12,29 +12,28 @@ public class PartidasJugadoresDto {
     private SimpleStringProperty  ayudas;
     private SimpleStringProperty posicionTablero;
     private SimpleStringProperty  version;
-    private SimpleStringProperty  idJugador;
-    private SimpleStringProperty idPartida;
+    private JugadoresDto  idJugador;
+    private PartidasDto idPartida;
 
     public PartidasJugadoresDto() {
         this.idPartidaJugador = new SimpleStringProperty("");
         this.personajesObtenidos = new SimpleStringProperty("0");
         this.fichaSeleccionada = new SimpleStringProperty("0");
-        this.ayudas = new SimpleStringProperty("");
+        this.ayudas = new SimpleStringProperty("Ninguna");
         this.posicionTablero = new SimpleStringProperty("0");
-        this.idJugador = new SimpleStringProperty("");
-        this.idPartida = new SimpleStringProperty("");
         this.version = new SimpleStringProperty("0");
+        this.idJugador = new JugadoresDto();
+        this.idPartida = new PartidasDto();
     }
 
     public PartidasJugadoresDto(PartidasJugadores partidasJugadores) {
         this();
         this.idPartidaJugador.set(partidasJugadores.getIdPartidaJugador().toString());
         this.fichaSeleccionada.set(partidasJugadores.getFichaSeleccionada().toString());
+        this.ayudas.set(partidasJugadores.getAyudas());
         this.personajesObtenidos.set(partidasJugadores.getPersonajesObtenidos());
         this.posicionTablero.set(partidasJugadores.getPosicionTablero().toString());
         this.version.set(partidasJugadores.getVersion().toString());
-        this.idJugador.set(partidasJugadores.getIdJugador().getIdJugador().toString());
-        this.idPartida.set(partidasJugadores.getIdPartida().getIdPartida().toString());
     }
 
     public Long getIdPartidaJugador() {
@@ -68,6 +67,7 @@ public class PartidasJugadoresDto {
     public String getAyudas() {
         return ayudas.get();
     }
+
      public void setAyudas(String ayudas) {
          this.ayudas.set(ayudas);
      }
@@ -78,6 +78,7 @@ public class PartidasJugadoresDto {
     public void setPosicionTablero(Long posicionTablero) {
         this.posicionTablero.set(posicionTablero.toString());
     }
+
     public Long getVersion() {
         return Long.valueOf(version.get());
     }
@@ -86,18 +87,19 @@ public class PartidasJugadoresDto {
         this.version.set(version.toString());
     }
 
-    public Long getIdJugador() {
-        return Long.valueOf(idJugador.get());
+    public JugadoresDto getIdJugador() {
+        return idJugador;
+    }
+    public void setIdJugador(JugadoresDto idJugador) {
+        this.idJugador = idJugador;
     }
 
-    public void setIdJugador(Long idJugador) {
-        this.idJugador.set(idJugador.toString());
+    public PartidasDto getIdPartida() {
+        return idPartida;
+
     }
-    public Long getIdPartida() {
-        return Long.valueOf(idPartida.get());
-    }
-    public void setIdPartida(Long idPartida) {
-        this.idPartida.set(idPartida.toString());
+    public void setIdPartida(PartidasDto idPartida) {
+        this.idPartida = idPartida;
     }
 
     @Override

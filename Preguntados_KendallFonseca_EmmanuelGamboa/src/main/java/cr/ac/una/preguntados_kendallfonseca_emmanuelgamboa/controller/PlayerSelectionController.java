@@ -7,12 +7,15 @@ package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.JugadoresDto;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.Partidas;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PartidasDto;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PartidasJugadoresDto;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.JugadoresService;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.PartidasService;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.*;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
@@ -32,38 +35,6 @@ import javafx.scene.layout.StackPane;
  * @author Kendall Fonseca
  */
 public class PlayerSelectionController extends Controller implements Initializable {
-
-    AnimationManager animationManager = AnimationManager.getInstance();
-    JugadoresService jugadoresService = new JugadoresService();
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        animationManager.applyRotationAnimation(roulete);
-
-
-        playersNumber.setText("Jugador 1");
-
-
-    }
-    @Override
-    public void initialize() {
-        loadJugadores();
-    }
-
-    private void loadJugadores() {
-        comboboxPlayers.getItems().clear();
-        Respuesta respuesta = jugadoresService.getJugadores();
-        if (respuesta.getEstado()) {
-            List<JugadoresDto> jugadoresList = (List<JugadoresDto>) respuesta.getResultado("JugadoresList");
-            ObservableList<JugadoresDto> jugadores = FXCollections.observableArrayList(jugadoresList);
-            for (JugadoresDto jugador : jugadores) {
-                comboboxPlayers.getItems().add(jugador.getNombre());
-            }
-        } else {
-            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
-        }
-    }
 
     @FXML
     private ImageView roulete;
@@ -105,58 +76,105 @@ public class PlayerSelectionController extends Controller implements Initializab
     @FXML
     private MFXButton btnPlay;
 
+    AnimationManager animationManager = AnimationManager.getInstance();
+    JugadoresService jugadoresService = new JugadoresService();
+    PartidasService partidasService = new PartidasService();
+    AppContext appContext = AppContext.getInstance();
+
     PartidasJugadoresDto partidasJugadoresDto = new PartidasJugadoresDto();
-    PartidasDto partidasDto = new PartidasDto();
+    JugadoresDto jugadoresDto = new JugadoresDto();
+    List<PartidasJugadoresDto> partidasJugadoresList = new ArrayList<>();
 
+    Integer playerCounter = 0;
+    Integer playerNumber = 0;
 
-    Integer playerCounter = (Integer) AppContext.getInstance().get("playerCounter");
-
-    public void nuevaPartidasDto() {
-        partidasDto = new PartidasDto();
+    public void nuevoPartidasJugadoresDto() {
+        partidasJugadoresDto = new PartidasJugadoresDto();
     }
 
+    public void nuevoJugadorDto() {
+        jugadoresDto = new JugadoresDto();
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        animationManager.applyRotationAnimation(roulete);
+        btnPlay.setDisable(true);
+    }
 
+    @Override
+    public void initialize() {
+        playersNumber.setText("Jugador " + (playerNumber + 1));
+        playerCounter = (Integer) appContext.get("cantidad_jugadores");
 
-    @FXML
-    void onActionBtnFicha1(ActionEvent event) {
-        if (comboboxPlayers.getValue() != null) {
-            String nombre = comboboxPlayers.getValue();
-            partidasJugadoresDto.setPosicionTablero(0L);
-            partidasJugadoresDto.setPersonajesObtenidos("Ninguno");
-            partidasJugadoresDto.setFichaSeleccionada(1L);
-            partidasJugadoresDto.setAyudas("Ninguna");
+        loadJugadores();
+    }
 
-            Respuesta respuesta = jugadoresService.findByNombre(nombre);
-            if (respuesta != null && respuesta.getEstado()) {
-                JugadoresDto jugadoresDto = (JugadoresDto) respuesta.getResultado("Jugador");
-                if (jugadoresDto.getPartidasJugadoresList() == null) {
-                    jugadoresDto.setPartidasJugadoresList(new ArrayList<>());
-                }
-
-
-                partidasJugadoresDto.setIdPartida(partidasDto.getIdPartida());
-
-                jugadoresDto.getPartidasJugadoresList().add(partidasJugadoresDto);
-                Respuesta respuesta1 = jugadoresService.uptade(jugadoresDto);
-                if (!respuesta1.getEstado()) {
-                    new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta1.getMensaje());
-                }
-            } else {
-                new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Jugador no encontrado.");
+    private void loadJugadores() {
+        comboboxPlayers.getItems().clear();
+        Respuesta respuesta = jugadoresService.getJugadores();
+        if (respuesta.getEstado()) {
+            List<JugadoresDto> jugadoresList = (List<JugadoresDto>) respuesta.getResultado("JugadoresList");
+            ObservableList<JugadoresDto> jugadoresDtoObservableList = FXCollections.observableArrayList(jugadoresList);
+            for (JugadoresDto jugador : jugadoresDtoObservableList) {
+                comboboxPlayers.getItems().add(jugador.getNombre());
             }
-
-            playersNumber.setText("Jugador 2");
         } else {
-            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Por favor seleccione un jugador");
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
         }
     }
 
 
+    @FXML
+    void onActionBtnFicha1(ActionEvent event) {
+        if (Objects.equals(playerNumber, playerCounter)) {
+            new Mensaje().showModal(Alert.AlertType.INFORMATION, "Información", getStage(), "Todos los jugadores han sido seleccionados");
+        } else {
+            if (comboboxPlayers.getValue() != null) {
+
+                String nombre = comboboxPlayers.getValue();
+
+                partidasJugadoresDto.setPosicionTablero(0L);
+
+                partidasJugadoresDto.setPersonajesObtenidos("Ninguno");
+
+                partidasJugadoresDto.setFichaSeleccionada(1L);
+
+                if (appContext.get("modo_juego").equals("facil"))
+                    partidasJugadoresDto.setAyudas("D, P, B, TE");
+                else if (appContext.get("modo_juego").equals("medio"))
+                    partidasJugadoresDto.setAyudas(" ");
+                else if (appContext.get("modo_juego").equals("dificil"))
+                    partidasJugadoresDto.setAyudas(" ");
+
+                Respuesta respuesta = jugadoresService.findByNombre(nombre);
+                if (respuesta.getEstado()) {
+                   jugadoresDto = (JugadoresDto) respuesta.getResultado("Jugador");
+                    partidasJugadoresDto.setIdJugador(jugadoresDto);
+                    partidasJugadoresDto.setIdPartida(null);
+                    partidasJugadoresList.add(partidasJugadoresDto);
+                    nuevoPartidasJugadoresDto();
+                    nuevoJugadorDto();
+                    comboboxPlayers.getItems().remove(comboboxPlayers.getValue());
+                } else {
+                    new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
+                }
+                comboboxPlayers.setValue(null);
+                comboboxPlayers.clearSelection();
+                playerNumber++;
+                playersNumber.setText("Jugador " + (playerNumber + 1));
+            } else {
+                new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), "Por favor seleccione un jugador");
+            }
+        }
+        if (Objects.equals(playerNumber, playerCounter)) {
+            btnPlay.setDisable(false);
+        }
+    }
 
     @FXML
     void onActionBtnFicha2(ActionEvent event) {
-
+        System.out.println(playerCounter);
     }
 
     @FXML
@@ -181,18 +199,48 @@ public class PlayerSelectionController extends Controller implements Initializab
 
     @FXML
     void onActionBtnGoBack(ActionEvent event) {
+        clearPartida();
         FlowController.getInstance().goView("GameMenuView");
-
     }
 
     @FXML
     void onActionBtnNewPlayer(ActionEvent event) {
+
         FlowController.getInstance().goViewInWindow("RegisterView");
+
     }
 
     @FXML
     void onActionBtnPlay(ActionEvent event) {
+
+        PartidasDto partidasDto = new PartidasDto();
+        partidasDto.setInformacionJson((String) appContext.get("configPartida"));
+        Respuesta respuesta = partidasService.guardarPartida(partidasDto);
+        if (!respuesta.getEstado()) {
+            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
+        }else {
+            PartidasDto partidasDto1= (PartidasDto) respuesta.getResultado("Partida");
+            for (PartidasJugadoresDto partidasJugadoresDto1: partidasJugadoresList) {
+                partidasJugadoresDto1.setIdPartida(partidasDto1);
+                Respuesta respuestaPartida = partidasService.guardarPartidaJugadores(partidasJugadoresDto1);
+                if (!respuestaPartida.getEstado()) {
+                    new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuestaPartida.getMensaje());
+                }
+            }
+        }
         FlowController.getInstance().goView("BoardGameView");
     }
-    
+
+    private void clearPartida() {
+        partidasJugadoresList.clear();
+        playerNumber = 0;
+        btnPlay.setDisable(true);
+
+        AppContext.getInstance().delete("playerCounter");
+        AppContext.getInstance().delete("configPartida");
+        AppContext.getInstance().delete("gameTime");
+        AppContext.getInstance().delete("modo_juego");
+    }
+
+
 }

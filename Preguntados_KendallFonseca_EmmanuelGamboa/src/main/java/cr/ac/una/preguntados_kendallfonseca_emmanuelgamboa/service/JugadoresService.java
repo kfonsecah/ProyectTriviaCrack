@@ -19,20 +19,17 @@ public class JugadoresService {
 
     public Respuesta findByNombre(String nombre) {
         try {
-            Jugadores jugador = (Jugadores) em.createNamedQuery("Jugadores.findByNombre")
+            Jugadores jugador = em.createNamedQuery("Jugadores.findByNombre", Jugadores.class)
                     .setParameter("nombre", nombre)
                     .getSingleResult();
             return new Respuesta(true, "", "", "Jugador", new JugadoresDto(jugador));
-        } catch (NoResultException ex) {
-            return null;
         } catch (Exception ex) {
-            Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al buscar el jugador.", ex);
+            Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Este jugador no existe o hubo un error obteniendolo.", ex);
             return new Respuesta(false, "Error al buscar el jugador.", "findByNombre " + ex.getMessage());
         }
     }
 
     public Respuesta crearJugadorConNombre(String nombre) {
-        EntityTransaction et = null;
         try {
             // Verificar si el nombre ya existe
             if (findByNombre(nombre) != null) {
@@ -84,7 +81,6 @@ public class JugadoresService {
         }
     }
 
-
     public Respuesta getJugadores() {
         try {
             List<Jugadores> jugadoresList = em.createNamedQuery("Jugadores.findAll", Jugadores.class).getResultList();
@@ -98,50 +94,5 @@ public class JugadoresService {
             return new Respuesta(false, "Error al obtener los jugadores.", "getJugadores " + ex.getMessage());
         }
     }
-
-    public Respuesta uptade(JugadoresDto jugadoresDto) {
-        EntityTransaction et = null;
-        try {
-            et = em.getTransaction();
-            et.begin();
-            Jugadores jugador = em.find(Jugadores.class, Long.valueOf(jugadoresDto.getId()));
-
-            jugador.setNombre(jugadoresDto.getNombre());
-            jugador.setCorreo(jugadoresDto.getCorreo());
-            jugador.setPreguntasRespondidas(jugadoresDto.getPreguntasRespondidas().longValue());
-            jugador.setPreguntasAcertadas(jugadoresDto.getPreguntasAcertadas().longValue());
-            jugador.setPartidasGanadas(jugadoresDto.getPartidasGanadas().longValue());
-
-            List<PartidasJugadoresDto> partidasJugadoresDtoList = jugadoresDto.getPartidasJugadoresList();
-            List<PartidasJugadores> partidasJugadoresList = new ArrayList<>();
-
-            for (PartidasJugadoresDto partidasJugadoresDto : partidasJugadoresDtoList) {
-                PartidasJugadores partidasJugadores = new PartidasJugadores();
-                partidasJugadores.setIdJugador(jugador);
-                partidasJugadores.setFichaSeleccionada(partidasJugadoresDto.getFichaSeleccionada());
-                partidasJugadores.setPersonajesObtenidos(partidasJugadoresDto.getPersonajesObtenidos());
-                partidasJugadores.setPosicionTablero(partidasJugadoresDto.getPosicionTablero().longValue());
-
-
-                Partidas partida = em.find(Partidas.class, partidasJugadoresDto.getIdPartida());
-                partidasJugadores.setIdPartida(partida);
-
-                partidasJugadoresList.add(partidasJugadores);
-            }
-            jugador.setPartidasJugadoresList(partidasJugadoresList);
-
-            em.merge(jugador);
-            et.commit();
-            return new Respuesta(true, "Jugador ficha añadida con éxito.", "", "Jugador", new JugadoresDto(jugador));
-        } catch (Exception ex) {
-            if (et != null && et.isActive()) {
-                et.rollback();
-            }
-            Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al actualizar el jugador.", ex);
-            return new Respuesta(false, "Error al actualizar el jugador.", "uptade " + ex.getMessage());
-        }
-    }
-
-
 
 }

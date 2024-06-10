@@ -31,7 +31,6 @@ public class RespuestasDto implements Serializable {
         this.respuestaTexto.set(respuesta.getRespuestaTexto());
         this.esCorrecta.set(respuesta.getEsCorrecta());
         this.vecesSeleccionada.set(respuesta.getVecesSeleccionada().toString());
-
     }
 
     public Long getIdRespuesta() {

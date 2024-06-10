@@ -5,6 +5,8 @@ import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.EntityManagerHel
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.FlowController;
 import jakarta.persistence.EntityManager;
 import javafx.application.Application;
+
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
