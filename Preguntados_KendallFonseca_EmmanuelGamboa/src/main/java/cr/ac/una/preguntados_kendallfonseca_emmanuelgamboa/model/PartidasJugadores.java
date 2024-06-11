@@ -50,7 +50,7 @@ public class PartidasJugadores implements Serializable {
     @JoinColumn(name = "ID_JUGADOR", referencedColumnName = "ID_JUGADOR")
     @ManyToOne( optional = false, fetch = FetchType.EAGER)
     private Jugadores idJugador;
-    @JoinColumn(name = "ID_PARTIDA", referencedColumnName = "ID_PARTIDA")
+    @JoinColumn(name = "ID_PARTIDA", referencedColumnName = "ID_PARTIDA" )
     @ManyToOne( optional = false, fetch = FetchType.EAGER)
     private Partidas idPartida;
 

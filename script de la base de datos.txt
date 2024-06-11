@@ -1,0 +1,296 @@
+-- Create User --------------------------------------------------------------
+
+CREATE USER ken IDENTIFIED BY ken;
+
+-- Grant Privileges ---------------------------------------------------------
+
+GRANT connect, resource, dba TO ken;
+GRANT create session, unlimited tablespace TO ken;
+
+-- Create sequences section -------------------------------------------------
+
+CREATE SEQUENCE ken.jugadores_seq INCREMENT BY 1 START WITH 1 NOMAXVALUE MINVALUE 0 NOCACHE;
+CREATE SEQUENCE ken.preguntas_seq INCREMENT BY 1 START WITH 1 NOMAXVALUE MINVALUE 0 NOCACHE;
+CREATE SEQUENCE ken.respuestas_seq INCREMENT BY 1 START WITH 1 NOMAXVALUE MINVALUE 0 NOCACHE;
+CREATE SEQUENCE ken.partidas_seq INCREMENT BY 1 START WITH 1 NOMAXVALUE MINVALUE 0 NOCACHE;
+CREATE SEQUENCE ken.partidas_jugadores_seq INCREMENT BY 1 START WITH 1 NOMAXVALUE MINVALUE 0 NOCACHE;
+CREATE SEQUENCE ken.estadisticas_seq INCREMENT BY 1 START WITH 1 NOMAXVALUE MINVALUE 0 NOCACHE;
+
+-- Create tables section -------------------------------------------------
+
+-- Table JUGADORES
+
+CREATE TABLE ken.jugadores(
+  id_jugador NUMBER NOT NULL,
+  nombre VARCHAR2(50),
+  correo VARCHAR2(50),
+  preguntas_respondidas NUMBER DEFAULT 0,
+  preguntas_acertadas NUMBER DEFAULT 0,
+  partidas_ganadas NUMBER DEFAULT 0,
+  version NUMBER DEFAULT 1 NOT NULL,
+  CONSTRAINT jugadores_pk PRIMARY KEY (id_jugador)
+);
+
+COMMENT ON TABLE ken.jugadores IS 'Tabla que almacena los jugadores registrados en el sistema';
+COMMENT ON COLUMN ken.jugadores.id_jugador IS 'Identificador unico del jugador';
+COMMENT ON COLUMN ken.jugadores.nombre IS 'Nombre del jugador';
+COMMENT ON COLUMN ken.jugadores.correo IS 'Correo electronico del jugador';
+COMMENT ON COLUMN ken.jugadores.preguntas_respondidas IS 'Total de preguntas respondidas por el jugador';
+COMMENT ON COLUMN ken.jugadores.preguntas_acertadas IS 'Total de preguntas acertadas por el jugador';
+COMMENT ON COLUMN ken.jugadores.partidas_ganadas IS 'Total de partidas ganadas por el jugador';
+COMMENT ON COLUMN ken.jugadores.version IS 'Version del registro';
+
+-- Table PREGUNTAS
+
+CREATE TABLE ken.preguntas(
+  id_pregunta NUMBER NOT NULL,
+  categoria VARCHAR2(50),
+  pregunta_texto VARCHAR2(200),
+  veces_respondida NUMBER DEFAULT 0,
+  veces_acertada NUMBER DEFAULT 0,
+  estado VARCHAR2(1) DEFAULT 'A' NOT NULL,
+  version NUMBER DEFAULT 1 NOT NULL,
+  CONSTRAINT preguntas_pk PRIMARY KEY (id_pregunta)
+);
+
+COMMENT ON TABLE ken.preguntas IS 'Tabla que almacena las preguntas disponibles en el sistema';
+COMMENT ON COLUMN ken.preguntas.id_pregunta IS 'Identificador unico de la pregunta';
+COMMENT ON COLUMN ken.preguntas.categoria IS 'Categoria de la pregunta';
+COMMENT ON COLUMN ken.preguntas.pregunta_texto IS 'Texto de la pregunta';
+COMMENT ON COLUMN ken.preguntas.veces_respondida IS 'Cantidad de veces que la pregunta ha sido respondida';
+COMMENT ON COLUMN ken.preguntas.veces_acertada IS 'Cantidad de veces que la pregunta ha sido respondida correctamente';
+COMMENT ON COLUMN ken.preguntas.estado IS 'Estado de activacion de la pregunta (A: Activo, I: Inactivo)';
+COMMENT ON COLUMN ken.preguntas.version IS 'Version del registro';
+
+-- Table RESPUESTAS
+
+CREATE TABLE ken.respuestas(
+  id_respuesta NUMBER NOT NULL,
+  id_pregunta NUMBER NOT NULL,
+  respuesta_texto VARCHAR2(100),
+  es_correcta VARCHAR2(1) NOT NULL,
+  veces_seleccionada NUMBER DEFAULT 0,
+  version NUMBER DEFAULT 1 NOT NULL,
+  CONSTRAINT respuestas_pk PRIMARY KEY (id_respuesta),
+  CONSTRAINT respuestas_fk FOREIGN KEY (id_pregunta) REFERENCES ken.preguntas (id_pregunta)
+);
+
+COMMENT ON TABLE ken.respuestas IS 'Tabla que almacena las respuestas disponibles para cada pregunta';
+COMMENT ON COLUMN ken.respuestas.id_respuesta IS 'Identificador unico de la respuesta';
+COMMENT ON COLUMN ken.respuestas.id_pregunta IS 'Identificador de la pregunta a la que pertenece la respuesta';
+COMMENT ON COLUMN ken.respuestas.respuesta_texto IS 'Texto de la respuesta';
+COMMENT ON COLUMN ken.respuestas.es_correcta IS 'Indica si la respuesta es correcta (Y) o incorrecta (N)';
+COMMENT ON COLUMN ken.respuestas.veces_seleccionada IS 'Cantidad de veces que la respuesta ha sido seleccionada';
+COMMENT ON COLUMN ken.respuestas.version IS 'Version del registro';
+
+-- Table PARTIDAS
+
+CREATE TABLE ken.partidas(
+  id_partida NUMBER NOT NULL,
+  informacion_json CLOB,
+  version NUMBER DEFAULT 1 NOT NULL,
+  CONSTRAINT partidas_pk PRIMARY KEY (id_partida)
+);
+
+COMMENT ON TABLE ken.partidas IS 'Tabla que almacena la informacion de las partidas';
+COMMENT ON COLUMN ken.partidas.id_partida IS 'Identificador unico de la partida';
+COMMENT ON COLUMN ken.partidas.informacion_json IS 'Informacion adicional de la partida en formato JSON';
+COMMENT ON COLUMN ken.partidas.version IS 'Version del registro';
+
+-- Table PARTIDAS_JUGADORES
+
+CREATE TABLE ken.partidas_jugadores(
+  id_partida_jugador NUMBER NOT NULL,
+  id_partida NUMBER NOT NULL,
+  id_jugador NUMBER NOT NULL,
+  ficha_seleccionada NUMBER NOT NULL,
+  personajes_obtenidos VARCHAR2(1000),
+  ayudas VARCHAR2(200),	
+  posicion_tablero NUMBER NOT NULL,
+  version NUMBER DEFAULT 1 NOT NULL,
+  CONSTRAINT partidas_jugadores_pk PRIMARY KEY (id_partida_jugador),
+  CONSTRAINT partidas_jugadores_fk1 FOREIGN KEY (id_partida) REFERENCES ken.partidas (id_partida),
+  CONSTRAINT partidas_jugadores_fk2 FOREIGN KEY (id_jugador) REFERENCES ken.jugadores (id_jugador)
+);
+
+COMMENT ON TABLE ken.partidas_jugadores IS 'Tabla que almacena la informacion de los jugadores en las partidas';
+COMMENT ON COLUMN ken.partidas_jugadores.id_partida_jugador IS 'Identificador unico de la relacion partida-jugador';
+COMMENT ON COLUMN ken.partidas_jugadores.id_partida IS 'Identificador de la partida';
+COMMENT ON COLUMN ken.partidas_jugadores.id_jugador IS 'Identificador del jugador';
+COMMENT ON COLUMN ken.partidas_jugadores.ficha_seleccionada IS 'Ficha seleccionada por el jugador';
+COMMENT ON COLUMN ken.partidas_jugadores.personajes_obtenidos IS 'Personajes obtenidos por el jugador en formato JSON';
+COMMENT ON COLUMN ken.partidas_jugadores.posicion_tablero IS 'Posicion del jugador en el tablero';
+COMMENT ON COLUMN ken.partidas_jugadores.version IS 'Version del registro';
+
+-- Table ESTADISTICAS
+
+CREATE TABLE ken.estadisticas(
+  id_estadistica NUMBER NOT NULL,
+  id_jugador NUMBER NOT NULL,
+  categoria VARCHAR2(50),
+  preguntas_respondidas_categoria NUMBER DEFAULT 0,
+  preguntas_acertadas_categoria NUMBER DEFAULT 0,
+  respuestas_totales_respondidas NUMBER DEFAULT 0,
+  respuestas_totales_acertadas NUMBER DEFAULT 0,
+  version NUMBER DEFAULT 1 NOT NULL,
+  CONSTRAINT estadisticas_pk PRIMARY KEY (id_estadistica),
+  CONSTRAINT estadisticas_fk FOREIGN KEY (id_jugador) REFERENCES ken.jugadores (id_jugador)
+);
+
+COMMENT ON TABLE ken.estadisticas IS 'Tabla que almacena las estadisticas de los jugadores por categoria';
+COMMENT ON COLUMN ken.estadisticas.id_estadistica IS 'Identificador unico de la estadistica';
+COMMENT ON COLUMN ken.estadisticas.id_jugador IS 'Identificador del jugador';
+COMMENT ON COLUMN ken.estadisticas.categoria IS 'Categoria de la pregunta';
+COMMENT ON COLUMN ken.estadisticas.preguntas_respondidas_categoria IS 'Cantidad de preguntas respondidas en la categoria';
+COMMENT ON COLUMN ken.estadisticas.preguntas_acertadas_categoria IS 'Cantidad de preguntas acertadas en la categoria';
+COMMENT ON COLUMN ken.estadisticas.respuestas_totales_respondidas IS 'Cantidad total de respuestas respondidas por el jugador';
+COMMENT ON COLUMN ken.estadisticas.respuestas_totales_acertadas IS 'Cantidad total de respuestas acertadas por el jugador';
+COMMENT ON COLUMN ken.estadisticas.version IS 'Version del registro';
+
+-- Create triggers for sequences -------------------------------------------------
+
+-- Trigger for sequence jugadores_seq for column id_jugador in table jugadores
+CREATE OR REPLACE TRIGGER ken.ts_jugadores BEFORE INSERT
+ON ken.jugadores FOR EACH ROW
+BEGIN
+  IF :new.id_jugador IS NULL THEN
+    SELECT ken.jugadores_seq.NEXTVAL INTO :new.id_jugador FROM dual;
+  END IF;
+END;
+/
+
+-- Trigger for sequence preguntas_seq for column id_pregunta in table preguntas
+CREATE OR REPLACE TRIGGER ken.ts_preguntas BEFORE INSERT
+ON ken.preguntas FOR EACH ROW
+BEGIN
+  IF :new.id_pregunta IS NULL THEN
+    SELECT ken.preguntas_seq.NEXTVAL INTO :new.id_pregunta FROM dual;
+  END IF;
+END;
+/
+
+-- Trigger for sequence respuestas_seq for column id_respuesta in table respuestas
+CREATE OR REPLACE TRIGGER ken.ts_respuestas BEFORE INSERT
+ON ken.respuestas FOR EACH ROW
+BEGIN
+  IF :new.id_respuesta IS NULL THEN
+    SELECT ken.respuestas_seq.NEXTVAL INTO :new.id_respuesta FROM dual;
+  END IF;
+END;
+/
+
+-- Trigger for sequence partidas_seq for column id_partida in table partidas
+CREATE OR REPLACE TRIGGER ken.ts_partidas BEFORE INSERT
+ON ken.partidas FOR EACH ROW
+BEGIN
+  IF :new.id_partida IS NULL THEN
+    SELECT ken.partidas_seq.NEXTVAL INTO :new.id_partida FROM dual;
+  END IF;
+END;
+/
+
+-- Trigger for sequence partidas_jugadores_seq for column id_partida_jugador in table partidas_jugadores
+CREATE OR REPLACE TRIGGER ken.ts_partidas_jugadores BEFORE INSERT
+ON ken.partidas_jugadores FOR EACH ROW
+BEGIN
+  IF :new.id_partida_jugador IS NULL THEN
+    SELECT ken.partidas_jugadores_seq.NEXTVAL INTO :new.id_partida_jugador FROM dual;
+  END IF;
+END;
+/
+
+-- Trigger for sequence estadisticas_seq for column id_estadistica in table estadisticas
+CREATE OR REPLACE TRIGGER ken.ts_estadisticas BEFORE INSERT
+ON ken.estadisticas FOR EACH ROW
+BEGIN
+  IF :new.id_estadistica IS NULL THEN
+    SELECT ken.estadisticas_seq.NEXTVAL INTO :new.id_estadistica FROM dual;
+  END IF;
+END;
+/
+
+-- Create foreign keys (relationships) section -------------------------------------------------
+
+ALTER TABLE ken.respuestas ADD CONSTRAINT respuestas_fk FOREIGN KEY (id_pregunta) REFERENCES ken.preguntas (id_pregunta)
+;
+
+ALTER TABLE ken.partidas_jugadores ADD CONSTRAINT partidas_jugadores_fk1 FOREIGN KEY (id_partida) REFERENCES ken.partidas (id_partida)
+;
+
+ALTER TABLE ken.partidas_jugadores ADD CONSTRAINT partidas_jugadores_fk2 FOREIGN KEY (id_jugador) REFERENCES ken.jugadores (id_jugador)
+;
+
+ALTER TABLE ken.estadisticas ADD CONSTRAINT estadisticas_fk FOREIGN KEY (id_jugador) REFERENCES ken.jugadores (id_jugador)
+;
+
+-- Insert sample data -------------------------------------------------
+
+-- Insert sample data into PREGUNTAS and RESPUESTAS
+INSERT INTO ken.preguntas (categoria, pregunta_texto, version) VALUES ('Geografia', 'Cual es la capital de Francia?', 1);
+INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Paris', 'Y', 1);
+INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Londres', 'N', 1);
+INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Berlin', 'N', 1);
+INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Madrid', 'N', 1);
+
+INSERT INTO ken.preguntas (categoria, pregunta_texto, version) VALUES ('Historia', 'Quien descubrio America?', 1);
+INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Cristobal Colon', 'Y', 1);
+INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Americo Vespucio', 'N', 1);
+INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Marco Polo', 'N', 1);
+INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Fernando de Magallanes', 'N', 1);
+
+-- Repeat similar INSERT statements for remaining sample questions and responses
+
+-- Crear jugadores
+INSERT INTO ken.jugadores (nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version) VALUES ('Jugador 1', 'jugador1@example.com', 0, 0, 0, 1);
+INSERT INTO ken.jugadores (nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version) VALUES ('Jugador 2', 'jugador2@example.com', 0, 0, 0, 1);
+INSERT INTO ken.jugadores (nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version) VALUES ('Jugador 3', 'jugador3@example.com', 0, 0, 0, 1);
+INSERT INTO ken.jugadores (nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version) VALUES ('Jugador 4', 'jugador4@example.com', 0, 0, 0, 1);
+
+-- Crear una nueva partida
+INSERT INTO ken.partidas (informacion_json, version) VALUES ('{"modo_juego": "normal", "estado": "en curso", "tiempo_juego": 0}', 1);
+
+-- Obtener el ID de la partida recien creada y asociar jugadores
+DECLARE
+  v_id_partida NUMBER;
+BEGIN
+  SELECT id_partida INTO v_id_partida FROM ken.partidas WHERE ROWNUM = 1 ORDER BY id_partida DESC;
+  
+  -- Insertar los jugadores en la partida
+  INSERT INTO ken.partidas_jugadores (id_partida, id_jugador, ficha_seleccionada, personajes_obtenidos, posicion_tablero, version)
+  SELECT v_id_partida, id_jugador, ROWNUM, '[]', ROWNUM, 1
+  FROM ken.jugadores
+  WHERE correo IN ('jugador1@example.com', 'jugador2@example.com', 'jugador3@example.com', 'jugador4@example.com');
+
+  -- Actualizar el campo informacion_json con detalles adicionales de la partida
+  UPDATE ken.partidas
+  SET informacion_json = '{"modo_juego": "normal", "estado": "en curso", "tiempo_juego": 0, "jugadores": [' ||
+    (SELECT LISTAGG(id_jugador, ', ') WITHIN GROUP (ORDER BY id_jugador) FROM ken.jugadores WHERE correo IN ('jugador1@example.com', 'jugador2@example.com', 'jugador3@example.com', 'jugador4@example.com')) || ']}'
+  WHERE id_partida = v_id_partida;
+END;
+/
+
+-- Insertar datos en ESTADISTICAS para cada jugador y categoria
+DECLARE
+  v_id_jugador ken.jugadores.id_jugador%TYPE;
+  v_categoria VARCHAR2(50);
+  CURSOR c_categorias IS
+    SELECT 'Geografia' AS categoria FROM dual UNION ALL
+    SELECT 'Historia' FROM dual UNION ALL
+    SELECT 'Ciencia' FROM dual UNION ALL
+    SELECT 'Entretenimiento' FROM dual UNION ALL
+    SELECT 'Deportes' FROM dual UNION ALL
+    SELECT 'Arte' FROM dual;
+BEGIN
+  FOR jugador IN (SELECT id_jugador FROM ken.jugadores) LOOP
+    v_id_jugador := jugador.id_jugador;
+    OPEN c_categorias;
+    LOOP
+      FETCH c_categorias INTO v_categoria;
+      EXIT WHEN c_categorias%NOTFOUND;
+      INSERT INTO ken.estadisticas (id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version) 
+      VALUES (v_id_jugador, v_categoria, 0, 0, 0, 0, 1);
+    END LOOP;
+    CLOSE c_categorias;
+  END LOOP;
+END;
+/

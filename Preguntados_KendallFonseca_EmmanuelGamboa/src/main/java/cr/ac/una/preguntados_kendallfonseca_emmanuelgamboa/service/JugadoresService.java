@@ -61,7 +61,6 @@ public class JugadoresService {
                     estadistica.setPreguntasAcertadasCategoria(Long.valueOf(0));
                     estadistica.setRespuestasTotalesRespondidas(Long.valueOf(0));
                     estadistica.setRespuestasTotalesAcertadas(Long.valueOf(0));
-                    estadistica.setIdJugador(jugador);
                     estadisticasList.add(estadistica);
                 }
                 jugador.setEstadisticasList(estadisticasList);

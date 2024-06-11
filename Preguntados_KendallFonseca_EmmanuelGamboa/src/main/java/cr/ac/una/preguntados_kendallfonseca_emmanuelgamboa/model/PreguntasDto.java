@@ -45,7 +45,6 @@ public class PreguntasDto implements Serializable {
                 != null ? pregunta.getVecesAcertada().toString() : "0");
         this.estado.set(pregunta.getEstado());
 
-
         ArrayList<Respuestas> respuestas= new ArrayList<>(pregunta.getRespuestasList());
         for (Respuestas respuesta : respuestas) {
             this.respuestasList.add(new RespuestasDto(respuesta));

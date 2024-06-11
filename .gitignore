@@ -18,7 +18,6 @@ Preguntados_KendallFonseca_EmmanuelGamboa.iml
 *.jar
 
 # Ignorar archivos de texto genéricos
-*.txt
 .userphotos/
 account_types.json
 *.json

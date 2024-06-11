@@ -28,9 +28,14 @@ public class PartidasDto {
         this.informacionJson = partidas.getInformacionJson();
         this.version = partidas.getVersion();
 
-        for (PartidasJugadores partidasJugadores : partidas.getPartidasJugadoresList()) {
-            this.partidasJugadoresList.add(new PartidasJugadoresDto(partidasJugadores));
+        if (partidas.getPartidasJugadoresList()==null){
+            for (PartidasJugadores partidasJugadores : partidas.getPartidasJugadoresList()) {
+                this.partidasJugadoresList.add(new PartidasJugadoresDto(partidasJugadores));
+            }
+        }else{
+            System.out.println("LLega nula");
         }
+
 
 
     }

@@ -233,7 +233,7 @@ public class BoardGameController extends Controller implements Initializable {
            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
         }else {
 
-            partidasDto = (PartidasDto) respuesta.getResultado("Partida");
+            partidasDto = (PartidasDto) respuesta.getResultado("PartidaCreada");
 
             for (PartidasJugadoresDto partidasJugadoresDto : partidasDto.getPartidasJugadoresList()) {
                 System.out.println(partidasJugadoresDto.getAyudas());

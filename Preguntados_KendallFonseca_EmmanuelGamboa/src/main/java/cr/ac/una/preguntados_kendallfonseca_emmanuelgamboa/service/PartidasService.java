@@ -57,19 +57,37 @@ public class PartidasService {
         }
     }
 
-    public Respuesta findById(Long id){
-        try{
-            Partidas partida = (Partidas) em.createNamedQuery("Partidas.findByIdPartida")
+    public Respuesta findById(Long id) {
+        try {
+            Partidas partida = em.createNamedQuery("Partidas.findByIdPartida", Partidas.class)
                     .setParameter("idPartida", id)
                     .getSingleResult();
-            return new Respuesta(true, "", "", "Partida", new PartidasDto(partida));
-        }catch (NoResultException ex){
+
+
+            List<PartidasJugadores> partidasprueba= partida.getPartidasJugadoresList();
+
+            for (PartidasJugadores partidasJugadores: partidasprueba){
+                System.out.println(partidasJugadores.getIdPartidaJugador().toString());
+            }
+            return new Respuesta(true, "", "", "PartidaCreada", new PartidasDto(partida));
+        } catch (NoResultException ex) {
             return null;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             Logger.getLogger(PartidasService.class.getName()).log(Level.SEVERE, "Error al buscar partida", ex);
-            return new Respuesta(false, "Error al buscar la partida","findByIdPartida"+ ex.getMessage());
+            return new Respuesta(false, "Error al buscar la partida", "findByIdPartida" + ex.getMessage());
 
         }
     }
 
+    //metodo para actualizar la partida con la partidas juagdores
+//    public Respuesta editarPartida(PartidasDto partidasDto){
+//        try{
+//
+//
+//
+//        }catch(Exception ex)
+//
+//    }
+//
+//}
 }
