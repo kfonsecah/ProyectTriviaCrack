@@ -167,6 +167,9 @@ public class MantQuestionsController extends Controller implements Initializable
     private void bindPreguntas(PreguntasDto preguntaDto) {
         this.currentPreguntaDto = preguntaDto;
 
+        if(Objects.isNull(preguntaDto)) {
+            return;
+        }
         contentPregunta.textProperty().bindBidirectional(preguntaDto.preguntaTexto);
 
         int correctAnswer = 0;

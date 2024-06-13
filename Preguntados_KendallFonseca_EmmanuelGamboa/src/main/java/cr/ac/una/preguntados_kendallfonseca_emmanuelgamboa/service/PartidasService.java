@@ -27,6 +27,8 @@ public class PartidasService {
             Partidas partidas = new Partidas(partida);
 
             em.persist(partidas);
+
+
             et.commit();
             return new Respuesta(true, "", "", "Partida", new PartidasDto(partidas));
         } catch (Exception ex) {
@@ -35,8 +37,6 @@ public class PartidasService {
             }
             Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al guardar la partida", ex);
             return new Respuesta(false, "Error al guardar la partida.", "guardarPartida " + ex.getMessage());
-
-
         }
     }
 
@@ -63,13 +63,8 @@ public class PartidasService {
                     .setParameter("idPartida", id)
                     .getSingleResult();
 
-
-            List<PartidasJugadores> partidasprueba= partida.getPartidasJugadoresList();
-
-            for (PartidasJugadores partidasJugadores: partidasprueba){
-                System.out.println(partidasJugadores.getIdPartidaJugador().toString());
-            }
             return new Respuesta(true, "", "", "PartidaCreada", new PartidasDto(partida));
+
         } catch (NoResultException ex) {
             return null;
         } catch (Exception ex) {

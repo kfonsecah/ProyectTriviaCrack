@@ -15,7 +15,7 @@ public class PartidasDto {
 
 
     public PartidasDto() {
-        this.idPartida = new SimpleStringProperty("0");
+        this.idPartida = new SimpleStringProperty("");
         this.informacionJson = new String("");
         this.partidasJugadoresList = new ArrayList<>();
         this.version = 0L;
@@ -24,24 +24,27 @@ public class PartidasDto {
 
     public PartidasDto(Partidas partidas) {
         this();
-        this.idPartida.set(partidas.getIdPartida().toString());
+
+            this.idPartida.set(partidas.getIdPartida().toString());
+
         this.informacionJson = partidas.getInformacionJson();
         this.version = partidas.getVersion();
 
-        if (partidas.getPartidasJugadoresList()==null){
+        if (partidas.getPartidasJugadoresList() != null) {
             for (PartidasJugadores partidasJugadores : partidas.getPartidasJugadoresList()) {
+                partidasJugadores.setIdPartida(partidas);
                 this.partidasJugadoresList.add(new PartidasJugadoresDto(partidasJugadores));
             }
-        }else{
-            System.out.println("LLega nula");
         }
-
-
 
     }
 
+
     public Long getIdPartida() {
-        return Long.valueOf(idPartida.get());
+        if (this.idPartida.get() != null && !this.idPartida.get().isBlank()) {
+            return Long.valueOf(this.idPartida.get());
+        }
+        return null;
     }
 
     public void setIdPartida(Long idPartida) {

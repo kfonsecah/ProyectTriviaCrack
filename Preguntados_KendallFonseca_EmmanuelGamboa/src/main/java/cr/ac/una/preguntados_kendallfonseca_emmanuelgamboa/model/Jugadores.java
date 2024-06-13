@@ -49,7 +49,7 @@ public class Jugadores implements Serializable {
     @Version
     @Column(name = "VERSION")
     private Long version;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idJugador", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "idJugador", fetch = FetchType.EAGER)
     private List<PartidasJugadores> partidasJugadoresList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idJugador", fetch = FetchType.EAGER)
     private List<Estadisticas> estadisticasList;
@@ -72,7 +72,7 @@ public class Jugadores implements Serializable {
     }
 
     public void actualizar(JugadoresDto jugador) {
-        this.idJugador = jugador.getId();
+
         this.nombre = jugador.getNombre();
         this.correo = jugador.getCorreo();
         this.preguntasRespondidas = jugador.getPreguntasRespondidas().longValue();

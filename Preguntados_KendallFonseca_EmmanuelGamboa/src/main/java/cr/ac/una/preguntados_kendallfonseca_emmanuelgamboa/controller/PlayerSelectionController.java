@@ -175,7 +175,7 @@ public class PlayerSelectionController extends Controller implements Initializab
                 if (respuesta.getEstado()) {
                    jugadoresDto = (JugadoresDto) respuesta.getResultado("Jugador");
                     partidasJugadoresDto.setIdJugador(jugadoresDto);
-                    partidasJugadoresDto.setIdPartida(null);
+
                     partidasJugadoresList.add(partidasJugadoresDto);
                     nuevoPartidasJugadoresDto();
                     nuevoJugadorDto();
@@ -216,22 +216,37 @@ public class PlayerSelectionController extends Controller implements Initializab
 
         PartidasDto partidasDto = new PartidasDto();
         partidasDto.setInformacionJson((String) appContext.get("configPartida"));
+        partidasDto.setPartidasJugadoresList(partidasJugadoresList);
+
         Respuesta respuesta = partidasService.guardarPartida(partidasDto);
+
         if (!respuesta.getEstado()) {
             new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
-        }else {
-            PartidasDto partidasDto1= (PartidasDto) respuesta.getResultado("Partida");
-            for (PartidasJugadoresDto partidasJugadoresDto1: partidasJugadoresList) {
-                partidasJugadoresDto1.setIdPartida(partidasDto1);
-
-                appContext.set("idPartida", partidasDto1.getIdPartida());
-
-                Respuesta respuestaPartida = partidasService.guardarPartidaJugadores(partidasJugadoresDto1);
-                if (!respuestaPartida.getEstado()) {
-                    new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuestaPartida.getMensaje());
-                }
-            }
+        } else {
+            PartidasDto partidasDto1 = (PartidasDto) respuesta.getResultado("Partida");
+            appContext.set("idPartida", partidasDto1.getIdPartida());
         }
+
+
+
+
+
+
+
+
+//        if (!respuesta.getEstado()) {
+//            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
+//        }else {
+//            PartidasDto partidasDto1= (PartidasDto) respuesta.getResultado("Partida");
+//            appContext.set("idPartida", partidasDto1.getIdPartida());
+//            for (PartidasJugadoresDto partidasJugadoresDto1: partidasJugadoresList) {
+//                partidasJugadoresDto1.setIdPartida(partidasDto1);
+//                Respuesta respuestaPartida = partidasService.guardarPartidaJugadores(partidasJugadoresDto1);
+//                if (!respuestaPartida.getEstado()) {
+//                    new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuestaPartida.getMensaje());
+//                }
+//            }
+//        }
 
 
 

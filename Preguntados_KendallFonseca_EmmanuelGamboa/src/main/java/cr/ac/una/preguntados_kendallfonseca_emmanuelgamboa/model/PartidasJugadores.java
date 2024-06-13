@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
 
 /**
  *
@@ -51,10 +52,11 @@ public class PartidasJugadores implements Serializable {
     @ManyToOne( optional = false, fetch = FetchType.EAGER)
     private Jugadores idJugador;
     @JoinColumn(name = "ID_PARTIDA", referencedColumnName = "ID_PARTIDA" )
-    @ManyToOne( optional = false, fetch = FetchType.EAGER)
+    @ManyToOne( cascade = CascadeType.PERSIST, optional = false, fetch = FetchType.EAGER)
     private Partidas idPartida;
 
     public PartidasJugadores() {
+
     }
 
     public PartidasJugadores(Long idPartidaJugador) {

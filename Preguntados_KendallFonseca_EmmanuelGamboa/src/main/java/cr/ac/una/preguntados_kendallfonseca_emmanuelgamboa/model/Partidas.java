@@ -39,10 +39,11 @@ public class Partidas implements Serializable {
     @Basic(optional = false)
     @Column(name = "VERSION")
     private Long version;
-        @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPartida", fetch = FetchType.EAGER)
-    private List<PartidasJugadores> partidasJugadoresList=new ArrayList<>();
+        @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "idPartida", fetch = FetchType.EAGER)
+    private List<PartidasJugadores> partidasJugadoresList;
 
     public Partidas() {
+
     }
 
     public void Partidas(Long idPartida) {
@@ -60,15 +61,17 @@ public class Partidas implements Serializable {
     }
 
     public void actualizar(PartidasDto dto){
-        this.idPartida = dto.getIdPartida();
         this.informacionJson = dto.getInformacionJson();
         this.version = dto.getVersion();
 
+        if (this.partidasJugadoresList == null) {
+            this.partidasJugadoresList = new ArrayList<>();
+        }
         for (PartidasJugadoresDto partidasJugadoresDto : dto.getPartidasJugadoresList()) {
             PartidasJugadores partidasJugadores = new PartidasJugadores(partidasJugadoresDto);
-            partidasJugadores.setIdPartida(this);
             this.partidasJugadoresList.add(partidasJugadores);
         }
+
     }
 
     public Long getIdPartida() {

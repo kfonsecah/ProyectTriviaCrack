@@ -31,6 +31,22 @@ public class JugadoresService {
         }
     }
 
+    public Respuesta findById(Long idJugador) {
+        try {
+            Jugadores jugador = (Jugadores) em.createNamedQuery("Jugadores.findByIdJugador")
+                    .setParameter("idJugador", idJugador)
+                    .getSingleResult();
+            return new Respuesta(true, "", "", "Jugador", new JugadoresDto(jugador));
+        } catch (NoResultException ex) {
+            return new Respuesta(false, "No se encontró el jugador con el ID especificado.", "findById " + ex.getMessage());
+        } catch (Exception ex) {
+            Logger.getLogger(JugadoresService.class.getName()).log(Level.SEVERE, "Error al buscar el jugador.", ex);
+            return new Respuesta(false, "Error al buscar el jugador.", "findById " + ex.getMessage());
+        }
+    }
+
+
+
 
     public Respuesta crearJugadorConNombre(String nombre) {
         try {
@@ -61,6 +77,7 @@ public class JugadoresService {
                     estadistica.setPreguntasAcertadasCategoria(Long.valueOf(0));
                     estadistica.setRespuestasTotalesRespondidas(Long.valueOf(0));
                     estadistica.setRespuestasTotalesAcertadas(Long.valueOf(0));
+                    estadistica.setIdJugador(jugador);
                     estadisticasList.add(estadistica);
                 }
                 jugador.setEstadisticasList(estadisticasList);

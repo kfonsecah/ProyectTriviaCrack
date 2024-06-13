@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="861.0" prefWidth="1211.0" styleClass="customGray-stack-pane" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.BoardGameController">
+<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="795.0" prefWidth="1189.0" styleClass="customGray-stack-pane" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.BoardGameController">
    <children>
       <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundAnimated4-region" StackPane.alignment="CENTER">
          <children>
@@ -29,7 +29,10 @@
                                           <HBox prefHeight="47.0" prefWidth="148.0">
                                              <children>
                                                 <ImageView fx:id="fichaPlayer1" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
-                                                <Label fx:id="player1Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                                <Label fx:id="player1Name" prefHeight="35.0" prefWidth="153.0" styleClass="txt-title">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin></Label>
                                              </children>
                                           </HBox>
                                           <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
@@ -80,7 +83,10 @@
                                           <HBox prefHeight="47.0" prefWidth="148.0">
                                              <children>
                                                 <ImageView fx:id="fichaPlayer2" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
-                                                <Label fx:id="player2Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                                <Label fx:id="player2Name" prefHeight="35.0" prefWidth="160.0" styleClass="txt-title">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin></Label>
                                              </children>
                                           </HBox>
                                           <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
@@ -131,7 +137,10 @@
                                           <HBox prefHeight="47.0" prefWidth="148.0">
                                              <children>
                                                 <ImageView fx:id="fichaPlayer3" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
-                                                <Label fx:id="player3Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                                <Label fx:id="player3Name" prefHeight="35.0" prefWidth="158.0" styleClass="txt-title">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin></Label>
                                              </children>
                                           </HBox>
                                           <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
@@ -194,7 +203,10 @@
                                           <HBox prefHeight="47.0" prefWidth="148.0">
                                              <children>
                                                 <ImageView fx:id="fichaPlayer4" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
-                                                <Label fx:id="player4Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                                <Label fx:id="player4Name" prefHeight="35.0" prefWidth="157.0" styleClass="txt-title">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin></Label>
                                              </children>
                                           </HBox>
                                           <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
@@ -245,7 +257,10 @@
                                           <HBox prefHeight="47.0" prefWidth="148.0">
                                              <children>
                                                 <ImageView fx:id="fichaPlayer5" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
-                                                <Label fx:id="player5Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                                <Label fx:id="player5Name" prefHeight="35.0" prefWidth="161.0" styleClass="txt-title">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin></Label>
                                              </children>
                                           </HBox>
                                           <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
@@ -296,7 +311,10 @@
                                           <HBox prefHeight="47.0" prefWidth="148.0">
                                              <children>
                                                 <ImageView fx:id="fichaPlayer6" fitHeight="47.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" />
-                                                <Label fx:id="player6Name" prefHeight="35.0" prefWidth="88.0" styleClass="txt-title" />
+                                                <Label fx:id="player6Name" prefHeight="35.0" prefWidth="164.0" styleClass="txt-title">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin></Label>
                                              </children>
                                           </HBox>
                                           <HBox prefHeight="156.0" prefWidth="277.0" spacing="4.0">
