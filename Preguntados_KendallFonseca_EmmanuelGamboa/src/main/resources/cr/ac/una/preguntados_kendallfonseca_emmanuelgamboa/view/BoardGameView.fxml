@@ -188,7 +188,7 @@
                         </HBox>
                         <ImageView fx:id="imageTablero" fitHeight="448.0" fitWidth="452.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../resources/tablero2.png" />
+                              <Image url="@../resources/tablero6.png" />
                            </image>
                            <VBox.margin>
                               <Insets bottom="20.0" top="20.0" />
@@ -372,5 +372,6 @@
          </image>
       </ImageView>
       <MFXButton fx:id="btnRotate" onAction="#onActionBtnRotate" prefHeight="59.0" prefWidth="68.0" />
+      <MFXButton fx:id="btnSalirYGuardar" onAction="#btnSalirYGuardar" prefHeight="28.0" prefWidth="92.0" styleClass="exit-button" text=" " translateX="-500.0" />
    </children>
 </StackPane>

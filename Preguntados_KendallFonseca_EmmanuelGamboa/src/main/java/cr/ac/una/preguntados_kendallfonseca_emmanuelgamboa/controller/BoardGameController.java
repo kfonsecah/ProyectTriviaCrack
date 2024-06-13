@@ -5,9 +5,7 @@
 package cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.JugadoresDto;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PartidasDto;
@@ -15,6 +13,7 @@ import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PartidasJugador
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PartidasJugadoresDto;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.JugadoresService;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.PartidasService;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AppContext;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Mensaje;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Respuesta;
@@ -201,6 +200,10 @@ public class BoardGameController extends Controller implements Initializable {
     @FXML
     private Label player6Name;
 
+
+    @FXML
+    private MFXButton btnSalirYGuardar;
+
     @FXML
     private StackPane root;
 
@@ -228,16 +231,22 @@ public class BoardGameController extends Controller implements Initializable {
     JugadoresDto jugador5 = new JugadoresDto();
     JugadoresDto jugador6 = new JugadoresDto();
 
+    private Map<String, Integer[]> categoryAngles = new HashMap<>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        categoryAngles.put("Geografía", new Integer[]{0, 60});
+        categoryAngles.put("Historia", new Integer[]{61, 120});
+        categoryAngles.put("Arte", new Integer[]{121, 180});
+        categoryAngles.put("Ciencia", new Integer[]{181, 240});
+        categoryAngles.put("Entretenimiento", new Integer[]{241, 300});
+        categoryAngles.put("Deportes", new Integer[]{301, 360});
 
     }
 
     @Override
     public void initialize() {
-
+        appContext.set("turno", jugador1.getId());
         partidaid = (Long) appContext.get("idPartida");
         setPartida();
 
@@ -307,7 +316,7 @@ public class BoardGameController extends Controller implements Initializable {
             hubPlayer5.setVisible(true);
             hubPlayer6.setVisible(true);
             imageTablero.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/tablero6.png").toExternalForm()));
-            ;
+
         }
 
 
@@ -321,10 +330,16 @@ public class BoardGameController extends Controller implements Initializable {
 
     @FXML
     void onActionBtnRotate(ActionEvent event) {
-        for (PartidasJugadoresDto partidasJugadoresDto : partidasDto.getPartidasJugadoresList()) {
-            System.out.println(partidasJugadoresDto.getAyudas());
-        }
+        AnimationManager animationManager = AnimationManager.getInstance();
+        animationManager.applyRandomRotation(ruletaBoard);
+        System.out.println(AppContext.getInstance().get("Criterio").toString());
     }
+
+
+
+
+
+
 
     private void agregarImageViewFichas() {
         imageViewFichas.add(Ficha1Player1);
@@ -383,12 +398,6 @@ public class BoardGameController extends Controller implements Initializable {
 
             Long jugadorId = jugadorDto.getId(); // Obtener ID del JugadoresDto
 
-            if (jugadorId == null) {
-                System.out.println("El ID del jugador está vacío para la ficha: " + partidasJugadoresDto.getFichaSeleccionada());
-                continue;
-            }
-
-            System.out.println("Buscando jugador con ID: " + jugadorId);
 
             Respuesta respuesta = jugadoresService.findById(jugadorId);
             if (!respuesta.getEstado()) {
@@ -401,26 +410,33 @@ public class BoardGameController extends Controller implements Initializable {
                     case 1:
                         fichaPlayer1.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer1.png").toExternalForm()));
                         player1Name.setText(jugador.getNombre());
+                        jugador1 = jugador;
+                        appContext.set("turno", jugador1.getId());
                         break;
                     case 2:
                         fichaPlayer2.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer2.png").toExternalForm()));
                         player2Name.setText(jugador.getNombre());
+                        jugador2 = jugador;
                         break;
                     case 3:
                         fichaPlayer3.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer3.png").toExternalForm()));
                         player3Name.setText(jugador.getNombre());
+                        jugador3 = jugador;
                         break;
                     case 4:
                         fichaPlayer4.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer4.png").toExternalForm()));
                         player4Name.setText(jugador.getNombre());
+                        jugador4 = jugador;
                         break;
                     case 5:
                         fichaPlayer5.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer5.png").toExternalForm()));
                         player5Name.setText(jugador.getNombre());
+                        jugador5 = jugador;
                         break;
                     case 6:
                         fichaPlayer6.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer6.png").toExternalForm()));
                         player6Name.setText(jugador.getNombre());
+                        jugador6 = jugador;
                         break;
                     default:
                         break;
@@ -430,6 +446,10 @@ public class BoardGameController extends Controller implements Initializable {
     }
 
 
+    @FXML
+    void btnSalirYGuardar(ActionEvent event) {
+
+    }
 
 
 

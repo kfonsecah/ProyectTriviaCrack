@@ -10,6 +10,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 import java.net.URL;
+import java.util.function.Consumer;
 
 public class AnimationManager {
 
@@ -51,6 +52,8 @@ public class AnimationManager {
 
      play: Inicia la animación.
      */
+
+
 
 
     public void applyFadeAnimation(Node node) {
@@ -183,27 +186,54 @@ public class AnimationManager {
         sequentialTransition.play();
     }
 
-    public void applyGreetingAnimation(Node node) {
-        // SETTEAR FUERA DE LA PANTALLA
-        node.setTranslateX(600);
+    public void applyRandomRotation(Node node) {
+        node.setRotate(0);
+        RotateTransition rotateTransition = new RotateTransition();
+        rotateTransition.setNode(node);
 
-        //Mover adentro
-        TranslateTransition moveIn = new TranslateTransition(Duration.seconds(2), node);
-        moveIn.setFromX(600);
-        moveIn.setToX(0);
+        rotateTransition.setByAngle(150);
+        rotateTransition.setDuration(Duration.seconds(1)); // Duracion de la rotación
 
-        // Pausar
-        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        // Generar un angulo de rotación aleatorio entre 0 y 360 grados\
+        int randomAngle = (int) (360 + Math.random() * 1120);
 
-        // mover afuera
-        TranslateTransition moveOut = new TranslateTransition(Duration.seconds(2), node);
-        moveOut.setFromX(0);
-        moveOut.setToX(-600);
+        rotateTransition.setByAngle(randomAngle);
+        rotateTransition.setCycleCount(1);
+        rotateTransition.setAutoReverse(false);
 
-        // transicion secuencial de mover adentro -> pausa -> mover afuera
-        SequentialTransition sequentialTransition = new SequentialTransition(moveIn, pause, moveOut);
-        sequentialTransition.play();
+
+            int finalAngle = randomAngle % 360; // Obtener el angulo final en el rango de 0 a 360
+
+
+
+            if(finalAngle>=126&&finalAngle<=177){
+                AppContext.getInstance().set("Criterio", "Corona");
+            }
+            if(finalAngle>=74&&finalAngle<=125){
+                AppContext.getInstance().set("Criterio", "Geografia");
+            }
+            if(finalAngle>=24&&finalAngle<=74){
+                AppContext.getInstance().set("Criterio", "Ciencia");
+            }
+            if(finalAngle>=24&&finalAngle<=333){
+                AppContext.getInstance().set("Criterio", "Historia");
+            }
+            if(finalAngle>=280&&finalAngle<=333){
+                AppContext.getInstance().set("Criterio", "Deportes");
+            }
+            if(finalAngle>=228&&finalAngle<=280){
+                AppContext.getInstance().set("Criterio", "Arte");
+            }
+            if(finalAngle>=177&&finalAngle<=230){
+                AppContext.getInstance().set("Criterio", "Pop");
+            }
+
+
+        rotateTransition.play();
     }
+
+
+
 
 }
 

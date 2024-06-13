@@ -34,7 +34,6 @@ public class PartidasJugadoresDto {
         this.personajesObtenidos.set(partidasJugadores.getPersonajesObtenidos());
         this.idJugador.setId(partidasJugadores.getIdJugador().getIdJugador());
         this.posicionTablero.set(partidasJugadores.getPosicionTablero().toString());
-
         this.version.set(partidasJugadores.getVersion().toString());
     }
 
