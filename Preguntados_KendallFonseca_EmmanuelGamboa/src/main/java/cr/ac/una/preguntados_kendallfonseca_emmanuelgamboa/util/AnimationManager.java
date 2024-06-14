@@ -4,6 +4,7 @@ import javafx.animation.*;
 import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import javafx.scene.media.Media;
@@ -230,6 +231,15 @@ public class AnimationManager {
 
 
         rotateTransition.play();
+    }
+
+    public void moveToCoordinates(Node node, double x, double y, double durationSeconds) {
+        TranslateTransition transition = new TranslateTransition();
+        transition.setNode(node);
+        transition.setToX(x);
+        transition.setToY(y);
+        transition.setDuration(Duration.seconds(durationSeconds));
+        transition.play();
     }
 
 

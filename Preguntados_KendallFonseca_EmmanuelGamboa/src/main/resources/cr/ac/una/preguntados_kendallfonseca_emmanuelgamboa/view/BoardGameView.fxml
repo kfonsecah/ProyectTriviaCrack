@@ -371,7 +371,42 @@
             <Image url="@../resources/roullete.png" />
          </image>
       </ImageView>
-      <MFXButton fx:id="btnRotate" onAction="#onActionBtnRotate" prefHeight="59.0" prefWidth="68.0" />
-      <MFXButton fx:id="btnSalirYGuardar" onAction="#btnSalirYGuardar" prefHeight="28.0" prefWidth="92.0" styleClass="exit-button" text=" " translateX="-500.0" />
+      <MFXButton fx:id="btnRotate" onAction="#onActionBtnRotate" prefHeight="59.0" prefWidth="68.0" text=" " />
+      <MFXButton fx:id="btnSalirYGuardar" onAction="#btnSalirYGuardar" prefHeight="28.0" prefWidth="92.0" styleClass="exit-button" text=" " translateX="-500.0">
+         <StackPane.margin>
+            <Insets left="80.0" />
+         </StackPane.margin></MFXButton>
+      <StackPane fx:id="invisibleStackPane" prefHeight="150.0" prefWidth="200.0" styleClass="custom-invisible-stack-pane" translateX="-1700.0" />
+      <ImageView fx:id="cienciaPregunta" fitHeight="145.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" translateY="-1000.0">
+         <image>
+            <Image url="@../resources/Ciencia.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="historiaPregunta" fitHeight="145.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" translateY="-1000.0">
+         <image>
+            <Image url="@../resources/personajeGanadoHistoria.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="deportesPregunta" fitHeight="145.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" translateY="-1000.0">
+         <image>
+            <Image url="@../resources/personajeGanadoDeporte.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="artePregunta" fitHeight="144.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" translateY="-1000.0">
+         <image>
+            <Image url="@../resources/personajeGanadoArte.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="popPregunta" fitHeight="145.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" translateY="-1000.0">
+         <image>
+            <Image url="@../resources/personajesGanadoPop.png" />
+         </image>
+      </ImageView>
+      <MFXButton fx:id="btnJugarPregunta" onAction="#onActionBtnJugarPregunta" prefHeight="46.0" prefWidth="146.0" styleClass="play-orange-button" text=" " translateY="800.0" />
+      <ImageView fx:id="geografiaPregunta" fitHeight="145.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" translateY="-1000.0">
+         <image>
+            <Image url="@../resources/peronajeGanadoGeografia.png" />
+         </image>
+      </ImageView>
    </children>
 </StackPane>

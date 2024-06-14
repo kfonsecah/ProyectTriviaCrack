@@ -13,10 +13,7 @@ import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PartidasJugador
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.model.PartidasJugadoresDto;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.JugadoresService;
 import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.service.PartidasService;
-import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AnimationManager;
-import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.AppContext;
-import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Mensaje;
-import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.Respuesta;
+import cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.util.*;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,6 +34,8 @@ public class BoardGameController extends Controller implements Initializable {
     /**
      * Initializes the controller class.
      */
+
+    String Sound_Pregunta = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/TurnRule.wav";
 
     @FXML
     private ImageView Ficha1Player1;
@@ -183,6 +182,9 @@ public class BoardGameController extends Controller implements Initializable {
     private StackPane hubPlayer6;
 
     @FXML
+    private StackPane invisibleStackPane;
+
+    @FXML
     private Label player1Name;
 
     @FXML
@@ -213,16 +215,43 @@ public class BoardGameController extends Controller implements Initializable {
     @FXML
     private ImageView imageTablero;
 
+    @FXML
+    private ImageView geografiaPregunta;
+
+    @FXML
+    private ImageView historiaPregunta;
+
+    @FXML
+    private ImageView artePregunta;
+
+    @FXML
+    private ImageView cienciaPregunta;
+
+    @FXML
+    private ImageView popPregunta;
+
+    @FXML
+    private ImageView deportesPregunta;
+
+    @FXML
+    private MFXButton btnJugarPregunta;
+
+
 
     private Long partidaid;
     private PartidasDto partidasDto = new PartidasDto();
+
+
 
 
     AppContext appContext = AppContext.getInstance();
     PartidasService partidasService = new PartidasService();
     JugadoresService jugadoresService = new JugadoresService();
 
+    AnimationManager animationManager = AnimationManager.getInstance();
+
     private ArrayList<ImageView> imageViewFichas = new ArrayList<>();
+
 
     JugadoresDto jugador1 = new JugadoresDto();
     JugadoresDto jugador2 = new JugadoresDto();
@@ -249,7 +278,6 @@ public class BoardGameController extends Controller implements Initializable {
         appContext.set("turno", jugador1.getId());
         partidaid = (Long) appContext.get("idPartida");
         setPartida();
-
 
     }
 
@@ -318,13 +346,9 @@ public class BoardGameController extends Controller implements Initializable {
             imageTablero.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/tablero6.png").toExternalForm()));
 
         }
-
-
-
         agregarImageViewFichas();
         deshabilitarFichas();
         setJugadores();
-
 
     }
 
@@ -332,13 +356,10 @@ public class BoardGameController extends Controller implements Initializable {
     void onActionBtnRotate(ActionEvent event) {
         AnimationManager animationManager = AnimationManager.getInstance();
         animationManager.applyRandomRotation(ruletaBoard);
-        System.out.println(AppContext.getInstance().get("Criterio").toString());
+        animationManager.moveToCoordinates(invisibleStackPane, 0, 0, 1);
+        animacionPregunta();
+        animationManager.playSound(Sound_Pregunta);
     }
-
-
-
-
-
 
 
     private void agregarImageViewFichas() {
@@ -383,7 +404,6 @@ public class BoardGameController extends Controller implements Initializable {
         imageViewFichas.add(Ficha6Player5);
         imageViewFichas.add(Ficha6Player6);
     }
-
 
 
     private void deshabilitarFichas() {
@@ -446,12 +466,59 @@ public class BoardGameController extends Controller implements Initializable {
     }
 
 
+    void animacionPregunta(){
+        if (appContext.get("Criterio").equals("Geografía")) {
+            animationManager.moveToCoordinates(geografiaPregunta, 0, 0, 1);
+            animationManager.moveToCoordinates(btnJugarPregunta, 0, 100, 1);
+        }
+        if (appContext.get("Criterio").equals("Historia")) {
+            animationManager.moveToCoordinates(historiaPregunta, 0, 0, 1);
+            animationManager.moveToCoordinates(btnJugarPregunta, 0, 100, 1);
+        }
+        if (appContext.get("Criterio").equals("Arte")) {
+            animationManager.moveToCoordinates(artePregunta, 0, 0, 1);
+            animationManager.moveToCoordinates(btnJugarPregunta, 0, 100, 1);
+        }
+        if (appContext.get("Criterio").equals("Ciencia")) {
+            animationManager.moveToCoordinates(cienciaPregunta, 0, 0, 1);
+            animationManager.moveToCoordinates(btnJugarPregunta, 0, 100, 1);
+        }
+        if (appContext.get("Criterio").equals("Pop")) {
+            animationManager.moveToCoordinates(popPregunta, 0, 0, 1);
+            animationManager.moveToCoordinates(btnJugarPregunta, 0, 100, 1);
+        }
+        if (appContext.get("Criterio").equals("Deportes")) {
+            animationManager.moveToCoordinates(deportesPregunta, 0, 0, 1);
+            animationManager.moveToCoordinates(btnJugarPregunta, 0, 100, 1);
+        }
+
+    }
+
     @FXML
     void btnSalirYGuardar(ActionEvent event) {
+        FlowController.getInstance().goView("StartView");
+
+    }
+
+    @FXML
+    void onActionBtnJugarPregunta(ActionEvent event) {
+        FlowController.getInstance().goViewInWindowModal("PreguntaView", getStage(), false);
+        limpiarElementos();
 
     }
 
 
+    private void limpiarElementos() {
+        geografiaPregunta.setTranslateY(-1100);
+        historiaPregunta.setTranslateY(-1100);
+        artePregunta.setTranslateY(-1100);
+        cienciaPregunta.setTranslateY(-1100);
+        popPregunta.setTranslateY(-1100);
+        deportesPregunta.setTranslateY(-1100);
+        btnJugarPregunta.setTranslateY(1100);
+        invisibleStackPane.setTranslateX(-1700);
+
+    }
 
 }
 

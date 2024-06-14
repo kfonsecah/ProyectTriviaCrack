@@ -231,25 +231,6 @@ public class PlayerSelectionController extends Controller implements Initializab
 
 
 
-
-
-
-//        if (!respuesta.getEstado()) {
-//            new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
-//        }else {
-//            PartidasDto partidasDto1= (PartidasDto) respuesta.getResultado("Partida");
-//            appContext.set("idPartida", partidasDto1.getIdPartida());
-//            for (PartidasJugadoresDto partidasJugadoresDto1: partidasJugadoresList) {
-//                partidasJugadoresDto1.setIdPartida(partidasDto1);
-//                Respuesta respuestaPartida = partidasService.guardarPartidaJugadores(partidasJugadoresDto1);
-//                if (!respuestaPartida.getEstado()) {
-//                    new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuestaPartida.getMensaje());
-//                }
-//            }
-//        }
-
-
-
         FlowController.getInstance().goView("BoardGameView");
     }
 
