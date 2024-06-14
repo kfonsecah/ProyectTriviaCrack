@@ -207,27 +207,23 @@ public class AnimationManager {
 
 
 
-            if(finalAngle>=126&&finalAngle<=177){
-                AppContext.getInstance().set("Criterio", "Corona");
-            }
-            if(finalAngle>=74&&finalAngle<=125){
-                AppContext.getInstance().set("Criterio", "Geografia");
-            }
-            if(finalAngle>=24&&finalAngle<=74){
-                AppContext.getInstance().set("Criterio", "Ciencia");
-            }
-            if(finalAngle>=24&&finalAngle<=333){
-                AppContext.getInstance().set("Criterio", "Historia");
-            }
-            if(finalAngle>=280&&finalAngle<=333){
-                AppContext.getInstance().set("Criterio", "Deportes");
-            }
-            if(finalAngle>=228&&finalAngle<=280){
-                AppContext.getInstance().set("Criterio", "Arte");
-            }
-            if(finalAngle>=177&&finalAngle<=230){
-                AppContext.getInstance().set("Criterio", "Pop");
-            }
+        if (finalAngle >= 126 && finalAngle < 177) {
+            AppContext.getInstance().set("Criterio", "Ciencia");//corona
+        } else if (finalAngle >= 74 && finalAngle < 126) {
+            AppContext.getInstance().set("Criterio", "Geografia");
+        } else if (finalAngle >= 24 && finalAngle < 74) {
+            AppContext.getInstance().set("Criterio", "Ciencia");
+        } else if (finalAngle >= 355 || finalAngle < 24) {
+            AppContext.getInstance().set("Criterio", "Historia");
+        } else if (finalAngle >= 280 && finalAngle < 333) {
+            AppContext.getInstance().set("Criterio", "Deportes");
+        } else if (finalAngle >= 230 && finalAngle < 280) {
+            AppContext.getInstance().set("Criterio", "Arte");
+        } else if (finalAngle >= 177 && finalAngle < 230) {
+            AppContext.getInstance().set("Criterio", "Pop");
+        } else if (finalAngle >= 333 && finalAngle < 355) {
+            AppContext.getInstance().set("Criterio", "Historia");
+        }
 
 
         rotateTransition.play();

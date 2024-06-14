@@ -242,8 +242,6 @@ public class BoardGameController extends Controller implements Initializable {
     private PartidasDto partidasDto = new PartidasDto();
 
 
-
-
     AppContext appContext = AppContext.getInstance();
     PartidasService partidasService = new PartidasService();
     JugadoresService jugadoresService = new JugadoresService();
@@ -260,16 +258,8 @@ public class BoardGameController extends Controller implements Initializable {
     JugadoresDto jugador5 = new JugadoresDto();
     JugadoresDto jugador6 = new JugadoresDto();
 
-    private Map<String, Integer[]> categoryAngles = new HashMap<>();
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        categoryAngles.put("Geografía", new Integer[]{0, 60});
-        categoryAngles.put("Historia", new Integer[]{61, 120});
-        categoryAngles.put("Arte", new Integer[]{121, 180});
-        categoryAngles.put("Ciencia", new Integer[]{181, 240});
-        categoryAngles.put("Entretenimiento", new Integer[]{241, 300});
-        categoryAngles.put("Deportes", new Integer[]{301, 360});
 
     }
 
@@ -284,6 +274,13 @@ public class BoardGameController extends Controller implements Initializable {
 
     void setPartida() {
 
+        hubPlayer1.setVisible(false);
+        hubPlayer2.setVisible(false);
+        hubPlayer3.setVisible(false);
+        hubPlayer4.setVisible(false);
+        hubPlayer5.setVisible(false);
+        hubPlayer6.setVisible(false);
+
         Respuesta respuesta = partidasService.findById(partidaid);
         if (!respuesta.getEstado()) {
             new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
@@ -293,56 +290,22 @@ public class BoardGameController extends Controller implements Initializable {
         }
 
 
-        for (PartidasJugadoresDto partidasJugadoresDto : partidasDto.getPartidasJugadoresList()) {
-            System.out.println(partidasJugadoresDto.getAyudas());
-            System.out.println(partidasJugadoresDto.getFichaSeleccionada());
-        }
-
         int cantidadJugadores = partidasDto.getPartidasJugadoresList().size();
 
         if (cantidadJugadores == 2) {
-            hubPlayer1.setVisible(true);
-            hubPlayer2.setVisible(true);
-            hubPlayer3.setVisible(false);
-            hubPlayer4.setVisible(false);
-            hubPlayer5.setVisible(false);
-            hubPlayer6.setVisible(false);
             imageTablero.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/tablero2.png").toExternalForm()));
         }
         if (cantidadJugadores == 3) {
-            hubPlayer1.setVisible(true);
-            hubPlayer2.setVisible(true);
-            hubPlayer3.setVisible(true);
-            hubPlayer4.setVisible(false);
-            hubPlayer5.setVisible(false);
-            hubPlayer6.setVisible(false);
+
             imageTablero.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/tablero3.png").toExternalForm()));
         }
         if (cantidadJugadores == 4) {
-            hubPlayer1.setVisible(true);
-            hubPlayer2.setVisible(true);
-            hubPlayer3.setVisible(true);
-            hubPlayer4.setVisible(true);
-            hubPlayer5.setVisible(false);
-            hubPlayer6.setVisible(false);
             imageTablero.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/tablero4.png").toExternalForm()));
         }
         if (cantidadJugadores == 5) {
-            hubPlayer1.setVisible(true);
-            hubPlayer2.setVisible(true);
-            hubPlayer3.setVisible(true);
-            hubPlayer4.setVisible(true);
-            hubPlayer5.setVisible(true);
-            hubPlayer6.setVisible(false);
             imageTablero.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/tablero5.png").toExternalForm()));
         }
         if (cantidadJugadores == 6) {
-            hubPlayer1.setVisible(true);
-            hubPlayer2.setVisible(true);
-            hubPlayer3.setVisible(true);
-            hubPlayer4.setVisible(true);
-            hubPlayer5.setVisible(true);
-            hubPlayer6.setVisible(true);
             imageTablero.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/tablero6.png").toExternalForm()));
 
         }
@@ -431,32 +394,39 @@ public class BoardGameController extends Controller implements Initializable {
                         fichaPlayer1.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer1.png").toExternalForm()));
                         player1Name.setText(jugador.getNombre());
                         jugador1 = jugador;
+                        hubPlayer1.setVisible(true);
                         appContext.set("turno", jugador1.getId());
                         break;
                     case 2:
                         fichaPlayer2.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer2.png").toExternalForm()));
                         player2Name.setText(jugador.getNombre());
                         jugador2 = jugador;
+                        hubPlayer2.setVisible(true);
                         break;
                     case 3:
                         fichaPlayer3.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer3.png").toExternalForm()));
                         player3Name.setText(jugador.getNombre());
                         jugador3 = jugador;
+                        hubPlayer3.setVisible(true);
                         break;
                     case 4:
                         fichaPlayer4.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer4.png").toExternalForm()));
                         player4Name.setText(jugador.getNombre());
                         jugador4 = jugador;
+                        hubPlayer4.setVisible(true);
                         break;
                     case 5:
                         fichaPlayer5.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer5.png").toExternalForm()));
                         player5Name.setText(jugador.getNombre());
                         jugador5 = jugador;
+                        hubPlayer5.setVisible(true);
                         break;
                     case 6:
                         fichaPlayer6.setImage(new Image(getClass().getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/fichasPlayer6.png").toExternalForm()));
                         player6Name.setText(jugador.getNombre());
                         jugador6 = jugador;
+                        hubPlayer6.setVisible(true);
+
                         break;
                     default:
                         break;
@@ -467,7 +437,7 @@ public class BoardGameController extends Controller implements Initializable {
 
 
     void animacionPregunta(){
-        if (appContext.get("Criterio").equals("Geografía")) {
+        if (appContext.get("Criterio").equals("Geografia")) {
             animationManager.moveToCoordinates(geografiaPregunta, 0, 0, 1);
             animationManager.moveToCoordinates(btnJugarPregunta, 0, 100, 1);
         }
@@ -497,6 +467,7 @@ public class BoardGameController extends Controller implements Initializable {
     @FXML
     void btnSalirYGuardar(ActionEvent event) {
         FlowController.getInstance().goView("StartView");
+        AppContext.getInstance().delete("playerCounter");
 
     }
 

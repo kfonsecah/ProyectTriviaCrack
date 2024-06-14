@@ -71,8 +71,14 @@ public class PreguntaController extends Controller implements Initializable {
                         new Mensaje().showModal(Alert.AlertType.INFORMATION, "Correcto", getStage(), "¡Respuesta correcta!");
                         getStage().close();
                 } else {
-                        new Mensaje().showModal(Alert.AlertType.ERROR, "Incorrecto", getStage(), "Respuesta incorrecta.");
-
+                        if(AppContext.getInstance().get("doble_respuesta") != null && (boolean) AppContext.getInstance().get("doble_respuesta")){
+                                new Mensaje().showModal(Alert.AlertType.INFORMATION, "Incorrecto", getStage(), "Respuesta incorrecta, tienes otro intento.");
+                                AppContext.getInstance().set("doble_respuesta", false);
+                        }
+                        else {
+                                new Mensaje().showModal(Alert.AlertType.ERROR, "Incorrecto", getStage(), "Respuesta incorrecta.");
+                                getStage().close();
+                        }
 
                 }
         }
@@ -80,15 +86,20 @@ public class PreguntaController extends Controller implements Initializable {
 
         @Override
         public void initialize(URL url, ResourceBundle rb) {
-                botones.add(btnRespuesta1);
-                botones.add(btnRespuesta2);
-                botones.add(btnRespuesta3);
-                botones.add(btnRespuesta4);
+
         }
 
         @Override
         public void initialize() {
                 cargarPreguntaAleatoria();
+
+                btnBomba.setDisable(false);
+                btnDobleRespuesta.setDisable(false);
+                btnPaso.setDisable(false);
+
+
+
+                AppContext.getInstance().set("doble_respuesta", false);
 
                 if(AppContext.getInstance().get("modo_juego").equals("medio")){
                         btnBomba.setDisable(true);
@@ -103,6 +114,12 @@ public class PreguntaController extends Controller implements Initializable {
         }
 
         private void cargarPreguntaAleatoria() {
+
+                botones.add(btnRespuesta1);
+                botones.add(btnRespuesta2);
+                botones.add(btnRespuesta3);
+                botones.add(btnRespuesta4);
+
                 String categoria = AppContext.getInstance().get("Criterio").toString();
                 PreguntasService preguntasService = new PreguntasService();
                 Respuesta respuesta = preguntasService.getPreguntasBySearch(categoria);
@@ -123,6 +140,7 @@ public class PreguntaController extends Controller implements Initializable {
                                 for (int i = 0; i < respuestasList.size(); i++) {
                                         botones.get(i).setText(respuestasList.get(i).getRespuestaTexto());
                                         botones.get(i).setUserData(respuestasList.get(i).esCorrecta);
+                                        botones.get(i).setDisable(false);
                                 }
                         } else {
                                 new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
@@ -134,9 +152,11 @@ public class PreguntaController extends Controller implements Initializable {
 
         @FXML
         void onActionBtnBomba(ActionEvent event) {
+                btnBomba.setDisable(true);
                 int deshabilitadas = 0;
                 for (MFXButton boton : botones) {
-                        if (deshabilitadas < 2 && boton.getUserData() != null && boton.getUserData().equals("N")) {
+                        SimpleStringProperty esCorrecta = (SimpleStringProperty) boton.getUserData();
+                        if (deshabilitadas < 2 && esCorrecta != null && esCorrecta.get().equals("N")) {
                                 boton.setDisable(true);
                                 deshabilitadas++;
                         }
@@ -144,14 +164,19 @@ public class PreguntaController extends Controller implements Initializable {
         }
 
 
+
+
         @FXML
         void onActionBtnDobleRespuesta(ActionEvent event) {
+                btnDobleRespuesta.setDisable(true);
+                AppContext.getInstance().set("doble_respuesta", true);
 
         }
 
         @FXML
         void onActionBtnPaso(ActionEvent event) {
-
+                btnPaso.setDisable(true);
+                cargarPreguntaAleatoria();
         }
 
 }
