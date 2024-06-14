@@ -23,6 +23,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.paint.Paint;
 
 /**
  * FXML Controller class
@@ -68,14 +69,19 @@ public class PreguntaController extends Controller implements Initializable {
                 SimpleStringProperty esCorrecta = (SimpleStringProperty) botonSeleccionado.getUserData();
 
                 if (esCorrecta.get().equals("Y") ){
+
+                        botonSeleccionado.setStyle("-fx-background-color: #1FC868");
                         new Mensaje().showModal(Alert.AlertType.INFORMATION, "Correcto", getStage(), "¡Respuesta correcta!");
                         getStage().close();
+
                 } else {
                         if(AppContext.getInstance().get("doble_respuesta") != null && (boolean) AppContext.getInstance().get("doble_respuesta")){
+                                botonSeleccionado.setStyle("-fx-background-color: #6c0202");
                                 new Mensaje().showModal(Alert.AlertType.INFORMATION, "Incorrecto", getStage(), "Respuesta incorrecta, tienes otro intento.");
                                 AppContext.getInstance().set("doble_respuesta", false);
                         }
                         else {
+                                botonSeleccionado.setStyle("-fx-background-color: #6c0202");
                                 new Mensaje().showModal(Alert.AlertType.ERROR, "Incorrecto", getStage(), "Respuesta incorrecta.");
                                 getStage().close();
                         }
@@ -141,6 +147,7 @@ public class PreguntaController extends Controller implements Initializable {
                                         botones.get(i).setText(respuestasList.get(i).getRespuestaTexto());
                                         botones.get(i).setUserData(respuestasList.get(i).esCorrecta);
                                         botones.get(i).setDisable(false);
+                                        botones.get(i).setStyle("-fx-background-color: #FFFFFF");
                                 }
                         } else {
                                 new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());

@@ -153,16 +153,6 @@ public class AnimationManager {
         scaleTransition.play();
     }
 
-    // Nueva animación para desvanecer completamente un StackPane
-    public void fadeOut(Node node) {
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), node);
-        fadeOut.setFromValue(0.0);
-        fadeOut.setToValue(0.0);
-        fadeOut.setCycleCount(0);
-        fadeOut.setAutoReverse(false);
-        fadeOut.play();
-    }
-
     // animación para aclarar un StackPane
     public void fadeIn(Node node) {
         // Fade in transition

@@ -154,12 +154,6 @@ public class GameMenuController extends Controller implements Initializable{
 
             jsonInfo= "{" +modo_juego + "," + tiempo_juego + "," + cantidad_jugadores +"}";
 
-//            jsonInfo = "{" +
-//                    "\"modo_juego\":\"" + modo_juego + "\"," +
-//                    "\"tiempo_juego\":" + tiempo_juego + "," +
-//                    "\"cantidad_jugadores\":" + cantidad_jugadores +
-//                    "}";
-
             AppContext.getInstance().set("configPartida", jsonInfo);
             AppContext.getInstance().set("tiempo_juego", tiempo_juego);
             AppContext.getInstance().set("modo_juego", modo_juego);

@@ -27,9 +27,9 @@
                   <MFXButton fx:id="btnRespuesta4" onAction="#onActionBtnRespuesta" prefHeight="25.0" prefWidth="280.0" />
                   <HBox alignment="CENTER" prefHeight="86.0" prefWidth="391.0" spacing="20.0">
                      <children>
-                        <MFXButton fx:id="btnBomba" onAction="#onActionBtnBomba" text="Button" />
-                        <MFXButton fx:id="btnDobleRespuesta" onAction="#onActionBtnDobleRespuesta" />
-                        <MFXButton fx:id="btnPaso" onAction="#onActionBtnPaso" />
+                        <MFXButton fx:id="btnBomba" onAction="#onActionBtnBomba" prefHeight="55.0" prefWidth="65.0" styleClass="bomba-button" text="  " textFill="WHITE" />
+                        <MFXButton fx:id="btnDobleRespuesta" onAction="#onActionBtnDobleRespuesta" prefHeight="55.0" prefWidth="65.0" styleClass="DobleRespuesta-button" text="  " />
+                        <MFXButton fx:id="btnPaso" onAction="#onActionBtnPaso" prefHeight="55.0" prefWidth="65.0" styleClass="Pass-button" text="  " />
                      </children>
                   </HBox>
                </children>
