@@ -74,15 +74,4 @@ public class PartidasService {
         }
     }
 
-    //metodo para actualizar la partida con la partidas juagdores
-//    public Respuesta editarPartida(PartidasDto partidasDto){
-//        try{
-//
-//
-//
-//        }catch(Exception ex)
-//
-//    }
-//
-//}
 }

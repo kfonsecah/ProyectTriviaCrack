@@ -17,16 +17,6 @@ public class PreguntasService {
     private EntityManager em = emf.createEntityManager();
     private EntityTransaction et;
 
-    public Respuesta getAllPreguntas() {
-        List<Preguntas> preguntasList = em.createNamedQuery("Preguntas.findAll", Preguntas.class).getResultList();
-        List<PreguntasDto> preguntasDtoList = preguntasList.stream().map(PreguntasDto::new).collect(Collectors.toList());
-        if (preguntasDtoList.isEmpty() || preguntasDtoList == null) {
-            return new Respuesta(false, "No se encontraron preguntas.", "getAllPreguntas");
-        }
-        else {
-            return new Respuesta(true, "", "", "Preguntas" , preguntasDtoList);
-        }
-    }
 
     //obtener preguntas segun el parametro de busqueda
     public Respuesta getPreguntasBySearch(String categoria) {

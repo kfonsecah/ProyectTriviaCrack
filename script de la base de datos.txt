@@ -105,7 +105,7 @@ CREATE TABLE ken.partidas_jugadores(
   id_jugador NUMBER NOT NULL,
   ficha_seleccionada NUMBER NOT NULL,
   personajes_obtenidos VARCHAR2(1000),
-  ayudas VARCHAR2(200),	
+  ayudas VARCHAR2(200),  
   posicion_tablero NUMBER NOT NULL,
   version NUMBER DEFAULT 1 NOT NULL,
   CONSTRAINT partidas_jugadores_pk PRIMARY KEY (id_partida_jugador),
@@ -225,72 +225,406 @@ ALTER TABLE ken.estadisticas ADD CONSTRAINT estadisticas_fk FOREIGN KEY (id_juga
 
 -- Insert sample data -------------------------------------------------
 
--- Insert sample data into PREGUNTAS and RESPUESTAS
-INSERT INTO ken.preguntas (categoria, pregunta_texto, version) VALUES ('Geografia', 'Cual es la capital de Francia?', 1);
-INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Paris', 'Y', 1);
-INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Londres', 'N', 1);
-INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Berlin', 'N', 1);
-INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Madrid', 'N', 1);
+-- Insertar datos de ejemplo utilizando las secuencias
 
-INSERT INTO ken.preguntas (categoria, pregunta_texto, version) VALUES ('Historia', 'Quien descubrio America?', 1);
-INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Cristobal Colon', 'Y', 1);
-INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Americo Vespucio', 'N', 1);
-INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Marco Polo', 'N', 1);
-INSERT INTO ken.respuestas (id_pregunta, respuesta_texto, es_correcta, version) VALUES (ken.preguntas_seq.CURRVAL, 'Fernando de Magallanes', 'N', 1);
+-- Pregunta 1
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Geografia', 'Cual es la capital de Francia?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Paris', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Londres', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Berlin', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Madrid', 'N', 1);
 
--- Repeat similar INSERT statements for remaining sample questions and responses
+-- Pregunta 2
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Historia', 'Quien descubrio America?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Cristobal Colon', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Americo Vespucio', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Marco Polo', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Fernando de Magallanes', 'N', 1);
+
+-- Pregunta 3
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Ciencia', 'Cual es el elemento quimico con el simbolo O?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Oxigeno', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Oro', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Osmio', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Oxido', 'N', 1);
+
+-- Pregunta 4
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Deportes', 'Cuantos jugadores tiene un equipo de futbol?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '11', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '10', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '12', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '9', 'N', 1);
+
+-- Pregunta 5
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Arte', 'Quien pinto la Mona Lisa?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Leonardo da Vinci', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Pablo Picasso', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Vincent van Gogh', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Claude Monet', 'N', 1);
+
+-- Pregunta 6
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Entretenimiento', 'En que año se estreno la pelicula Titanic?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1997', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1995', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '2000', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1999', 'N', 1);
+
+-- Pregunta 7
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Geografia', 'Cual es el rio mas largo del mundo?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Rio Amazonas', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Rio Nilo', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Rio Mississippi', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Rio Danubio', 'N', 1);
+
+-- Pregunta 8
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Historia', 'En que año empezo la Primera Guerra Mundial?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1914', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1910', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1918', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1920', 'N', 1);
+
+-- Pregunta 9
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Ciencia', 'Que planeta es conocido como el Planeta Rojo?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Marte', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Jupiter', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Venus', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Saturno', 'N', 1);
+
+-- Pregunta 10
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Deportes', 'Quien ha ganado mas titulos de la NBA?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Boston Celtics', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Los Angeles Lakers', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Chicago Bulls', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Miami Heat', 'N', 1);
+
+-- Pregunta 11
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Arte', 'Quien es el autor de Don Quijote de la Mancha?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Miguel de Cervantes', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Gabriel Garcia Marquez', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Pablo Neruda', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Jorge Luis Borges', 'N', 1);
+
+-- Pregunta 12
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Entretenimiento', 'Quien es el creador de Mickey Mouse?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Walt Disney', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Hanna-Barbera', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Chuck Jones', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Tex Avery', 'N', 1);
+
+-- Pregunta 13
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Geografia', 'Cual es el pais mas grande del mundo?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Rusia', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Canada', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'China', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Estados Unidos', 'N', 1);
+
+-- Pregunta 14
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Historia', 'Quien fue el primer presidente de Estados Unidos?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'George Washington', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Thomas Jefferson', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'John Adams', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Abraham Lincoln', 'N', 1);
+
+-- Pregunta 15
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Ciencia', 'Cual es la formula quimica del agua?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'H2O', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'CO2', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'O2', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'CH4', 'N', 1);
+
+-- Pregunta 16
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Deportes', 'Cuantas medallas de oro gano Michael Phelps en los Juegos Olimpicos de 2008?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '8', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '6', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '7', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '9', 'N', 1);
+
+-- Pregunta 17
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Arte', 'Quien compuso la Novena Sinfonia?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Ludwig van Beethoven', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Wolfgang Amadeus Mozart', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Johann Sebastian Bach', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Johannes Brahms', 'N', 1);
+
+-- Pregunta 18
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Entretenimiento', 'Cual es el nombre del parque tematico de Disney en California?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Disneyland', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Disney World', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Magic Kingdom', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Epcot', 'N', 1);
+
+-- Pregunta 19
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Geografia', 'Cual es el desierto mas grande del mundo?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Desierto de Sahara', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Desierto de Gobi', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Desierto de Atacama', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Desierto de Kalahari', 'N', 1);
+
+-- Pregunta 20
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Historia', 'Quien fue el primer emperador de Roma?', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Augusto', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Julio Cesar', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Neron', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Caligula', 'N', 1);
+
+-- Pregunta 21
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Pop', 'Quien es conocido como el "Rey del Pop"?', 1);
+
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Michael Jackson', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Elvis Presley', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Freddie Mercury', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Prince', 'N', 1);
+
+-- Pregunta 22
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Pop', 'En que anho se estreno la pelicula "Jurassic Park"?', 1);
+
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1993', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1990', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1995', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, '1998', 'N', 1);
+
+
+-- Pregunta 23
+INSERT INTO ken.preguntas (id_pregunta, categoria, pregunta_texto, version)
+VALUES (ken.preguntas_seq.NEXTVAL, 'Pop', 'Cual es el nombre del protagonista en la serie "Breaking Bad"?', 1);
+
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Walter White', 'Y', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Jesse Pinkman', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Hank Schrader', 'N', 1);
+INSERT INTO ken.respuestas (id_respuesta, id_pregunta, respuesta_texto, es_correcta, version)
+VALUES (ken.respuestas_seq.NEXTVAL, ken.preguntas_seq.CURRVAL, 'Saul Goodman', 'N', 1);
+
 
 -- Crear jugadores
-INSERT INTO ken.jugadores (nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version) VALUES ('Jugador 1', 'jugador1@example.com', 0, 0, 0, 1);
-INSERT INTO ken.jugadores (nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version) VALUES ('Jugador 2', 'jugador2@example.com', 0, 0, 0, 1);
-INSERT INTO ken.jugadores (nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version) VALUES ('Jugador 3', 'jugador3@example.com', 0, 0, 0, 1);
-INSERT INTO ken.jugadores (nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version) VALUES ('Jugador 4', 'jugador4@example.com', 0, 0, 0, 1);
+INSERT INTO ken.jugadores (id_jugador, nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version)
+VALUES (ken.jugadores_seq.NEXTVAL, 'Kendall', 'kendall@preguntados.com', 55, 40, 4, 1);
+INSERT INTO ken.jugadores (id_jugador, nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version)
+VALUES (ken.jugadores_seq.NEXTVAL, 'Juan', 'juan@preguntados.com', 123, 32, 0, 1);
+INSERT INTO ken.jugadores (id_jugador, nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version)
+VALUES (ken.jugadores_seq.NEXTVAL, 'Carlos', 'carlos@preguntados.com', 67, 53, 6, 1);
+INSERT INTO ken.jugadores (id_jugador, nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version)
+VALUES (ken.jugadores_seq.NEXTVAL, 'Cristiano', 'cristiano@preguntados.com', 77, 41, 7, 1);
+INSERT INTO ken.jugadores (id_jugador, nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version)
+VALUES (ken.jugadores_seq.NEXTVAL, 'Maria', 'maria@preguntados.com', 89, 70, 5, 1);
+INSERT INTO ken.jugadores (id_jugador, nombre, correo, preguntas_respondidas, preguntas_acertadas, partidas_ganadas, version)
+VALUES (ken.jugadores_seq.NEXTVAL, 'Ana', 'ana@preguntados.com', 101, 85, 8, 1);
 
--- Crear una nueva partida
-INSERT INTO ken.partidas (informacion_json, version) VALUES ('{"modo_juego": "normal", "estado": "en curso", "tiempo_juego": 0}', 1);
+-- Insertar estadísticas para los jugadores
 
--- Obtener el ID de la partida recien creada y asociar jugadores
-DECLARE
-  v_id_partida NUMBER;
-BEGIN
-  SELECT id_partida INTO v_id_partida FROM ken.partidas WHERE ROWNUM = 1 ORDER BY id_partida DESC;
-  
-  -- Insertar los jugadores en la partida
-  INSERT INTO ken.partidas_jugadores (id_partida, id_jugador, ficha_seleccionada, personajes_obtenidos, posicion_tablero, version)
-  SELECT v_id_partida, id_jugador, ROWNUM, '[]', ROWNUM, 1
-  FROM ken.jugadores
-  WHERE correo IN ('jugador1@example.com', 'jugador2@example.com', 'jugador3@example.com', 'jugador4@example.com');
+-- Jugador 1 (Kendall)
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 1, 'Geografia', 20, 15, 55, 40, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 1, 'Historia', 15, 10, 55, 40, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 1, 'Ciencia', 10, 8, 55, 40, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 1, 'Deportes', 5, 4, 55, 40, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 1, 'Arte', 3, 2, 55, 40, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 1, 'Pop', 2, 1, 55, 40, 1);
 
-  -- Actualizar el campo informacion_json con detalles adicionales de la partida
-  UPDATE ken.partidas
-  SET informacion_json = '{"modo_juego": "normal", "estado": "en curso", "tiempo_juego": 0, "jugadores": [' ||
-    (SELECT LISTAGG(id_jugador, ', ') WITHIN GROUP (ORDER BY id_jugador) FROM ken.jugadores WHERE correo IN ('jugador1@example.com', 'jugador2@example.com', 'jugador3@example.com', 'jugador4@example.com')) || ']}'
-  WHERE id_partida = v_id_partida;
-END;
-/
 
--- Insertar datos en ESTADISTICAS para cada jugador y categoria
-DECLARE
-  v_id_jugador ken.jugadores.id_jugador%TYPE;
-  v_categoria VARCHAR2(50);
-  CURSOR c_categorias IS
-    SELECT 'Geografia' AS categoria FROM dual UNION ALL
-    SELECT 'Historia' FROM dual UNION ALL
-    SELECT 'Ciencia' FROM dual UNION ALL
-    SELECT 'Entretenimiento' FROM dual UNION ALL
-    SELECT 'Deportes' FROM dual UNION ALL
-    SELECT 'Arte' FROM dual;
-BEGIN
-  FOR jugador IN (SELECT id_jugador FROM ken.jugadores) LOOP
-    v_id_jugador := jugador.id_jugador;
-    OPEN c_categorias;
-    LOOP
-      FETCH c_categorias INTO v_categoria;
-      EXIT WHEN c_categorias%NOTFOUND;
-      INSERT INTO ken.estadisticas (id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version) 
-      VALUES (v_id_jugador, v_categoria, 0, 0, 0, 0, 1);
-    END LOOP;
-    CLOSE c_categorias;
-  END LOOP;
-END;
-/
+-- Jugador 2 (Juan)
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 2, 'Geografia', 68, 23, 123, 32, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 2, 'Historia', 25, 20, 123, 32, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 2, 'Ciencia', 10, 5, 123, 32, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 2, 'Deportes', 8, 2, 123, 32, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 2, 'Arte', 7, 5, 123, 32, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 2, 'Pop', 5, 3, 123, 32, 1);
+
+-- Jugador 3 (Carlos)
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 3, 'Geografia', 20, 14, 67, 53, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 3, 'Historia', 22, 19, 67, 53, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 3, 'Ciencia', 25, 20, 67, 53, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 3, 'Deportes', 8, 6, 67, 53, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 3, 'Arte', 7, 5, 67, 53, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 3, 'Pop', 5, 3, 67, 53, 1);
+
+-- Jugador 4 (Cristiano)
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 4, 'Geografia', 31, 15, 77, 41, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 4, 'Historia', 18, 13, 77, 41, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 4, 'Ciencia', 10, 5, 77, 41, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 4, 'Deportes', 8, 6, 77, 41, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 4, 'Arte', 7, 5, 77, 41, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 4, 'Pop', 5, 3, 77, 41, 1);
+
+-- Jugador 5 (Maria)
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 5, 'Geografia', 29, 24, 89, 70, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 5, 'Historia', 30, 24, 89, 70, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 5, 'Ciencia', 25, 20, 89, 70, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 5, 'Deportes', 2, 2, 89, 70, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 5, 'Arte', 1, 1, 89, 70, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 5, 'Pop', 2, 2, 89, 70, 1);
+
+-- Jugador 6 (Ana)
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 6, 'Geografia', 29, 24, 101, 85, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 6, 'Historia', 30, 24, 101, 85, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 6, 'Ciencia', 25, 20, 101, 85, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 6, 'Deportes', 8, 6, 101, 85, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 6, 'Arte', 7, 5, 101, 85, 1);
+INSERT INTO ken.estadisticas (id_estadistica, id_jugador, categoria, preguntas_respondidas_categoria, preguntas_acertadas_categoria, respuestas_totales_respondidas, respuestas_totales_acertadas, version)
+VALUES (ken.estadisticas_seq.NEXTVAL, 6, 'Pop', 5, 3, 101, 85, 1);
+
+-- Insertar una partida
+INSERT INTO ken.partidas (id_partida, informacion_json, version)
+VALUES (ken.partidas_seq.NEXTVAL, '{facil, 10, 6}', 1);
+
+-- Insertar las partidas jugadores
+INSERT INTO ken.partidas_jugadores (id_partida_jugador, id_partida, id_jugador, ficha_seleccionada, personajes_obtenidos, ayudas, posicion_tablero, version)
+VALUES (ken.partidas_jugadores_seq.NEXTVAL, ken.partidas_seq.CURRVAL, ken.jugadores_seq.CURRVAL, 1, '0', 'D, P, B, TE', 0, 1);
+INSERT INTO ken.partidas_jugadores (id_partida_jugador, id_partida, id_jugador, ficha_seleccionada, personajes_obtenidos, ayudas, posicion_tablero, version)
+VALUES (ken.partidas_jugadores_seq.NEXTVAL, ken.partidas_seq.CURRVAL, ken.jugadores_seq.CURRVAL, 2, '0', 'D, P, B, TE', 0, 1);
+INSERT INTO ken.partidas_jugadores (id_partida_jugador, id_partida, id_jugador, ficha_seleccionada, personajes_obtenidos, ayudas, posicion_tablero, version)
+VALUES (ken.partidas_jugadores_seq.NEXTVAL, ken.partidas_seq.CURRVAL, ken.jugadores_seq.CURRVAL, 3, '0', 'D, P, B, TE', 0, 1);
+INSERT INTO ken.partidas_jugadores (id_partida_jugador, id_partida, id_jugador, ficha_seleccionada, personajes_obtenidos, ayudas, posicion_tablero, version)
+VALUES (ken.partidas_jugadores_seq.NEXTVAL, ken.partidas_seq.CURRVAL, ken.jugadores_seq.CURRVAL, 4, '0', 'D, P, B, TE', 0, 1);
+INSERT INTO ken.partidas_jugadores (id_partida_jugador, id_partida, id_jugador, ficha_seleccionada, personajes_obtenidos, ayudas, posicion_tablero, version)
+VALUES (ken.partidas_jugadores_seq.NEXTVAL, ken.partidas_seq.CURRVAL, ken.jugadores_seq.CURRVAL, 5, '0', 'D, P, B, TE', 0, 1);
+INSERT INTO ken.partidas_jugadores (id_partida_jugador, id_partida, id_jugador, ficha_seleccionada, personajes_obtenidos, ayudas, posicion_tablero, version)
+VALUES (ken.partidas_jugadores_seq.NEXTVAL, ken.partidas_seq.CURRVAL, ken.jugadores_seq.CURRVAL, 6, '0', 'D, P, B, TE', 0, 1);
+
+

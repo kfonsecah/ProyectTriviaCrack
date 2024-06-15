@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  */
 public class StartMenuController extends Controller implements Initializable {
 
-    String Sound_Startup = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Startup-App.wav";
+    String Sound_Startup = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Play.mp3";
     String Sound_Click = "/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/resources/sounds/Play.wav";
 
     @FXML

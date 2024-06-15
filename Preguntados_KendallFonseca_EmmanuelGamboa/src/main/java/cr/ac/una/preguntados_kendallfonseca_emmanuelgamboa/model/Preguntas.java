@@ -66,6 +66,20 @@ public class Preguntas implements Serializable {
         this.version = version;
     }
 
+    public Preguntas(PreguntasDto dto){
+        this.idPregunta = dto.getIdPregunta();
+        actualizar(dto);
+    }
+
+    public void actualizar(PreguntasDto dto){
+        this.categoria = dto.getCategoria();
+        this.preguntaTexto = dto.getPreguntaTexto();
+        this.vecesRespondida = dto.getVecesRespondida();
+        this.vecesAcertada = dto.getVecesAcertada();
+        this.estado = dto.getEstado();
+        this.version = dto.getVersion();
+    }
+
     public Long getIdPregunta() {
         return idPregunta;
     }
