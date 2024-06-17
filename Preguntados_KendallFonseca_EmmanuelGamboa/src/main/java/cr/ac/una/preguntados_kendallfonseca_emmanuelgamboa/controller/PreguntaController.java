@@ -171,8 +171,6 @@ public class PreguntaController extends Controller implements Initializable {
         }
 
 
-
-
         @FXML
         void onActionBtnDobleRespuesta(ActionEvent event) {
                 btnDobleRespuesta.setDisable(true);

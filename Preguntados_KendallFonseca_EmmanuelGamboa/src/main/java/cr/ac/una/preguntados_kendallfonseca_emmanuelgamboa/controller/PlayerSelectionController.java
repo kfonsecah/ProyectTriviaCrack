@@ -225,13 +225,8 @@ public class PlayerSelectionController extends Controller implements Initializab
         } else {
             PartidasDto partidasDto1 = (PartidasDto) respuesta.getResultado("Partida");
             appContext.set("idPartida", partidasDto1.getIdPartida());
+            FlowController.getInstance().goView("BoardGameView");
         }
-
-
-
-
-
-        FlowController.getInstance().goView("BoardGameView");
     }
 
     private void clearPartida() {

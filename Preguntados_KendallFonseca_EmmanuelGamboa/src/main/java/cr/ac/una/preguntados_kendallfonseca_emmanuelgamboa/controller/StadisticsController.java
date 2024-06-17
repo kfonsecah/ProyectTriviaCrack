@@ -75,8 +75,6 @@ public class StadisticsController extends Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         jugadoresService = new JugadoresService();
 
-        tbcMail.setCellValueFactory(new PropertyValueFactory<>("correo"));
-        tbcName.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
 
         tblJugadores.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {

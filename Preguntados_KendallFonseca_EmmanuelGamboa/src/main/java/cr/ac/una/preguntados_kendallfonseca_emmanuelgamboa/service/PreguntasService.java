@@ -62,20 +62,17 @@ public class PreguntasService {
 
 
             em.persist(pregunta);
-
-
             et.commit();
+            //(Boolean estado, String mensaje, String mensajeInterno)
+            return new Respuesta(true, "", "Pregunta guardada correctamente");
 
-            return new Respuesta(true, "", "", "Pregunta", new PreguntasDto(pregunta));
         } catch (Exception ex) {
             if (et != null && et.isActive()) {
                 et.rollback();
             }
-            ex.printStackTrace();
             return new Respuesta(false, "Error al guardar la pregunta.", "addPregunta " + ex.getMessage());
         }
     }
-
 
 
     public Respuesta deletePregunta(PreguntasDto preguntaDto) {
@@ -83,14 +80,11 @@ public class PreguntasService {
             et = em.getTransaction();
             et.begin();
             Preguntas pregunta = em.find(Preguntas.class, preguntaDto.getIdPregunta());
-            if (pregunta != null) {
+
                 em.remove(pregunta);
                 et.commit();
-                return new Respuesta(true, "", "", "Pregunta eliminada correctamente", null);
-            } else {
-                et.rollback();
-                return new Respuesta(false, "Pregunta no encontrada.", "deletePregunta");
-            }
+                return new Respuesta(true, "", "Pregunta eliminada correctamente");
+
         } catch (Exception ex) {
             if (em.getTransaction().isActive()) {
                 et.rollback();
@@ -104,15 +98,12 @@ public class PreguntasService {
             et = em.getTransaction();
             et.begin();
             Preguntas pregunta = em.find(Preguntas.class, preguntaDto.getIdPregunta());
-            if (pregunta != null) {
+
                 pregunta.setEstado("I");
                 em.merge(pregunta);
                 et.commit();
                 return new Respuesta(true, "", "", "Pregunta desactivada correctamente", null);
-            } else {
-                et.rollback();
-                return new Respuesta(false, "Pregunta no encontrada.", "deactivatePregunta");
-            }
+
         } catch (Exception ex) {
             if (em.getTransaction().isActive()) {
                 et.rollback();
@@ -126,7 +117,7 @@ public class PreguntasService {
             et = em.getTransaction();
             et.begin();
             Preguntas pregunta = em.find(Preguntas.class, preguntaDto.getIdPregunta());
-            if (pregunta != null) {
+
                 pregunta.setCategoria(preguntaDto.getCategoria());
                 pregunta.setPreguntaTexto(preguntaDto.getPreguntaTexto());
                 pregunta.setVecesRespondida(preguntaDto.getVecesRespondida());
@@ -150,10 +141,7 @@ public class PreguntasService {
                 em.merge(pregunta);
                 et.commit();
                 return new Respuesta(true, "", "", "Pregunta actualizada correctamente", new PreguntasDto(pregunta));
-            } else {
-                et.rollback();
-                return new Respuesta(false, "Pregunta no encontrada.", "updatePregunta");
-            }
+
         } catch (Exception ex) {
             if (em.getTransaction().isActive()) {
                 et.rollback();

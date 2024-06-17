@@ -285,7 +285,6 @@ public class BoardGameController extends Controller implements Initializable {
         if (!respuesta.getEstado()) {
             new Mensaje().showModal(Alert.AlertType.ERROR, "Error", getStage(), respuesta.getMensaje());
         } else {
-
             partidasDto = (PartidasDto) respuesta.getResultado("PartidaCreada");
         }
 
@@ -488,7 +487,6 @@ public class BoardGameController extends Controller implements Initializable {
         deportesPregunta.setTranslateY(-1100);
         btnJugarPregunta.setTranslateY(1100);
         invisibleStackPane.setTranslateX(-1700);
-
     }
 
 }

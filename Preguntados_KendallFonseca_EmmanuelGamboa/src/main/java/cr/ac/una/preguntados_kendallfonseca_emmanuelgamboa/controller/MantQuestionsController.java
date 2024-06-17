@@ -176,8 +176,9 @@ public class MantQuestionsController extends Controller implements Initializable
         int incorrectAnswer = 0;
 
         for (RespuestasDto respuestaDto : preguntaDto.respuestasList) {
+            if (correctAnswer == 0) {
             if (respuestaDto.getEsCorrecta().equals("Y")) {
-                if (correctAnswer == 0) {
+
                     contentRespuesta1.textProperty().bindBidirectional(respuestaDto.respuestaTexto);
                     correctAnswer++;
                 }
@@ -217,6 +218,8 @@ public class MantQuestionsController extends Controller implements Initializable
 
     @FXML
     void onActionBtnNueva(ActionEvent event) {
+
+        tblQuestions.getSelectionModel().clearSelection();
         btnAdd.setDisable(false);
 
         contentPregunta.clear();
@@ -282,7 +285,6 @@ public class MantQuestionsController extends Controller implements Initializable
                 new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta guardada correctamente.");
 
                 nuevaPregunta();
-
                 loadPreguntas();
                 btnAdd.setDisable(true);
             }
@@ -305,7 +307,6 @@ public class MantQuestionsController extends Controller implements Initializable
         } else {
             animationManager.playSound(Sound_Click);
             new Mensaje().showModal(Alert.AlertType.INFORMATION, "Éxito", getStage(), "Pregunta desactivada correctamente.");
-
             loadPreguntas();
         }
     }

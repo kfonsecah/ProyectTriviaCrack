@@ -2,6 +2,7 @@
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -34,6 +35,9 @@
                                              <VBox.margin>
                                                 <Insets bottom="20.0" left="20.0" right="20.0" top="60.0" />
                                              </VBox.margin>
+                                             <columns>
+                                                <TableColumn fx:id="tbcPartidas" prefWidth="798.0" text="Partida" />
+                                             </columns>
                                           </TableView>
                                           <HBox alignment="CENTER" prefHeight="192.0" prefWidth="604.0" spacing="40.0">
                                              <children>

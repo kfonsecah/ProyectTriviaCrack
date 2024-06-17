@@ -133,12 +133,11 @@ public class GameMenuController extends Controller implements Initializable{
 
     @FXML
     void onActionBtnMidMode(ActionEvent event) {
-       modo_juego = "medio";
-         btnMidMode.setDisable(true);
+          modo_juego = "medio";
+          btnMidMode.setDisable(true);
           btnEasyMode.setDisable(false);
           btnHardMode.setDisable(false);
     }
-
 
     @FXML
     void onActionBtnJugar(ActionEvent event) {
