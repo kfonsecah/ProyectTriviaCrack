@@ -1716,12 +1716,28 @@
     -fx-faint-focus-color: transparent;
 }
 
-.bomba-button:hover:focused:pressed:armed:selected, .DobleRespuesta-button:hover:focused:pressed:armed:selected, .Pass-button:hover:focused:pressed:armed:selected{
+.rotate-button{
+    -fx-background-image: url("../resources/roulleteFace.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.bomba-button:hover:focused:pressed:armed:selected, .DobleRespuesta-button:hover:focused:pressed:armed:selected, .Pass-button:hover:focused:pressed:armed:selected, .rotate-button:hover:focused:pressed:armed:selected{
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-padding: 0;
     -fx-effect: null;
+    -fx-background-size: contain;
     -fx-focus-color: transparent;
+    -fx-background-repeat: no-repeat;
     -fx-faint-focus-color: transparent;
 }
 

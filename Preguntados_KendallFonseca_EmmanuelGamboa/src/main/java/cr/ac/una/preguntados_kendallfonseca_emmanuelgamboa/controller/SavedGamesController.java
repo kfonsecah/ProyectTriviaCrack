@@ -109,6 +109,7 @@ public class SavedGamesController extends Controller implements Initializable {
         AppContext.getInstance().set("idPartida", partida.getIdPartida());
 
         String modoJuego = extraerModoDeJuego(partida.getInformacionJson());
+
         System.out.println("Modo de Juego: " + modoJuego);
         AppContext.getInstance().set("modo_juego", partida.getInformacionJson());
         AppContext.getInstance().set("configPartida", partida.getInformacionJson());

@@ -82,6 +82,9 @@ public class StadisticsController extends Controller implements Initializable {
                 loadEstadisticas(newSelection);
             }
         });
+
+        tbcName.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        tbcMail.setCellValueFactory(new PropertyValueFactory<>("correo"));
         }
 
 

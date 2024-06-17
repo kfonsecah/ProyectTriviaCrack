@@ -371,7 +371,7 @@
             <Image url="@../resources/roullete.png" />
          </image>
       </ImageView>
-      <MFXButton fx:id="btnRotate" onAction="#onActionBtnRotate" prefHeight="59.0" prefWidth="68.0" text=" " />
+      <MFXButton fx:id="btnRotate" onAction="#onActionBtnRotate" prefHeight="65.0" prefWidth="68.0" styleClass="rotate-button" text=" " />
       <MFXButton fx:id="btnSalirYGuardar" onAction="#btnSalirYGuardar" prefHeight="28.0" prefWidth="92.0" styleClass="exit-button" text=" " translateX="-500.0">
          <StackPane.margin>
             <Insets left="80.0" />

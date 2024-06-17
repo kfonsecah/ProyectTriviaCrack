@@ -74,10 +74,6 @@ public class AnimationManager {
             double width = 3;
             double height = 3;
             Image cursorImage = new Image(getClass().getResourceAsStream(imagePath));
-            if (cursorImage.isError()) {
-                throw new IllegalArgumentException("Error" + imagePath);
-            }
-
             ImageCursor customCursor = new ImageCursor(cursorImage, width, height);
             node.setCursor(customCursor);
         } catch (Exception e) {
@@ -143,7 +139,9 @@ public class AnimationManager {
     }
 
     public void applyBreathingAnimation(Node node) {
-        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1), node);
+        ScaleTransition scaleTransition = new ScaleTransition();
+        scaleTransition.setNode(node);
+        scaleTransition.setDuration(Duration.seconds(1));
         scaleTransition.setFromX(1.0);
         scaleTransition.setToX(1.1);
         scaleTransition.setFromY(1.0);
