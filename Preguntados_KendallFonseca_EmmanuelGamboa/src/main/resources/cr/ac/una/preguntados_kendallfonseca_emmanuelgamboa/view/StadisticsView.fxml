@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1117.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.StadisticsController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="985.0">
+         <center>
+            <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="custom-stack-pane" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </BorderPane.margin>
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="background-region">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="100.0">
+                                 <children>
+                                    <StackPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="320.0" styleClass="custom-stackPlayersframe-pane">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <children>
+                                          <StackPane prefHeight="161.0" prefWidth="232.0" styleClass="backgroundPlayersFrame-region" />
+                                          <TableView fx:id="tblJugadores" prefHeight="157.0" prefWidth="249.0">
+                                             <StackPane.margin>
+                                                <Insets top="40.0" />
+                                             </StackPane.margin>
+                                             <columns>
+                                                <TableColumn fx:id="tbcName" prefWidth="75.0" text="Nombre" />
+                                                <TableColumn fx:id="tbcMail" prefWidth="75.0" text="Correo" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                    <StackPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="320.0" styleClass="custom-stackQuestionsframe-pane">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundQuestionsFrame-region">
+                                             <children>
+                                                <BarChart fx:id="chartTotalPreguntas" styleClass="chart-series-line">
+                                                  <xAxis>
+                                                    <CategoryAxis nodeOrientation="LEFT_TO_RIGHT" side="BOTTOM" tickLabelFill="WHITE" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                                  </yAxis>
+                                                   <StackPane.margin>
+                                                      <Insets top="20.0" />
+                                                   </StackPane.margin>
+                                                </BarChart>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </StackPane>
+                                    <MFXButton fx:id="btnGoBack" onAction="#onActionBtnGoBack" prefHeight="30.0" prefWidth="110.0" styleClass="goback-button" text="‎ " />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <StackPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="320.0" styleClass="custom-stackPopframe-pane">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <children>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundPopFrame-region">
+                                             <children>
+                                                <BarChart fx:id="chartTotalPop" styleClass="chart-series-line">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                                  </yAxis>
+                                                   <StackPane.margin>
+                                                      <Insets top="20.0" />
+                                                   </StackPane.margin>
+                                                </BarChart>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="320.0" styleClass="custom-stackCienciaframe-pane">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <children>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundCienciaFrame-region">
+                                             <children>
+                                                <BarChart fx:id="chartTotalCiencia" styleClass="chart-series-line">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                                  </yAxis>
+                                                   <StackPane.margin>
+                                                      <Insets top="20.0" />
+                                                   </StackPane.margin>
+                                                </BarChart>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="320.0" styleClass="custom-stackSportsframe-pane">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <children>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundSportsFrame-region">
+                                             <children>
+                                                <BarChart fx:id="chartTotalDeportes" styleClass="chart-series-line">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                                  </yAxis>
+                                                   <StackPane.margin>
+                                                      <Insets top="20.0" />
+                                                   </StackPane.margin>
+                                                </BarChart>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <StackPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="320.0" styleClass="custom-stackArtframe-pane">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <children>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundArtFrame-region">
+                                             <children>
+                                                <BarChart fx:id="chartTotalArte" styleClass="chart-series-line">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                                  </yAxis>
+                                                   <StackPane.margin>
+                                                      <Insets top="20.0" />
+                                                   </StackPane.margin>
+                                                </BarChart>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="320.0" styleClass="custom-stackHistoryframe-pane">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <children>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundHistoryFrame-region">
+                                             <children>
+                                                <BarChart fx:id="chartTotalHistoria" styleClass="chart-series-line">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                                  </yAxis>
+                                                   <StackPane.margin>
+                                                      <Insets top="20.0" />
+                                                   </StackPane.margin>
+                                                </BarChart>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="320.0" styleClass="custom-stackGeografiaframe-pane">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <children>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="backgroundGeografiaFrame-region">
+                                             <children>
+                                                <BarChart fx:id="chartTotalGeografia" styleClass="chart-series-line">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" tickLabelFill="WHITE" />
+                                                  </yAxis>
+                                                   <StackPane.margin>
+                                                      <Insets top="20.0" />
+                                                   </StackPane.margin>
+                                                </BarChart>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="77.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" translateX="-230.0" translateY="-340.0">
+         <image>
+            <Image url="@../resources/chara-tito.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="98.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" translateX="-230.0" translateY="-30.0">
+         <image>
+            <Image url="@../resources/questionSymbol.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="64.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" translateX="120.0" translateY="-110.0">
+         <image>
+            <Image url="@../resources/Ciencia.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="61.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" translateX="120.0" translateY="-340.0">
+         <image>
+            <Image url="@../resources/pop.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="66.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" translateX="120.0" translateY="120.0">
+         <image>
+            <Image url="@../resources/bonzo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="67.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" translateX="480.0" translateY="-340.0">
+         <image>
+            <Image url="@../resources/art2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="77.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true" translateX="480.0" translateY="120.0">
+         <image>
+            <Image url="@../resources/geografia.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="76.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true" translateX="480.0" translateY="-120.0">
+         <image>
+            <Image url="@../resources/hector1.png" />
+         </image>
+      </ImageView>
+   </children>
+</StackPane>

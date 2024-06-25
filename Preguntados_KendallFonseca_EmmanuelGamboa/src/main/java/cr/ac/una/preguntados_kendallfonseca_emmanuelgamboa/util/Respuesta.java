@@ -14,6 +14,8 @@ import java.util.HashMap;
 public class Respuesta implements Serializable {
     
     private static final long serialVersionUID = 1L;
+
+
     
     private Boolean estado;
     private String mensaje;    

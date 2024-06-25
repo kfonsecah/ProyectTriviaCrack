@@ -1,11 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.StartMenuController">
-    
-</AnchorPane>
+<BorderPane fx:id="root" prefHeight="400.0" prefWidth="600.0" styleClass="main-background" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.StartMenuController">
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imgLogo" fitHeight="489.0" fitWidth="885.0" nodeOrientation="INHERIT" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@../resources/Logo.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="NONE" />
+                     </cursor>
+                  </ImageView>
+                  <HBox alignment="CENTER" spacing="40.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                     <children>
+                        <MFXButton fx:id="btnConfig" buttonType="RAISED" minHeight="-Infinity" minWidth="-Infinity" onAction="#onActionbtnConfig" prefHeight="57.0" prefWidth="182.0" styleClass="red-button" text="‎ " HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </MFXButton>
+                        <MFXButton fx:id="btnPlay" buttonType="RAISED" ellipsisString="" minHeight="-Infinity" minWidth="-Infinity" onAction="#onActionbtnPlay" prefHeight="57.0" prefWidth="179.0" rippleAnimateBackground="false" rippleAnimationSpeed="0.0" rippleBackgroundOpacity="0.0" rippleColor="WHITE" styleClass="image-button" text="‎ " HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </MFXButton>
+                        <MFXButton fx:id="btnAboutOf" buttonType="RAISED" minHeight="-Infinity" minWidth="-Infinity" onAction="#onActionbtnAboutOff" prefHeight="63.0" prefWidth="187.0" styleClass="about-button" text="‎ " HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </MFXButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="40.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="124.0" prefWidth="885.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <MFXButton fx:id="btnExit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onActionBtnExit" prefHeight="48.0" prefWidth="113.0" styleClass="exit-button" text="‎ ">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </MFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

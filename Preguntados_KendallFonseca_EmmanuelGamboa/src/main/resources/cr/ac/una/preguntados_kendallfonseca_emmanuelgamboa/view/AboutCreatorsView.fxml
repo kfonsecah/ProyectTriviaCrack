@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.AboutCreatorsController">
+   <children>
+      <BorderPane stylesheets="@Styles.css">
+         <center>
+            <StackPane styleClass="custom-stack-pane" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane styleClass="backgroundAnimated-region">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox prefHeight="94.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <ImageView fitHeight="120.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                             <image>
+                                                <Image url="@../resources/trivia-crack.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <ImageView fitHeight="41.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                                                   <image>
+                                                      <Image url="@../resources/about-of.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets top="40.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <StackPane alignment="TOP_CENTER" prefHeight="258.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="70.0">
+                                       <children>
+                                          <StackPane alignment="TOP_CENTER" prefHeight="443.0" prefWidth="295.0" styleClass="custom-ministack-pane" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets bottom="40.0" left="70.0" right="40.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="366.0">
+                                                   <children>
+                                                      <Label styleClass="txt-title" text="Detalles del Curso" />
+                                                      <Label styleClass="txt-subtitle" text="Universidad:">
+                                                         <VBox.margin>
+                                                            <Insets top="20.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <ImageView fitHeight="146.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../resources/Logo-UNA-Rojo_FondoTransparente.png" />
+                                                         </image>
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </ImageView>
+                                                      <Label styleClass="txt-subtitle" text="Profesor:" />
+                                                      <Label prefHeight="20.0" prefWidth="236.0" styleClass="txt-content" text="PROF. Máster CARLOS CARRANZA BLANCO">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label styleClass="txt-subtitle" text="Curso:">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label prefHeight="20.0" prefWidth="89.0" styleClass="txt-content" text="Programacion ll">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label styleClass="txt-subtitle" text="Ciclo:">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label prefHeight="20.0" prefWidth="67.0" styleClass="txt-content" text="I Ciclo 2024">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane alignment="TOP_CENTER" prefHeight="354.0" prefWidth="295.0" styleClass="custom-ministack-pane" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets bottom="40.0" right="40.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="460.0" prefWidth="277.0">
+                                                   <children>
+                                                      <Label styleClass="txt-title" text="Estudiantes Encargados">
+                                                         <VBox.margin>
+                                                            <Insets top="30.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label alignment="TOP_CENTER" nodeOrientation="RIGHT_TO_LEFT" styleClass="txt-subtitle" text="Kendall Fonseca H." textOverrun="LEADING_ELLIPSIS" VBox.vgrow="ALWAYS">
+                                                         <VBox.margin>
+                                                            <Insets bottom="20.0" top="40.0" />
+                                                         </VBox.margin>
+                                                         <graphic>
+                                                            <ImageView fitHeight="61.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../resources/kendall.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Label>
+                                                      <Label alignment="TOP_CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="67.0" prefWidth="224.0" styleClass="txt-subtitle" text="Emmanuel Gamboa R." textOverrun="LEADING_ELLIPSIS" VBox.vgrow="ALWAYS">
+                                                         <graphic>
+                                                            <ImageView fitHeight="67.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../resources/emmanuel.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <ImageView fx:id="imgRoullette" fitHeight="251.0" fitWidth="212.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                                                         <image>
+                                                            <Image url="@../resources/roullete.png" />
+                                                         </image>
+                                                         <VBox.margin>
+                                                            <Insets top="25.0" />
+                                                         </VBox.margin>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </StackPane>
+                                          <StackPane alignment="TOP_CENTER" prefHeight="354.0" prefWidth="295.0" styleClass="custom-ministack-pane" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets bottom="40.0" right="70.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <VBox prefHeight="200.0" prefWidth="295.0" />
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="366.0">
+                                                   <children>
+                                                      <Label styleClass="txt-title" text="Año de Desarrollo" />
+                                                      <Label styleClass="txt-subtitle">
+                                                         <VBox.margin>
+                                                            <Insets top="20.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <ImageView fitHeight="201.0" fitWidth="259.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../resources/logo'year.png" />
+                                                         </image>
+                                                         <VBox.margin>
+                                                            <Insets top="40.0" />
+                                                         </VBox.margin>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets top="20.0" />
+                                       </StackPane.margin>
+                                    </HBox>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+               </BorderPane.margin>
+            </StackPane>
+         </center>
+         <bottom>
+            <MFXButton fx:id="btnGoBack" graphicTextGap="0.0" onAction="#onActionBtnGoback" prefHeight="39.0" prefWidth="91.0" styleClass="goback-button" text="‎ " BorderPane.alignment="CENTER_LEFT">
+               <BorderPane.margin>
+                  <Insets bottom="40.0" left="20.0" right="20.0" />
+               </BorderPane.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </MFXButton>
+         </bottom>
+      </BorderPane>
+   </children>
+</StackPane>

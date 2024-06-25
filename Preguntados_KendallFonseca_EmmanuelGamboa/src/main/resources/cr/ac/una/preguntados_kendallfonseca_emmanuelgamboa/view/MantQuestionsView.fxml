@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1164.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.MantQuestionsController">
+   <children>
+      <BorderPane prefHeight="696.0" prefWidth="1025.0">
+         <center>
+            <StackPane prefHeight="698.0" prefWidth="1057.0" styleClass="custom-ministack2-pane" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="background2-region">
+                     <children>
+                        <HBox prefHeight="535.0" prefWidth="1161.0">
+                           <children>
+                              <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="499.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="499.0">
+                                       <children>
+                                          <MFXComboBox fx:id="searchCriterion" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="129.0" HBox.hgrow="ALWAYS" />
+                                          <MFXButton fx:id="btnSearch" onAction="#onActionBtnSearch" prefHeight="53.0" prefWidth="58.0" styleClass="search-button" text="‎ " HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <StackPane prefHeight="431.0" prefWidth="361.0" styleClass="custom-ministack-pane" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <StackPane fx:id="rainBackground" prefHeight="422.0" prefWidth="326.0" styleClass="background3-region">
+                                             <children>
+                                                <TableView fx:id="tblQuestions" prefHeight="426.0" prefWidth="345.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="colIdPregunta" prefWidth="34.0" text="id" />
+                                                      <TableColumn fx:id="colCategoria" prefWidth="88.0" text="Categoria" />
+                                                      <TableColumn fx:id="colPreguntaTexto" prefWidth="96.0" text="Pregunta" />
+                                                      <TableColumn fx:id="colVecesRespondida" prefWidth="92.0" text="Veces Respondida" />
+                                                      <TableColumn fx:id="colVecesAcertada" minWidth="0.0" prefWidth="99.0" text="Veces Acertada" />
+                                                      <TableColumn fx:id="colEstado" prefWidth="61.0" text="Estado" />
+                                                   </columns></TableView>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </StackPane>
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="499.0" spacing="20.0" VBox.vgrow="NEVER">
+                                       <children>
+                                          <MFXButton fx:id="btnNuevaPregunta" onAction="#onActionBtnNueva" prefHeight="40.0" prefWidth="115.0" styleClass="add-button" text="‎ ">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </MFXButton>
+                                          <MFXButton fx:id="btnDelete" onAction="#onActionBtnDelete" prefHeight="40.0" prefWidth="115.0" styleClass="delete-button" text="‎ " />
+                                          <MFXButton fx:id="btnEdit" onAction="#onActionBtnEdit" prefHeight="40.0" prefWidth="109.0" styleClass="edit-button" text="‎ " />
+                                          <MFXButton fx:id="btnDeactivate" onAction="#onActionBtnDeactivate" prefHeight="41.0" prefWidth="110.0" styleClass="deactivate-button" text="‎ " />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="600.0" prefWidth="449.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <StackPane maxWidth="-Infinity" prefHeight="236.0" prefWidth="418.0" styleClass="custom-ministack-pane">
+                                       <VBox.margin>
+                                          <Insets bottom="30.0" left="40.0" right="40.0" top="90.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <MFXTextField fx:id="contentPregunta" alignment="CENTER" prefHeight="119.0" prefWidth="294.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="130.0" prefWidth="300.0" styleClass="backgroundCienciaFrame-region">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <MFXTextField fx:id="contentRespuesta1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="289.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane maxWidth="-Infinity" prefHeight="130.0" prefWidth="300.0" styleClass="custom-stack-pane">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <MFXTextField fx:id="contentRespuesta2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="130.0" prefWidth="300.0" styleClass="custom-stack-pane">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <MFXTextField fx:id="contentRespuesta3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="130.0" prefWidth="300.0" styleClass="custom-stack-pane">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <MFXTextField fx:id="contentRespuesta4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" />
+                                       </children>
+                                    </StackPane>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                                       <children>
+                                          <MFXButton fx:id="btnAdd" onAction="#onActionBtnAdd" prefHeight="21.0" prefWidth="74.0" styleClass="add-button" text="‎ " />
+                                          <MFXButton fx:id="btnConfirmEdit" onAction="#onActionBtnConfirmEdit" prefHeight="85.0" prefWidth="80.0" styleClass="edit-button" text="‎ " />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </BorderPane.margin>
+            </StackPane>
+         </center>
+         <bottom>
+            <MFXButton fx:id="btnGoBack" onAction="#onActionBtnGoBack" prefHeight="40.0" prefWidth="112.0" styleClass="goback-button" text="‎ " BorderPane.alignment="CENTER_LEFT">
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="5.0" />
+               </BorderPane.margin>
+            </MFXButton>
+         </bottom>
+      </BorderPane>
+   </children>
+</StackPane>

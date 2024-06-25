@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="787.0" prefWidth="1142.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.ConfigController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <center>
+            <StackPane prefHeight="324.0" prefWidth="524.0" styleClass="custom-stack-pane" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
+               </BorderPane.margin>
+               <children>
+                  <StackPane styleClass="background-region">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0" StackPane.alignment="CENTER">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="344.0" prefWidth="200.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <MFXButton fx:id="btnTito" onAction="#onActionBtnTito" prefHeight="200.0" prefWidth="215.0" styleClass="tito-button" text="‎ " VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </MFXButton>
+                                    <MFXButton fx:id="btnPalomitas" onAction="#onActionBtnPalomitas" prefHeight="200.0" prefWidth="215.0" styleClass="palomitas-button" text="‎ " VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </MFXButton>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="344.0" prefWidth="276.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <MFXButton fx:id="btnLeonardo" onAction="#onActionBtnLeonardo" prefHeight="200.0" prefWidth="215.0" styleClass="leonardo-button" text="‎ " VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </MFXButton>
+                                    <MFXButton fx:id="btnBonzo" onAction="#onActionBtnBonzo" prefHeight="200.0" prefWidth="215.0" styleClass="bonzo-button" text="‎ " VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </MFXButton>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="344.0" prefWidth="210.0" spacing="20.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <MFXButton fx:id="btnAlbert" onAction="#onActionBtnAlbert" prefHeight="200.0" prefWidth="215.0" styleClass="albert-button" text="‎ " VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </MFXButton>
+                                    <MFXButton fx:id="btnArthur" onAction="#onActionBtnArthur" prefHeight="200.0" prefWidth="215.0" styleClass="arthur-button" text="‎ " VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </MFXButton>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </StackPane>
+         </center>
+         <bottom>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MFXButton fx:id="btnGoBack" onAction="#onActionBtnGoBack" prefHeight="64.0" prefWidth="131.0" styleClass="goback-button" text="‎ " HBox.hgrow="ALWAYS" />
+                  <StackPane fx:id="txtDialog" opacity="0.0" prefHeight="68.0" prefWidth="431.0" styleClass="custom-stack-pane">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="390.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                     <children>
+                        <VBox prefHeight="80.0" prefWidth="407.0" StackPane.alignment="CENTER_LEFT">
+                           <children>
+                              <Label prefHeight="20.0" prefWidth="417.0" styleClass="txt-subtitle" text="Selecciona uno de los personajes asociados a una categoria " textAlignment="CENTER" />
+                              <Label styleClass="txt-subtitle" text="para administrar, eliminar y agregar las preguntas disponibles." />
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+                  <MFXButton fx:id="btnInformation" onAction="#onActionBtnInformation" prefHeight="71.0" prefWidth="83.0" styleClass="information-button" text="‎ " HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
+                  </MFXButton>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="20.0" />
+               </BorderPane.margin>
+            </HBox>
+         </bottom>
+         <top>
+            <StackPane fx:id="titleStackPane" prefHeight="126.0" prefWidth="1124.0" styleClass="imgMant-title" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+   </children>
+</StackPane>

@@ -15,10 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -87,7 +84,9 @@ public class FlowController {
     public void goMain() {
         try {
             this.mainStage.setScene(
-                    new Scene(FXMLLoader.load(App.class.getResource("view/StarMenuView.fxml"), this.idioma)));
+
+                    //anadi un seteo de resolucion de pantalla
+                    new Scene(FXMLLoader.load(App.class.getResource("/cr/ac/una/preguntados_kendallfonseca_emmanuelgamboa/view/StartMenuView.fxml"), this.idioma), 1240, 800));
             MFXThemeManager.addOn(this.mainStage.getScene(), Themes.DEFAULT, Themes.LEGACY);
             this.mainStage.show();
         } catch (IOException ex) {
@@ -114,30 +113,41 @@ public class FlowController {
             stage = this.mainStage;
             controller.setStage(stage);
         }
-        switch (location) {
-            case "Center":
-//                VBox vBox = ((VBox) ((BorderPane) stage.getScene().getRoot()).getCenter());
-//                vBox.getChildren().clear();
-//                vBox.getChildren().add(loader.getRoot());
 
-                StackPane StackPane = ((StackPane) ((BorderPane) stage.getScene().getRoot()).getCenter());
-                StackPane.getChildren().clear();
-                StackPane.getChildren().add(loader.getRoot());
+        Parent root = loader.getRoot();
 
+        // Verifica si el root de la escena es un BorderPane
+        if (stage.getScene().getRoot() instanceof BorderPane) {
+            BorderPane borderPane = (BorderPane) stage.getScene().getRoot(); // Aqui se declara y define borderPane
 
-
-
-                break;
-            case "Top":
-                break;
-            case "Bottom":
-                break;
-            case "Right":
-                break;
-            case "Left":
-                break;
-            default:
-                break;
+            switch (location) {
+                case "Center":
+                    if (borderPane.getCenter() instanceof StackPane) {
+                        StackPane stackPane = (StackPane) borderPane.getCenter();
+                        stackPane.getChildren().clear();
+                        stackPane.getChildren().add(root);
+                    } else {
+                        System.out.println("Center of BorderPane is not a StackPane, it's a " + borderPane.getCenter().getClass().getName());
+                    }
+                    break;
+                case "Top":
+                    borderPane.setTop(root);
+                    break;
+                case "Bottom":
+                    borderPane.setBottom(root);
+                    break;
+                case "Right":
+                    borderPane.setRight(root);
+                    break;
+                case "Left":
+                    borderPane.setLeft(root);
+                    break;
+                default:
+                    System.out.println("Invalid location specified: " + location);
+                    break;
+            }
+        } else {
+            System.out.println("Root of the scene is not a BorderPane, it's a " + stage.getScene().getRoot().getClass().getName());
         }
     }
 

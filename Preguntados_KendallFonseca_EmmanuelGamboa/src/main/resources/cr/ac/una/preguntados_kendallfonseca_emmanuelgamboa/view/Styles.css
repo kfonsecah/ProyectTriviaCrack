@@ -1,1 +1,1747 @@
 
+
+.main-background {
+    -fx-background-color: #f0f0f0;
+    -fx-background-image: url("../resources/pixelcut-export.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+.min-background {
+    -fx-background-color: #f0f0f0;
+    -fx-background-image: url("../resources/backwhite.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+
+.image-button {
+    -fx-background-image: url("../resources/green_button11.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.image-button:hover {
+    -fx-background-image: url("../resources/green_button11.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+
+}
+
+.image-button:pressed {
+    -fx-background-image: url("../resources/green_button11.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.image-button:armed {
+    -fx-background-image: url("../resources/green_button11.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.image-button:focused {
+    -fx-background-image: url("../resources/green_button11.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+}
+
+.about-button {
+    -fx-background-image: url("../resources/blue_button00.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.about-button:hover {
+    -fx-background-image: url("../resources/blue_button00.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.about-button:pressed {
+    -fx-background-image: url("../resources/blue_button00.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.about-button:armed {
+    -fx-background-image: url("../resources/blue_button00.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.about-button:focused {
+    -fx-background-image: url("../resources/blue_button00.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+}
+
+.red-button {
+    -fx-background-image: url("../resources/red_button11.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.red-button:hover {
+    -fx-background-image: url("../resources/red_button11.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.red-button:pressed {
+    -fx-background-image: url("../resources/red_button11.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.red-button:armed {
+    -fx-background-image: url("../resources/red_button11.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.red-button:focused {
+    -fx-background-image: url("../resources/red_button11.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+}
+
+.custom-stack-pane {
+    -fx-background-color: #ededed;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.custom-invisible-stack-pane {
+    -fx-background-color: #232323;
+    -fx-background-radius: 10;
+    -fx-opacity: 0.9;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+
+.custom-stackGameMenu-pane {
+    -fx-background-color: #131313;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.customGray-stack-pane {
+    -fx-background-color: #1e1e1e;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.custom5-stack-pane {
+    -fx-background-color: #151515;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.background-region {
+
+    -fx-background-image: url("../resources/backwhite.jpg");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.backgroundAnimatedBlack-region {
+    -fx-background-image: url("../resources/animatedBlackBack.gif");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.background5-region {
+    -fx-background-image: url("../resources/backPartidasGuardas.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.stack-pane .viewport {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+
+}
+
+
+
+@font-face {
+    font-family: 'MikaldoBold';
+    src: url('../resources/fonts/HVD Fonts  MikadoBold.otf') format('truetype');
+}
+@font-face {
+    font-family: 'MikaldoRegular';
+    src: url('../resources/fonts/HVD Fonts  MikadoRegular.otf') format('truetype');
+}
+
+.txt-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #494949;
+    -fx-font-family: 'MikaldoBold';
+}
+
+.txt-subtitle {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(73, 73, 73, 0.73);
+    -fx-font-family: 'MikaldoBold';
+}
+
+.txt-content {
+    -fx-font-size: 12px;
+    -fx-text-fill: #666;
+    -fx-font-family: 'MikaldoRegular';
+}
+
+.custom-ministack-pane {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 10);
+    -fx-padding: 10;
+}
+
+.custom-ministack-pane:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 30, 0, 0, 15); /* Sombra más grande y oscura */
+    -fx-translate-y: -10px; /* Elevar el StackPane */
+    -fx-scale-x: 1.05; /* Aumentar ligeramente el tamaño */
+    -fx-scale-y: 1.05; /* Aumentar ligeramente el tamaño */
+}
+
+
+.goback-button {
+    -fx-background-image: url("../resources/btnGoBack.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+
+.exit-button{
+    -fx-background-image: url("../resources/btnExit.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.exit-button:hover {
+    -fx-background-image: url("../resources/btnExit.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.exit-button:pressed {
+    -fx-background-image: url("../resources/btnExit.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.exit-button:armed {
+    -fx-background-image: url("../resources/btnExit.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.exit-button:focused {
+    -fx-background-image: url("../resources/btnExit.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+}
+
+.tito-button {
+    -fx-background-image: url("../resources/TitoButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tito-button:hover {
+    -fx-background-image: url("../resources/TitoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tito-button:pressed {
+    -fx-background-image: url("../resources/TitoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tito-button:armed {
+    -fx-background-image: url("../resources/TitoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tito-button:focused {
+    -fx-background-image: url("../resources/TitoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.palomitas-button {
+    -fx-background-image: url("../resources/PalomitasButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.palomitas-button:hover {
+    -fx-background-image: url("../resources/PalomitasButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.palomitas-button:pressed {
+    -fx-background-image: url("../resources/PalomitasButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.palomitas-button:armed {
+    -fx-background-image: url("../resources/PalomitasButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.palomitas-button:focused {
+    -fx-background-image: url("../resources/PalomitasButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.leonardo-button {
+    -fx-background-image: url("../resources/LeonardoButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.leonardo-button:hover {
+    -fx-background-image: url("../resources/LeonardoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.leonardo-button:pressed {
+    -fx-background-image: url("../resources/LeonardoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.leonardo-button:armed {
+    -fx-background-image: url("../resources/LeonardoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.leonardo-button:focused {
+    -fx-background-image: url("../resources/LeonardoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.bonzo-button {
+    -fx-background-image: url("../resources/BonzoButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.bonzo-button:hover {
+    -fx-background-image: url("../resources/BonzoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.bonzo-button:pressed {
+    -fx-background-image: url("../resources/BonzoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.bonzo-button:armed {
+    -fx-background-image: url("../resources/BonzoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.bonzo-button:focused {
+    -fx-background-image: url("../resources/BonzoButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.arthur-button {
+    -fx-background-image: url("../resources/ArthurButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.arthur-button:hover {
+    -fx-background-image: url("../resources/ArthurButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.arthur-button:pressed {
+    -fx-background-image: url("../resources/ArthurButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.arthur-button:armed {
+    -fx-background-image: url("../resources/ArthurButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.arthur-button:focused {
+    -fx-background-image: url("../resources/ArthurButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.albert-button {
+    -fx-background-image: url("../resources/AlbertButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.albert-button:hover {
+    -fx-background-image: url("../resources/AlbertButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.albert-button:pressed {
+    -fx-background-image: url("../resources/AlbertButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.albert-button:armed {
+    -fx-background-image: url("../resources/AlbertButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.albert-button:focused {
+    -fx-background-image: url("../resources/AlbertButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tito-button:hover, .palomitas-button:hover, .leonardo-button:hover, .bonzo-button:hover, .arthur-button:hover, .albert-button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 30, 0, 0, 15);
+    -fx-translate-y: -10px;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.information-button {
+    -fx-background-image: url("../resources/information.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.information-button:hover {
+    -fx-background-image: url("../resources/information.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.information-button:pressed {
+    -fx-background-image: url("../resources/information.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.information-button:armed {
+    -fx-background-image: url("../resources/information.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.information-button:focused {
+    -fx-background-image: url("../resources/information.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.information-button:hover, .information-button:pressed, .information-button:armed {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 30, 0, 0, 15);
+    -fx-translate-y: -10px;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.imgMant-title {
+    -fx-background-image: url("../resources/mantQuestions.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.custom-ministack2-pane {
+    -fx-background-color: #292929;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 10);
+    -fx-padding: 10;
+}
+
+.background2-region {
+    -fx-background-image: url("../resources/backgorund.jpg");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.background3-region {
+    -fx-background-image: url("../resources/ColorfullBackground.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+
+
+.add-button {
+    -fx-background-image: url("../resources/AddButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.add-button:hover {
+    -fx-background-image: url("../resources/AddButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.add-button:pressed {
+    -fx-background-image: url("../resources/AddButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.add-button:armed {
+    -fx-background-image: url("../resources/AddButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.add-button:focused {
+    -fx-background-image: url("../resources/AddButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.delete-button {
+    -fx-background-image: url("../resources/DeleteButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.delete-button:hover {
+    -fx-background-image: url("../resources/DeleteButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.delete-button:pressed {
+    -fx-background-image: url("../resources/DeleteButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.delete-button:armed {
+    -fx-background-image: url("../resources/DeleteButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.delete-button:focused {
+    -fx-background-image: url("../resources/DeleteButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.edit-button {
+    -fx-background-image: url("../resources/EditButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.edit-button:hover {
+    -fx-background-image: url("../resources/EditButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.edit-button:pressed {
+    -fx-background-image: url("../resources/EditButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.edit-button:armed {
+    -fx-background-image: url("../resources/EditButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.edit-button:focused {
+    -fx-background-image: url("../resources/EditButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.deactivate-button {
+    -fx-background-image: url("../resources/DeactivateButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.deactivate-button:hover {
+    -fx-background-image: url("../resources/DeactivateButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.deactivate-button:pressed {
+    -fx-background-image: url("../resources/DeactivateButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.deactivate-button:armed {
+    -fx-background-image: url("../resources/DeactivateButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.deactivate-button:focused {
+    -fx-background-image: url("../resources/DeactivateButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.add-button:hover, .delete-button:hover, .edit-button:hover, .deactivate-button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 30, 0, 0, 15);
+    -fx-translate-y: -10px;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.custom-startstack-pane {
+    -fx-background-color: #ededed;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 10);
+    -fx-padding: 10;
+}
+
+.backgroundAnimated-region {
+    -fx-background-image: url("../resources/animatedBack.gif");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.search-button {
+    -fx-background-image: url("../resources/searchButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.search-button:hover {
+    -fx-background-image: url("../resources/searchButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.search-button:pressed {
+    -fx-background-image: url("../resources/searchButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.search-button:armed {
+    -fx-background-image: url("../resources/searchButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.search-button:focused {
+    -fx-background-image: url("../resources/searchButton.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.search-button:hover, .search-button:pressed, .search-button:armed {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 30, 0, 0, 15);
+    -fx-translate-y: -10px;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.start-match-button {
+    -fx-background-image: url("../resources/buttonStartMatchpng.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.saved-matches-button {
+    -fx-background-image: url("../resources/btnSaveMatch.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.statics-matches-button {
+    -fx-background-image: url("../resources/btnStatics.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.saved-matches-button:hover, .statics-matches-button:hover, .start-match-button:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.saved-matches-button:pressed, .statics-matches-button:pressed, .start-match-button:pressed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.saved-matches-button:focused, .statics-matches-button:focused, .start-match-button:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.image-animation {
+    -fx-background-image: url("../resources/Ciencia.png");
+}
+
+
+.custom-stackPlayersframe-pane {
+    -fx-background-color: #8e6114;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundPlayersFrame-region {
+    -fx-background-image: url("../resources/playersFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackQuestionsframe-pane {
+    -fx-background-color: #40179a;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundQuestionsFrame-region {
+    -fx-background-image: url("../resources/totalquestionsFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackCienciaframe-pane {
+    -fx-background-color: #439a17;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundCienciaFrame-region {
+    -fx-background-image: url("../resources/cienciaFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackHistoryframe-pane {
+    -fx-background-color: #b8ac57;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundHistoryFrame-region {
+    -fx-background-image: url("../resources/historyFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackArtframe-pane {
+    -fx-background-color: #781313;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundArtFrame-region {
+    -fx-background-image: url("../resources/artFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackGeografiaframe-pane {
+    -fx-background-color: #133b78;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundGeografiaFrame-region {
+    -fx-background-image: url("../resources/geografiaFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackPopframe-pane {
+    -fx-background-color: #621378;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundPopFrame-region {
+    -fx-background-image: url("../resources/popFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackSportsframe-pane {
+    -fx-background-color: #955a21;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.backgroundSportsFrame-region {
+    -fx-background-image: url("../resources/sportsFrame.png");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.play-orange-button {
+    -fx-background-image: url("../resources/jugarButton2.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.play-delete-button {
+    -fx-background-image: url("../resources/delete2Button.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.newPlayer-button {
+    -fx-background-image: url("../resources/newPlayer.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.addPlayerTodb-button {
+    -fx-background-image: url("../resources/addUserButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.clean-button {
+    -fx-background-image: url("../resources/cleanButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+.play-orange-button:hover, .play-delete-button:hover, .newPlayer-button:hover, .addPlayerTodb-button:hover, .clean-button:hover{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.play-orange-button:pressed, .play-delete-button:pressed, .newPlayer-button:pressed, .addPlayerTodb-button:pressed, .clean-button:pressed{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.play-orange-button:focused, .play-delete-button:focused, .newPlayer-button:focused, .addPlayerTodb-button:focused, .clean-button:focused{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.easy-button {
+    -fx-background-image: url("../resources/easyButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.hard-button {
+    -fx-background-image: url("../resources/hardButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.mid-button {
+    -fx-background-image: url("../resources/midButton.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.easy-button:hover, .easy-button:hover, .easy-button:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.easy-button:pressed, .easy-button:pressed, .easy-button:pressed{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.easy-button:focused, .easy-button:focused, .easy-button:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+
+.ficha1-button {
+    -fx-background-image: url("../resources/fichasPlayer1.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.ficha2-button{
+    -fx-background-image: url("../resources/fichasPlayer2.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.ficha3-button{
+    -fx-background-image: url("../resources/fichasPlayer3.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.ficha4-button{
+    -fx-background-image: url("../resources/fichasPlayer4.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.ficha5-button{
+    -fx-background-image: url("../resources/fichasPlayer5.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.ficha6-button{
+    -fx-background-image: url("../resources/fichasPlayer6.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.ficha1-button:hover, .ficha2-button:hover, .ficha3-button:hover, .ficha4-button:hover, .ficha5-button:hover, .ficha6-button:hover, .jugarAhora-button:hover, .goback-button:hover{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.ficha1-button:pressed, .ficha2-button:pressed, .ficha3-button:pressed, .ficha4-button:pressed, .ficha5-button:pressed, .ficha6-button:pressed, .jugarAhora-button:pressed, .goback-button:pressed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.ficha1-button:focused, .ficha2-button:focused, .ficha3-button:focused, .ficha4-button:focused, .ficha5-button:focused, .ficha6-button:focused,.jugarAhora-button:focused, .goback-button:focused{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.ficha1-button:armed, .ficha2-button:armed, .ficha3-button:armed, .ficha4-button:armed, .ficha5-button:armed, .ficha6-button:armed, .jugarAhora-button:armed, .goback-button:armed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.jugarAhora-button {
+    -fx-background-image: url("../resources/jugarAhora.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+
+
+}
+
+.backgroundAnimated4-region {
+    -fx-background-image: url("../resources/animatedBlack2.gif");
+    -fx-background-radius: 10; /* Esquinas redondeadas */
+    -fx-background-size: cover; /* Ajustar la imagen para cubrir completamente el area */
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+    -fx-border-radius: 10; /* Esquinas redondeadas */
+}
+
+.custom-stackPlayersGame-pane {
+    -fx-background-color: #292929;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 5); /* Sombra */
+    -fx-background-insets: 0;
+}
+
+.chart-bar {
+    -fx-bar-fill: #ffa500;
+}
+
+.chart-series-line {
+    -fx-stroke: #ffa500;
+}
+
+#chartTotalArte .chart-bar {
+    -fx-bar-fill: #bb432b;
+}
+
+#chartTotalCiencia .chart-bar {
+    -fx-bar-fill: #1fc667;
+}
+
+#chartTotalDeporte .chart-bar {
+    -fx-bar-fill: #e1a91b;
+}
+
+#chartTotalGeografia .chart-bar {
+    -fx-bar-fill: #1b8be1;
+}
+
+#chartTotalHistoria .chart-bar {
+    -fx-bar-fill: #e1db1b;
+}
+
+#chartTotalPop .chart-bar {
+    -fx-bar-fill: #921be1;
+}
+
+#chartTotalPreguntas .chart-bar {
+    -fx-bar-fill: #501ebe;
+}
+
+.bomba-button{
+    -fx-background-image: url("../resources/bomb.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.DobleRespuesta-button{
+    -fx-background-image: url("../resources/again.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.Pass-button{
+    -fx-background-image: url("../resources/pass.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.rotate-button{
+    -fx-background-image: url("../resources/roulleteFace.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 2);
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.bomba-button:hover:focused:pressed:armed:selected, .DobleRespuesta-button:hover:focused:pressed:armed:selected, .Pass-button:hover:focused:pressed:armed:selected, .rotate-button:hover:focused:pressed:armed:selected{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-effect: null;
+    -fx-background-size: contain;
+    -fx-focus-color: transparent;
+    -fx-background-repeat: no-repeat;
+    -fx-faint-focus-color: transparent;
+}
+
+
+
+
+

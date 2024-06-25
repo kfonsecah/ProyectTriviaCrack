@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="972.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.una.preguntados_kendallfonseca_emmanuelgamboa.controller.SavedGamesController">
+   <children>
+      <BorderPane prefHeight="627.0" prefWidth="932.0">
+         <center>
+            <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="customGray-stack-pane" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane prefHeight="425.0" prefWidth="708.0" styleClass="background2-region">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="custom5-stack-pane">
+                           <StackPane.margin>
+                              <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+                           </StackPane.margin>
+                           <children>
+                              <StackPane prefHeight="178.0" prefWidth="396.0" styleClass="background5-region">
+                                 <StackPane.margin>
+                                    <Insets bottom="3.0" />
+                                 </StackPane.margin>
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <TableView fx:id="tbvSavedGames" prefHeight="404.0" prefWidth="681.0">
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="60.0" />
+                                             </VBox.margin>
+                                             <columns>
+                                                <TableColumn fx:id="tbcPartidas" prefWidth="798.0" text="Partida" />
+                                             </columns>
+                                          </TableView>
+                                          <HBox alignment="CENTER" prefHeight="192.0" prefWidth="604.0" spacing="40.0">
+                                             <children>
+                                                <MFXButton fx:id="btnPlay" onAction="#onActionBtnPlay" prefHeight="50.0" prefWidth="150.0" styleClass="play-orange-button" text="‎ " />
+                                                <MFXButton fx:id="btnDelete" onAction="#onACtionBtnDelete" prefHeight="50.0" prefWidth="150.0" styleClass="play-delete-button" text="‎ " />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </StackPane>
+                  <ImageView fx:id="meteorito" fitHeight="166.0" fitWidth="190.0" onMouseDragged="#onAnimationAction" pickOnBounds="true" preserveRatio="true" translateX="290.0" translateY="-240.0">
+                     <image>
+                        <Image url="@../resources/meteorito.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+            </StackPane>
+         </center>
+         <bottom>
+            <MFXButton fx:id="btnGoBack" onAction="#onActionBtnGoBack" prefHeight="29.0" prefWidth="87.0" styleClass="goback-button" text="‎ " BorderPane.alignment="CENTER_LEFT">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="40.0" top="20.0" />
+               </BorderPane.margin>
+            </MFXButton>
+         </bottom>
+      </BorderPane>
+   </children>
+</StackPane>
